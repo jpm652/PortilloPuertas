@@ -1,4 +1,4 @@
-package Artista;
+package interfazdeusuario;
 
 public class Perfil_administrador {
 	public Cabecera__administrador_ _cabecera__administrador_;

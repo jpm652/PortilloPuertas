@@ -1,8 +1,8 @@
-package Artista;
+package interfazdeusuario;
 
-import Diagrama_de_Clases.Pagina_Principal__No_registrado_;
+import interfazdeusuario.Pagina_Principal__No_registrado_;
 import java.util.Vector;
-import Artista.Cancion__No_registrado_;
+import interfazdeusuario.Cancion__No_registrado_;
 
 public class Novedades {
 	public Pagina_Principal__No_registrado_ _paginaPrincipal_No_registrado_;

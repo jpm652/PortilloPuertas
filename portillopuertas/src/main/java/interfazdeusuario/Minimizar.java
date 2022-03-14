@@ -1,4 +1,4 @@
-package Artista;
+package interfazdeusuario;
 
 public class Minimizar {
 	public Cancion__Registrado_ _cancion__registrado_;

@@ -1,4 +1,4 @@
-package Artista;
+package interfazdeusuario;
 
 public class Notificaciones {
 	public Cabecera__registrado_ _cabecera__registrado_;

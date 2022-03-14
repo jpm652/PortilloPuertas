@@ -1,9 +1,9 @@
-package Artista;
+package interfazdeusuario;
 
 import java.util.Vector;
-import Artista.playlist__1;
-import Artista.Datos_playlist;
-import Artista.Playlist_usuario;
+import interfazdeusuario.playlist__1;
+import interfazdeusuario.Datos_playlist;
+import interfazdeusuario.Playlist_usuario;
 
 public class Lista_de_Playlist {
 	public Menu_playlist _menu_playlist;

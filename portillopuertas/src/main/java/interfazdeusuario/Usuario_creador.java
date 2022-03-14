@@ -1,12 +1,12 @@
-package Artista;
+package interfazdeusuario;
 
 public class Usuario_creador {
-	private event _seguir_lista;
-	private event _seguir_usuario;
-	private Label _nombre_usuarioL;
-	private Button _seguir_usuarioB;
-	private Button _seguir_listaB;
-	private Label _sus_playlistL;
+//	private event _seguir_lista;
+//	private event _seguir_usuario;
+//	private Label _nombre_usuarioL;
+//	private Button _seguir_usuarioB;
+//	private Button _seguir_listaB;
+//	private Label _sus_playlistL;
 	public playlist__1 _playlist;
 	public Lista_Playlist__usuario_creador_ _lista_Playlist__usuario_creador_;
 
