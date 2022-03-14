@@ -1,11 +1,11 @@
-package Artista;
+package interfazdeusuario;
 
 public class Busqueda {
-	private TextField _busquedaTF;
-	private Label _cancionesL;
-	private Label _playlistL;
-	private Label _artistasL;
-	private Label _albumesL;
+//	private TextField _busquedaTF;
+//	private Label _cancionesL;
+//	private Label _playlistL;
+//	private Label _artistasL;
+//	private Label _albumesL;
 	public Pagina_principal _pagina_principal;
 	public Busqueda_cancion _busqueda_cancion;
 	public Busqueda_album _busqueda_album;
