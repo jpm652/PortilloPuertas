@@ -1,7 +1,7 @@
-package Artista;
+package interfazdeusuario;
 
 import java.util.Vector;
-import Artista.playlist__1;
+import interfazdeusuario.playlist__1;
 
 public class Busqueda_playlist {
 	public Busqueda _busqueda;

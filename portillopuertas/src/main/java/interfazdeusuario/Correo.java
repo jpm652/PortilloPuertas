@@ -1,9 +1,9 @@
-package Artista;
+package interfazdeusuario;
 
 public class Correo {
-	private event _editar_correo;
-	private Label _correoL;
-	private TextField _correoTF;
+//	private event _editar_correo;
+//	private Label _correoL;
+//	private TextField _correoTF;
 	public Configuracion _configuracion;
 
 	public void editar_correo() {
