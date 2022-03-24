@@ -1,6 +1,8 @@
 package interfazdeusuario;
 
-public class Administracion {
+import vistas.VistaAdministracion;
+
+public class Administracion extends VistaAdministracion{
 //	private event _alta_estilo;
 //	private event _anadir_artista;
 //	private event _anadir_album;
