@@ -1,6 +1,7 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-login/src/vaadin-login-form.js';
+import './vista-cabecera_no_registrado';
+import './vista-redes_sociales_informacion';
 
 @customElement('vista-pagina_principal__no_registrado_')
 export class VistaPagina_principal__no_registrado_ extends LitElement {
@@ -15,10 +16,11 @@ export class VistaPagina_principal__no_registrado_ extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-login-form style="flex-grow: 0; flex-shrink: 1;"></vaadin-login-form>
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-between;">
+ <vista-cabecera_no_registrado id="vistaCabecera_no_registrado" style="width: 100%; flex-grow: 0; flex-shrink: 0;"></vista-cabecera_no_registrado>
+ <img id="img">
+ <vista-redes_sociales_informacion id="vistaRedes_sociales_informacion" style="width: 100%; height: 25%; flex-grow: 1; flex-shrink: 0;"></vista-redes_sociales_informacion>
 </vaadin-vertical-layout>
-<vaadin-login-form></vaadin-login-form>
 `;
   }
 
