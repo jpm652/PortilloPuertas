@@ -1,5 +1,8 @@
 package interfazdeusuario;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
+
 import interfazdeusuario.Pagina_Principal__No_registrado_;
 import vistas.VistaCabecera_no_registrado;
 
@@ -9,4 +12,10 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado{
 	public Pagina_Principal__No_registrado_ _paginaPrincipal_No_registrado_;
 	public Registrarse _registrarse;
 	public Iniciar_sesion _iniciar_sesion;
+	
+	public Cabecera__No_registrado_() {
+		
+	}
+	
+	
 }

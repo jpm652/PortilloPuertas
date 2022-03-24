@@ -24,24 +24,41 @@ public class VistaRedes_sociales_informacion extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("vaadinVerticalLayout1")
 	private Element vaadinVerticalLayout1;
-	@Id("vaadinListBox")
-	private Element vaadinListBox;
-	@Id("hr")
-	private Hr hr;
-	@Id("vaadinItem")
-	private Element vaadinItem;
-	@Id("vaadinItem1")
-	private Element vaadinItem1;
-	@Id("vaadinListBox1")
-	private Element vaadinListBox1;
-	@Id("hr1")
-	private Hr hr1;
-	@Id("vaadinItem2")
-	private Element vaadinItem2;
-	@Id("vaadinItem3")
-	private Element vaadinItem3;
 	@Id("vaadinVerticalLayout2")
 	private Element vaadinVerticalLayout2;
+
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+
+	public Element getVaadinVerticalLayout1() {
+		return vaadinVerticalLayout1;
+	}
+
+	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
+		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
+	}
+
+	public Element getVaadinVerticalLayout2() {
+		return vaadinVerticalLayout2;
+	}
+
+	public void setVaadinVerticalLayout2(Element vaadinVerticalLayout2) {
+		this.vaadinVerticalLayout2 = vaadinVerticalLayout2;
+	}
+
 	/**
      * Creates a new VistaRedes_sociales_informacion.
      */

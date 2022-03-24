@@ -1,8 +1,9 @@
 package interfazdeusuario;
 
 import interfazdeusuario.Pagina_Principal__No_registrado_;
+import vistas.VistaRedes_sociales_informacion;
 
-public class Redes_sociales__Informacion_ {
+public class Redes_sociales__Informacion_ extends VistaRedes_sociales_informacion{
 //	private Label _redes_SocialesL;
 	public Pagina_Principal__No_registrado_ _paginaPrincipal_No_registrado_;
 }

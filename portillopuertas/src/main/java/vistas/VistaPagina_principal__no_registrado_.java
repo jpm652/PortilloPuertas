@@ -20,15 +20,20 @@ public class VistaPagina_principal__no_registrado_ extends LitTemplate {
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
 
-	
 	/**
      * Creates a new VistaPagina_principal__no_registrado_.
      */
     public VistaPagina_principal__no_registrado_() {
         // You can initialise any data required for the connected UI components here.
     	
-    	VerticalLayout vl = vaadinVerticalLayout.as(VerticalLayout.class);
-		vl.add();
     }
+
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
 
 }
