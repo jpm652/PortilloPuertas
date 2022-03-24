@@ -2,10 +2,11 @@ package interfazdeusuario;
 
 // import interfazdeusuario.iUsuario_no_registrado;
 import interfazdeusuario.Redes_sociales__Informacion_;
+import vistas.VistaPagina_principal__no_registrado_;
 import interfazdeusuario.Cabecera__No_registrado_;
 import interfazdeusuario.Novedades;
 
-public class Pagina_Principal__No_registrado_ {
+public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_registrado_{
 //	private Label _esloganL;
 //	private Label _novedadesL;
 //	private Label _nombre_CancionL;

@@ -9,6 +9,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
+
+import interfazdeusuario.Pagina_Principal__No_registrado_;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -23,7 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * A new instance of this class is created for every new user and every
  * browser tab/window.
  */
-@Route
+@Route("")
 @PWA(name = "Vaadin Application",
         shortName = "Vaadin App",
         description = "This is an example Vaadin application.",
@@ -41,6 +44,10 @@ public class MainView extends VerticalLayout {
      */
     public MainView(@Autowired GreetService service) {
 
+    	Pagina_Principal__No_registrado_ nuevo = new Pagina_Principal__No_registrado_();
+    	add(nuevo);
+    	
+    	/*
         // Use TextField for standard text input
         TextField textField = new TextField("Your name");
         textField.addThemeName("bordered");
@@ -61,6 +68,8 @@ public class MainView extends VerticalLayout {
         addClassName("centered-content");
 
         add(textField, button);
+        
+        */
     }
 
 }

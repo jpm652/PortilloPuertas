@@ -17,13 +17,13 @@ export class VistaCabecera_no_registrado extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; background-color: var(--lumo-contrast-10pct); justify-content: flex-end;">
-  <vaadin-button style="margin: var(--lumo-space-m); width: 15%;" id="vaadinButton">
-   Registrarse 
+<vaadin-vertical-layout style="width: 100%;">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: flex-end; background-color: #c2c2c2; flex-grow: 0; padding-right: var(--lumo-space-l);">
+  <vaadin-button style="background-color: white;">
+   <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>Registrarse 
   </vaadin-button>
-  <vaadin-button style="width: 15%; margin: var(--lumo-space-m);" id="vaadinButton1">
-   Iniciar Sesión 
+  <vaadin-button style="background-color: white;">
+   <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>Iniciar Sesión 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
