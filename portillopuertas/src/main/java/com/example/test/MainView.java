@@ -43,9 +43,10 @@ public class MainView extends VerticalLayout {
      * @param service The message service. Automatically injected Spring managed bean.
      */
     public MainView(@Autowired GreetService service) {
-
+		 
     	Pagina_Principal__No_registrado_ nuevo = new Pagina_Principal__No_registrado_();
     	add(nuevo);
+		 
     	
     	/*
         // Use TextField for standard text input
@@ -68,8 +69,8 @@ public class MainView extends VerticalLayout {
         addClassName("centered-content");
 
         add(textField, button);
-        
         */
+        
     }
 
 }

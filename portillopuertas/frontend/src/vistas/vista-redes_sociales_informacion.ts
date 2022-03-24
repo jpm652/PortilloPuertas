@@ -17,7 +17,7 @@ export class VistaRedes_sociales_informacion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: flex-end;" id="vaadinVerticalLayout">
+<vaadin-vertical-layout style="width: 100%; justify-content: flex-end;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout class="footer" style="width: 100%; var(--lumo-size-l); flex-shrink: 0; background-color: var(--lumo-contrast-10pct); align-items: flex-start; justify-content: space-between; flex-grow: 0; height: 20%;" id="vaadinHorizontalLayout">
   <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 25%; height: 100%;">
    <vaadin-list-box style="height: 100%; width: 100%; margin: var(--lumo-space-xl);" id="vaadinListBox">
@@ -36,10 +36,10 @@ export class VistaRedes_sociales_informacion extends LitElement {
     <b style="padding-left: var(--lumo-space-l);">Redes Sociales</b>
     <hr id="hr1">
     <vaadin-item id="vaadinItem2">
-     Facebook
+      Facebook 
     </vaadin-item>
     <vaadin-item id="vaadinItem3">
-     Twitter 
+      Twitter 
     </vaadin-item>
    </vaadin-list-box>
   </vaadin-vertical-layout>

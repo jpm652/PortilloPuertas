@@ -19,15 +19,6 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-cabecera_no_registrado.ts")
 public class VistaCabecera_no_registrado extends LitTemplate {
 
-    @Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
-	@Id("vaadinButton")
-	private Button vaadinButton;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
-		
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
 	/**
      * Creates a new VistaCabecera_no_registrado.
      */

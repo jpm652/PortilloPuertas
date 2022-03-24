@@ -16,10 +16,9 @@ export class VistaPagina_principal__no_registrado_ extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-between;">
- <vista-cabecera_no_registrado id="vistaCabecera_no_registrado" style="width: 100%; flex-grow: 0; flex-shrink: 0;"></vista-cabecera_no_registrado>
- <img id="img">
- <vista-redes_sociales_informacion id="vistaRedes_sociales_informacion" style="width: 100%; height: 25%; flex-grow: 1; flex-shrink: 0;"></vista-redes_sociales_informacion>
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-between;" id="vaadinVerticalLayout">
+ <vista-cabecera_no_registrado style="width: 100%;"></vista-cabecera_no_registrado>
+ <vista-redes_sociales_informacion style="width: 100%; flex-grow: 0; flex-shrink: 1;"></vista-redes_sociales_informacion>
 </vaadin-vertical-layout>
 `;
   }

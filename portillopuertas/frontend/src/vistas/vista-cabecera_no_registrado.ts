@@ -1,8 +1,7 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/icon';
-import '@vaadin/icons';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@polymer/iron-icon/iron-icon.js';
 
 @customElement('vista-cabecera_no_registrado')
 export class VistaCabecera_no_registrado extends LitElement {
@@ -17,16 +16,14 @@ export class VistaCabecera_no_registrado extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: flex-end; background-color: #c2c2c2; flex-grow: 0; padding-right: var(--lumo-space-l);">
-  <vaadin-button style="background-color: white;">
-   <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>Registrarse 
-  </vaadin-button>
-  <vaadin-button style="background-color: white;">
-   <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>Iniciar Sesión 
-  </vaadin-button>
- </vaadin-horizontal-layout>
-</vaadin-vertical-layout>
+<vaadin-horizontal-layout theme="spacing" style="width: 100%; background:#bababa; justify-content: flex-end; height: 10%; align-items: center; padding-right: 5%;">
+ <vaadin-button style="background:#ffff;">
+  <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>Registrarse 
+ </vaadin-button>
+ <vaadin-button style="background:#ffff; margin-left: var(--lumo-space-xl);">
+  <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>Iniciar Sesión 
+ </vaadin-button>
+</vaadin-horizontal-layout>
 `;
   }
 
