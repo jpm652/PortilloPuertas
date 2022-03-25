@@ -17,8 +17,8 @@ export class VistaCabecera_no_registrado extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout" style="width: 100%; height: 70px;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; background:#bababa; justify-content: flex-end; padding-right: 5%; align-items: center; flex-shrink: 1; height: 70px;" id="vaadinHorizontalLayout">
+<vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout" style="width: 100%;">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; background:#CA9FF7; justify-content: flex-end; padding-right: 5%; flex-shrink: 0; height: 70px; align-items: center;" id="vaadinHorizontalLayout">
   <vaadin-button style="background:#ffff;" id="vaadinButton">
    <iron-icon icon="lumo:edit" slot="prefix" id="ironIcon"></iron-icon>Registrarse 
   </vaadin-button>
