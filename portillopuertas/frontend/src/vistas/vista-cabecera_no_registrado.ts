@@ -18,8 +18,9 @@ export class VistaCabecera_no_registrado extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout" style="width: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; background:#CA9FF7; justify-content: flex-end; padding-right: 5%; flex-shrink: 0; height: 70px; align-items: center;" id="vaadinHorizontalLayout">
-  <vaadin-button style="background:#ffff;" id="vaadinButton">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; background:#bababa; padding-right: var(--lumo-space-xl); flex-shrink: 0; height: 70px; align-items: center; flex-direction: row; justify-content: flex-end;" id="vaadinHorizontalLayout">
+  <img style="align-self: baseline; width: 150px; height: 100%; flex-grow: 0; margin-right: var(--lumo-space-xl);" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+  <vaadin-button style="background:#ffff; margin-left: 65%;" id="vaadinButton">
    <iron-icon icon="lumo:edit" slot="prefix" id="ironIcon"></iron-icon>Registrarse 
   </vaadin-button>
   <vaadin-button style="background:#ffff; margin-left: var(--lumo-space-xl);" id="vaadinButton1">

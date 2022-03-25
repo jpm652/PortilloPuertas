@@ -1,8 +1,7 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
-@customElement('vista-creditos')
-export class VistaCreditos extends LitElement {
+@customElement('vista-creditos_no_registrado')
+export class VistaCreditos_no_registrado extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -13,9 +12,7 @@ export class VistaCreditos extends LitElement {
   }
 
   render() {
-    return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;"></vaadin-vertical-layout>
-`;
+    return html``;
   }
 
   // Remove this method to render the contents of this view inside Shadow DOM

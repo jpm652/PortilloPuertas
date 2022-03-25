@@ -21,9 +21,9 @@ export class VistaCancion_no_registrado extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vista-cabecera_no_registrado style="width: 100%; height: 70px;"></vista-cabecera_no_registrado>
- <vaadin-vertical-layout theme="spacing" style="flex-grow: 0; flex-shrink: 0; width: 100%; height: 100%;">
+ <vaadin-vertical-layout theme="spacing" style="flex-grow: 0; flex-shrink: 0; width: 100%;">
   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: flex-start; align-items: center;">
-   <vaadin-button theme="icon" aria-label="Add new" style="margin-top: 25px; width: 75px; height: 75px; flex-shrink: 1; margin-left: 40px;">
+   <vaadin-button theme="icon" aria-label="Add new" style="margin-top: 25px; width: 50px; height: 50px; flex-shrink: 1; margin-left: 40px;">
     <iron-icon icon="lumo:plus"></iron-icon>
    </vaadin-button>
    <vaadin-button style="width: 150px; height: 50px; margin-top: 25px; flex-grow: 0; flex-shrink: 1; align-self: center; margin-left: 1560px;">
@@ -32,7 +32,7 @@ export class VistaCancion_no_registrado extends LitElement {
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; flex-direction: column;">
    <label style="align-self: center; font-size:50px; font-weight:bold; margin-bottom: 25px;">Nombre canción</label>
-   <img style="width: 300px; height: 300px; align-self: center; margin-bottom: 40px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+   <img style="width: 250px; height: 200px; align-self: center; margin-bottom: 40px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
    <label style="align-self: flex-start; font-size:30px; font-weight:bold; margin-bottom: 15px; margin-left: 100px;">Nombre canción</label>
    <label style="align-self: flex-start; font-size:30px; font-weight:bold; margin-bottom: 25px; margin-left: 100px;">Nombre artista</label>
    <vaadin-progress-bar style="height: 20px; width: 80%; align-self: center;"></vaadin-progress-bar>
