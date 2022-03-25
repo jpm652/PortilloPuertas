@@ -41,16 +41,16 @@ export class VistaRegistrarse extends LitElement {
    <vaadin-text-field error-message="Por favor introduzca una contraseña" required invalid="" label="Contraseña" style="width: 100%; align-self: center;"></vaadin-text-field>
    <vaadin-text-field error-message="Por favor introduzca una contraseña" required invalid="" label="Confirmar contraseña" style="width: 100%; align-self: center;"></vaadin-text-field>
    <vaadin-checkbox>
-    Aceptar términos y condiciones 
+     Aceptar términos y condiciones 
    </vaadin-checkbox>
    <vaadin-button style="align-self: center; width: 80%;">
-    Registrarse
+     Registrarse 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 25%; height: 100%; align-items: center; padding-top: var(--lumo-space-l);">
+  <vaadin-vertical-layout theme="spacing" style="width: 25%; height: 100%; align-items: center; padding-top: var(--lumo-space-l);" id="vaadinVerticalLayout2">
    <label>¿Tienes cuenta?</label>
    <vaadin-button>
-    Iniciar Sesión
+     Iniciar Sesión 
    </vaadin-button>
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center;">
     <vaadin-button theme="icon" aria-label="Add new">

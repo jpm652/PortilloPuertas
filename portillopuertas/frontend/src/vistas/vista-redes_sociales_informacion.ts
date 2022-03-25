@@ -17,8 +17,12 @@ export class VistaRedes_sociales_informacion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; justify-content: flex-end; height: 100%;" id="vaadinVerticalLayout">
- <vaadin-horizontal-layout class="footer" style="width: 100%; var(--lumo-size-l); flex-shrink: 0; background-color: var(--lumo-contrast-10pct); align-items: flex-start; justify-content: space-between; flex-grow: 0; height: 20%;" id="vaadinHorizontalLayout">
+<vaadin-vertical-layout style="width: 100%; justify-content: flex-start;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; background: #bababa;">
+  <img style="width: 50px; height: 50px;">
+  <label style="align-self: center;">PP Music</label>
+ </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout class="footer" style="width: 100%; var(--lumo-size-l); flex-shrink: 0; background-color: #bababa; justify-content: space-between; flex-grow: 0; height: 20%; align-items: flex-start;" id="vaadinHorizontalLayout">
   <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 25%; height: 100%;">
    <vaadin-list-box style="height: 100%; width: 100%; margin: var(--lumo-space-xl);" id="vaadinListBox">
     <b style="padding-left: var(--lumo-space-l);">Contacto</b>

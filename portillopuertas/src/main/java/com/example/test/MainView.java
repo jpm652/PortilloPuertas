@@ -11,6 +11,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
 import interfazdeusuario.Pagina_Principal__No_registrado_;
+import interfazdeusuario.Registrarse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -44,8 +45,11 @@ public class MainView extends VerticalLayout {
      */
     public MainView(@Autowired GreetService service) {
 		 
-    	Pagina_Principal__No_registrado_ nuevo = new Pagina_Principal__No_registrado_();
-    	add(nuevo);
+    	// Pagina_Principal__No_registrado_ nuevo = new Pagina_Principal__No_registrado_();
+    	// add(nuevo);
+    	
+    	// Registrarse registrar = new Registrarse();
+    	// add(registrar);
 		 
     	
     	/*
