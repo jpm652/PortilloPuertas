@@ -19,7 +19,7 @@ export class VistaRedes_sociales_informacion extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; justify-content: flex-start;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; background: #bababa;">
-  <img style="width: 50px; height: 50px;">
+  <img style="width: 50px; height: 50px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
   <label style="align-self: center;">PP Music</label>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout class="footer" style="width: 100%; var(--lumo-size-l); flex-shrink: 0; background-color: #bababa; justify-content: space-between; flex-grow: 0; height: 20%; align-items: flex-start;" id="vaadinHorizontalLayout">
