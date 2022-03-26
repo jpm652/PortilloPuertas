@@ -20,7 +20,7 @@ export class VistaCabecera_registrado extends LitElement {
 <vaadin-vertical-layout style="width: 100%;">
  <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; background-color: var(--lumo-contrast-10pct); height: 77px; justify-content: space-between;">
   <img style="width: 150px; margin-top: var(--lumo-space-xs); margin-right: var(--lumo-space-xs);" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
-  <vaadin-vertical-layout theme="spacing" style="flex-direction: row; width: 25%; justify-content: space-around;">
+  <vaadin-vertical-layout theme="spacing" style="width: 25%; justify-content: space-around; flex-direction: row; flex-grow: 0;">
    <vaadin-button theme="icon" aria-label="Add new">
     <iron-icon icon="lumo:plus"></iron-icon>
    </vaadin-button>
