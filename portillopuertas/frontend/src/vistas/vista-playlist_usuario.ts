@@ -12,7 +12,9 @@ export class VistaPlaylist_usuario extends LitElement {
   }
 
   render() {
-    return html``;
+    return html`
+
+`;
   }
 
   // Remove this method to render the contents of this view inside Shadow DOM
