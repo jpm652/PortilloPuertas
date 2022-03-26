@@ -48,21 +48,21 @@ export class VistaCreditos_no_registrado extends LitElement {
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; justify-content: flex-end;">
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 150px; justify-content: space-around;">
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 150px; justify-content: flex-start;">
     <vaadin-vertical-layout theme="spacing">
      <vaadin-button theme="icon" aria-label="" src="">
       <iron-icon src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true"></iron-icon>
      </vaadin-button>
     </vaadin-vertical-layout>
-    <vaadin-horizontal-layout theme="spacing" style="align-items: center; flex-direction: row;">
+    <vaadin-horizontal-layout theme="spacing" style="align-items: center; flex-direction: row; width: 350px; margin-right: 15%;">
      <img style="width: 150px; height: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
      <vaadin-vertical-layout theme="spacing">
       <label>Nombre Canción</label>
       <label>Autor</label>
      </vaadin-vertical-layout>
     </vaadin-horizontal-layout>
-    <vaadin-vertical-layout theme="spacing" style="align-items: center;">
-     <vaadin-horizontal-layout theme="spacing" style="height: 100%; align-items: center; justify-content: center;">
+    <vaadin-vertical-layout theme="spacing" style="align-items: center; width: 500px; margin-right: 15%;">
+     <vaadin-horizontal-layout theme="spacing" style="height: 100%; align-items: center; justify-content: space-around; width: 100%;">
       <vaadin-button theme="icon" aria-label="Add new">
        <iron-icon icon="lumo:plus"></iron-icon>
       </vaadin-button>
