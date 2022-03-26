@@ -3,6 +3,11 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-correo template.
@@ -14,7 +19,18 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./src/vistas/vista-correo.ts")
 public class VistaCorreo extends LitTemplate {
 
-    /**
+    @Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("vaadinButton")
+	private Button vaadinButton;
+	@Id("ironIcon")
+	private Element ironIcon;
+	@Id("label")
+	private Label label;
+
+	/**
      * Creates a new VistaCorreo.
      */
     public VistaCorreo() {
