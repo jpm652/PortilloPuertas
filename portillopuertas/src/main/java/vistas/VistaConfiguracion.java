@@ -30,8 +30,6 @@ public class VistaConfiguracion extends LitTemplate {
 	private Element vaadinVerticalLayout;
 	@Id("vistaCabecera_registrado")
 	private VistaCabecera_registrado vistaCabecera_registrado;
-	@Id("vistaEstadisticas_usuario")
-	private VistaEstadisticas_usuario vistaEstadisticas_usuario;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("img")
@@ -50,6 +48,10 @@ public class VistaConfiguracion extends LitTemplate {
 	private Button vaadinButton;
 	@Id("vistaBarra_reproduccion")
 	private VistaBarra_reproduccion vistaBarra_reproduccion;
+	@Id("vaadinHorizontalLayout2")
+	private HorizontalLayout vaadinHorizontalLayout2;
+	@Id("vaadinButton1")
+	private Button vaadinButton1;
 
 	/**
      * Creates a new VistaConfiguracion.
