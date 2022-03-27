@@ -22,13 +22,13 @@ export class VistaPerfil_usuario extends LitElement {
   <label id="label" style="align-self: center;">Nombre de usuario</label>
   <label style="align-self: center;" id="label1">Segudores / Seguidos</label>
   <vaadin-button id="vaadinButton" style="align-self: flex-start; flex-grow: 0; margin-top: 100px; width: 100%; padding-right: 105px; padding-left: 25px;">
-   <iron-icon icon="lumo:edit" slot="prefix" id="ironIcon"></iron-icon>Listas de reproducción
+   <iron-icon icon="lumo:edit" slot="prefix" id="ironIcon"></iron-icon>Listas de reproducción 
   </vaadin-button>
   <vaadin-button id="vaadinButton1" style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 25px;">
-   <iron-icon icon="lumo:edit" slot="prefix" id="ironIcon1"></iron-icon>Favoritos
+   <iron-icon icon="lumo:edit" slot="prefix" id="ironIcon1"></iron-icon>Favoritos 
   </vaadin-button>
   <vaadin-button id="vaadinButton2" style="margin-top: 350px; align-self: flex-end;">
-   <iron-icon icon="lumo:edit" slot="prefix" id="ironIcon2"></iron-icon>Configuracion
+   <iron-icon icon="lumo:edit" slot="prefix" id="ironIcon2"></iron-icon>Configuracion 
   </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>

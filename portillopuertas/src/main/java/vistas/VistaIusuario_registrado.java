@@ -11,7 +11,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
  * does not overwrite or otherwise change this file.
  */
 @Tag("vista-usuario_registrado")
-@JsModule("./src/vistas/vista-usuario_registrado.ts")
+@JsModule("./src/vistas/vista-iusuario_registrado.ts")
 public class VistaIusuario_registrado extends LitTemplate {
 
     /**

@@ -23,8 +23,8 @@ export class VistaUsuario_registrado extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vista-cabecera_registrado style="width: 100%; height: 77px;"></vista-cabecera_registrado>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-self: flex-end; justify-content: flex-end;">
-  <vaadin-button style="flex-grow: 0; margin-right: 50px; margin-top: 25px; width: 150px; height: 50px;">
-   Estadisticas
+  <vaadin-button style="flex-grow: 0; margin-top: 25px; width: 150px; height: 50px; margin-right: 50px;">
+    Estadisticas 
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center;">
