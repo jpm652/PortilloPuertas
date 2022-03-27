@@ -12,6 +12,7 @@ export class VistaMenu_administrador extends LitElement {
           height: 100%;
       }
       `;
+      
   }
 
   render() {
