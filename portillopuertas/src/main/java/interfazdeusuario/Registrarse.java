@@ -27,8 +27,9 @@ public class Registrarse extends VistaRegistrarse{
 	
 	public void inicializar() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		vl.setHeightFull();
-		vl.setWidthFull();
+//		vl.setHeightFull();
+//		vl.setWidthFull();
+		vl.setSizeFull();
 	}
 
 	public void validar_clave() {

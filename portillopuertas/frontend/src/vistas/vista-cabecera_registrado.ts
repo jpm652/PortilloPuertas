@@ -17,9 +17,9 @@ export class VistaCabecera_registrado extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%;background:#6d0580; ">
- <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; height: 77px; justify-content: space-between;">
-  <img style="width: 150px; margin-top: var(--lumo-space-xs); margin-right: var(--lumo-space-xs);" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+<vaadin-vertical-layout style="width: 100%; background:#276678;">
+ <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; justify-content: space-between; height: 10%;">
+  <img style="width: 150px; margin-left: 2%;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/logoSoundCity.png?raw=true">
   <vaadin-vertical-layout theme="spacing" style="width: 25%; justify-content: space-around; flex-direction: row; flex-grow: 0;">
    <vaadin-button theme="icon" aria-label="Add new">
     <iron-icon icon="lumo:plus"></iron-icon>

@@ -18,7 +18,7 @@ export class VistaDatos_evento extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="background-color:#F0F0F0; padding: 25px;" id="vaadinVerticalLayout">
+<vaadin-vertical-layout style="padding: 25px; background-color:#F6F5F5; " id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="align-self: center; width: 90%;">
   <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 60%;">
    <label id="label" style="font-size:30px">Nombre evento</label>
@@ -35,13 +35,13 @@ export class VistaDatos_evento extends LitElement {
     <template>
      <vaadin-list-box id="vaadinListBox" selected="0">
       <vaadin-item id="vaadinItem" selected>
-       Evento 1
+        Evento 1 
       </vaadin-item>
       <vaadin-item id="vaadinItem1">
-       Evento 2
+        Evento 2 
       </vaadin-item>
       <vaadin-item id="vaadinItem2">
-       Evento 3 
+        Evento 3 
       </vaadin-item>
      </vaadin-list-box>
     </template>

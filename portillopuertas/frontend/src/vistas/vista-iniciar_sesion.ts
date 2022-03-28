@@ -20,9 +20,9 @@ export class VistaIniciar_sesion extends LitElement {
 
 render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" id="cabecera_registrado" style="width: 100%; height: 10%; background:#bababa;">
-  <img src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+<vaadin-vertical-layout style="width: 100%; height: 100%; background-image: linear-gradient(to bottom right, #1687A7, #D3E0EA);">
+ <vaadin-horizontal-layout theme="spacing" id="cabecera_registrado" style="width: 100%; height: 10%; background:#276678;">
+  <img src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/logoSoundCity.png?raw=true" style="margin-left: 2%;">
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="height: 100%; width: 100%; justify-content: flex-end;">
   <vaadin-vertical-layout theme="spacing" style="width: 45%; height: 100%; padding: var(--lumo-space-l); align-items: center;">
@@ -46,14 +46,14 @@ render() {
      Recordar contraseña 
    </vaadin-checkbox>
    <vaadin-button style="width: 80%; margin-top: var(--lumo-space-xl);">
-    Iniciar Sesión
+     Iniciar Sesión 
    </vaadin-button>
-   <label style="padding-top: 20%; flex-grow: 0; flex-shrink: 1;">¿Has olvidado tu contraseña?</label>
+   <label style="flex-grow: 0; flex-shrink: 1; margin-top: 25%;">¿Has olvidado tu contraseña?</label>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 25%; height: 100%; padding-top: var(--lumo-space-l); align-items: center;">
    <label>¿Aún no tienes cuenta? </label>
    <vaadin-button>
-    Registrarse
+     Registrarse 
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>

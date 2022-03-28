@@ -8,8 +8,8 @@ import './vista-albumes';
 import './vista-playlist_donde_aparece';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@polymer/iron-icon/iron-icon.js';
-import './vista-datos_evento';
 import './vista-barra_reproduccion';
+import './vista-datos_evento';
 
 @customElement('vista-artista')
 export class VistaArtista extends LitElement {
@@ -24,8 +24,8 @@ export class VistaArtista extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <vista-cabecera_registrado id="vistaCabecera_registrado" style="width: 100%; height: 77px;"></vista-cabecera_registrado>
+<vaadin-vertical-layout style="width: 100%; height: 100%; background-image: linear-gradient(to bottom right, #1687A7, #D3E0EA);" id="vaadinVerticalLayout">
+ <vista-cabecera_registrado id="vistaCabecera_registrado" style="width: 100%; height: 100%;"></vista-cabecera_registrado>
  <vista-datos_artista id="vistaDatos_artista" style="width: 100%; height: 400px;"></vista-datos_artista>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%;">
   <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 60%;">
@@ -37,7 +37,7 @@ export class VistaArtista extends LitElement {
    <label id="label" style="margin-top: 50px;font-size:30px;">Artistas Similares</label>
    <hr id="hr" style="width: 50%;">
    <vaadin-button id="vaadinButton" style="width: 60%; height: 75px; align-self: center;">
-    <iron-icon slot="prefix" id="ironIcon" style="width: 60px; height: 60px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true"></iron-icon>Nombre del artista
+    <iron-icon slot="prefix" id="ironIcon" style="width: 60px; height: 60px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true"></iron-icon>Nombre del artista 
    </vaadin-button>
    <vaadin-button style="width: 60%; height: 75px; align-self: center;" id="vaadinButton1">
     <iron-icon slot="prefix" style="width: 60px; height: 60px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true" id="ironIcon1"></iron-icon>Nombre del artista 
