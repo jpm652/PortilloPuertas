@@ -21,7 +21,8 @@ export class VistaAlbum extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%;background: linear-gradient(to bottom, #d3e0ea,#f6f5f5);
+">
  <vista-cabecera_registrado id="vistaCabecera_registrado" style="width: 100%; height: 77px;"></vista-cabecera_registrado>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
   <img id="img" style="width: 150px; height: 150px; margin-top: 100px; margin-left: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
@@ -33,13 +34,13 @@ export class VistaAlbum extends LitElement {
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="margin-top: 50px; margin-left: 75px; width: 100%;">
   <vaadin-button id="vaadinButton" style="width: 150px;">
-   Reproducir
+    Reproducir 
   </vaadin-button>
   <vaadin-button id="vaadinButton1" style="width: 150px;">
-   Seguir
+    Seguir 
   </vaadin-button>
   <vaadin-button id="vaadinButton2" style="width: 150px;">
-   Compartir
+    Compartir 
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-list-box id="vaadinListBox" style="width: 100%; padding-left: 100px; margin-top: 20px;">

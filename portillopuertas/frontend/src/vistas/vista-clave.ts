@@ -18,7 +18,7 @@ export class VistaClave extends LitElement {
  <vaadin-vertical-layout id="vaadinVerticalLayout">
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
    <vaadin-button id="vaadinButton" style="width: 250px;">
-    <iron-icon icon="lumo:edit" slot="suffix" id="ironIcon"></iron-icon>Contraseña
+    <iron-icon icon="lumo:edit" slot="suffix" id="ironIcon"></iron-icon>Contraseña 
    </vaadin-button>
    <label id="label" style="align-self: center;">Password </label>
   </vaadin-horizontal-layout>

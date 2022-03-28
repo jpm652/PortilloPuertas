@@ -17,8 +17,8 @@ export class VistaBarra_reproduccion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 150px; flex-grow: 0; background:#bababa;">
+<vaadin-vertical-layout style="width: 100%;background:#6d0580; ">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 150px; flex-grow: 0; ">
   <vaadin-vertical-layout theme="spacing" style="margin-top: var(--lumo-space-xs); margin-left: var(--lumo-space-l);">
    <vaadin-button theme="icon" aria-label="Add new">
     <iron-icon icon="lumo:plus"></iron-icon>
@@ -27,8 +27,8 @@ export class VistaBarra_reproduccion extends LitElement {
   <vaadin-vertical-layout theme="spacing" style="flex-direction: row; width: 25%;">
    <img style="width: 150px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
    <vaadin-horizontal-layout theme="spacing" style="flex-direction: column; width: 100%;">
-    <label>Nombre Canción</label>
-    <label>Autor</label>
+    <label style="color:white">Nombre Canción</label>
+    <label style="color:white">Autor</label>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout style="flex-direction: row; width: 40%; justify-content: space-around; align-items: center; margin-right: 10%;">

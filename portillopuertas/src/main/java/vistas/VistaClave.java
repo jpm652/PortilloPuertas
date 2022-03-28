@@ -25,11 +25,8 @@ public class VistaClave extends LitTemplate {
 	private Element vaadinVerticalLayout;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinButton")
-	private Button vaadinButton;
 	@Id("label")
 	private Label label;
-
 	/**
      * Creates a new VistaClave.
      */
