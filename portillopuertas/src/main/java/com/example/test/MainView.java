@@ -45,8 +45,8 @@ public class MainView extends VerticalLayout {
      */
     public MainView(@Autowired GreetService service) {
 		 
-    	// Pagina_Principal__No_registrado_ nuevo = new Pagina_Principal__No_registrado_();
-    	// add(nuevo);
+    	Pagina_Principal__No_registrado_ nuevo = new Pagina_Principal__No_registrado_();
+    	add(nuevo);
     	
     	// Registrarse registrar = new Registrarse();
     	// add(registrar);

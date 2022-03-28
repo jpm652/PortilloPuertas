@@ -35,7 +35,7 @@ export class VistaMenu_artista extends LitElement {
   </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
-`
+
   </vaadin-button>
   <vaadin-button style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 25px;">
    <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>Favoritos 
@@ -48,7 +48,7 @@ export class VistaMenu_artista extends LitElement {
   </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
-`r
+
   </vaadin-button>
   <vaadin-button style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 25px;">
    <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>Favoritos 
@@ -61,7 +61,7 @@ export class VistaMenu_artista extends LitElement {
   </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
-`r
+
   </vaadin-button>
   <vaadin-button style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 25px;">
    <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>Favoritos 
