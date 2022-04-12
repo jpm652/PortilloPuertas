@@ -1,5 +1,7 @@
 package interfazdeusuario;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaAdministracion;
 
 public class Administracion extends VistaAdministracion{
@@ -31,6 +33,15 @@ public class Administracion extends VistaAdministracion{
 //	public Menu__administrador_ _menu__administrador_;
 //	public Vista_usuario _vista_usuario;
 //	public Buscar_elementos _buscar_elementos;
+	
+	public Administracion() {
+		inicializar();
+	}
+	
+	public void inicializar() {
+		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		
+	}
 
 	public void alta_estilo() {
 		throw new UnsupportedOperationException();

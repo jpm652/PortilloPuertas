@@ -20,6 +20,9 @@ public class VistaPagina_principal__no_registrado_ extends LitTemplate {
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
 
+	@Id("vistaCabecera_no_registrado")
+	private Element vistaCabecera_no_registrado;
+
 	/**
      * Creates a new VistaPagina_principal__no_registrado_.
      */
@@ -34,6 +37,15 @@ public class VistaPagina_principal__no_registrado_ extends LitTemplate {
 
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+	
+	public Element getVistaCabecera_no_registrado() {
+		return vistaCabecera_no_registrado;
+	}
+
+	public void setVistaCabecera_no_registrado(Element vistaCabecera_no_registrado) {
+		this.vistaCabecera_no_registrado = vistaCabecera_no_registrado;
+		
 	}
 
 }

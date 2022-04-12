@@ -27,8 +27,13 @@ public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_
 	
 	public void inicializar() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+
+		// getVistaCabecera_no_registrado().setVisible(true);
+		vl.setHeightFull();
+		vl.setWidthFull();
+		vl.setSizeFull();
 		
 		vl.add(cnb);
-		vl.add(rss);
+		//vl.add(rss);
 	}
 }

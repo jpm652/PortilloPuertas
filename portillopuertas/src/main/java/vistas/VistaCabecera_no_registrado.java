@@ -19,18 +19,36 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-cabecera_no_registrado.ts")
 public class VistaCabecera_no_registrado extends LitTemplate {
 
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinButton")
-	private Button vaadinButton;
-	@Id("ironIcon")
-	private Element ironIcon;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
-	@Id("ironIcon1")
-	private Element ironIcon1;
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
+	@Id("button_registrarse_cabecera")
+	private Button button_registrarse_cabecera;
+	@Id("button_iniciarsesion_cabecera")
+	private Button button_iniciarsesion_cabecera;
+	
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public Button getButton_registrarse_cabecera() {
+		return button_registrarse_cabecera;
+	}
+
+	public void setButton_registrarse_cabecera(Button button_registrarse_cabecera) {
+		this.button_registrarse_cabecera = button_registrarse_cabecera;
+	}
+
+	public Button getButton_iniciarsesion_cabecera() {
+		return button_iniciarsesion_cabecera;
+	}
+
+	public void setButton_iniciarsesion_cabecera(Button button_iniciarsesion_cabecera) {
+		this.button_iniciarsesion_cabecera = button_iniciarsesion_cabecera;
+	}
 
 	/**
      * Creates a new VistaCabecera_no_registrado.
@@ -39,52 +57,5 @@ public class VistaCabecera_no_registrado extends LitTemplate {
         // You can initialise any data required for the connected UI components here.
     }
 
-	public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
-	}
-
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
-	}
-
-	public Button getVaadinButton() {
-		return vaadinButton;
-	}
-
-	public void setVaadinButton(Button vaadinButton) {
-		this.vaadinButton = vaadinButton;
-	}
-
-	public Element getIronIcon() {
-		return ironIcon;
-	}
-
-	public void setIronIcon(Element ironIcon) {
-		this.ironIcon = ironIcon;
-	}
-
-	public Button getVaadinButton1() {
-		return vaadinButton1;
-	}
-
-	public void setVaadinButton1(Button vaadinButton1) {
-		this.vaadinButton1 = vaadinButton1;
-	}
-
-	public Element getIronIcon1() {
-		return ironIcon1;
-	}
-
-	public void setIronIcon1(Element ironIcon1) {
-		this.ironIcon1 = ironIcon1;
-	}
-
-	public Element getVaadinVerticalLayout() {
-		return vaadinVerticalLayout;
-	}
-
-	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
-	}
 
 }

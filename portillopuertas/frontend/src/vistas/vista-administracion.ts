@@ -23,7 +23,7 @@ export class VistaAdministracion extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; flex-direction: column;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center;">
-  <vaadin-text-field placeholder="Search" style="width: 40%; margin: var(--lumo-space-l);">
+  <vaadin-text-field placeholder="Search" style="width: 40%; margin: var(--lumo-space-l);" id="busca_administracion">
    <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
   </vaadin-text-field>
  </vaadin-horizontal-layout>
@@ -32,20 +32,20 @@ export class VistaAdministracion extends LitElement {
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
     <label>Dar de alta estilos</label>
    </vaadin-horizontal-layout>
-   <vaadin-text-field placeholder="Añadir un estilo ..." style="width: 50%;"></vaadin-text-field>
-   <vaadin-button style="flex-grow: 0;">
-    Aceptar 
+   <vaadin-text-field placeholder="Añadir un estilo ..." style="width: 50%;" id="text_altaestilo"></vaadin-text-field>
+   <vaadin-button style="flex-grow: 0;" id="button_altaestilo">
+     Aceptar 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 50%; align-items: center;">
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
     <label>Añadir artista</label>
    </vaadin-horizontal-layout>
-   <vaadin-text-field placeholder="Nombre del artista ..." style="width: 50%;"></vaadin-text-field>
-   <vaadin-text-field placeholder="Nombre de usuario (login) ..." style="width: 50%;"></vaadin-text-field>
-   <vaadin-text-field placeholder="Contraseña ..." style="width: 50%;"></vaadin-text-field>
-   <vaadin-button>
-    Aceptar
+   <vaadin-text-field placeholder="Nombre del artista ..." style="width: 50%;" id="text_nombre_anadirartista"></vaadin-text-field>
+   <vaadin-text-field placeholder="Nombre de usuario (login) ..." style="width: 50%;" id="text_login_anadirartista"></vaadin-text-field>
+   <vaadin-text-field placeholder="Contraseña ..." style="width: 50%;" id="vaadinTextField"></vaadin-text-field>
+   <vaadin-button id="button_anadirartista">
+     Aceptar 
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
@@ -54,7 +54,7 @@ export class VistaAdministracion extends LitElement {
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
     <label>Añadir Album</label>
    </vaadin-horizontal-layout>
-   <vaadin-select style="width: 50%;" placeholder="Selecciona el artista ...">
+   <vaadin-select style="width: 50%;" placeholder="Selecciona el artista ..." id="select_artista_anadiralbum">
     <template>
      <vaadin-list-box>
       <vaadin-item>
@@ -69,16 +69,16 @@ export class VistaAdministracion extends LitElement {
      </vaadin-list-box>
     </template>
    </vaadin-select>
-   <vaadin-text-field placeholder="Añadir un album ..." style="width: 50%;"></vaadin-text-field>
-   <vaadin-button>
-    Aceptar 
+   <vaadin-text-field placeholder="Añadir un album ..." style="width: 50%;" id="text_nombre_anadiralbum"></vaadin-text-field>
+   <vaadin-button id="button_anadiralbum">
+     Aceptar 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 50%; align-items: center;">
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
     <label>Añadir Canción </label>
    </vaadin-horizontal-layout>
-   <vaadin-select style="width: 50%;" placeholder="Selecciona el artista ...">
+   <vaadin-select style="width: 50%;" placeholder="Selecciona el artista ..." id="select_artista_anadircancion">
     <template>
      <vaadin-list-box>
       <vaadin-item>
@@ -93,7 +93,7 @@ export class VistaAdministracion extends LitElement {
      </vaadin-list-box>
     </template>
    </vaadin-select>
-   <vaadin-select style="width: 50%;" placeholder="Selecciona el album ...">
+   <vaadin-select style="width: 50%;" placeholder="Selecciona el album ..." id="select_album_anadircancion">
     <template>
      <vaadin-list-box>
       <vaadin-item selected>
@@ -108,9 +108,9 @@ export class VistaAdministracion extends LitElement {
      </vaadin-list-box>
     </template>
    </vaadin-select>
-   <vaadin-text-field placeholder="Añadir un estilo ..." style="width: 50%;"></vaadin-text-field>
-   <vaadin-button>
-    Aceptar
+   <vaadin-text-field placeholder="Añadir un estilo ..." style="width: 50%;" id="text_estio_anadircancion"></vaadin-text-field>
+   <vaadin-button id="anadircancion">
+     Aceptar 
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
@@ -119,7 +119,7 @@ export class VistaAdministracion extends LitElement {
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
     <label>Dar de Baja a un Artista</label>
    </vaadin-horizontal-layout>
-   <vaadin-select style="width: 50%;" placeholder="Selecciona el artista ...">
+   <vaadin-select style="width: 50%;" placeholder="Selecciona el artista ..." id="select_bajaartista">
     <template>
      <vaadin-list-box>
       <vaadin-item selected>
@@ -134,15 +134,15 @@ export class VistaAdministracion extends LitElement {
      </vaadin-list-box>
     </template>
    </vaadin-select>
-   <vaadin-button>
-    Aceptar
+   <vaadin-button id="button_bajaartista">
+     Aceptar 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 50%; align-items: center;">
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
     <label>Dar de Baja a un Usuario </label>
    </vaadin-horizontal-layout>
-   <vaadin-select style="width: 50%;" placeholder="Selecciona el usuario ...">
+   <vaadin-select style="width: 50%;" placeholder="Selecciona el usuario ..." id="select_bajausuario">
     <template>
      <vaadin-list-box>
       <vaadin-item selected>
@@ -157,8 +157,8 @@ export class VistaAdministracion extends LitElement {
      </vaadin-list-box>
     </template>
    </vaadin-select>
-   <vaadin-button>
-    Aceptar
+   <vaadin-button id="button_bajausuario">
+     Aceptar 
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
