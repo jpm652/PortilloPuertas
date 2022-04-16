@@ -29,8 +29,7 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado{
 	}
 	
 	public void inicializar(VerticalLayout vlpadre) {
-		
-		//VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+
 		
 		this.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
@@ -38,10 +37,10 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado{
 				
 				vlpadre.removeAll();
 		    	
-		    	Administracion admin = new Administracion();
-		    	admin.getStyle().set("width", "100%");   
-		    	admin.getStyle().set("height", "100%");
-		    	vlpadre.add(admin);
+				Registrarse registrarse = new Registrarse();
+		    	registrarse.getStyle().set("width", "100%");   
+		    	registrarse.getStyle().set("height", "100%");
+		    	vlpadre.add(registrarse);
 			}
 		});
 		

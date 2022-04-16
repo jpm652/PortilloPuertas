@@ -1,5 +1,7 @@
 package com.example.test;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -53,6 +55,25 @@ public class MainView extends VerticalLayout {
     	pagina_noregistrado.getStyle().set("height", "100%");
     	add(pagina_noregistrado);
     	
+    	
+    	
+//    	Cabecera__No_registrado_ cab = new Cabecera__No_registrado_();
+//    	cab.getStyle().set("width", "100%");
+//    	add(cab);
+//    	
+//    	cab.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			
+//    		@Override
+// 			public void onComponentEvent(ClickEvent<Button> event) {
+//			removeAll();
+//	    	
+//	    	Administracion admin = new Administracion();
+//	    	admin.getStyle().set("width", "100%");   
+//	    	admin.getStyle().set("height", "100%");
+//	    	add(admin);
+//		}
+//		
+//	});
 //    	
     	//Cabecera__No_registrado_ cabecera__No_registrado_ = new Cabecera__No_registrado_();
     	//add(cabecera__No_registrado_);
@@ -65,37 +86,6 @@ public class MainView extends VerticalLayout {
 //    	registrar.getStyle().set("height", "100%");
 //    	
 //    	add(registrar);
-    	
-//		 
-    	
-    	/*
-        // Use TextField for standard text input
-        TextField textField = new TextField("Your name");
-        textField.addThemeName("bordered");
-
-        // Button click listeners can be defined as lambda expressions
-        Button button = new Button("Say hello",
-                e -> Notification.show(service.greet(textField.getValue())));
-
-        // Theme variants give you predefined extra styles for components.
-        // Example: Primary button has a more prominent look.
-        button.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-
-        // You can specify keyboard shortcuts for buttons.
-        // Example: Pressing enter in this view clicks the Button.
-        button.addClickShortcut(Key.ENTER);
-
-        // Use custom CSS classes to apply styling. This is defined in shared-styles.css.
-        addClassName("centered-content");
-
-        add(textField, button);
-        */
-    	
-//    	this.setHeight("100");
-//    	this.setWidth("100");
-//    	this.setHeight("100%");
-//    	this.setWidth("100%");
-//    	this.setSizeFull();
     }
 
 }

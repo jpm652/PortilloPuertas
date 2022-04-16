@@ -1,6 +1,7 @@
 package interfazdeusuario;
 
 import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
@@ -33,23 +34,33 @@ public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_
 	
 	public void inicializar() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		//vl.removeAll();
+		// vl.removeAll();
 		vl.getStyle().set("height", "100%");
 		vl.getStyle().set("width", "100%");
 		
-		cnb.getButton_iniciarsesion_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				vl.removeAll();
-		    	
-		    	Administracion admin = new Administracion();
-		    	admin.getStyle().set("width", "100%");   
-		    	admin.getStyle().set("height", "100%");
-		    	vl.add(admin);
-			}
-			
-		});
+		//vl.add(cnb);
+		
+		cnb.inicializar(vl);
+		
+		
+		
+//		Cabecera__No_registrado_ cab = new Cabecera__No_registrado_();
+//    	cab.getStyle().set("width", "100%");
+//    	vl.add(cab);
+//    	
+//    	cab.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			
+//    		@Override
+// 			public void onComponentEvent(ClickEvent<Button> event) {
+//			vl.removeAll();
+//	    	
+//	    	Registrarse registrarse = new Registrarse();
+//	    	registrarse.getStyle().set("width", "100%");   
+//	    	registrarse.getStyle().set("height", "100%");
+//	    	vl.add(registrarse);
+//		}
+//		
+//	});
 		
 //		cnb.getStyle().set("width", "100%");
 //		cnb.inicializar(vl);

@@ -26,6 +26,17 @@ public class VistaRedes_sociales_informacion extends LitTemplate {
 	private Element vaadinVerticalLayout1;
 	@Id("vaadinVerticalLayout2")
 	private Element vaadinVerticalLayout2;
+	
+	public Element getVaadinItem2() {
+		return vaadinItem2;
+	}
+
+	public void setVaadinItem2(Element vaadinItem2) {
+		this.vaadinItem2 = vaadinItem2;
+	}
+
+	@Id("vaadinItem2")
+	private Element vaadinItem2;
 
 	public Element getVaadinVerticalLayout() {
 		return vaadinVerticalLayout;
