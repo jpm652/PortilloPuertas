@@ -22,14 +22,17 @@ public class Registrarse extends VistaRegistrarse{
 	public Iniciar_sesion _iniciar_sesion;
 	
 	public Registrarse() {
-		inicializar();
+		 //inicializar();
+		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		vl.getStyle().set("height", "100%");
+		vl.getStyle().set("width", "100%");
+		
 	}
 	
 	public void inicializar() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		vl.setHeightFull();
-		vl.setWidthFull();
-		vl.setSizeFull();
+		vl.getStyle().set("height", "100%");
+		vl.getStyle().set("width", "100%");
 	}
 
 	public void validar_clave() {

@@ -7,6 +7,7 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.charts.model.Navigator;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightCondition;
 import com.vaadin.flow.router.HighlightConditions;
@@ -23,12 +24,23 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado{
 
 	
 	public Cabecera__No_registrado_() {
-		inicializar();
+		
+		
 	}
 	
-	public void inicializar() {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		registrarse(vl);
+	public void inicializar(VerticalLayout vlpadre) {
+		
+		
+		this.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				Registrarse registro = new Registrarse();
+				vlpadre.removeAll();
+				vlpadre.add(registro);
+			}
+		});
+		
 	}
 	
 	public void registrarse(VerticalLayout vl) {
@@ -36,10 +48,10 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado{
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				_registrarse = new Registrarse();
+//				_registrarse = new Registrarse(vl);
+//				vl.removeAll();
+//				vl.add(_registrarse);
 				
-
-				vl.add(_registrarse);
 //				vl.getStyle().set("height", "100%");
 //	 		   	vl.getStyle().set("width", "100%");
 //				Notification.show("Caca");

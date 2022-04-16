@@ -1,5 +1,10 @@
 package interfazdeusuario;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 // import interfazdeusuario.iUsuario_no_registrado;
@@ -27,13 +32,26 @@ public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_
 	
 	public void inicializar() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-
-		// getVistaCabecera_no_registrado().setVisible(true);
-		vl.setHeightFull();
-		vl.setWidthFull();
-		vl.setSizeFull();
 		
-		vl.add(cnb);
-		//vl.add(rss);
+		vl.getStyle().set("height", "100%");
+		vl.getStyle().set("width", "100%");
+		
+		cnb.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				Cabecera__No_registrado_ cabecera__No_registrado_ = new Cabecera__No_registrado_();
+		    	vl.removeAll();
+				//vl.add(cabecera__No_registrado_);
+				
+//				Registrarse registro = new Registrarse(vl);
+//				vl.removeAll();
+//				vl.add(registro);
+				
+				
+			}
+		});
+		
 	}
 }

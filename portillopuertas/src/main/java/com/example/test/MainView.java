@@ -47,16 +47,23 @@ public class MainView extends VerticalLayout {
     public MainView(@Autowired GreetService service) {
 		 
     	
-//    	Pagina_Principal__No_registrado_ pagina_noregistrado = new Pagina_Principal__No_registrado_();
-//    	add(pagina_noregistrado);
+    	Pagina_Principal__No_registrado_ pagina_noregistrado = new Pagina_Principal__No_registrado_();
+    	pagina_noregistrado.getStyle().set("width", "100%");   
+    	pagina_noregistrado.getStyle().set("height", "100%");
+    	add(pagina_noregistrado);
+    	
 //    	
-    	Cabecera__No_registrado_ cabecera__No_registrado_ = new Cabecera__No_registrado_();
-    	add(cabecera__No_registrado_);
+    	//Cabecera__No_registrado_ cabecera__No_registrado_ = new Cabecera__No_registrado_();
+    	//add(cabecera__No_registrado_);
     	
     	
     	
-    	//Registrarse registrar = new Registrarse();
-    	//add(registrar);
+//    	Registrarse registrar = new Registrarse();
+//    	
+//    	registrar.getStyle().set("width", "100%");   
+//    	registrar.getStyle().set("height", "100%");
+//    	
+//    	add(registrar);
     	
 //		 
     	
@@ -83,11 +90,11 @@ public class MainView extends VerticalLayout {
         add(textField, button);
         */
     	
-    	this.setHeight("100");
-    	this.setWidth("100");
-    	this.setHeight("100%");
-    	this.setWidth("100%");
-    	this.setSizeFull();
+//    	this.setHeight("100");
+//    	this.setWidth("100");
+//    	this.setHeight("100%");
+//    	this.setWidth("100%");
+//    	this.setSizeFull();
     }
 
 }
