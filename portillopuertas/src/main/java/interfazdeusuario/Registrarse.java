@@ -1,5 +1,8 @@
 package interfazdeusuario;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaRegistrarse;
@@ -22,17 +25,28 @@ public class Registrarse extends VistaRegistrarse{
 	public Iniciar_sesion _iniciar_sesion;
 	
 	public Registrarse() {
-		 //inicializar();
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		vl.getStyle().set("height", "100%");
-		vl.getStyle().set("width", "100%");
+		 inicializar(new VerticalLayout());
 		
 	}
 	
-	public void inicializar() {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		vl.getStyle().set("height", "100%");
-		vl.getStyle().set("width", "100%");
+	public void inicializar(VerticalLayout vlpadre) {
+//		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+//		vl.getStyle().set("height", "100%");
+//		vl.getStyle().set("width", "100%");
+		
+		getBtt_iniciarsesion().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				vlpadre.removeAll();
+				Iniciar_sesion iniciar = new Iniciar_sesion();
+				iniciar.getStyle().set("width", "100%");   
+				iniciar.getStyle().set("height", "100%");
+				iniciar.getStyle().set("padding", "0");
+		    	vlpadre.add(iniciar);
+				
+			}
+		});
 	}
 
 	public void validar_clave() {

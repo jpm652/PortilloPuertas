@@ -30,6 +30,7 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado{
 	
 	public void inicializar(VerticalLayout vlpadre) {
 
+
 		
 		this.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
@@ -40,7 +41,9 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado{
 				Registrarse registrarse = new Registrarse();
 		    	registrarse.getStyle().set("width", "100%");   
 		    	registrarse.getStyle().set("height", "100%");
+		    	registrarse.getStyle().set("padding", "0");
 		    	vlpadre.add(registrarse);
+		    	registrarse.inicializar(vlpadre);
 			}
 		});
 		

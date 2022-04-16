@@ -32,6 +32,12 @@ public class VistaRegistrarse extends LitTemplate {
 	private Element vaadinVerticalLayout1;
 	@Id("vaadinVerticalLayout2")
 	private Element vaadinVerticalLayout2;
+	@Id("btt_iniciarsesion")
+	private Button btt_iniciarsesion;
+
+	public Button getBtt_iniciarsesion() {
+		return btt_iniciarsesion;
+	}
 
 	/**
      * Creates a new VistaRegistrarse.

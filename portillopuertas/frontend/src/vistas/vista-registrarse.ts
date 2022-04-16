@@ -52,7 +52,7 @@ export class VistaRegistrarse extends LitElement {
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 25%; height: 100%; align-items: center; padding-top: var(--lumo-space-l);" id="vaadinVerticalLayout2">
    <label>¿Tienes cuenta?</label>
-   <vaadin-button>
+   <vaadin-button id="btt_iniciarsesion">
      Iniciar Sesión 
    </vaadin-button>
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center;">

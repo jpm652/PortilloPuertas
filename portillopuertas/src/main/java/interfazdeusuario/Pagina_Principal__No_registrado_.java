@@ -34,13 +34,36 @@ public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_
 	
 	public void inicializar() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		// vl.removeAll();
+		vl.removeAll();
 		vl.getStyle().set("height", "100%");
 		vl.getStyle().set("width", "100%");
+		vl.getStyle().set("padding", "0");
 		
 		//vl.add(cnb);
+
+//		getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				
+//				vl.removeAll();
+//		    	
+//				Registrarse registrarse = new Registrarse();
+//		    	registrarse.getStyle().set("width", "100%");   
+//		    	registrarse.getStyle().set("height", "100%");
+//		    	vl.add(registrarse);
+//			}
+//		});
 		
+		vl.add(cnb);
+		cnb.getStyle().set("height", "100%");
+		cnb.getStyle().set("width", "100%");
 		cnb.inicializar(vl);
+		vl.add(nov);
+		nov.getStyle().set("height", "100%");
+		nov.getStyle().set("width", "100%");
+		vl.add(rss);
+		rss.getStyle().set("height", "100%");
+		rss.getStyle().set("width", "100%");
 		
 		
 		

@@ -1,6 +1,8 @@
 package interfazdeusuario;
 
-public class Iniciar_sesion {
+import vistas.VistaIniciar_sesion;
+
+public class Iniciar_sesion extends VistaIniciar_sesion{
 //	private Label _iniciar_sesion_conL;
 //	private Label _correoL;
 //	private TextField _correoTF;

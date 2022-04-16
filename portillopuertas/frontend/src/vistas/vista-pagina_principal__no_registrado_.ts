@@ -1,8 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import './vista-redes_sociales_informacion';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import './vista-novedades';
+import './vista-redes_sociales_informacion';
 import './vista-cabecera_no_registrado';
 
 @customElement('vista-pagina_principal__no_registrado_')
@@ -20,7 +20,6 @@ export class VistaPagina_principal__no_registrado_ extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: space-between; background:#F6F5F5;" id="vaadinVerticalLayout">
- <vista-cabecera_no_registrado id="vistaCabecera_no_registrado" style="width: 100%; height: 8%;"></vista-cabecera_no_registrado>
  <vista-cabecera_no_registrado style="width: 100%; height: 8%;"></vista-cabecera_no_registrado>
  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; align-items: center; justify-content: center;">
   <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 40%; flex-shrink: 0; flex-direction: column; align-self: center; align-items: center;">
