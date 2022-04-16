@@ -40,9 +40,6 @@ public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_
 		vl.getStyle().set("height", "100%");
 		vl.getStyle().set("width", "100%");
 		vl.getStyle().set("padding", "0");
-
-		
-		Image image = new Image();
 		
 		vl.add(cnb);
 		cnb.getStyle().set("height", "100%");

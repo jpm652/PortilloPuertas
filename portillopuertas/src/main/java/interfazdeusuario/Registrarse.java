@@ -38,7 +38,6 @@ public class Registrarse extends VistaRegistrarse{
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				vlpadre.removeAll();
-
 				
 				Iniciar_sesion iniciar = new Iniciar_sesion();
 				iniciar.getStyle().set("width", "100%");   

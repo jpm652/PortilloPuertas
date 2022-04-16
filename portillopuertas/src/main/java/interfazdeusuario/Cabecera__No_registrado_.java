@@ -47,6 +47,21 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado{
 			}
 		});
 		
+		this.getButton_iniciarsesion_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				vlpadre.removeAll();
+		    	
+				Iniciar_sesion iniciar_sesion = new Iniciar_sesion();
+				iniciar_sesion.getStyle().set("width", "100%");   
+				iniciar_sesion.getStyle().set("height", "100%");
+				iniciar_sesion.getStyle().set("padding", "0");
+		    	vlpadre.add(iniciar_sesion);
+		    	iniciar_sesion.inicializar(vlpadre);
+			}
+		});
+		
 	}	
 	
 	

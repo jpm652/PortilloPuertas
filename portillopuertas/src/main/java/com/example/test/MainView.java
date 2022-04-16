@@ -15,6 +15,7 @@ import com.vaadin.flow.server.PWA;
 import interfazdeusuario.Administracion;
 import interfazdeusuario.Cabecera__No_registrado_;
 import interfazdeusuario.Pagina_Principal__No_registrado_;
+import interfazdeusuario.Pagina_principal;
 import interfazdeusuario.Registrarse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,11 +51,15 @@ public class MainView extends VerticalLayout {
     public MainView(@Autowired GreetService service) {
 		 
     	
-    	Pagina_Principal__No_registrado_ pagina_noregistrado = new Pagina_Principal__No_registrado_();
-    	pagina_noregistrado.getStyle().set("width", "100%");   
-    	pagina_noregistrado.getStyle().set("height", "100%");
-    	add(pagina_noregistrado);
+//    	Pagina_Principal__No_registrado_ pagina_noregistrado = new Pagina_Principal__No_registrado_();
+//    	pagina_noregistrado.getStyle().set("width", "100%");   
+//    	pagina_noregistrado.getStyle().set("height", "100%");
+//    	add(pagina_noregistrado);
     	
+    	Pagina_principal pagina_p= new Pagina_principal();
+    	pagina_p.getStyle().set("width", "100%");   
+    	pagina_p.getStyle().set("height", "100%");
+    	add(pagina_p);    	
     	
     	
 //    	Cabecera__No_registrado_ cab = new Cabecera__No_registrado_();

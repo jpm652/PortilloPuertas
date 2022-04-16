@@ -17,16 +17,16 @@ export class VistaCabecera_registrado extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; background:#276678;">
- <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; justify-content: space-between; height: 10%;">
-  <img style="width: 150px; margin-left: 2%;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/logoSoundCity.png?raw=true">
-  <vaadin-vertical-layout theme="spacing" style="width: 25%; justify-content: space-around; flex-direction: row; flex-grow: 0;">
-   <vaadin-button theme="icon" aria-label="Add new">
-    <iron-icon icon="lumo:plus"></iron-icon>
+<vaadin-vertical-layout style="width: 100%; background:#276678;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; justify-content: space-between; height: 10%;" id="vaadinHorizontalLayout">
+  <img style="width: 150px; margin-left: 2%;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/logoSoundCity.png?raw=true" id="img">
+  <vaadin-vertical-layout theme="spacing" style="width: 25%; justify-content: space-around; flex-direction: row; flex-grow: 0;" id="vaadinVerticalLayout1">
+   <vaadin-button theme="icon" aria-label="Add new" id="Notificacion_Pp">
+    <iron-icon icon="lumo:plus" id="ironIcon"></iron-icon>
    </vaadin-button>
-   <label style="color:white">Nombre de usuario</label>
-   <vaadin-button theme="icon" aria-label="Add new">
-    <iron-icon icon="lumo:plus"></iron-icon>
+   <label style="color:white" id="label">Nombre de usuario</label>
+   <vaadin-button theme="icon" aria-label="Add new" id="Datos_user">
+    <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
