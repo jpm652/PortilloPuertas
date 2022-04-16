@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 // import interfazdeusuario.iUsuario_no_registrado;
@@ -32,26 +33,70 @@ public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_
 	
 	public void inicializar() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		
+		//vl.removeAll();
 		vl.getStyle().set("height", "100%");
 		vl.getStyle().set("width", "100%");
 		
-		cnb.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		cnb.getButton_iniciarsesion_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				Cabecera__No_registrado_ cabecera__No_registrado_ = new Cabecera__No_registrado_();
-		    	vl.removeAll();
-				//vl.add(cabecera__No_registrado_);
-				
-//				Registrarse registro = new Registrarse(vl);
-//				vl.removeAll();
-//				vl.add(registro);
-				
-				
+				vl.removeAll();
+		    	
+		    	Administracion admin = new Administracion();
+		    	admin.getStyle().set("width", "100%");   
+		    	admin.getStyle().set("height", "100%");
+		    	vl.add(admin);
 			}
+			
 		});
+		
+//		cnb.getStyle().set("width", "100%");
+//		cnb.inicializar(vl);
+//		vl.add(cnb);
+//		
+//		HorizontalLayout hl = new HorizontalLayout();
+//		//hl.add(nov);
+//		
+//		vl.add(nov);
+//		
+//		//vl.add(hl);
+//		vl.add(rss);
+		
+		
+//		Button button = new Button();
+//		button.getStyle().set("width", "300px");
+//		vl.add(button);
+//		
+//		button.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				vl.removeAll();
+//		    	
+//		    	Administracion admin = new Administracion();
+//		    	admin.getStyle().set("width", "100%");   
+//		    	admin.getStyle().set("height", "100%");
+//		    	vl.add(admin);
+//			}
+//		});
+		
+	
+//		cnb.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				
+//		    	vl.removeAll();
+//		    	
+//		    	Administracion admin = new Administracion();
+//		    	admin.getStyle().set("width", "100%");   
+//		    	admin.getStyle().set("height", "100%");
+//		    	vl.add(admin);
+//				
+//			}
+//		});
+//		
+		
 		
 	}
 }

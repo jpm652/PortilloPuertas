@@ -25,48 +25,27 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado{
 	
 	public Cabecera__No_registrado_() {
 		
-		
+		inicializar(new VerticalLayout());
 	}
 	
 	public void inicializar(VerticalLayout vlpadre) {
 		
+		//VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		this.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				Registrarse registro = new Registrarse();
 				vlpadre.removeAll();
-				vlpadre.add(registro);
+		    	
+		    	Administracion admin = new Administracion();
+		    	admin.getStyle().set("width", "100%");   
+		    	admin.getStyle().set("height", "100%");
+		    	vlpadre.add(admin);
 			}
 		});
 		
-	}
-	
-	public void registrarse(VerticalLayout vl) {
-		this.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-//				_registrarse = new Registrarse(vl);
-//				vl.removeAll();
-//				vl.add(_registrarse);
-				
-//				vl.getStyle().set("height", "100%");
-//	 		   	vl.getStyle().set("width", "100%");
-//				Notification.show("Caca");
-//				_registrarse = new Registrarse();
-//				vl.add(_registrarse);
-//				
-//				RouterLink listLink = new RouterLink("Registrarse", Registrarse.class);
-//				listLink.setHighlightCondition(HighlightConditions.sameLocation());
-//				
-//				new VerticalLayout(listLink, new RouterLink("Registrarse", Registrarse.class));
-//				//UI.getCurrent().navigate(_registrarse.getClassName());	
-			}
-		});
-	}
-	
+	}	
 	
 	
 }
