@@ -17,7 +17,7 @@ public class Novedades extends VistaNovedades {
 	public Vector<Cancion_anterior> _list_cancion__no_registrado_ = new Vector<Cancion_anterior>();
 
 	public Novedades() {
-		inicializar(new VerticalLayout());
+		//inicializar(new VerticalLayout());
 
 	}
 
@@ -33,8 +33,11 @@ public class Novedades extends VistaNovedades {
 		tempHl.getStyle().set("width", "100%");
 //		tempHl.getStyle().set("height", "40%");
 		tempHl.getStyle().set("padding-left", "5%");
+		
+		System.out.println(_list_cancion__no_registrado_.size());
 
-		for (int i = 0; i < _list_cancion__no_registrado_.size()-1; i++) {
+		for (int i = 0; i < _list_cancion__no_registrado_.size(); i++) {
+			
 			
 			tempHl.add(_list_cancion__no_registrado_.get(i));
 		}
@@ -48,7 +51,7 @@ public class Novedades extends VistaNovedades {
 	public void CargarCanciones(VerticalLayout vl) {
 		Cancion_anterior cancion;
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			cancion = new Cancion_anterior(vl);
 
 			_list_cancion__no_registrado_.add(cancion);
