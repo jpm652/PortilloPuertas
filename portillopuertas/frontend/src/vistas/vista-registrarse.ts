@@ -21,8 +21,8 @@ export class VistaRegistrarse extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <vaadin-horizontal-layout theme="spacing" id="cabecera_registrado" style="width: 100%; height: 10%; background:#bababa;">
-  <img src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+ <vaadin-horizontal-layout theme="spacing" id="cabecera_registrado" style="width: 100%; height: 8%; background:#276678;">
+  <img src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/logoSoundCity.png?raw=true" style="height: 100%; width: 150px;">
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="height: 100%; width: 100%; justify-content: flex-end;">
   <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="height: 100%; width: 45%; align-items: center; padding: var(--lumo-space-l);">

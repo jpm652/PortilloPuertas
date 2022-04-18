@@ -3,6 +3,7 @@ package interfazdeusuario;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaPagina_principal;
+import vistas.VistaUsuario_registrado;
 
 //  import interfazdeusuario.iUsuario_registrado;
 
@@ -28,26 +29,28 @@ public class Pagina_principal extends VistaPagina_principal {
 	Ultimas_reproducciones ur = new Ultimas_reproducciones();
 
 	public Pagina_principal(){
-		inicializar();
+		inicializar(new VerticalLayout());
 	}
 	
-	public void inicializar() {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		vl.removeAll();
+	public void inicializar(VerticalLayout vlpadre) {
+		VerticalLayout vlhijo = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		vl.getStyle().set("height", "100%");
-		vl.getStyle().set("width", "100%");
-		vl.getStyle().set("padding", "0");		
+		vlpadre.removeAll();	
+		vlpadre.getStyle().set("height", "100%");
+		vlpadre.getStyle().set("width", "100%");
+		vlpadre.getStyle().set("padding", "0");		
 		
-		vl.add(cr);
+		vlpadre.add(cr);
 		cr.getStyle().set("height", "100%");
 		cr.getStyle().set("width", "100%");
-		cr.inicializar(vl);
+		cr.inicializar(vlpadre);
 		
-		vl.add(ur);
+		
+		
+		vlpadre.add(ur);
 		ur.getStyle().set("height", "100%");
 		ur.getStyle().set("width", "100%");
-		ur.inicializar(vl);
+		ur.inicializar(vlpadre);
 		
 	}
 }

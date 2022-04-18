@@ -38,12 +38,18 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado{
 				
 				vlpadre.removeAll();
 		    	
-				Registrarse registrarse = new Registrarse();
-		    	registrarse.getStyle().set("width", "100%");   
-		    	registrarse.getStyle().set("height", "100%");
-		    	registrarse.getStyle().set("padding", "0");
-		    	vlpadre.add(registrarse);
-		    	registrarse.inicializar(vlpadre);
+//				Registrarse registrarse = new Registrarse();
+//		    	registrarse.getStyle().set("width", "100%");   
+//		    	registrarse.getStyle().set("height", "100%");
+//		    	registrarse.getStyle().set("padding", "0");
+//		    	vlpadre.add(registrarse);
+//		    	registrarse.inicializar(vlpadre);
+				
+				Pagina_principal pagina_p= new Pagina_principal();
+		    	pagina_p.getStyle().set("width", "100%");   
+		    	pagina_p.getStyle().set("height", "100%");
+		    	vlpadre.add(pagina_p);  
+		    	pagina_p.inicializar(vlpadre);
 			}
 		});
 		

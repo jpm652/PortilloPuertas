@@ -20,7 +20,7 @@ export class VistaIniciar_sesion extends LitElement {
 
 render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; background-image: linear-gradient(to bottom right, #1687A7, #D3E0EA);" id="vaadinVerticalLayout">
+<vaadin-vertical-layout style="width: 100%; height: 100%; background:#F6F5F5;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" id="cabecera_registrado" style="width: 100%; height: 10%; background:#276678;">
   <img src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/logoSoundCity.png?raw=true" style="margin-left: 2%;" id="img1">
  </vaadin-horizontal-layout>
