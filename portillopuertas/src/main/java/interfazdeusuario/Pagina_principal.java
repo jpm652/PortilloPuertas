@@ -43,11 +43,11 @@ public class Pagina_principal extends VistaPagina_principal {
 		cr.getStyle().set("height", "100%");
 		cr.getStyle().set("width", "100%");
 		cr.inicializar(vl);
-//		
-//		vl.add(ur);
-//		ur.getStyle().set("height", "100%");
-//		ur.getStyle().set("width", "100%");
-//		ur.inicializar(vl);
+		
+		vl.add(ur);
+		ur.getStyle().set("height", "100%");
+		ur.getStyle().set("width", "100%");
+		ur.inicializar(vl);
 		
 	}
 }

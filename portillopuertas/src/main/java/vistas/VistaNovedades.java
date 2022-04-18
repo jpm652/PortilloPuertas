@@ -3,6 +3,10 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.Scroller;
 
 /**
  * A Designer generated component for the vista-novedades template.
@@ -14,7 +18,39 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./src/vistas/vista-novedades.ts")
 public class VistaNovedades extends LitTemplate {
 
-    /**
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("scroll")
+	private Scroller scroll;
+	
+	
+    public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+
+	public Scroller getScroll() {
+		return scroll;
+	}
+
+	public void setScroll(Scroller scroll) {
+		this.scroll = scroll;
+	}
+	
+	/**
      * Creates a new VistaNovedades.
      */
     public VistaNovedades() {

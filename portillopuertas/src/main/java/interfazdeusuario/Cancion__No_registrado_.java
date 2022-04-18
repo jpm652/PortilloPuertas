@@ -1,6 +1,8 @@
 package interfazdeusuario;
 
-public class Cancion__No_registrado_ {
+import vistas.VistaCancion_no_registrado;
+
+public class Cancion__No_registrado_ extends VistaCancion_no_registrado{
 //	private Label _nombre_playlistL;
 //	private Label _nombre_cancionL;
 //	private Label _nombre_artistaL;

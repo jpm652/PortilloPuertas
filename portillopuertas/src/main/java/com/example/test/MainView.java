@@ -50,47 +50,18 @@ public class MainView extends VerticalLayout {
      */
     public MainView(@Autowired GreetService service) {
 		 
+    	// Se inicia la aplicacion en la pagina princial
     	
-//    	Pagina_Principal__No_registrado_ pagina_noregistrado = new Pagina_Principal__No_registrado_();
-//    	pagina_noregistrado.getStyle().set("width", "100%");   
-//    	pagina_noregistrado.getStyle().set("height", "100%");
-//    	add(pagina_noregistrado);
+    	Pagina_Principal__No_registrado_ pagina_noregistrado = new Pagina_Principal__No_registrado_();
+    	pagina_noregistrado.getStyle().set("width", "100%");   
+    	pagina_noregistrado.getStyle().set("height", "100%");
+    	add(pagina_noregistrado);
     	
-    	Pagina_principal pagina_p= new Pagina_principal();
-    	pagina_p.getStyle().set("width", "100%");   
-    	pagina_p.getStyle().set("height", "100%");
-    	add(pagina_p);    	
+//    	Pagina_principal pagina_p= new Pagina_principal();
+//    	pagina_p.getStyle().set("width", "100%");   
+//    	pagina_p.getStyle().set("height", "100%");
+//    	add(pagina_p);    	
     	
-    	
-//    	Cabecera__No_registrado_ cab = new Cabecera__No_registrado_();
-//    	cab.getStyle().set("width", "100%");
-//    	add(cab);
-//    	
-//    	cab.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			
-//    		@Override
-// 			public void onComponentEvent(ClickEvent<Button> event) {
-//			removeAll();
-//	    	
-//	    	Administracion admin = new Administracion();
-//	    	admin.getStyle().set("width", "100%");   
-//	    	admin.getStyle().set("height", "100%");
-//	    	add(admin);
-//		}
-//		
-//	});
-//    	
-    	//Cabecera__No_registrado_ cabecera__No_registrado_ = new Cabecera__No_registrado_();
-    	//add(cabecera__No_registrado_);
-    	
-    	
-    	
-//    	Registrarse registrar = new Registrarse();
-//    	
-//    	registrar.getStyle().set("width", "100%");   
-//    	registrar.getStyle().set("height", "100%");
-//    	
-//    	add(registrar);
     }
 
 }
