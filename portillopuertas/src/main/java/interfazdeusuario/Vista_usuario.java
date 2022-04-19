@@ -11,6 +11,6 @@ public class Vista_usuario extends VistaUsuario_registrado{
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.getStyle().set("width", "100%");
 		vl.getStyle().set("heigth", "100%");
-		vl.getStyle().set("padding", "100%");
+		vl.getStyle().set("padding", "0");
 	}
 }

@@ -17,7 +17,7 @@ export class VistaPagina_principal extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%;" id="vaadinVerticalLayout">
  <vaadin-vertical-layout theme="spacing" id="vl_cabecera" style="width: 100%; height: 10%;"></vaadin-vertical-layout>
- <vaadin-scroller id="scroller" style="width: 100%; height: 600px;" scroll-direction="vertical"></vaadin-scroller>
+ <vaadin-scroller id="scroller" style="width: 100%; height: 660px;" scroll-direction="vertical"></vaadin-scroller>
  <vaadin-vertical-layout theme="spacing" id="vl_reproductor" style="width: 100%; height: 15%;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;

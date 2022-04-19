@@ -17,8 +17,8 @@ public class Menu extends VistaMenu {
 	public Datos_usuario _datos_usuario;
 	public Configuracion _configuracion;
 
-	public Menu() {
-		
+	public Menu(VerticalLayout vlpadre) {
+		inicializar(vlpadre);
 	}
 
 	public void inicializar(VerticalLayout vlpadre) {
@@ -29,6 +29,7 @@ public class Menu extends VistaMenu {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				Menu_playlist menu_playlist = new Menu_playlist();
+				vlpadre.removeAll();
 				vlpadre.add(menu_playlist);
 
 			}
@@ -40,7 +41,21 @@ public class Menu extends VistaMenu {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				Favoritos favoritos = new Favoritos();
+				vlpadre.removeAll();
 				vlpadre.add(favoritos);
+
+			}
+
+		});
+		
+		this.getConfig_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				Configuracion config = new Configuracion();
+				vlpadre.removeAll();
+				vlpadre.add(config);
 
 			}
 

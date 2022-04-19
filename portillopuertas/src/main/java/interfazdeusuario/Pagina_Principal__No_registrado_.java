@@ -74,7 +74,7 @@ public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_
 		
 		// Se añade la lista de novedades 
 		vl.add(nov);
-		nov.getStyle().set("height", "100%");
+//		nov.getStyle().set("height", "100%");
 		nov.getStyle().set("width", "100%");
 		nov.inicializar(vl);
 		

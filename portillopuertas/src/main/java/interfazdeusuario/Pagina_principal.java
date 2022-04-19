@@ -44,55 +44,56 @@ public class Pagina_principal extends VistaPagina_principal {
 		this.getVaadinVerticalLayout().getStyle().set("width", "100%");
 		this.getVaadinVerticalLayout().getStyle().set("height", "100%");
 		this.getVaadinVerticalLayout().getStyle().set("padding", "0");
-		
+
+		VerticalLayout vl_centro = new VerticalLayout();
+
 		// Se introduce cabecera en pagina principal
 		VerticalLayout vl_cabecera = this.getVl_cabecera().as(VerticalLayout.class);
 		vl_cabecera.getStyle().set("width", "100%");
 		vl_cabecera.getStyle().set("height", "100%");
 		vl_cabecera.getStyle().set("padding", "0");
-		
+
 		cr.getStyle().set("width", "100%");
 		cr.getStyle().set("height", "100%");
 		cr.getStyle().set("padding", "0");
 		vl_cabecera.add(cr);
-		cr.inicializar(vlpadre);
+		cr.inicializar(vl_centro);
 
 		// Se introducen listas en la seccion central de la pagina
 		Scroller scroller = this.getScroller();
-//		scroller.setScrollDirection(Scroller.ScrollDirection.VERTICAL);
-//		scroller.getStyle().set("width", "100%");
-//		scroller.getStyle().set("height", "40%");
-		
-		//HorizontalLayout hl_centro = this.getVaadinHorizontalLayout();
-		VerticalLayout vl_centro = new VerticalLayout();
+
+		// HorizontalLayout hl_centro = this.getVaadinHorizontalLayout();
+
 //		hl_centro.add(vl_centro);
-		vl_centro.add(new Vista_usuario());
-		
+		Vista_usuario vista_usuario = new Vista_usuario();
+
+		vl_centro.add(vista_usuario);
+
 		Ultimas_reproducciones ultimas = new Ultimas_reproducciones(vl_centro);
 		Ultimas_reproducciones ultimas2 = new Ultimas_reproducciones(vl_centro);
 		Ultimas_reproducciones ultimas3 = new Ultimas_reproducciones(vl_centro);
-		
+
 		vl_centro.add(ultimas);
 		vl_centro.add(ultimas2);
-		vl_centro.add(ultimas3);	
+		vl_centro.add(ultimas3);
+
 		vl_centro.getStyle().set("width", "100%");
 		ultimas.getStyle().set("width", "100%");
 		ultimas2.getStyle().set("width", "100%");
 		ultimas3.getStyle().set("width", "100%");
 
 		scroller.setContent(vl_centro);
-		
+
 		// Se introduce la barra de reproduccion en pagina principal
 		VerticalLayout vl_reproductor = this.getVl_reproductor().as(VerticalLayout.class);
 		vl_reproductor.getStyle().set("width", "100%");
 		vl_reproductor.getStyle().set("height", "100%");
 		vl_reproductor.getStyle().set("padding", "0");
-		
+
 		barra_reproduccion.getStyle().set("width", "100%");
 		barra_reproduccion.getStyle().set("height", "100%");
 		barra_reproduccion.getStyle().set("padding", "0");
 		vl_reproductor.add(barra_reproduccion);
-		
 
 	}
 }

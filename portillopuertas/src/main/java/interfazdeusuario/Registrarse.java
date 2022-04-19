@@ -132,8 +132,7 @@ public class Registrarse extends VistaRegistrarse {
 		Button closeButton = new Button("Aceptar");
 		closeButton.addClickListener(e -> dialog.close());
 
-		Menu menu = new Menu();
-		
+	
 		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph, closeButton); // menu.getVaadinVerticalLayout().as(VerticalLayout.class); //new VerticalLayout(headline, paragraph, closeButton);
 
 		dialogLayout.setPadding(false);

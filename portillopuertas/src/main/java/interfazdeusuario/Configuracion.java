@@ -1,6 +1,8 @@
 package interfazdeusuario;
 
-public class Configuracion {
+import vistas.VistaConfiguracion;
+
+public class Configuracion extends VistaConfiguracion{
 //	private event _dar_de_baja;
 //	private Image _imagen_usuarioI;
 //	private Label _nombre_usuarioL;
@@ -10,6 +12,14 @@ public class Configuracion {
 	public Estadisticas_usuario _estadisticas_usuario;
 	public Clave _clave;
 	public Correo _correo;
+	
+	public Configuracion() {
+		inicializar();
+	}
+	
+	public void inicializar() {
+		
+	}
 
 	public void dar_de_baja() {
 		throw new UnsupportedOperationException();

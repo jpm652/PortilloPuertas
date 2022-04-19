@@ -45,7 +45,7 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 	public void CargarCanciones(VerticalLayout vl) {
 		Cancion_anterior cancion;
 
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 7; i++) {
 			cancion = new Cancion_anterior(vl);
 
 			_list_cancion__registrado_.add(cancion);
