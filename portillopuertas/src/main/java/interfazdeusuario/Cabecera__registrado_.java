@@ -31,36 +31,37 @@ public void inicializar(VerticalLayout vlpadre) {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				
-				
 				Menu menu = new Menu();
 				menu.getStyle().set("width", "100%");   
 				menu.getStyle().set("height", "100%");
 				menu.getStyle().set("padding", "0");
 				
-				HorizontalLayout hl = new HorizontalLayout();
+				vlpadre.removeAll();
+				vlpadre.add(menu);
+				
+//				HorizontalLayout hl = new HorizontalLayout();
 //				VerticalLayout vl1 = new VerticalLayout();
 //				vl1.getStyle(). set("width", "60%");
 				
-				Pagina_principal pagina_p = new Pagina_principal();
-				pagina_p.getStyle().set("width", "60%");
-				pagina_p.getStyle().set("height", "100%");
-				
-				pagina_p.inicializar(vlpadre);
-				hl.add(pagina_p);
+//				Pagina_principal pagina_p = new Pagina_principal();
+//				pagina_p.getStyle().set("width", "60%");
+//				pagina_p.getStyle().set("height", "100%");
+//				
+//				pagina_p.inicializar(vlpadre);
+//				hl.add(pagina_p);
 				
 				
 				
 //				VerticalLayout vl2 = new VerticalLayout();
 //				vl2.getStyle(). set("width", "40%");
 //				vl2.add(menu);
-				hl.add(menu);
+//				hl.add(menu);
 //				hl.add(vl2);
 				
 				//vlpadre.removeAll();
 		    	
 		    	
-		    	vlpadre.add(hl);
+		    	vlpadre.add(menu);
 		    	
 			}
 		});

@@ -1,8 +1,13 @@
 package interfazdeusuario;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaMenu;
 
-public class Menu extends VistaMenu{
+public class Menu extends VistaMenu {
 //	private Button _listas_reproduccionB;
 //	private Button _favoritosB;
 //	private Button _configuracionB;
@@ -11,4 +16,34 @@ public class Menu extends VistaMenu{
 	public Menu_favoritos _menu_favoritos;
 	public Datos_usuario _datos_usuario;
 	public Configuracion _configuracion;
+
+	public Menu() {
+
+	}
+
+	public void inicializar(VerticalLayout vlpadre) {
+
+		this.getLista_reproduccion_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				Menu_playlist menu_playlist = new Menu_playlist();
+				vlpadre.add(menu_playlist);
+
+			}
+		});
+
+		this.getFav_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				Favoritos favoritos = new Favoritos();
+				vlpadre.add(favoritos);
+
+			}
+
+		});
+	}
 }

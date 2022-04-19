@@ -21,8 +21,6 @@ public class VistaPagina_principal extends LitTemplate {
 
 	@Id("vaadinScroller")
 	private Scroller vaadinScroller;
-	@Id("label")
-	private Label label;
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
 	@Id("vl_cabecera")
@@ -51,14 +49,6 @@ public class VistaPagina_principal extends LitTemplate {
 
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
-	}
-
-	public Label getLabel() {
-		return label;
-	}
-
-	public void setLabel(Label label) {
-		this.label = label;
 	}
 
 	public Element getVl_cabecera() {

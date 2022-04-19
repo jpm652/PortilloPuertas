@@ -14,11 +14,11 @@ export class VistaUltimas_reproducciones extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%;">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-shrink: 1; justify-content: flex-start; align-items: center; flex-direction: column;" id="vaadinHorizontalLayout">
-  <label style="flex-shrink: 1; width: 100%; align-self: flex-start;" id="label">Ultimas Reproducciones</label>
+  <label style="flex-shrink: 1; width: 100%; align-self: flex-start; font-size:20px; font-weight:bold;" id="label">Ultimas Reproducciones</label>
   <hr style="width: 80%; align-self: center;" id="hr">
-  <vaadin-scroller style="width: 100%;" id="scroll"></vaadin-scroller>
+  <vaadin-scroller style="width: 100%; height: 200px;" id="scroll"></vaadin-scroller>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

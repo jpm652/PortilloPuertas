@@ -27,7 +27,7 @@ public class Cancion_anterior extends VistaCancion_anterior{
 				
 		    	Cancion__No_registrado_ cancion_no_regist = new Cancion__No_registrado_();
 		    	cancion_no_regist.getStyle().set("width", "100%");   
-		    	cancion_no_regist.getStyle().set("height", "100%");
+		    	cancion_no_regist.getStyle().set("height", "80%");
 		    	vlpadre.add(cancion_no_regist);
 				
 			}

@@ -17,9 +17,9 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 	public Pagina_principal _pagina_principal;
 	public Vector<Cancion_anterior> _list_cancion__registrado_ = new Vector<Cancion_anterior>();
 	
-	public Ultimas_reproducciones() {
+	public Ultimas_reproducciones(VerticalLayout vlpadre) {
 		
-		inicializar(new VerticalLayout());
+		inicializar(vlpadre);
 	}
 	
 	public void inicializar(VerticalLayout vlpadre) {
@@ -27,13 +27,10 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 		CargarCanciones(vlpadre);
 
 		Scroller scroller = this.getScroll();
-		scroller.getStyle().set("height", "40%");
-
-		//Div div = new Div();
 
 		HorizontalLayout tempHl = new HorizontalLayout();
 		tempHl.getStyle().set("width", "100%");
-//		tempHl.getStyle().set("height", "40%");
+		tempHl.getStyle().set("height", "100%");
 		tempHl.getStyle().set("padding-left", "5%");
 		
 		for (int i = 0; i < _list_cancion__registrado_.size(); i++) {
@@ -42,8 +39,6 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 			tempHl.add(_list_cancion__registrado_.get(i));
 		}
 
-		//div.add(tempHl);
-
 		scroller.setContent(tempHl);
 
 	}
@@ -51,7 +46,7 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 	public void CargarCanciones(VerticalLayout vl) {
 		Cancion_anterior cancion;
 
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 8; i++) {
 			cancion = new Cancion_anterior(vl);
 
 			_list_cancion__registrado_.add(cancion);
