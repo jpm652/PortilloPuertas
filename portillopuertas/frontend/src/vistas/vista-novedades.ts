@@ -16,11 +16,11 @@ export class VistaNovedades extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; flex-direction: column;" id="vaadinVerticalLayout">
+<vaadin-vertical-layout style="width: 100%; flex-direction: column; padding-top: var(--lumo-space-m); height: 30%;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-shrink: 1; justify-content: flex-start; align-items: center; flex-direction: column;" id="vaadinHorizontalLayout">
-  <label style="flex-shrink: 1; width: 100%; align-self: flex-start;">Novedades</label>
-  <hr style="width: 80%; align-self: center;">
-  <vaadin-scroller style="width: 100%;" id="scroll"></vaadin-scroller>
+  <label style="flex-shrink: 1; width: 100%; align-self: flex-start; font-weight:bold; font-size:40px;">Novedades</label>
+  <hr style="width: 80%; align-self: center; height: 2%;">
+  <vaadin-scroller style="width: 100%; height: 100%;" id="scroll"></vaadin-scroller>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

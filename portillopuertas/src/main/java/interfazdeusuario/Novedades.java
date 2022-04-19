@@ -26,14 +26,15 @@ public class Novedades extends VistaNovedades {
 		CargarCanciones(vlpadre);
 
 		Scroller scroller = this.getScroll();
-		scroller.getStyle().set("height", "40%");
+		//scroller.getStyle().set("height", "40%");
+		scroller.getStyle().set("width", "100%");
 
 		//Div div = new Div();
 
 		HorizontalLayout tempHl = new HorizontalLayout();
 		tempHl.getStyle().set("width", "100%");
-//		tempHl.getStyle().set("height", "40%");
-		tempHl.getStyle().set("padding-left", "5%");
+		tempHl.getStyle().set("height", "100%");
+		// tempHl.getStyle().set("padding-left", "3%");
 		
 		for (int i = 0; i < _list_cancion__no_registrado_.size(); i++) {
 			
@@ -50,9 +51,10 @@ public class Novedades extends VistaNovedades {
 	public void CargarCanciones(VerticalLayout vl) {
 		Cancion_anterior cancion;
 
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 5; i++) {
 			cancion = new Cancion_anterior(vl);
-
+			cancion.getStyle().set("padding-left", "5%");
+			
 			_list_cancion__no_registrado_.add(cancion);
 		}
 

@@ -1,6 +1,8 @@
 package interfazdeusuario;
 
-public class Menu {
+import vistas.VistaMenu;
+
+public class Menu extends VistaMenu{
 //	private Button _listas_reproduccionB;
 //	private Button _favoritosB;
 //	private Button _configuracionB;

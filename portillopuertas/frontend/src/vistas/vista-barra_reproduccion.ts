@@ -17,8 +17,8 @@ export class VistaBarra_reproduccion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%;background:#276678; ">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 150px; flex-grow: 0; ">
+<vaadin-vertical-layout style="width: 100%; background:#276678; height: 15%;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-grow: 0; height: 100%;">
   <vaadin-vertical-layout theme="spacing" style="margin-top: var(--lumo-space-xs); margin-left: var(--lumo-space-l);">
    <vaadin-button theme="icon" aria-label="Add new">
     <iron-icon icon="lumo:plus"></iron-icon>

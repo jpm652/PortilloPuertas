@@ -52,7 +52,7 @@ public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_
 		// Layout horizontal que tendra el logo y nombre
 		HorizontalLayout hl = new HorizontalLayout();
 		hl.getStyle().set("width", "100%");
-		hl.getStyle().set("height", "40%");
+		hl.getStyle().set("height", "100%");
 		hl.getStyle().set("flex-direction", "column");
 		hl.getStyle().set("align-self", "center");
 		hl.getStyle().set("align-items", "center");
@@ -60,8 +60,8 @@ public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_
 		// Se añade el logo de la aplicacion 
 		Image logo = new Image();
 		logo.getStyle().set("height", "200px");
-		logo.getStyle().set("width", "250px");
-		logo.setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true");
+		logo.getStyle().set("width", "300px");
+		logo.setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/logoSoundCity.png?raw=true");
 		hl.add(logo);
 		
 		// Se añade el nombre de la aplicacion

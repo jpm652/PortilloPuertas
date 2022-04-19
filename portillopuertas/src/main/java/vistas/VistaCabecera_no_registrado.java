@@ -24,8 +24,21 @@ public class VistaCabecera_no_registrado extends LitTemplate {
 	@Id("button_registrarse_cabecera")
 	private Button button_registrarse_cabecera;
 	@Id("button_iniciarsesion_cabecera")
-	private Button button_iniciarsesion_cabecera;
+	private Button button_iniciarsesion_cabecera;	
+	@Id("img_logo_cabecera")
+	private Image img_logo_cabecera;
+
+	/**
+     * Creates a new VistaCabecera_no_registrado.
+     */
 	
+	// Constructor principal de la vista
+    public VistaCabecera_no_registrado() {
+        // You can initialise any data required for the connected UI components here.
+    }
+    
+    // Getters y Setters de los elementos existentes de la vista 
+    
 	public Element getVaadinVerticalLayout() {
 		return vaadinVerticalLayout;
 	}
@@ -50,12 +63,14 @@ public class VistaCabecera_no_registrado extends LitTemplate {
 		this.button_iniciarsesion_cabecera = button_iniciarsesion_cabecera;
 	}
 
-	/**
-     * Creates a new VistaCabecera_no_registrado.
-     */
-    public VistaCabecera_no_registrado() {
-        // You can initialise any data required for the connected UI components here.
-    }
+	public Image getImg_logo_cabecera() {
+		return img_logo_cabecera;
+	}
+
+	public void setImg_logo_cabecera(Image img_logo_cabecera) {
+		this.img_logo_cabecera = img_logo_cabecera;
+	}
+	
 
 
 }

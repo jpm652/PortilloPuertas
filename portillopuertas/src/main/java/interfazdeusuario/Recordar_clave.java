@@ -1,6 +1,8 @@
 package interfazdeusuario;
 
-public class Recordar_clave {
+import vistas.VistaRecordar_clave;
+
+public class Recordar_clave extends VistaRecordar_clave{
 //	private Image _logoI;
 //	private Label _iniciar_SesionL;
 //	private Label _recordar_claveL;

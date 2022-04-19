@@ -52,15 +52,15 @@ public class MainView extends VerticalLayout {
 		 
     	// Se inicia la aplicacion en la pagina princial
     	
-//    	Pagina_Principal__No_registrado_ pagina_noregistrado = new Pagina_Principal__No_registrado_();
-//    	pagina_noregistrado.getStyle().set("width", "100%");   
-//    	pagina_noregistrado.getStyle().set("height", "100%");
-//    	add(pagina_noregistrado);
+    	Pagina_Principal__No_registrado_ pagina_noregistrado = new Pagina_Principal__No_registrado_();
+    	pagina_noregistrado.getStyle().set("width", "100%");   
+    	pagina_noregistrado.getStyle().set("height", "100%");
+    	add(pagina_noregistrado);
     	
-    	Pagina_principal pagina_p= new Pagina_principal();
-    	pagina_p.getStyle().set("width", "100%");   
-    	pagina_p.getStyle().set("height", "100%");
-    	add(pagina_p);    	
+//    	Pagina_principal pagina_p= new Pagina_principal();
+//    	pagina_p.getStyle().set("width", "100%");   
+//    	pagina_p.getStyle().set("height", "100%");
+//    	add(pagina_p);    	
     	
     }
 
