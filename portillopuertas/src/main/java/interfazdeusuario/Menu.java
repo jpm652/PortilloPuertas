@@ -18,7 +18,7 @@ public class Menu extends VistaMenu {
 	public Configuracion _configuracion;
 
 	public Menu() {
-
+		
 	}
 
 	public void inicializar(VerticalLayout vlpadre) {

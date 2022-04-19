@@ -27,7 +27,6 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 		CargarCanciones(vlpadre);
 
 		Scroller scroller = this.getScroll();
-
 		HorizontalLayout tempHl = new HorizontalLayout();
 		tempHl.getStyle().set("width", "100%");
 		tempHl.getStyle().set("height", "100%");
@@ -46,7 +45,7 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 	public void CargarCanciones(VerticalLayout vl) {
 		Cancion_anterior cancion;
 
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < 15; i++) {
 			cancion = new Cancion_anterior(vl);
 
 			_list_cancion__registrado_.add(cancion);

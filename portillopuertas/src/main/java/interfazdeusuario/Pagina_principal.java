@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -57,12 +58,14 @@ public class Pagina_principal extends VistaPagina_principal {
 		cr.inicializar(vlpadre);
 
 		// Se introducen listas en la seccion central de la pagina
-		Scroller scroller = this.getVaadinScroller();
-		scroller.setScrollDirection(Scroller.ScrollDirection.VERTICAL);
-		scroller.getStyle().set("width", "100%");
-		scroller.getStyle().set("height", "40%");
+		Scroller scroller = this.getScroller();
+//		scroller.setScrollDirection(Scroller.ScrollDirection.VERTICAL);
+//		scroller.getStyle().set("width", "100%");
+//		scroller.getStyle().set("height", "40%");
 		
+		//HorizontalLayout hl_centro = this.getVaadinHorizontalLayout();
 		VerticalLayout vl_centro = new VerticalLayout();
+//		hl_centro.add(vl_centro);
 		vl_centro.add(new Vista_usuario());
 		
 		Ultimas_reproducciones ultimas = new Ultimas_reproducciones(vl_centro);
@@ -72,7 +75,11 @@ public class Pagina_principal extends VistaPagina_principal {
 		vl_centro.add(ultimas);
 		vl_centro.add(ultimas2);
 		vl_centro.add(ultimas3);	
-		
+		vl_centro.getStyle().set("width", "100%");
+		ultimas.getStyle().set("width", "100%");
+		ultimas2.getStyle().set("width", "100%");
+		ultimas3.getStyle().set("width", "100%");
+
 		scroller.setContent(vl_centro);
 		
 		// Se introduce la barra de reproduccion en pagina principal

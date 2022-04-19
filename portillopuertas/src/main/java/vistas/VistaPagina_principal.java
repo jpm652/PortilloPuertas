@@ -19,28 +19,22 @@ import com.vaadin.flow.component.html.Label;
 @JsModule("./src/vistas/vista-pagina_principal.ts")
 public class VistaPagina_principal extends LitTemplate {
 
-	@Id("vaadinScroller")
-	private Scroller vaadinScroller;
+
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
 	@Id("vl_cabecera")
 	private Element vl_cabecera;
 	@Id("vl_reproductor")
 	private Element vl_reproductor;
+	@Id("scroller")
+	private Scroller scroller;
+
 
 	/**
 	 * Creates a new VistaPagina_principal.
 	 */
 	public VistaPagina_principal() {
 		// You can initialise any data required for the connected UI components here.
-	}
-
-	public Scroller getVaadinScroller() {
-		return vaadinScroller;
-	}
-
-	public void setVaadinScroller(Scroller vaadinScroller) {
-		this.vaadinScroller = vaadinScroller;
 	}
 
 	public Element getVaadinVerticalLayout() {
@@ -67,4 +61,13 @@ public class VistaPagina_principal extends LitTemplate {
 		this.vl_reproductor = vl_reproductor;
 	}
 
+	public Scroller getScroller() {
+		return scroller;
+	}
+
+	public void setScroller(Scroller scroller) {
+		this.scroller = scroller;
+	}
+
+	
 }

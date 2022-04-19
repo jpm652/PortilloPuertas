@@ -113,7 +113,7 @@ public class Registrarse extends VistaRegistrarse {
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
 							"Se ha enviado un mensaje a su correo electronico para validar su cuenta.");
 					dialog.add(dialogLayout);
-
+					//dialog.;
 					vlpadre.add(dialog);
 					dialog.open();
 
@@ -132,11 +132,16 @@ public class Registrarse extends VistaRegistrarse {
 		Button closeButton = new Button("Aceptar");
 		closeButton.addClickListener(e -> dialog.close());
 
-		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph, closeButton);
+		Menu menu = new Menu();
+		
+		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph, closeButton); // menu.getVaadinVerticalLayout().as(VerticalLayout.class); //new VerticalLayout(headline, paragraph, closeButton);
 
 		dialogLayout.setPadding(false);
 		dialogLayout.setAlignItems(Alignment.STRETCH);
-		dialogLayout.getStyle().set("width", "300px").set("max-width", "100%");
+		dialogLayout.getStyle().set("width", "800px").set("max-width", "100%");
+		dialogLayout.getStyle().set("margin-left", "80%");
+		dialogLayout.getStyle().set("height", "100%");
+		
 		dialogLayout.setAlignSelf(Alignment.END, closeButton);
 
 		return dialogLayout;
