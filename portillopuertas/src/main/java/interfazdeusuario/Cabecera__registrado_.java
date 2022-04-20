@@ -31,11 +31,11 @@ public void inicializar(VerticalLayout vlpadre) {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				Menu menu = new Menu(vlpadre);
+				Menu menu = new Menu();
 				menu.getStyle().set("width", "100%");   
 				menu.getStyle().set("height", "100%");
 				menu.getStyle().set("padding", "0");
-				
+				menu.inicializar(vlpadre);
 				vlpadre.removeAll();
 				vlpadre.add(menu);
 				

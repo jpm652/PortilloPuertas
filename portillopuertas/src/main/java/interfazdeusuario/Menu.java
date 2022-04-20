@@ -17,8 +17,8 @@ public class Menu extends VistaMenu {
 	public Datos_usuario _datos_usuario;
 	public Configuracion _configuracion;
 
-	public Menu(VerticalLayout vlpadre) {
-		inicializar(vlpadre);
+	public Menu() {
+		inicializar(new VerticalLayout());
 	}
 
 	public void inicializar(VerticalLayout vlpadre) {
