@@ -4,6 +4,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
@@ -11,6 +12,7 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.RouteConfiguration;
 
 import vistas.VistaRegistrarse;
 
@@ -65,13 +67,24 @@ public class Registrarse extends VistaRegistrarse {
 				iniciar.getStyle().set("height", "100%");
 				iniciar.getStyle().set("padding", "0");
 				vlpadre.add(iniciar);
-
+				iniciar.inicializar(vlpadre);
 			}
 		});
-
+		
+//		this.getIconTwitter().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//
+//		        String route = RouteConfiguration.forSessionScope().getUrl(PathComponent.class);
+//		        Anchor link = new Anchor(route, "Path");
+//		        add(link);
+//			}
+//		});
 		comprobarRegistro(vlpadre);
 	}
 
+	
 	public void comprobarRegistro(VerticalLayout vlpadre) {
 		errorRegistro(vlpadre);
 		exitoRegistro(vlpadre);
@@ -137,8 +150,7 @@ public class Registrarse extends VistaRegistrarse {
 
 		dialogLayout.setPadding(false);
 		dialogLayout.setAlignItems(Alignment.STRETCH);
-		dialogLayout.getStyle().set("width", "800px").set("max-width", "100%");
-		dialogLayout.getStyle().set("margin-left", "80%");
+		dialogLayout.getStyle().set("width", "100%").set("max-width", "100%");
 		dialogLayout.getStyle().set("height", "100%");
 		
 		dialogLayout.setAlignSelf(Alignment.END, closeButton);

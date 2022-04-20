@@ -31,14 +31,37 @@ public void inicializar(VerticalLayout vlpadre) {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
+				HorizontalLayout hl = new HorizontalLayout();
+				HorizontalLayout hl2 = new HorizontalLayout();
+				VerticalLayout vl1 = new VerticalLayout();
+				VerticalLayout vl2 = new VerticalLayout();
+
 				Menu menu = new Menu();
-				menu.getStyle().set("width", "100%");   
+				menu.getStyle().set("width", "400%");   
 				menu.getStyle().set("height", "100%");
-				menu.getStyle().set("padding", "0");
+
 				menu.inicializar(vlpadre);
 				vlpadre.removeAll();
-				vlpadre.add(menu);
 				
+				Ultimas_reproducciones ultimas = new Ultimas_reproducciones(vl1);
+				Ultimas_reproducciones ultimas2 = new Ultimas_reproducciones(vl1);
+				Ultimas_reproducciones ultimas3 = new Ultimas_reproducciones(vl1);
+
+				vl1.add(ultimas);
+				vl1.add(ultimas2);
+				vl1.add(ultimas3);
+				vl2.add(menu);
+				
+				ultimas.getStyle().set("width", "100%");
+				ultimas2.getStyle().set("width", "100%");
+				ultimas3.getStyle().set("width", "100%");
+				hl.getStyle().set("width", "81%");
+				hl.add(vl1);
+				hl.add(hl2);
+				hl2.add(vl2);
+
+	//			vl2.add(menu);
+				vlpadre.add(hl);
 //				HorizontalLayout hl = new HorizontalLayout();
 //				VerticalLayout vl1 = new VerticalLayout();
 //				vl1.getStyle(). set("width", "60%");

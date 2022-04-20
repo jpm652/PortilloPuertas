@@ -4,8 +4,13 @@ import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 
 import vistas.VistaIniciar_sesion;
 
@@ -41,6 +46,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				registro.getStyle().set("height", "100%");
 				registro.getStyle().set("padding", "0");
 				vlpadre.add(registro);
+				registro.inicializar(vlpadre);
 
 			}
 		});
@@ -59,6 +65,8 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 
 			}
 		});
+		
+		
 
 		comprobarUsuario(vlpadre);
 		olvidarClave(vlpadre);
@@ -89,21 +97,67 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	
 	public void olvidarClave(VerticalLayout vlpadre) {
 		
-		this.getOlvidar_clave().addAttachListener(new ComponentEventListener<AttachEvent>() {
+		this.getOlvidar_clave().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
-			public void onComponentEvent(AttachEvent event) {
+			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				vlpadre.removeAll();
-
-				Recordar_clave recordar_clave = new Recordar_clave();
-				recordar_clave.getStyle().set("width", "100%");
-				recordar_clave.getStyle().set("height", "100%");
-				vlpadre.add(recordar_clave);
+//				vlpadre.removeAll();
+//
+//				Recordar_clave recordar_clave = new Recordar_clave();
+//				recordar_clave.getStyle().set("width", "100%");
+//				recordar_clave.getStyle().set("height", "100%");
+//				vlpadre.add(recordar_clave);
+				
+				Dialog dialog = new Dialog();
+				Recordar_clave rec = new Recordar_clave();
+				//VerticalLayout vl = rec.getVaadinVerticalLayout().as(VerticalLayout.class);
+				TextField correo = new TextField();
+				VerticalLayout dialogLayout = createDialogLayout(dialog, "Recordar clave",
+						"Por favor, ingrese el correo al que esta asociado la cuenta");
+				correo.getStyle().set("width", "70%");
+				dialog.add(dialogLayout);
+				dialog.add(correo);
+				
+				Button closeButton = new Button("Enviar");
+				closeButton.addClickListener(e -> dialog.close());
+				closeButton.getStyle().set("margin-left","20px").set("width","120px");
+				dialog.add(closeButton);
+				vlpadre.add(dialog);
+				dialog.open();
 				
 				
+//				Dialog dialog = new Dialog();
+//
+//				VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
+//						"Se ha enviado un mensaje a su correo electronico para validar su cuenta.");
+//				dialog.add(dialogLayout);
+//				//dialog.;
+//				vlpadre.add(dialog);
+//				dialog.open();
 			}
 		});
+	}
+	
+	private static VerticalLayout createDialogLayout(Dialog dialog, String titulo, String mensaje) {
+		H2 headline = new H2(titulo);
+		headline.getStyle().set("margin", "var(--lumo-space-m) 0").set("font-size", "1.5em").set("font-weight", "bold");
+
+		Paragraph paragraph = new Paragraph(mensaje);
+
+
+
+	
+		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph); // menu.getVaadinVerticalLayout().as(VerticalLayout.class); //new VerticalLayout(headline, paragraph, closeButton);
+
+		dialogLayout.setPadding(false);
+		dialogLayout.setAlignItems(Alignment.STRETCH);
+		dialogLayout.getStyle().set("width", "500px").set("max-width", "100%");
+		dialogLayout.getStyle().set("height", "400px%");
+		
+//		dialogLayout.setAlignSelf(Alignment.END, closeButton);
+
+		return dialogLayout;
 	}
 
 	public void Iniciar_Sesion_Terceros() {

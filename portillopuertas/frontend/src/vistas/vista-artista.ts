@@ -1,5 +1,4 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import './vista-cabecera_registrado';
 import './vista-datos_artista';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
@@ -25,7 +24,6 @@ export class VistaArtista extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; background-image: linear-gradient(to bottom right, #1687A7, #D3E0EA);" id="vaadinVerticalLayout">
- <vista-cabecera_registrado id="vistaCabecera_registrado" style="width: 100%; height: 100%;"></vista-cabecera_registrado>
  <vista-datos_artista id="vistaDatos_artista" style="width: 100%; height: 400px;"></vista-datos_artista>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%;">
   <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 60%;">

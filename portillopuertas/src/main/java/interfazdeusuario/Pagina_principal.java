@@ -62,13 +62,6 @@ public class Pagina_principal extends VistaPagina_principal {
 		// Se introducen listas en la seccion central de la pagina
 		Scroller scroller = this.getScroller();
 
-		// HorizontalLayout hl_centro = this.getVaadinHorizontalLayout();
-
-//		hl_centro.add(vl_centro);
-		Vista_usuario vista_usuario = new Vista_usuario();
-
-		vl_centro.add(vista_usuario);
-
 		Ultimas_reproducciones ultimas = new Ultimas_reproducciones(vl_centro);
 		Ultimas_reproducciones ultimas2 = new Ultimas_reproducciones(vl_centro);
 		Ultimas_reproducciones ultimas3 = new Ultimas_reproducciones(vl_centro);
@@ -77,13 +70,15 @@ public class Pagina_principal extends VistaPagina_principal {
 		vl_centro.add(ultimas2);
 		vl_centro.add(ultimas3);
 
+		
+		vl_centro.getStyle().set("width","100%");
 		vl_centro.getStyle().set("width", "100%");
 		ultimas.getStyle().set("width", "100%");
 		ultimas2.getStyle().set("width", "100%");
 		ultimas3.getStyle().set("width", "100%");
 
 		scroller.setContent(vl_centro);
-
+		
 		// Se introduce la barra de reproduccion en pagina principal
 		VerticalLayout vl_reproductor = this.getVl_reproductor().as(VerticalLayout.class);
 		vl_reproductor.getStyle().set("width", "100%");

@@ -22,8 +22,8 @@ import vistas.VistaBarra_reproduccion;
 @Tag("vista-menu_favoritos")
 @JsModule("./src/vistas/vista-menu_favoritos.ts")
 public class VistaMenu_favoritos extends LitTemplate {
-
-    @Id("vaadinVerticalLayout")
+	
+	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
 	@Id("vistaCabecera_registrado")
 	private VistaCabecera_registrado vistaCabecera_registrado;
@@ -55,6 +55,104 @@ public class VistaMenu_favoritos extends LitTemplate {
 	private Element ironIcon;
 	@Id("vistaBarra_reproduccion")
 	private VistaBarra_reproduccion vistaBarra_reproduccion;
+
+    public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+	public VistaCabecera_registrado getVistaCabecera_registrado() {
+		return vistaCabecera_registrado;
+	}
+	public void setVistaCabecera_registrado(VistaCabecera_registrado vistaCabecera_registrado) {
+		this.vistaCabecera_registrado = vistaCabecera_registrado;
+	}
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+	public Hr getHr() {
+		return hr;
+	}
+	public void setHr(Hr hr) {
+		this.hr = hr;
+	}
+	public Element getVaadinVerticalLayout1() {
+		return vaadinVerticalLayout1;
+	}
+	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
+		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
+	}
+	public Button getVaadinButton2() {
+		return vaadinButton2;
+	}
+	public void setVaadinButton2(Button vaadinButton2) {
+		this.vaadinButton2 = vaadinButton2;
+	}
+	public Label getLabel1() {
+		return label1;
+	}
+	public void setLabel1(Label label1) {
+		this.label1 = label1;
+	}
+	public Label getLabel() {
+		return label;
+	}
+	public void setLabel(Label label) {
+		this.label = label;
+	}
+	public HorizontalLayout getVaadinHorizontalLayout1() {
+		return vaadinHorizontalLayout1;
+	}
+	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
+		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	}
+	public Label getLabel2() {
+		return label2;
+	}
+	public void setLabel2(Label label2) {
+		this.label2 = label2;
+	}
+	public HorizontalLayout getVaadinHorizontalLayout3() {
+		return vaadinHorizontalLayout3;
+	}
+	public void setVaadinHorizontalLayout3(HorizontalLayout vaadinHorizontalLayout3) {
+		this.vaadinHorizontalLayout3 = vaadinHorizontalLayout3;
+	}
+	public Button getVaadinButton() {
+		return vaadinButton;
+	}
+	public void setVaadinButton(Button vaadinButton) {
+		this.vaadinButton = vaadinButton;
+	}
+	public Element getIronIcon1() {
+		return ironIcon1;
+	}
+	public void setIronIcon1(Element ironIcon1) {
+		this.ironIcon1 = ironIcon1;
+	}
+	public Button getVaadinButton1() {
+		return vaadinButton1;
+	}
+	public void setVaadinButton1(Button vaadinButton1) {
+		this.vaadinButton1 = vaadinButton1;
+	}
+	public Element getIronIcon() {
+		return ironIcon;
+	}
+	public void setIronIcon(Element ironIcon) {
+		this.ironIcon = ironIcon;
+	}
+	public VistaBarra_reproduccion getVistaBarra_reproduccion() {
+		return vistaBarra_reproduccion;
+	}
+	public void setVistaBarra_reproduccion(VistaBarra_reproduccion vistaBarra_reproduccion) {
+		this.vistaBarra_reproduccion = vistaBarra_reproduccion;
+	}
+
 	/**
      * Creates a new VistaMenu_favoritos.
      */
