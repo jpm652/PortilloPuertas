@@ -85,6 +85,8 @@ public void inicializar(VerticalLayout vlpadre) {
 		    	
 		    	
 		    	//vlpadre.add(menu);
+				
+				
 		    	
 			}
 		});

@@ -3,6 +3,7 @@ import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@polymer/iron-icon/iron-icon.js';
+import '@vaadin/vaadin-app-layout/src/vaadin-drawer-toggle.js';
 
 @customElement('vista-cabecera_registrado')
 export class VistaCabecera_registrado extends LitElement {
@@ -28,6 +29,7 @@ export class VistaCabecera_registrado extends LitElement {
    <vaadin-button theme="icon" aria-label="Add new" id="menu_user" style="height: 50px; width: 50px; background:transparent;">
     <iron-icon id="ironIcon1" style="width: 100%; height: 100%;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-menu.png?raw=true"></iron-icon>
    </vaadin-button>
+   <vaadin-drawer-toggle id="burger"></vaadin-drawer-toggle>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

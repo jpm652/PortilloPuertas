@@ -9,6 +9,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.applayout.DrawerToggle;
 
 /**
  * A Designer generated component for the vista-cabecera_registrado template.
@@ -32,6 +33,8 @@ public class VistaCabecera_registrado extends LitTemplate {
 	private Label nomb_user_cabecera;
 	@Id("menu_user")
 	private Button menu_user;
+	@Id("burger")
+	private DrawerToggle burger;
 
 	/**
 	 * Creates a new VistaCabecera_registrado.
@@ -87,5 +90,15 @@ public class VistaCabecera_registrado extends LitTemplate {
 	public void setMenu_user(Button menu_user) {
 		this.menu_user = menu_user;
 	}
+
+	public DrawerToggle getBurger() {
+		return burger;
+	}
+
+	public void setBurger(DrawerToggle burger) {
+		this.burger = burger;
+	}
+	
+	
 
 }
