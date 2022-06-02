@@ -29,8 +29,8 @@ export class VistaAdministracion extends LitElement {
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
   <vaadin-vertical-layout theme="spacing" style="width: 50%; align-items: center;">
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
-    <label>Dar de alta estilos</label>
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background-color: #1687A7; ">
+    <label style="color:white">Dar de alta estilos</label>
    </vaadin-horizontal-layout>
    <vaadin-text-field placeholder="Añadir un estilo ..." style="width: 50%;" id="text_altaestilo"></vaadin-text-field>
    <vaadin-button style="flex-grow: 0;" id="button_altaestilo">
@@ -38,8 +38,8 @@ export class VistaAdministracion extends LitElement {
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 50%; align-items: center;">
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
-    <label>Añadir artista</label>
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background-color: #1687A7; ">
+    <label style="color:white">Añadir artista</label>
    </vaadin-horizontal-layout>
    <vaadin-text-field placeholder="Nombre del artista ..." style="width: 50%;" id="text_nombre_anadirartista"></vaadin-text-field>
    <vaadin-text-field placeholder="Nombre de usuario (login) ..." style="width: 50%;" id="text_login_anadirartista"></vaadin-text-field>
@@ -51,8 +51,8 @@ export class VistaAdministracion extends LitElement {
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; margin-top: var(--lumo-space-l);">
   <vaadin-vertical-layout theme="spacing" style="width: 50%; align-items: center;">
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
-    <label>Añadir Album</label>
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background-color: #1687A7; ">
+    <label style="color:white">Añadir Album</label>
    </vaadin-horizontal-layout>
    <vaadin-select style="width: 50%;" placeholder="Selecciona el artista ..." id="select_artista_anadiralbum">
     <template>
@@ -75,8 +75,8 @@ export class VistaAdministracion extends LitElement {
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 50%; align-items: center;">
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
-    <label>Añadir Canción </label>
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background-color: #1687A7; ">
+    <label style="color:white">Añadir Canción </label>
    </vaadin-horizontal-layout>
    <vaadin-select style="width: 50%;" placeholder="Selecciona el artista ..." id="select_artista_anadircancion">
     <template>
@@ -116,8 +116,8 @@ export class VistaAdministracion extends LitElement {
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; margin-top: var(--lumo-space-l);">
   <vaadin-vertical-layout theme="spacing" style="width: 50%; align-items: center;">
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
-    <label>Dar de Baja a un Artista</label>
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background-color: #1687A7; ">
+    <label style="color:white">Dar de Baja a un Artista</label>
    </vaadin-horizontal-layout>
    <vaadin-select style="width: 50%;" placeholder="Selecciona el artista ..." id="select_bajaartista">
     <template>
@@ -139,8 +139,8 @@ export class VistaAdministracion extends LitElement {
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 50%; align-items: center;">
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background:#bababa;">
-    <label>Dar de Baja a un Usuario </label>
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background-color: #1687A7; ">
+    <label style="color:white">Dar de Baja a un Usuario </label>
    </vaadin-horizontal-layout>
    <vaadin-select style="width: 50%;" placeholder="Selecciona el usuario ..." id="select_bajausuario">
     <template>
