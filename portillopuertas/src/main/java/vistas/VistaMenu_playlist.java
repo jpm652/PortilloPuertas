@@ -23,10 +23,6 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-menu_playlist.ts")
 public class VistaMenu_playlist extends LitTemplate {
 
-	@Id("vistaBarra_reproduccion")
-	private VistaBarra_reproduccion vistaBarra_reproduccion;
-	@Id("vistaLista_de_playlist")
-	private VistaLista_de_playlist vistaLista_de_playlist;
 	@Id("hr")
 	private Hr hr;
 	@Id("vistaCrear_playlist")
@@ -35,8 +31,6 @@ public class VistaMenu_playlist extends LitTemplate {
 	private Label label;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vistaCabecera_registrado")
-	private VistaCabecera_registrado vistaCabecera_registrado;
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
 
@@ -45,22 +39,6 @@ public class VistaMenu_playlist extends LitTemplate {
 	 */
 	public VistaMenu_playlist() {
 		// You can initialise any data required for the connected UI components here.
-	}
-
-	public VistaBarra_reproduccion getVistaBarra_reproduccion() {
-		return vistaBarra_reproduccion;
-	}
-
-	public void setVistaBarra_reproduccion(VistaBarra_reproduccion vistaBarra_reproduccion) {
-		this.vistaBarra_reproduccion = vistaBarra_reproduccion;
-	}
-
-	public VistaLista_de_playlist getVistaLista_de_playlist() {
-		return vistaLista_de_playlist;
-	}
-
-	public void setVistaLista_de_playlist(VistaLista_de_playlist vistaLista_de_playlist) {
-		this.vistaLista_de_playlist = vistaLista_de_playlist;
 	}
 
 	public Hr getHr() {
@@ -93,14 +71,6 @@ public class VistaMenu_playlist extends LitTemplate {
 
 	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
 		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
-	}
-
-	public VistaCabecera_registrado getVistaCabecera_registrado() {
-		return vistaCabecera_registrado;
-	}
-
-	public void setVistaCabecera_registrado(VistaCabecera_registrado vistaCabecera_registrado) {
-		this.vistaCabecera_registrado = vistaCabecera_registrado;
 	}
 
 	public Element getVaadinVerticalLayout() {

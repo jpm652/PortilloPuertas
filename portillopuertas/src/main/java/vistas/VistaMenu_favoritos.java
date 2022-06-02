@@ -25,8 +25,6 @@ public class VistaMenu_favoritos extends LitTemplate {
 	
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("vistaCabecera_registrado")
-	private VistaCabecera_registrado vistaCabecera_registrado;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("hr")
@@ -53,8 +51,6 @@ public class VistaMenu_favoritos extends LitTemplate {
 	private Button vaadinButton1;
 	@Id("ironIcon")
 	private Element ironIcon;
-	@Id("vistaBarra_reproduccion")
-	private VistaBarra_reproduccion vistaBarra_reproduccion;
 
     public Element getVaadinVerticalLayout() {
 		return vaadinVerticalLayout;
@@ -62,12 +58,7 @@ public class VistaMenu_favoritos extends LitTemplate {
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
 	}
-	public VistaCabecera_registrado getVistaCabecera_registrado() {
-		return vistaCabecera_registrado;
-	}
-	public void setVistaCabecera_registrado(VistaCabecera_registrado vistaCabecera_registrado) {
-		this.vistaCabecera_registrado = vistaCabecera_registrado;
-	}
+
 	public HorizontalLayout getVaadinHorizontalLayout() {
 		return vaadinHorizontalLayout;
 	}
@@ -145,12 +136,6 @@ public class VistaMenu_favoritos extends LitTemplate {
 	}
 	public void setIronIcon(Element ironIcon) {
 		this.ironIcon = ironIcon;
-	}
-	public VistaBarra_reproduccion getVistaBarra_reproduccion() {
-		return vistaBarra_reproduccion;
-	}
-	public void setVistaBarra_reproduccion(VistaBarra_reproduccion vistaBarra_reproduccion) {
-		this.vistaBarra_reproduccion = vistaBarra_reproduccion;
 	}
 
 	/**
