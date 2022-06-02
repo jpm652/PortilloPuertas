@@ -36,10 +36,10 @@ public class Pagina_principal extends VistaPagina_principal {
 	Barra_reproduccion barra_reproduccion = new Barra_reproduccion();
 
 	public Pagina_principal() {
-		inicializar(new VerticalLayout());
+		inicializar(new VerticalLayout(), new String());
 	}
 
-	public void inicializar(VerticalLayout vlpadre) {
+	public void inicializar(VerticalLayout vlpadre, String usuario) {
 
 		this.getVaadinVerticalLayout().getStyle().set("width", "100%");
 		this.getVaadinVerticalLayout().getStyle().set("height", "100%");
@@ -57,7 +57,7 @@ public class Pagina_principal extends VistaPagina_principal {
 		cr.getStyle().set("height", "100%");
 		cr.getStyle().set("padding", "0");
 		vl_cabecera.add(cr);
-		cr.inicializar(vl_centro);
+		cr.inicializar(vl_centro, usuario);
 
 		// Se introducen listas en la seccion central de la pagina
 		Scroller scroller = this.getScroller();

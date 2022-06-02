@@ -45,8 +45,8 @@ public class VistaCancion_anterior extends LitTemplate {
 		return nombreCancion;
 	}
 
-	public void setNombreCancion(Label nombreCancion) {
-		this.nombreCancion = nombreCancion;
+	public void setNombreCancion(String nombreCancion) {
+		this.nombreCancion.setText(nombreCancion);
 	}
 
 	/**

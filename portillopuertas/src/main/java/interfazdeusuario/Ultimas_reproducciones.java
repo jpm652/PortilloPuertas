@@ -47,7 +47,11 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 
 		for (int i = 0; i < 8; i++) {
 			cancion = new Cancion_anterior(vl);
-
+			
+			if(i==2) {
+				cancion.setNombreCancion("Cancion Pepe");	
+				cancion.getImgCancion().getStyle().set("src","https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-lista.png?raw=true");
+				}
 			_list_cancion__registrado_.add(cancion);
 		}
 

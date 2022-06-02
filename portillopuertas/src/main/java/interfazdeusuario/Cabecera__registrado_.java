@@ -4,7 +4,9 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.dialog.DialogVariant;
 import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -27,15 +29,64 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 
 	public Cabecera__registrado_() {
 
-		inicializar(new VerticalLayout());
+		inicializar(new VerticalLayout(), new String());
 	}
 
-	public void inicializar(VerticalLayout vlpadre) {
+	public void inicializar(VerticalLayout vlpadre, String usuario) {
 
+//		Label label = new Label();
+//		label.setText(usuario);
+		this.setNomb_user_cabecera(usuario);
+		
 		this.getMenu_user().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
+				if(usuario.equals("usuario")){
+					Dialog dialog = new Dialog();
+					Menu menu = new Menu();
+					menu.getStyle().set("width", "100%");   
+					menu.getStyle().set("height", "90%");
+					menu.inicializar(vlpadre, usuario);
+					
+					dialog.setWidth("25%");
+					dialog.addThemeVariants(DialogVariant.LUMO_NO_PADDING);
+					dialog.add(menu);
+					
+					vlpadre.add(dialog);
+					dialog.open();
+					
+				}
+				
+				if(usuario.equals("artista")) {
+					Dialog dialog = new Dialog();
+					Menu__artista_ menu = new Menu__artista_();
+					menu.getStyle().set("width", "100%");   
+					menu.getStyle().set("height", "100%");
+					menu.inicializar(vlpadre, usuario);
+					
+					dialog.setWidth("25%");
+					dialog.addThemeVariants(DialogVariant.LUMO_NO_PADDING);
+					dialog.add(menu);
+					
+					vlpadre.add(dialog);
+					dialog.open();
+				}
+				
+				if(usuario.equals("admin")) {
+					Dialog dialog = new Dialog();
+					Menu__administrador_ menu = new Menu__administrador_();
+					menu.getStyle().set("width", "100%");   
+					menu.getStyle().set("height", "100%");
+					menu.inicializar(vlpadre, usuario);
+					
+					dialog.setWidth("25%");
+					dialog.addThemeVariants(DialogVariant.LUMO_NO_PADDING);
+					dialog.add(menu);
+					
+					vlpadre.add(dialog);
+					dialog.open();
+				}
 //				HorizontalLayout hl = new HorizontalLayout();
 //				HorizontalLayout hl2 = new HorizontalLayout();
 //				VerticalLayout vl1 = new VerticalLayout();
@@ -89,11 +140,11 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 
 				// vlpadre.add(menu);
 
-				Dialog dialog = new Dialog();
-				Menu menu = new Menu();
-				menu.getStyle().set("width", "100%");   
-				menu.getStyle().set("height", "100%");
-				menu.inicializar(vlpadre);
+//				Dialog dialog = new Dialog();
+//				Menu menu = new Menu();
+//				menu.getStyle().set("width", "100%");   
+//				menu.getStyle().set("height", "100%");
+//				menu.inicializar(vlpadre);
 				// VerticalLayout vl = rec.getVaadinVerticalLayout().as(VerticalLayout.class);
 				
 //				TextField correo = new TextField();
@@ -102,16 +153,16 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 //				correo.getStyle().set("width", "70%");
 //				dialog.add(dialogLayout);
 //				dialog.add(correo);
-
-				dialog.add(menu);
+				
+//				dialog.add(menu);
 				
 //				Button closeButton = new Button("Enviar");
 //				closeButton.addClickListener(e -> dialog.close());
 //				closeButton.getStyle().set("margin-left", "20px").set("width", "120px");
 //				dialog.add(closeButton);
-				
-				vlpadre.add(dialog);
-				dialog.open();
+//				
+//				vlpadre.add(dialog);
+//				dialog.open();
 
 			}
 		});
@@ -133,23 +184,23 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 
 	}
 
-	private static VerticalLayout createDialogLayout(Dialog dialog, String titulo, String mensaje) {
-		H2 headline = new H2(titulo);
-		headline.getStyle().set("margin", "var(--lumo-space-m) 0").set("font-size", "1.5em").set("font-weight", "bold");
-
-		Paragraph paragraph = new Paragraph(mensaje);
-
-		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph); // menu.getVaadinVerticalLayout().as(VerticalLayout.class);
-																				// //new VerticalLayout(headline,
-																				// paragraph, closeButton);
-
-		dialogLayout.setPadding(false);
-		dialogLayout.setAlignItems(Alignment.STRETCH);
-		dialogLayout.getStyle().set("width", "500px").set("max-width", "100%");
-		dialogLayout.getStyle().set("height", "400px%");
-
-//	dialogLayout.setAlignSelf(Alignment.END, closeButton);
-
-		return dialogLayout;
-	}
+//	private static VerticalLayout createDialogLayout(Dialog dialog, String titulo, String mensaje) {
+//		H2 headline = new H2(titulo);
+//		headline.getStyle().set("margin", "var(--lumo-space-m) 0").set("font-size", "1.5em").set("font-weight", "bold");
+//
+//		Paragraph paragraph = new Paragraph(mensaje);
+//
+//		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph); // menu.getVaadinVerticalLayout().as(VerticalLayout.class);
+//																				// //new VerticalLayout(headline,
+//																				// paragraph, closeButton);
+//
+//		dialogLayout.setPadding(false);
+//		dialogLayout.setAlignItems(Alignment.STRETCH);
+//		dialogLayout.getStyle().set("width", "500px").set("max-width", "100%");
+//		dialogLayout.getStyle().set("height", "400px%");
+//
+////	dialogLayout.setAlignSelf(Alignment.END, closeButton);
+//
+//		return dialogLayout;
+//	}
 }

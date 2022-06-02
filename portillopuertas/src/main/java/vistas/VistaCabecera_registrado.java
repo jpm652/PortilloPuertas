@@ -77,8 +77,8 @@ public class VistaCabecera_registrado extends LitTemplate {
 		return nomb_user_cabecera;
 	}
 
-	public void setNomb_user_cabecera(Label nomb_user_cabecera) {
-		this.nomb_user_cabecera = nomb_user_cabecera;
+	public void setNomb_user_cabecera(String nomb_user_cabecera) {
+		this.nomb_user_cabecera.setText(nomb_user_cabecera);
 	}
 
 	public Button getMenu_user() {

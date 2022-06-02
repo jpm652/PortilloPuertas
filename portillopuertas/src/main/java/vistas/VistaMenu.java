@@ -61,8 +61,8 @@ public class VistaMenu extends LitTemplate {
 		return nombre_menu;
 	}
 
-	public void setNombre_menu(Label nombre_menu) {
-		this.nombre_menu = nombre_menu;
+	public void setNombre_menu(String nombre_menu) {
+		this.nombre_menu.setText(nombre_menu);;
 	}
 
 	public Label getSeguidores_menu() {

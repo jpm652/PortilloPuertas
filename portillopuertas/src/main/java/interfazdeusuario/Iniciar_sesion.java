@@ -87,8 +87,28 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p.getStyle().set("width", "100%");
 					pagina_p.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p);
-					pagina_p.inicializar(vlpadre);
+					pagina_p.inicializar(vlpadre, "usuario");
 
+				}else if(getCorreo_inicarsesion().getValue().equals("artista")) {
+					
+					vlpadre.removeAll();
+
+					Pagina_principal pagina_p2 = new Pagina_principal();
+					pagina_p2.getStyle().set("width", "100%");
+					pagina_p2.getStyle().set("height", "100%");
+					vlpadre.add(pagina_p2);
+					pagina_p2.inicializar(vlpadre, "artista");
+					
+				}else if(getCorreo_inicarsesion().getValue().equals("admin")) {
+					
+					vlpadre.removeAll();
+
+					Pagina_principal pagina_p3 = new Pagina_principal();
+					pagina_p3.getStyle().set("width", "100%");
+					pagina_p3.getStyle().set("height", "100%");
+					vlpadre.add(pagina_p3);
+					pagina_p3.inicializar(vlpadre, "admin");
+					
 				}
 
 			}

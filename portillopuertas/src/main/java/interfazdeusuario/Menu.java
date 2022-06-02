@@ -18,11 +18,13 @@ public class Menu extends VistaMenu {
 	public Configuracion _configuracion;
 
 	public Menu() {
-		inicializar(new VerticalLayout());
+		inicializar(new VerticalLayout(), new String());
 	}
 
-	public void inicializar(VerticalLayout vlpadre) {
+	public void inicializar(VerticalLayout vlpadre, String usuario) {
 
+		this.setNombre_menu(usuario);
+		
 		this.getLista_reproduccion_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
