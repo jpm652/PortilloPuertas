@@ -53,7 +53,7 @@ public class Novedades extends VistaNovedades {
 	public void CargarCanciones(VerticalLayout vl) {
 		Cancion_anterior cancion;
 
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 5; i++) {
 			cancion = new Cancion_anterior(vl);
 			cancion.getStyle().set("padding-left", "5%");
 			//cancion.getStyle().set("height", "700px");

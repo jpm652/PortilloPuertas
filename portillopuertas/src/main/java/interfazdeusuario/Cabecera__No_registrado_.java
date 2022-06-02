@@ -73,7 +73,7 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-//				vlpadre.removeAll();
+				vlpadre.removeAll();
 //
 //				Iniciar_sesion iniciar_sesion = new Iniciar_sesion();
 //				iniciar_sesion.getStyle().set("width", "100%");
@@ -81,17 +81,15 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado {
 //				iniciar_sesion.getStyle().set("padding", "0");
 //				vlpadre.add(iniciar_sesion);
 //				iniciar_sesion.inicializar(vlpadre);
-				
-				vlpadre.removeAll();
+//				
+//				vlpadre.removeAll();
 
-//				Pagina_principal pagina_p = new Pagina_principal();
-//				pagina_p.getStyle().set("width", "100%");
-//				pagina_p.getStyle().set("height", "100%");
-//				vlpadre.add(pagina_p);
-//				pagina_p.inicializar(vlpadre);
-				
-				Retroceder_10s retroceder_10s = new Retroceder_10s();
-				vlpadre.add(retroceder_10s);
+				Pagina_principal pagina_p = new Pagina_principal();
+				pagina_p.getStyle().set("width", "100%");
+				pagina_p.getStyle().set("height", "100%");
+				vlpadre.add(pagina_p);
+				pagina_p.inicializar(vlpadre);
+
 			}
 		});
 

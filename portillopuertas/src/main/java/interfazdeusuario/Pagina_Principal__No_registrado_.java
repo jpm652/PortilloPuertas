@@ -32,6 +32,7 @@ public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_
 	
 	public Pagina_Principal__No_registrado_(){
 		inicializar();
+		
 	}
 	
 	public void inicializar() {
