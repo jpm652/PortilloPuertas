@@ -31,6 +31,7 @@ public class Menu extends VistaMenu {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				Menu_playlist menu_playlist = new Menu_playlist();
+				menu_playlist.getStyle().set("width","100%");
 				vlpadre.removeAll();
 				vlpadre.add(menu_playlist);
 
@@ -42,7 +43,8 @@ public class Menu extends VistaMenu {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				Favoritos favoritos = new Favoritos();
+				Menu_favoritos favoritos = new Menu_favoritos();
+				favoritos.getStyle().set("width","100%");
 				vlpadre.removeAll();
 				vlpadre.add(favoritos);
 
@@ -56,6 +58,7 @@ public class Menu extends VistaMenu {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				Configuracion config = new Configuracion();
+				config.getStyle().set("width","100%");
 				vlpadre.removeAll();
 				vlpadre.add(config);
 

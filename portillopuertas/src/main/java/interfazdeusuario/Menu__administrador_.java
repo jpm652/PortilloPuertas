@@ -42,7 +42,8 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				Favoritos favoritos = new Favoritos();
+				Menu_favoritos favoritos = new Menu_favoritos();
+				favoritos.getStyle().set("width","100%");
 				vlpadre.removeAll();
 				vlpadre.add(favoritos);
 
@@ -56,6 +57,8 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				Configuracion config = new Configuracion();
+				config.getStyle().set("width","100%");
+				
 				vlpadre.removeAll();
 				vlpadre.add(config);
 

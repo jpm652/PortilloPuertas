@@ -26,38 +26,94 @@ import vistas.VistaBarra_reproduccion;
 @JsModule("./src/vistas/vista-configuracion.ts")
 public class VistaConfiguracion extends LitTemplate {
 
-    @Id("vaadinVerticalLayout")
+
+	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("vistaCabecera_registrado")
-	private VistaCabecera_registrado vistaCabecera_registrado;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("img")
-	private Image img;
-	@Id("label")
-	private Label label;
-	@Id("hr")
-	private Hr hr;
-	@Id("vistaCorreo")
-	private VistaCorreo vistaCorreo;
-	@Id("vistaClave")
-	private VistaClave vistaClave;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
-	@Id("vaadinButton")
-	private Button vaadinButton;
-	@Id("vistaBarra_reproduccion")
-	private VistaBarra_reproduccion vistaBarra_reproduccion;
 	@Id("vaadinHorizontalLayout2")
 	private HorizontalLayout vaadinHorizontalLayout2;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
-
+	@Id("estadisticabt")
+	private Button estadisticabt;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("imgUser")
+	private Image imgUser;
+	@Id("nombreUser")
+	private Label nombreUser;
+	@Id("hr")
+	private Hr hr;
+	@Id("verticalcorreo")
+	private Element verticalcorreo;
+	@Id("verticalclave")
+	private Element verticalclave;
+	@Id("vaadinHorizontalLayout1")
+	private HorizontalLayout vaadinHorizontalLayout1;
 	/**
      * Creates a new VistaConfiguracion.
      */
     public VistaConfiguracion() {
         // You can initialise any data required for the connected UI components here.
     }
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+	public HorizontalLayout getVaadinHorizontalLayout2() {
+		return vaadinHorizontalLayout2;
+	}
+	public void setVaadinHorizontalLayout2(HorizontalLayout vaadinHorizontalLayout2) {
+		this.vaadinHorizontalLayout2 = vaadinHorizontalLayout2;
+	}
+	public Button getEstadisticabt() {
+		return estadisticabt;
+	}
+	public void setEstadisticabt(Button estadisticabt) {
+		this.estadisticabt = estadisticabt;
+	}
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+	public Image getImgUser() {
+		return imgUser;
+	}
+	public void setImgUser(Image imgUser) {
+		this.imgUser = imgUser;
+	}
+	public Label getNombreUser() {
+		return nombreUser;
+	}
+	public void setNombreUser(String nombreUser) {
+		this.nombreUser.setText(nombreUser);;
+	}
+	public Hr getHr() {
+		return hr;
+	}
+	public void setHr(Hr hr) {
+		this.hr = hr;
+	}
+	public Element getVerticalcorreo() {
+		return verticalcorreo;
+	}
+	public void setVerticalcorreo(Element verticalcorreo) {
+		this.verticalcorreo = verticalcorreo;
+	}
+	public Element getVerticalclave() {
+		return verticalclave;
+	}
+	public void setVerticalclave(Element verticalclave) {
+		this.verticalclave = verticalclave;
+	}
+	public HorizontalLayout getVaadinHorizontalLayout1() {
+		return vaadinHorizontalLayout1;
+	}
+	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
+		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	}
+    
+    
 
 }

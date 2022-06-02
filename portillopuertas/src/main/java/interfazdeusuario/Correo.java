@@ -1,6 +1,8 @@
 package interfazdeusuario;
 
-public class Correo {
+import vistas.VistaCorreo;
+
+public class Correo extends VistaCorreo {
 //	private event _editar_correo;
 //	private Label _correoL;
 //	private TextField _correoTF;

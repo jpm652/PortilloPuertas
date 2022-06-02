@@ -1,6 +1,8 @@
 package interfazdeusuario;
 
-public class Clave {
+import vistas.VistaClave;
+
+public class Clave extends VistaClave {
 //	private event _editar_clave;
 //	private Label _modificar_claveL;
 //	private TextField _clave_antiguaTF;

@@ -2,9 +2,10 @@ package interfazdeusuario;
 
 import java.util.Vector;
 import interfazdeusuario.Cancion__Registrado_;
+import vistas.VistaFavoritos;
 import vistas.VistaMenu_favoritos;
 
-public class Favoritos extends VistaMenu_favoritos {
+public class Favoritos extends VistaFavoritos {
 	
 	public Pagina_principal _pagina_principal;
 	public Menu_favoritos _menu_favoritos;

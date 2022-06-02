@@ -50,7 +50,8 @@ public class Menu__artista_ extends VistaMenu_artista {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				Favoritos favoritos = new Favoritos();
+				Menu_favoritos favoritos = new Menu_favoritos();
+				favoritos.getStyle().set("width","100%");
 				vlpadre.removeAll();
 				vlpadre.add(favoritos);
 
@@ -78,6 +79,7 @@ public class Menu__artista_ extends VistaMenu_artista {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				Configuracion config = new Configuracion();
+				config.getStyle().set("width","100%");
 				vlpadre.removeAll();
 				vlpadre.add(config);
 
