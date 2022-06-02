@@ -27,11 +27,43 @@ public class VistaClave extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("label")
 	private Label label;
+	@Id("vaadinButton")
+	private Button vaadinButton;
 	/**
      * Creates a new VistaClave.
      */
     public VistaClave() {
         // You can initialise any data required for the connected UI components here.
     }
+	public Element getVaadinVerticalLayout1() {
+		return vaadinVerticalLayout1;
+	}
+	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
+		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
+	}
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+	public Label getLabel() {
+		return label;
+	}
+	public void setLabel(Label label) {
+		this.label = label;
+	}
+	public Button getVaadinButton() {
+		return vaadinButton;
+	}
+	public void setVaadinButton(Button vaadinButton) {
+		this.vaadinButton = vaadinButton;
+	}
 
 }

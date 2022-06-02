@@ -61,6 +61,7 @@ public class Menu extends VistaMenu {
 				config.getStyle().set("width","100%");
 				vlpadre.removeAll();
 				vlpadre.add(config);
+				config.inicializar(vlpadre);
 
 			}
 
