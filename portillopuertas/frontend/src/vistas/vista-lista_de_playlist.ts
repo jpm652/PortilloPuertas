@@ -16,7 +16,7 @@ export class VistaLista_de_playlist extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%;" id="vaadinVerticalLayout">
- <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="width: 80%; justify-content: flex-start; align-self: center; background:#F0F0F0; height: 50px; margin-top: 25px;">
+ <vaadin-horizontal-layout id="tusplaylist_playlist" style="width: 80%; justify-content: flex-start; align-self: center; background:#F0F0F0; height: 50px; margin-top: 25px;">
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 50%;">
    <img id="img" style="width: 30px; height: 30px; align-self: center; margin-left: 30px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
    <label style="align-self: center;" id="label2">PlayList </label>

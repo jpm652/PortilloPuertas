@@ -23,18 +23,12 @@ import vistas.VistaBarra_reproduccion;
 @JsModule("./src/vistas/vista-estadisticas_usuario.ts")
 public class VistaEstadisticas_usuario extends LitTemplate {
 
-    @Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinVerticalLayout")
+    @Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("vistaCabecera_registrado")
-	private VistaCabecera_registrado vistaCabecera_registrado;
 	@Id("label")
 	private Label label;
 	@Id("hr")
 	private Hr hr;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
 	@Id("vaadinVerticalLayout1")
 	private Element vaadinVerticalLayout1;
 	@Id("label1")
@@ -45,8 +39,6 @@ public class VistaEstadisticas_usuario extends LitTemplate {
 	private Element vaadinVerticalLayout2;
 	@Id("vaadinVerticalLayout3")
 	private Element vaadinVerticalLayout3;
-	@Id("vaadinHorizontalLayout2")
-	private HorizontalLayout vaadinHorizontalLayout2;
 	@Id("img1")
 	private Image img1;
 	@Id("label2")
@@ -73,8 +65,6 @@ public class VistaEstadisticas_usuario extends LitTemplate {
 	private Image img5;
 	@Id("label6")
 	private Label label6;
-	@Id("vistaBarra_reproduccion")
-	private VistaBarra_reproduccion vistaBarra_reproduccion;
 
 	/**
      * Creates a new VistaEstadisticas_usuario.

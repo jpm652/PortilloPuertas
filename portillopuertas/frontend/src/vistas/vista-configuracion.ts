@@ -29,7 +29,7 @@ export class VistaConfiguracion extends LitElement {
  <hr id="hr" style="width: 90%; margin-bottom: 50px;">
  <vaadin-vertical-layout theme="spacing" id="verticalcorreo" style="width: 100%;"></vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" id="verticalclave" style="width: 100%;"></vaadin-vertical-layout>
- <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 100%; align-items: center; justify-content: center; margin-top: 200px;">
+ <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 100%; margin-top: var(--lumo-space-xl); justify-content: center; align-items: center;">
   <vaadin-button id="darBaja">
     Dar de Baja la cuenta 
   </vaadin-button>

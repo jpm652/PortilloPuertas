@@ -65,8 +65,6 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 
 			}
 		});
-		
-		
 
 		comprobarUsuario(vlpadre);
 		olvidarClave(vlpadre);
@@ -89,8 +87,8 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					vlpadre.add(pagina_p);
 					pagina_p.inicializar(vlpadre, "usuario");
 
-				}else if(getCorreo_inicarsesion().getValue().equals("artista")) {
-					
+				} else if (getCorreo_inicarsesion().getValue().equals("artista")) {
+
 					vlpadre.removeAll();
 
 					Pagina_principal pagina_p2 = new Pagina_principal();
@@ -98,9 +96,9 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p2.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p2);
 					pagina_p2.inicializar(vlpadre, "artista");
-					
-				}else if(getCorreo_inicarsesion().getValue().equals("admin")) {
-					
+
+				} else if (getCorreo_inicarsesion().getValue().equals("admin")) {
+
 					vlpadre.removeAll();
 
 					Pagina_principal pagina_p3 = new Pagina_principal();
@@ -108,74 +106,67 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p3.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p3);
 					pagina_p3.inicializar(vlpadre, "admin");
-					
+
 				}
 
 			}
 		});
 	}
-	
+
 	public void olvidarClave(VerticalLayout vlpadre) {
-		
+
 		this.getOlvidar_clave().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
+
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				
-//				vlpadre.removeAll();
-//
-//				Recordar_clave recordar_clave = new Recordar_clave();
-//				recordar_clave.getStyle().set("width", "100%");
-//				recordar_clave.getStyle().set("height", "100%");
-//				vlpadre.add(recordar_clave);
-				
+
 				Dialog dialog = new Dialog();
 				Recordar_clave rec = new Recordar_clave();
-				//VerticalLayout vl = rec.getVaadinVerticalLayout().as(VerticalLayout.class);
+
 				TextField correo = new TextField();
 				VerticalLayout dialogLayout = createDialogLayout(dialog, "Recordar clave",
 						"Por favor, ingrese el correo al que esta asociado la cuenta");
 				correo.getStyle().set("width", "70%");
 				dialog.add(dialogLayout);
 				dialog.add(correo);
-				
+
 				Button closeButton = new Button("Enviar");
 				closeButton.addClickListener(e -> dialog.close());
-				closeButton.getStyle().set("margin-left","20px").set("width","120px");
+				closeButton.getStyle().set("margin-left", "20px").set("width", "120px");
 				dialog.add(closeButton);
 				vlpadre.add(dialog);
 				dialog.open();
-				
-				
-//				Dialog dialog = new Dialog();
-//
-//				VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
-//						"Se ha enviado un mensaje a su correo electronico para validar su cuenta.");
-//				dialog.add(dialogLayout);
-//				//dialog.;
-//				vlpadre.add(dialog);
-//				dialog.open();
+
+				closeButton.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+
+						Dialog dialog = new Dialog();
+
+						VerticalLayout dialogLayout = createDialogLayout(dialog, "Recordar clave",
+								"Se ha enviado un mensaje a su correo electronico con su clave.");
+						dialog.add(dialogLayout);
+						vlpadre.add(dialog);
+						dialog.open();
+					}
+				});
+
 			}
 		});
 	}
-	
+
 	private static VerticalLayout createDialogLayout(Dialog dialog, String titulo, String mensaje) {
 		H2 headline = new H2(titulo);
 		headline.getStyle().set("margin", "var(--lumo-space-m) 0").set("font-size", "1.5em").set("font-weight", "bold");
 
 		Paragraph paragraph = new Paragraph(mensaje);
 
-
-
-	
-		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph); // menu.getVaadinVerticalLayout().as(VerticalLayout.class); //new VerticalLayout(headline, paragraph, closeButton);
+		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph);
 
 		dialogLayout.setPadding(false);
 		dialogLayout.setAlignItems(Alignment.STRETCH);
 		dialogLayout.getStyle().set("width", "500px").set("max-width", "100%");
 		dialogLayout.getStyle().set("height", "400px%");
-		
-//		dialogLayout.setAlignSelf(Alignment.END, closeButton);
 
 		return dialogLayout;
 	}

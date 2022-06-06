@@ -26,7 +26,7 @@ render() {
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="height: 100%; width: 100%; justify-content: flex-end;">
   <vaadin-vertical-layout theme="spacing" style="width: 45%; height: 100%; padding: var(--lumo-space-l); align-items: center;" id="vaadinVerticalLayout1">
-   <img id="img" style="width: 250px; height: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/logoSoundCity.png?raw=true">
+   <img id="img" style="width: 250px; height: 150px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/logoSoundCity.png?raw=true">
    <label id="label" style="font-weight:bold; font-size:40px;">Iniciar Sesión </label>
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; height: 10%; align-self: center; align-items: center;" id="vaadinHorizontalLayout1">
     <vaadin-button theme="icon" aria-label="Add new" id="icon-google" style="height: 50px; width: 50px; background:transparent;">
@@ -48,8 +48,8 @@ render() {
    <vaadin-button style="width: 80%; margin-top: var(--lumo-space-xl);" id="boton_iniciarsesion">
      Iniciar Sesión 
    </vaadin-button>
-   <vaadin-button id="olvidar_clave" style="background:transparent;flex-grow: 0; flex-shrink: 1; margin-top: 20%; font-weight:bold; font-size:20px; color:black;">
-    ¿Has olvidado tu contraseña?
+   <vaadin-button id="olvidar_clave" style="background:transparent; flex-grow: 0; flex-shrink: 1; margin-top: 15%; font-weight:bold; font-size:20px; color:black;">
+     ¿Has olvidado tu contraseña? 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 25%; height: 100%; padding-top: var(--lumo-space-l); align-items: center;" id="vaadinVerticalLayout2">

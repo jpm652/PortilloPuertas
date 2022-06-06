@@ -36,7 +36,7 @@ public class Menu__artista_ extends VistaMenu_artista {
 				
 				for(int i=1; i<=5; i++) {
 					
-					Lista_de_Playlist lista = new Lista_de_Playlist();
+					Lista_de_Playlist lista = new Lista_de_Playlist(vlpadre);
 					lista.getStyle().set("width", "100%");
 					vlpadre.add(lista);
 				}

@@ -39,6 +39,7 @@ export class VistaRegistrarse extends LitElement {
      <iron-icon style="width: 100%; height: 100%;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-twitter.png?raw=true"></iron-icon>
     </vaadin-button>
    </vaadin-horizontal-layout>
+   <hr style="width: 80%; align-self: center; height: 2%; background:black;" id="hr">
    <vaadin-text-field label="Correo" style="width: 100%;" id="correo_registro"></vaadin-text-field>
    <vaadin-text-field label="Nombre de usuario" style="width: 100%;" id="nombre_registro"></vaadin-text-field>
    <vaadin-text-field label="Contraseña" style="width: 100%; type:password;" id="clave_registro"></vaadin-text-field>

@@ -47,6 +47,8 @@ public class VistaConfiguracion extends LitTemplate {
 	private Element verticalclave;
 	@Id("vaadinHorizontalLayout1")
 	private HorizontalLayout vaadinHorizontalLayout1;
+	@Id("darBaja")
+	private Button darBaja;
 	/**
      * Creates a new VistaConfiguracion.
      */
@@ -112,6 +114,15 @@ public class VistaConfiguracion extends LitTemplate {
 	}
 	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
 		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	}
+	public Button getDarBaja() {
+		return darBaja;
+	}
+	public void setDarBaja(Button darBaja) {
+		this.darBaja = darBaja;
+	}
+	public void setNombreUser(Label nombreUser) {
+		this.nombreUser = nombreUser;
 	}
     
     

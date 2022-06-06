@@ -41,11 +41,78 @@ public class Configuracion extends VistaConfiguracion{
 		_clave.getStyle().set("width", "100%").set("height", "100%");	
 		clave.add(_clave);
 		_clave.inicializar(vlpadre);
+		
+		this.getEstadisticabt().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				vlpadre.removeAll();
+				
+				Estadisticas_usuario estadistica = new Estadisticas_usuario();
+				estadistica.getStyle().set("width", "100%").set("height", "100%");
+				
+				vlpadre.add(estadistica);
+				
+			}
+		});
+		
+		this.getDarBaja().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
 
+				Dialog dialog = new Dialog();
+				Recordar_clave rec = new Recordar_clave();
+
+				TextField correo = new TextField();
+				VerticalLayout dialogLayout = createDialogLayout(dialog, "Dar de baja la cuenta",
+						"Por favor, ingrese el correo al que esta asociado la cuenta.");
+				correo.getStyle().set("width", "70%");
+				dialog.add(dialogLayout);
+				dialog.add(correo);
+
+				Button closeButton = new Button("Dar de baja");
+				closeButton.addClickListener(e -> dialog.close());
+				closeButton.getStyle().set("margin-left", "20px").set("width", "120px");
+				dialog.add(closeButton);
+				vlpadre.add(dialog);
+				dialog.open();
+
+				closeButton.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+
+						Dialog dialog = new Dialog();
+
+						VerticalLayout dialogLayout = createDialogLayout(dialog, "Dar de baja la cuenta",
+								"Su cuenta se ha dado de baja, en 30 dias se eliminara toda su informacion. ");
+						dialog.add(dialogLayout);
+						vlpadre.add(dialog);
+						dialog.open();
+					}
+				});
+
+			}
+		});
 	}
 	
 	
+	private static VerticalLayout createDialogLayout(Dialog dialog, String titulo, String mensaje) {
+		H2 headline = new H2(titulo);
+		headline.getStyle().set("margin", "var(--lumo-space-m) 0").set("font-size", "1.5em").set("font-weight", "bold");
+
+		Paragraph paragraph = new Paragraph(mensaje);
+
+		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph);
+
+		dialogLayout.setPadding(false);
+		dialogLayout.setAlignItems(Alignment.STRETCH);
+		dialogLayout.getStyle().set("width", "500px").set("max-width", "100%");
+		dialogLayout.getStyle().set("height", "400px%");
+
+		return dialogLayout;
+	}
 
 
 	public void dar_de_baja() {

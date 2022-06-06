@@ -24,7 +24,7 @@ public class Menu_playlist extends VistaMenu_playlist{
 		Lista_de_Playlist lista;
 
 		for (int i = 0; i < 5; i++) {
-			lista = new Lista_de_Playlist();
+			lista = new Lista_de_Playlist(vl);
 			lista.getStyle().set("width","100%");
 			
 			vl.add(lista);

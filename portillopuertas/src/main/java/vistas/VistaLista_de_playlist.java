@@ -16,17 +16,28 @@ import com.vaadin.flow.component.timepicker.TimePicker;
 /**
  * A Designer generated component for the vista-lista_de_playlist template.
  *
- * Designer will add and remove fields with @Id mappings but
- * does not overwrite or otherwise change this file.
+ * Designer will add and remove fields with @Id mappings but does not overwrite
+ * or otherwise change this file.
  */
 @Tag("vista-lista_de_playlist")
 @JsModule("./src/vistas/vista-lista_de_playlist.ts")
 public class VistaLista_de_playlist extends LitTemplate {
+	@Id("tusplaylist_playlist")
+	private HorizontalLayout tusplaylist_playlist;
+
 	/**
-     * Creates a new VistaLista_de_playlist.
-     */
-    public VistaLista_de_playlist() {
-        // You can initialise any data required for the connected UI components here.
-    }
+	 * Creates a new VistaLista_de_playlist.
+	 */
+	public VistaLista_de_playlist() {
+		// You can initialise any data required for the connected UI components here.
+	}
+
+	public HorizontalLayout getTusplaylist_playlist() {
+		return tusplaylist_playlist;
+	}
+
+	public void setTusplaylist_playlist(HorizontalLayout tusplaylist_playlist) {
+		this.tusplaylist_playlist = tusplaylist_playlist;
+	}
 
 }
