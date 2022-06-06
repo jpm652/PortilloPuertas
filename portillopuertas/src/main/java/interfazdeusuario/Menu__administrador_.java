@@ -61,6 +61,7 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 				
 				vlpadre.removeAll();
 				vlpadre.add(config);
+				config.inicializar(vlpadre);
 
 			}
 
