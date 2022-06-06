@@ -21,8 +21,6 @@ public class VistaFavoritos extends LitTemplate {
 
     @Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("titulolabel")
 	private Label titulolabel;
 	@Id("artistalabel")
@@ -35,6 +33,8 @@ public class VistaFavoritos extends LitTemplate {
 	private Button bt_Izq;
 	@Id("bt_Der")
 	private Button bt_Der;
+	@Id("HorizontalCancion")
+	private HorizontalLayout horizontalCancion;
 	/**
      * Creates a new VistaFavoritos.
      */
@@ -46,12 +46,6 @@ public class VistaFavoritos extends LitTemplate {
 	}
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
-	}
-	public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
-	}
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
 	}
 	public Label getTitulolabel() {
 		return titulolabel;
@@ -89,5 +83,13 @@ public class VistaFavoritos extends LitTemplate {
 	public void setBt_Der(Button bt_Der) {
 		this.bt_Der = bt_Der;
 	}
+	public HorizontalLayout getHorizontalCancion() {
+		return horizontalCancion;
+	}
+	public void setHorizontalCancion(HorizontalLayout horizontalCancion) {
+		this.horizontalCancion = horizontalCancion;
+	}
+
+	
 
 }

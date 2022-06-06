@@ -25,10 +25,6 @@ import com.vaadin.flow.component.timepicker.TimePicker;
 public class VistaLista_de_playlist extends LitTemplate {
 	@Id("tusplaylist_playlist")
 	private HorizontalLayout tusplaylist_playlist;
-	@Id("vaadinVerticalLayout")
-	private VerticalLayout vaadinVerticalLayout;
-	@Id("Button_eliminar_playlist")
-	private Button button_eliminar_playlist;
 
 	/**
 	 * Creates a new VistaLista_de_playlist.
@@ -45,22 +41,7 @@ public class VistaLista_de_playlist extends LitTemplate {
 		this.tusplaylist_playlist = tusplaylist_playlist;
 	}
 
-	public VerticalLayout getVaadinVerticalLayout() {
-		return vaadinVerticalLayout;
-	}
 
-	public void setVaadinVerticalLayout(VerticalLayout vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
-	}
-
-	public Button getButton_eliminar_playlist() {
-		return button_eliminar_playlist;
-	}
-
-	public void setButton_eliminar_playlist(Button button_eliminar_playlist) {
-		this.button_eliminar_playlist = button_eliminar_playlist;
-	}
-	
 	
 
 }

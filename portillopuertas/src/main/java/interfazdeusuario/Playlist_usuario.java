@@ -1,8 +1,6 @@
 package interfazdeusuario;
 
-import vistas.VistaPlaylist;
-
-public class Playlist_usuario extends VistaPlaylist{
+public class Playlist_usuario{
 //	private event _eliminar_playlist;
 //	private event _compartir_playlist;
 	public Lista_de_Playlist _lista_de_Playlist;

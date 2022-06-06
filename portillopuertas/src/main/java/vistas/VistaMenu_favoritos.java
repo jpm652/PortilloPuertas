@@ -7,6 +7,7 @@ import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.template.Id;
 import vistas.VistaCabecera_registrado;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.html.Label;
 import vistas.VistaCrear_playlist;
 import com.vaadin.flow.component.html.Hr;
@@ -28,6 +29,8 @@ public class VistaMenu_favoritos extends LitTemplate {
 	private Button reproducirbt;
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
+	@Id("listafav")
+	private VerticalLayout listafav;
 
 	/**
      * Creates a new VistaMenu_favoritos.
@@ -50,6 +53,14 @@ public class VistaMenu_favoritos extends LitTemplate {
 
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public VerticalLayout getListafav() {
+		return listafav;
+	}
+
+	public void setListafav(VerticalLayout listafav) {
+		this.listafav = listafav;
 	}
 
     

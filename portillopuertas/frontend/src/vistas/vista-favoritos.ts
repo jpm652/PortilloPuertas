@@ -15,7 +15,7 @@ export class VistaFavoritos extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="width: 80%; justify-content: flex-start; align-self: center; margin-top: 25px; background:#F0F0F0; height: 50px;">
+ <vaadin-horizontal-layout id="HorizontalCancion" style="width: 80%; justify-content: flex-start; align-self: center; margin-top: 25px; background:#F0F0F0; height: 50px;">
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout11" style="width: 20%;">
    <label style="align-self: center; margin-left: 30px;" id="titulolabel">Titulo cancion</label>
   </vaadin-horizontal-layout>

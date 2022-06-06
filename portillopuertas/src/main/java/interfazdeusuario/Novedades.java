@@ -31,20 +31,13 @@ public class Novedades extends VistaNovedades {
 		scroller.getStyle().set("height", "200px");
 		scroller.getStyle().set("width", "100%");
 
-		//Div div = new Div();
-
 		HorizontalLayout tempHl = new HorizontalLayout();
 		tempHl.getStyle().set("width", "100%");
-		// tempHl.getStyle().set("height", "100%");
-		// tempHl.getStyle().set("padding-left", "3%");
 		
-		for (int i = 0; i < _list_cancion__no_registrado_.size(); i++) {
-			
-			
+		for (int i = 0; i < _list_cancion__no_registrado_.size(); i++) {			
 			tempHl.add(_list_cancion__no_registrado_.get(i));
 		}
 
-		//div.add(tempHl);
 
 		scroller.setContent(tempHl);
 

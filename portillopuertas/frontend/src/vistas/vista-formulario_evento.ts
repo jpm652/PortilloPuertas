@@ -22,20 +22,20 @@ export class VistaFormulario_evento extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100; height: 100%; background:#bababa; align-items: flex-start;">
+<vaadin-vertical-layout style="width: 100; height: 100%; background:#D3E0EA; align-items: flex-start;">
  <label style="font-weight:bold; margin: var(--lumo-space-l);">Próximo Evento</label>
  <vaadin-text-field label="Titulo" style="margin-left: var(--lumo-space-l); width: 30%;" has-value></vaadin-text-field>
  <vaadin-select value="Item one" style="margin-left: var(--lumo-space-l); margin-top: var(--lumo-space-m);" label="Tipo">
   <template>
    <vaadin-list-box selected="0">
     <vaadin-item selected>
-     Festival
+      Festival 
     </vaadin-item>
     <vaadin-item>
-     Concierto
+      Concierto 
     </vaadin-item>
     <vaadin-item>
-     Festival 2
+      Festival 2 
     </vaadin-item>
    </vaadin-list-box>
   </template>
@@ -46,7 +46,7 @@ export class VistaFormulario_evento extends LitElement {
   <vaadin-text-area label="Informacion Adicional" placeholder="Add detailed explanation" style="width: 40%; height: 70%;"></vaadin-text-area>
  </vaadin-horizontal-layout>
  <vaadin-button style="align-self: flex-end; margin: var(--lumo-space-m);">
-  Publicar Evento
+   Publicar Evento 
  </vaadin-button>
 </vaadin-vertical-layout>
 `;

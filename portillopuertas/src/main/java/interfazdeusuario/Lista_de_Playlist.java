@@ -27,13 +27,13 @@ public class Lista_de_Playlist extends VistaLista_de_playlist {
 
 	public void inicializar(VerticalLayout vlpadre) {
 
-		this.getButton_eliminar_playlist().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		this.getTusplaylist_playlist().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 
 			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
+			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
 				vlpadre.removeAll();
 
-				Playlist_usuario playlist = new Playlist_usuario();
+				Iniciar_sesion playlist = new Iniciar_sesion();
 				playlist.getStyle().set("width", "100%").set("height", "100%");
 				vlpadre.add(playlist);
 			}
