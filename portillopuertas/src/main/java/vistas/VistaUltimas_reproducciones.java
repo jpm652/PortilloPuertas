@@ -19,6 +19,23 @@ import com.vaadin.flow.component.orderedlayout.Scroller;
 @JsModule("./src/vistas/vista-ultimas_reproducciones.ts")
 public class VistaUltimas_reproducciones extends LitTemplate {
 
+
+
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("label")
+	private Label label;
+	@Id("hr")
+	private Hr hr;
+	@Id("scroll")
+	private Scroller scroll;
+
+	/**
+     * Creates a new VistaUltimas_reproducciones.
+     */
+    public VistaUltimas_reproducciones() {
+        // You can initialise any data required for the connected UI components here.
+    }
     public HorizontalLayout getVaadinHorizontalLayout() {
 		return vaadinHorizontalLayout;
 	}
@@ -50,21 +67,4 @@ public class VistaUltimas_reproducciones extends LitTemplate {
 	public void setScroll(Scroller scroll) {
 		this.scroll = scroll;
 	}
-
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("label")
-	private Label label;
-	@Id("hr")
-	private Hr hr;
-	@Id("scroll")
-	private Scroller scroll;
-
-	/**
-     * Creates a new VistaUltimas_reproducciones.
-     */
-    public VistaUltimas_reproducciones() {
-        // You can initialise any data required for the connected UI components here.
-    }
-
 }

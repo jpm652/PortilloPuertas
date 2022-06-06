@@ -63,18 +63,18 @@ public class Pagina_principal extends VistaPagina_principal {
 		Scroller scroller = this.getScroller();
 
 		Ultimas_reproducciones ultimas = new Ultimas_reproducciones(vl_centro);
-		Ultimas_reproducciones ultimas2 = new Ultimas_reproducciones(vl_centro);
+		Artistas_seguidos artistasS = new Artistas_seguidos(vl_centro);
 		Ultimas_reproducciones ultimas3 = new Ultimas_reproducciones(vl_centro);
 
 		vl_centro.add(ultimas);
-		vl_centro.add(ultimas2);
+		vl_centro.add(artistasS);
 		vl_centro.add(ultimas3);
 
 		
 		vl_centro.getStyle().set("width","100%");
 		vl_centro.getStyle().set("width", "100%");
 		ultimas.getStyle().set("width", "100%");
-		ultimas2.getStyle().set("width", "100%");
+		artistasS.getStyle().set("width", "100%");
 		ultimas3.getStyle().set("width", "100%");
 
 		scroller.setContent(vl_centro);
