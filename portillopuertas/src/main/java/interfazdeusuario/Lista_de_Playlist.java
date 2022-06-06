@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -26,16 +27,15 @@ public class Lista_de_Playlist extends VistaLista_de_playlist {
 
 	public void inicializar(VerticalLayout vlpadre) {
 
-		this.getTusplaylist_playlist().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
+		this.getButton_eliminar_playlist().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
-			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
+			public void onComponentEvent(ClickEvent<Button> event) {
 				vlpadre.removeAll();
 
-				VistaPlaylist playlist = new VistaPlaylist();
+				Playlist_usuario playlist = new Playlist_usuario();
 				playlist.getStyle().set("width", "100%").set("height", "100%");
 				vlpadre.add(playlist);
-
 			}
 		});
 	}

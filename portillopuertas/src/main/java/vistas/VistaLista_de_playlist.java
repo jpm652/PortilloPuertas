@@ -4,6 +4,7 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.html.Label;
@@ -24,6 +25,10 @@ import com.vaadin.flow.component.timepicker.TimePicker;
 public class VistaLista_de_playlist extends LitTemplate {
 	@Id("tusplaylist_playlist")
 	private HorizontalLayout tusplaylist_playlist;
+	@Id("vaadinVerticalLayout")
+	private VerticalLayout vaadinVerticalLayout;
+	@Id("Button_eliminar_playlist")
+	private Button button_eliminar_playlist;
 
 	/**
 	 * Creates a new VistaLista_de_playlist.
@@ -39,5 +44,23 @@ public class VistaLista_de_playlist extends LitTemplate {
 	public void setTusplaylist_playlist(HorizontalLayout tusplaylist_playlist) {
 		this.tusplaylist_playlist = tusplaylist_playlist;
 	}
+
+	public VerticalLayout getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(VerticalLayout vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public Button getButton_eliminar_playlist() {
+		return button_eliminar_playlist;
+	}
+
+	public void setButton_eliminar_playlist(Button button_eliminar_playlist) {
+		this.button_eliminar_playlist = button_eliminar_playlist;
+	}
+	
+	
 
 }

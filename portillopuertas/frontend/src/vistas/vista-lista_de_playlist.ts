@@ -25,7 +25,7 @@ export class VistaLista_de_playlist extends LitElement {
    <label id="label" style="align-self: center;">n/1000</label>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout3" style="width: 20%; justify-content: space-between;">
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton" style="align-self: center;">
+   <vaadin-button theme="icon" aria-label="Add new" id="Button_eliminar_playlist" style="align-self: center;">
     <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
    </vaadin-button>
    <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton1" style="align-self: center;">
