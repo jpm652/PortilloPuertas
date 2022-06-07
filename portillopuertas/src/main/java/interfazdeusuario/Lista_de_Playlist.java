@@ -21,7 +21,7 @@ public class Lista_de_Playlist extends VistaLista_de_playlist {
 	public Vector<Playlist_usuario> _list_playlist_usuario = new Vector<Playlist_usuario>();
 
 	public Lista_de_Playlist(VerticalLayout vlpadre) {
-		inicializar(new VerticalLayout());
+		inicializar(vlpadre);
 
 	}
 
@@ -33,10 +33,11 @@ public class Lista_de_Playlist extends VistaLista_de_playlist {
 			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
 				vlpadre.removeAll();
 
-				Iniciar_sesion playlist = new Iniciar_sesion();
+				Playlist_usuario playlist = new Playlist_usuario();
 				playlist.getStyle().set("width", "100%").set("height", "100%");
 				vlpadre.add(playlist);
 			}
 		});
+
 	}
 }

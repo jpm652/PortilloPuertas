@@ -2,7 +2,11 @@ package interfazdeusuario;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaCancion_registrado;
 
@@ -44,35 +48,42 @@ public class Cancion__Registrado_ extends VistaCancion_registrado {
 		throw new UnsupportedOperationException();
 	}
 	
-	/*
-	public Vector<Cancion_anterior> _list_Cancion = new Vector<Cancion_anterior>();
-	
-	public void Ultimas_canciones_reproducidas() {
-		
-		CargarCanciones();
-		
-		HorizontalLayout hlSup = this.getContenedorSuperior();
-		
-		for (int i = 0; i < 5 && i < _list_Cancion.size(); i++) {
-			hlSup.add(_list_Cancion.get(i));
-		}
-		
-		HorizontalLayout hlInf = this.getContenedorInferior();
-		
-		for (int i = 5; i < 10 && i < _list_Cancion.size(); i++) {
-			hlInf.add(_list_Cancion.get(i));
-		}
+	public Cancion__Registrado_() {
+		this.getVaadinVerticalLayout().getStyle().set("width", "100%").set("height", "100%");
+		inicializar(new VerticalLayout(), new String());
 	}
+
+	public void inicializar(VerticalLayout vlpadre, String usuario) {
+
+		this.getMin_cancion_registrado().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				vlpadre.removeAll();
+
+				Pagina_principal pagina_p = new Pagina_principal();
+				pagina_p.getStyle().set("width", "100%");
+				pagina_p.getStyle().set("height", "100%");
+				vlpadre.add(pagina_p);
+				pagina_p.inicializar(vlpadre, usuario);
+
+			}
+		});
+
+		this.getCreditos_registrado().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				vlpadre.removeAll();
+
+				Creditos creditos = new Creditos();
+				creditos.getStyle().set("width", "100%").set("height", "100%");
+				vlpadre.add(creditos);
+				creditos.inicializar(vlpadre);
+			}
+		});
 	
-	public void CargarCanciones() {
-		Cancion_anterior temp;
-		
-		for (int i = 0; i < 10; i++) {
-			temp = new Cancion_anterior();
-			
-			_list_Cancion.add(temp);
-		}
 	}
-	*/
-	
 }

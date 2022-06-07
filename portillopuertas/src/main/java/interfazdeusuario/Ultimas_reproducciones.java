@@ -18,14 +18,14 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 	public Vector<Cancion_anterior> _list_cancion__registrado_ = new Vector<Cancion_anterior>();
 	
 	
-	public Ultimas_reproducciones(VerticalLayout vlpadre) {
+	public Ultimas_reproducciones(VerticalLayout vlpadre, String usuario) {
 		
-		inicializar(vlpadre);
+		inicializar(vlpadre, usuario);
 	}
 	
-	public void inicializar(VerticalLayout vlpadre) {
+	public void inicializar(VerticalLayout vlpadre, String usuario) {
 
-		CargarCanciones(vlpadre);
+		CargarCanciones(vlpadre, usuario);
 
 		Scroller scroller = this.getScroll();
 		HorizontalLayout tempHl = new HorizontalLayout();
@@ -43,11 +43,11 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 
 	}
 
-	public void CargarCanciones(VerticalLayout vl) {
+	public void CargarCanciones(VerticalLayout vl, String usuario) {
 		Cancion_anterior cancion;
 
 		for (int i = 0; i < 8; i++) {
-			cancion = new Cancion_anterior(vl);
+			cancion = new Cancion_anterior(vl, "Si", usuario);
 			
 			if(i==2) {
 				cancion.setNombreCancion("Cancion Pepe");	

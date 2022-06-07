@@ -47,9 +47,8 @@ public class Novedades extends VistaNovedades {
 		Cancion_anterior cancion;
 
 		for (int i = 0; i < 5; i++) {
-			cancion = new Cancion_anterior(vl);
+			cancion = new Cancion_anterior(vl, "No", "");
 			cancion.getStyle().set("padding-left", "5%");
-			//cancion.getStyle().set("height", "700px");
 			
 			_list_cancion__no_registrado_.add(cancion);
 		}

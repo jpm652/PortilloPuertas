@@ -25,6 +25,18 @@ import com.vaadin.flow.component.timepicker.TimePicker;
 public class VistaLista_de_playlist extends LitTemplate {
 	@Id("tusplaylist_playlist")
 	private HorizontalLayout tusplaylist_playlist;
+	@Id("nom_playlist")
+	private Label nom_playlist;
+	@Id("img_playlist")
+	private Image img_playlist;
+	@Id("num_canciones_playlist")
+	private Label num_canciones_playlist;
+	@Id("Button_eliminar_playlist")
+	private Button button_eliminar_playlist;
+	@Id("vaadinButton1")
+	private Button vaadinButton1;
+	@Id("cuadro_playlist")
+	private HorizontalLayout cuadro_playlist;
 
 	/**
 	 * Creates a new VistaLista_de_playlist.
@@ -41,7 +53,53 @@ public class VistaLista_de_playlist extends LitTemplate {
 		this.tusplaylist_playlist = tusplaylist_playlist;
 	}
 
+	public Label getNom_playlist() {
+		return nom_playlist;
+	}
+
+	public void setNom_playlist(Label nom_playlist) {
+		this.nom_playlist = nom_playlist;
+	}
+
+	public Image getImg_playlist() {
+		return img_playlist;
+	}
+
+	public void setImg_playlist(Image img_playlist) {
+		this.img_playlist = img_playlist;
+	}
+
+	public Label getNum_canciones_playlist() {
+		return num_canciones_playlist;
+	}
+
+	public void setNum_canciones_playlist(Label num_canciones_playlist) {
+		this.num_canciones_playlist = num_canciones_playlist;
+	}
+
+	public Button getButton_eliminar_playlist() {
+		return button_eliminar_playlist;
+	}
+
+	public void setButton_eliminar_playlist(Button button_eliminar_playlist) {
+		this.button_eliminar_playlist = button_eliminar_playlist;
+	}
+
+	public Button getVaadinButton1() {
+		return vaadinButton1;
+	}
+
+	public void setVaadinButton1(Button vaadinButton1) {
+		this.vaadinButton1 = vaadinButton1;
+	}
+
+	public HorizontalLayout getCuadro_playlist() {
+		return cuadro_playlist;
+	}
+
+	public void setCuadro_playlist(HorizontalLayout cuadro_playlist) {
+		this.cuadro_playlist = cuadro_playlist;
+	}
 
 	
-
 }

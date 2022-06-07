@@ -14,79 +14,91 @@ import com.vaadin.flow.component.progressbar.ProgressBar;
 /**
  * A Designer generated component for the vista-cancion_no_registrado template.
  *
- * Designer will add and remove fields with @Id mappings but
- * does not overwrite or otherwise change this file.
+ * Designer will add and remove fields with @Id mappings but does not overwrite
+ * or otherwise change this file.
  */
 @Tag("vista-cancion_no_registrado")
 @JsModule("./src/vistas/vista-cancion_no_registrado.ts")
 public class VistaCancion_no_registrado extends LitTemplate {
 
-    @Id("vaadinVerticalLayout")
+	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("vistaCabecera_no_registrado")
-	private Element vistaCabecera_no_registrado;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinVerticalLayout1")
-	private Element vaadinVerticalLayout1;
-	@Id("vaadinButton")
-	private Button vaadinButton;
-	@Id("ironIcon")
-	private Element ironIcon;
-	@Id("vaadinVerticalLayout2")
-	private Element vaadinVerticalLayout2;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
-	@Id("img")
-	private Image img;
-	@Id("label1")
-	private Label label1;
+	@Id("creditos_no_registrado")
+	private Button creditos_no_registrado;
+	@Id("img_canc_noReg")
+	private Image img_canc_noReg;
+	@Id("nom2__canc_noReg")
+	private Label nom2__canc_noReg;
+	@Id("nom_canc_noReg")
+	private Label nom_canc_noReg;
+	@Id("artista_canc_noReg")
+	private Label artista_canc_noReg;
+	@Id("min_cancion_no_registrado")
+	private Button min_cancion_no_registrado;
 	@Id("vaadinProgressBar")
 	private ProgressBar vaadinProgressBar;
-	@Id("vaadinHorizontalLayout2")
-	private HorizontalLayout vaadinHorizontalLayout2;
-	@Id("vaadinHorizontalLayout3")
-	private HorizontalLayout vaadinHorizontalLayout3;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
-	@Id("vaadinButton2")
-	private Button vaadinButton2;
-	@Id("ironIcon1")
-	private Element ironIcon1;
-	@Id("ironIcon2")
-	private Element ironIcon2;
-	@Id("vaadinButton3")
-	private Button vaadinButton3;
-	@Id("ironIcon3")
-	private Element ironIcon3;
-	@Id("vaadinButton4")
-	private Button vaadinButton4;
-	@Id("ironIcon4")
-	private Element ironIcon4;
-	@Id("vaadinButton5")
-	private Button vaadinButton5;
-	@Id("ironIcon5")
-	private Element ironIcon5;
-	@Id("vaadinHorizontalLayout4")
-	private HorizontalLayout vaadinHorizontalLayout4;
-	@Id("vaadinButton6")
-	private Button vaadinButton6;
-	@Id("ironIcon6")
-	private Element ironIcon6;
-	@Id("vaadinButton7")
-	private Button vaadinButton7;
-	@Id("ironIcon7")
-	private Element ironIcon7;
-	@Id("vaadinButton8")
-	private Button vaadinButton8;
-	@Id("ironIcon8")
-	private Element ironIcon8;
 
 	/**
-     * Creates a new VistaCancion_no_registrado.
-     */
-    public VistaCancion_no_registrado() {
-        // You can initialise any data required for the connected UI components here.
-    }
+	 * Creates a new VistaCancion_no_registrado.
+	 */
+	public VistaCancion_no_registrado() {
+		// You can initialise any data required for the connected UI components here.
+	}
+
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public Button getCreditos_no_registrado() {
+		return creditos_no_registrado;
+	}
+
+	public void setCreditos_no_registrado(Button creditos_no_registrado) {
+		this.creditos_no_registrado = creditos_no_registrado;
+	}
+
+	public Image getImg_canc_noReg() {
+		return img_canc_noReg;
+	}
+
+	public void setImg_canc_noReg(Image img_canc_noReg) {
+		this.img_canc_noReg = img_canc_noReg;
+	}
+
+	public Label getNom2__canc_noReg() {
+		return nom2__canc_noReg;
+	}
+
+	public void setNom2__canc_noReg(Label nom2__canc_noReg) {
+		this.nom2__canc_noReg = nom2__canc_noReg;
+	}
+
+	public Label getNom_canc_noReg() {
+		return nom_canc_noReg;
+	}
+
+	public void setNom_canc_noReg(Label nom_canc_noReg) {
+		this.nom_canc_noReg = nom_canc_noReg;
+	}
+
+	public Label getArtista_canc_noReg() {
+		return artista_canc_noReg;
+	}
+
+	public void setArtista_canc_noReg(Label artista_canc_noReg) {
+		this.artista_canc_noReg = artista_canc_noReg;
+	}
+
+	public Button getMin_cancion_no_registrado() {
+		return min_cancion_no_registrado;
+	}
+
+	public void setMin_cancion_no_registrado(Button min_cancion_no_registrado) {
+		this.min_cancion_no_registrado = min_cancion_no_registrado;
+	}
 
 }

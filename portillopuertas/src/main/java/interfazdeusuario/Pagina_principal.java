@@ -49,7 +49,7 @@ public class Pagina_principal extends VistaPagina_principal {
 		VerticalLayout vl_centro = new VerticalLayout();
 
 		cabecera(vl_centro, usuario);
-		centro(vl_centro);
+		centro(vl_centro, usuario);
 		barra();
 
 	}
@@ -69,12 +69,12 @@ public class Pagina_principal extends VistaPagina_principal {
 		cr.inicializar(vl_centro, usuario);
 	}
 
-	public void centro(VerticalLayout vl_centro) {
+	public void centro(VerticalLayout vl_centro, String usuario) {
 
 		// Se introducen listas en la seccion central de la pagina
 		Scroller scroller = this.getScroller();
 
-		Ultimas_reproducciones ultimas = new Ultimas_reproducciones(vl_centro);
+		Ultimas_reproducciones ultimas = new Ultimas_reproducciones(vl_centro, usuario);
 		Artistas_seguidos artistasS = new Artistas_seguidos(vl_centro);
 		Albumes albumes = new Albumes(vl_centro);
 

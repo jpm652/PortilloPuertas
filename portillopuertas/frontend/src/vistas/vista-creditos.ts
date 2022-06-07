@@ -1,7 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-cabecera_registrado';
-import './vista-barra_reproduccion';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-creditos')
 export class VistaCreditos extends LitElement {
@@ -17,10 +16,14 @@ export class VistaCreditos extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <vista-cabecera_registrado id="vistaCabecera_registrado" style="width: 100%; height: 77px;"></vista-cabecera_registrado>
  <vaadin-vertical-layout theme="spacing" style="height: 100%; width: 100%;" id="vaadinVerticalLayout1">
   <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-direction: column;" id="vaadinHorizontalLayout">
-   <label id="label" style="margin-top: 50px;">Créditos</label>
+   <vaadin-horizontal-layout theme="spacing" style="flex-direction: row;">
+    <label id="label" style="margin-top: 50px; font-size:30px; font-weight:bold;">Créditos</label>
+    <vaadin-button theme="icon" aria-label="Add new" style="width: 50px; height: 50px; flex-shrink: 1; background:#276678; margin-left: 85%; align-self: center; flex-grow: 0;" id="min_creditos_no_registrado">
+     <iron-icon id="ironIcon" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-min.png?raw=true"></iron-icon>
+    </vaadin-button>
+   </vaadin-horizontal-layout>
    <hr style="width: 80%;" id="hr">
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; flex-direction: column; align-items: center;" id="vaadinHorizontalLayout1">
@@ -45,9 +48,6 @@ export class VistaCreditos extends LitElement {
     <label id="label8">Nombre Intérpretes</label>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; justify-content: flex-end;" id="vaadinVerticalLayout5">
-   <vista-barra_reproduccion id="vistaBarra_reproduccion" style="width: 100%;"></vista-barra_reproduccion>
-  </vaadin-vertical-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;

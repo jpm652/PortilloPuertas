@@ -126,7 +126,6 @@ public class Registrarse extends VistaRegistrarse {
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
 							"Se ha enviado un mensaje a su correo electronico para validar su cuenta.");
 					dialog.add(dialogLayout);
-					//dialog.;
 					vlpadre.add(dialog);
 					dialog.open();
 
