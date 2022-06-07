@@ -25,6 +25,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	}
 
 	public void iniciarSesionUsuario(String aNombreUsuario, String aContrasena) {
+		
 		throw new UnsupportedOperationException();
 	}
 
