@@ -10,6 +10,10 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+
+import basededatos.BDPrincipal;
+import basededatos.iUsuario_registrado;
+
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 
 import vistas.VistaIniciar_sesion;
@@ -27,6 +31,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	public Cabecera__No_registrado_ _cabecera__No_registrado_;
 	public Registrarse _registrarse;
 	public Recordar_clave _recordar_clave;
+	iUsuario_registrado _iUser = new BDPrincipal();
 
 	public Iniciar_sesion() {
 		inicializar(new VerticalLayout());
@@ -77,37 +82,39 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				if (getCorreo_inicarsesion().getValue().equals("usuario")) {
-
-					vlpadre.removeAll();
-
-					Pagina_principal pagina_p = new Pagina_principal();
-					pagina_p.getStyle().set("width", "100%");
-					pagina_p.getStyle().set("height", "100%");
-					vlpadre.add(pagina_p);
-					pagina_p.inicializar(vlpadre, "usuario");
-
-				} else if (getCorreo_inicarsesion().getValue().equals("artista")) {
-
-					vlpadre.removeAll();
-
-					Pagina_principal pagina_p2 = new Pagina_principal();
-					pagina_p2.getStyle().set("width", "100%");
-					pagina_p2.getStyle().set("height", "100%");
-					vlpadre.add(pagina_p2);
-					pagina_p2.inicializar(vlpadre, "artista");
-
-				} else if (getCorreo_inicarsesion().getValue().equals("admin")) {
-
-					vlpadre.removeAll();
-
-					Pagina_principal pagina_p3 = new Pagina_principal();
-					pagina_p3.getStyle().set("width", "100%");
-					pagina_p3.getStyle().set("height", "100%");
-					vlpadre.add(pagina_p3);
-					pagina_p3.inicializar(vlpadre, "admin");
-
-				}
+				
+				_iUser.iniciarSesionUsuario(getCorreo_inicarsesion().getValue(), getClave_iniciarsesion().getValue());
+//				if (getCorreo_inicarsesion().getValue().equals("usuario")) {
+//
+//					vlpadre.removeAll();
+//
+//					Pagina_principal pagina_p = new Pagina_principal();
+//					pagina_p.getStyle().set("width", "100%");
+//					pagina_p.getStyle().set("height", "100%");
+//					vlpadre.add(pagina_p);
+//					pagina_p.inicializar(vlpadre, "usuario");
+//
+//				} else if (getCorreo_inicarsesion().getValue().equals("artista")) {
+//
+//					vlpadre.removeAll();
+//
+//					Pagina_principal pagina_p2 = new Pagina_principal();
+//					pagina_p2.getStyle().set("width", "100%");
+//					pagina_p2.getStyle().set("height", "100%");
+//					vlpadre.add(pagina_p2);
+//					pagina_p2.inicializar(vlpadre, "artista");
+//
+//				} else if (getCorreo_inicarsesion().getValue().equals("admin")) {
+//
+//					vlpadre.removeAll();
+//
+//					Pagina_principal pagina_p3 = new Pagina_principal();
+//					pagina_p3.getStyle().set("width", "100%");
+//					pagina_p3.getStyle().set("height", "100%");
+//					vlpadre.add(pagina_p3);
+//					pagina_p3.inicializar(vlpadre, "admin");
+//
+//				}
 
 			}
 		});

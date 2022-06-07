@@ -2,6 +2,8 @@ package basededatos;
 
 import java.util.List;
 
+import org.orm.PersistentException;
+
 import interfazdeusuario.Cancion__Registrado_;
 import interfazdeusuario.Eventos;
 import interfazdeusuario.artista;
@@ -9,7 +11,7 @@ import interfazdeusuario.artista;
 public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado, iAdministrador, iArtista, iAplicaciones_Terceros, iServidor_Correo_ {
 	public BD_Cancion _bd_cancion;
 	public BD_Album _bd_album;
-	public BD_UsuarioRegistrado _bd_usuario_registrado;
+	public BD_UsuarioRegistrado _bd_usuario_registrado = new BD_UsuarioRegistrado();
 	public BD_Playlist _bd_playlist;
 	public BD_Artista _bd_artista;
 	public BD_Administrador _bd_administrador;
@@ -45,8 +47,13 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	}
 
 	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena) {
-		throw new UnsupportedOperationException();
-	}
+		try {
+			_bd_usuario_registrado.Registrarse(aCorreo,aNombreUsuario,aContrasena);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		}
 
 	public void editarContrasena(int aId_usuario, String aAntiguaContrasena, String aNuevaContrasena) {
 		throw new UnsupportedOperationException();

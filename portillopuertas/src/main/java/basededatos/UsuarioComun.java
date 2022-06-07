@@ -74,7 +74,7 @@ public class UsuarioComun implements Serializable {
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_crea_playlist = new java.util.HashSet();
 	
-	private void setId(int value) {
+	public void setId(int value) {
 		this.id = value;
 	}
 	

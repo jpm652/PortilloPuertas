@@ -14,6 +14,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.RouteConfiguration;
 
+import basededatos.BDPrincipal;
+import basededatos.BD_UsuarioRegistrado;
+import basededatos.iUsuario_registrado;
 import vistas.VistaRegistrarse;
 
 public class Registrarse extends VistaRegistrarse {
@@ -32,7 +35,8 @@ public class Registrarse extends VistaRegistrarse {
 //	private Button _iniciar_sesionB;
 	public Cabecera__No_registrado_ _cabecera__No_registrado_;
 	public Iniciar_sesion _iniciar_sesion;
-
+	iUsuario_registrado _iUser = new BDPrincipal();
+	
 	public Registrarse() {
 		inicializar(new VerticalLayout());
 
@@ -119,17 +123,19 @@ public class Registrarse extends VistaRegistrarse {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				if (getCorreo_registro().getValue().equals("exito")) {
-
-					Dialog dialog = new Dialog();
-
-					VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
-							"Se ha enviado un mensaje a su correo electronico para validar su cuenta.");
-					dialog.add(dialogLayout);
-					vlpadre.add(dialog);
-					dialog.open();
-
-				}
+				
+				_iUser.Registrarse(getCorreo_registro().getValue(),getNombre_registro().getValue(),getClave_registro().getValue());
+//				if (getCorreo_registro().getValue().equals("exito")) {
+//
+//					Dialog dialog = new Dialog();
+//
+//					VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
+//							"Se ha enviado un mensaje a su correo electronico para validar su cuenta.");
+//					dialog.add(dialogLayout);
+//					vlpadre.add(dialog);
+//					dialog.open();
+//
+//				}
 
 			}
 		});
