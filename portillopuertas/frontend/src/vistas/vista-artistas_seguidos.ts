@@ -14,7 +14,7 @@ export class VistaArtistas_seguidos extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+<vaadin-vertical-layout style="width: 100%;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-shrink: 1; justify-content: flex-start; align-items: center; flex-direction: column;" id="vaadinHorizontalLayout">
   <label style="flex-shrink: 1; width: 100%; align-self: flex-start; font-size:20px; font-weight:bold;" id="label">Artistas que sigues</label>
   <hr style="width: 80%; align-self: center;" id="hr">

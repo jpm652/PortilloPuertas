@@ -28,18 +28,15 @@ public class Menu__artista_ extends VistaMenu_artista {
 
 				Menu_playlist menu_playlist = new Menu_playlist();
 				menu_playlist.getStyle().set("width", "100%");
-				
 				vlpadre.removeAll();
 				vlpadre.add(menu_playlist);
 				
-				
-				
-				for(int i=1; i<=5; i++) {
-					
-					Lista_de_Playlist lista = new Lista_de_Playlist(vlpadre);
-					lista.getStyle().set("width", "100%");
-					vlpadre.add(lista);
-				}
+//				for(int i=1; i<=5; i++) {
+//					
+//					Lista_de_Playlist lista = new Lista_de_Playlist(vlpadre);
+//					lista.getStyle().set("width", "100%");
+//					vlpadre.add(lista);
+//				}
 				
 
 			}
@@ -83,7 +80,7 @@ public class Menu__artista_ extends VistaMenu_artista {
 				config.getStyle().set("width","100%");
 				vlpadre.removeAll();
 				vlpadre.add(config);
-
+				config.inicializar(vlpadre);
 			}
 
 		});

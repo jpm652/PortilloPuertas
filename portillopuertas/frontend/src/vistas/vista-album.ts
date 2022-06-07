@@ -1,12 +1,10 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-cabecera_registrado';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-list-box/src/vaadin-list-box.js';
 import '@vaadin/vaadin-board/src/vaadin-board.js';
 import '@vaadin/vaadin-item/src/vaadin-item.js';
-import './vista-barra_reproduccion';
 
 @customElement('vista-album')
 export class VistaAlbum extends LitElement {
@@ -23,7 +21,6 @@ export class VistaAlbum extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;background: linear-gradient(to bottom, #d3e0ea,#f6f5f5);
 ">
- <vista-cabecera_registrado id="vistaCabecera_registrado" style="width: 100%; height: 77px;"></vista-cabecera_registrado>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
   <img id="img" style="width: 150px; height: 150px; margin-top: 100px; margin-left: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
   <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout" style="justify-content: space-around;">
@@ -60,7 +57,6 @@ export class VistaAlbum extends LitElement {
   </vaadin-item>
   <vaadin-board id="vaadinBoard"></vaadin-board>
  </vaadin-list-box>
- <vista-barra_reproduccion id="vistaBarra_reproduccion" style="width: 100%; margin-top: 110px;"></vista-barra_reproduccion>
 </vaadin-vertical-layout>
 `;
   }

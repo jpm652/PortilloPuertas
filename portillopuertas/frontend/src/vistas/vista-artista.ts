@@ -7,7 +7,6 @@ import './vista-albumes';
 import './vista-playlist_donde_aparece';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@polymer/iron-icon/iron-icon.js';
-import './vista-barra_reproduccion';
 import './vista-datos_evento';
 
 @customElement('vista-artista')
@@ -23,7 +22,7 @@ export class VistaArtista extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; background-image: linear-gradient(to bottom right, #1687A7, #D3E0EA);" id="vaadinVerticalLayout">
+<vaadin-vertical-layout style="width: 100%; height: 100%; background:#D3E0EA;" id="vaadinVerticalLayout">
  <vista-datos_artista id="vistaDatos_artista" style="width: 100%; height: 400px;"></vista-datos_artista>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%;">
   <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 60%;">
@@ -52,7 +51,6 @@ export class VistaArtista extends LitElement {
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
  <vista-datos_evento id="vistaDatos_evento" style="width: 90%; align-self: center; margin-top: 50px;"></vista-datos_evento>
- <vista-barra_reproduccion id="vistaBarra_reproduccion" style="width: 100%; margin-top: 110px;"></vista-barra_reproduccion>
 </vaadin-vertical-layout>
 `;
   }

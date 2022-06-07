@@ -12,60 +12,57 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.RouterLink;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-retroceder_10s template.
  *
- * Designer will add and remove fields with @Id mappings but
- * does not overwrite or otherwise change this file.
+ * Designer will add and remove fields with @Id mappings but does not overwrite
+ * or otherwise change this file.
  */
 @Tag("vista-retroceder_10s")
 @JsModule("./src/vistas/vista-retroceder_10s.ts")
-public class VistaRetroceder_10s extends AppLayout  {
+public class VistaRetroceder_10s extends LitTemplate {
 
-    /**
-     * Creates a new VistaRetroceder_10s.
-     */
-    public VistaRetroceder_10s() {
-    	DrawerToggle toggle = new DrawerToggle();
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
+	@Id("imgCancion")
+	private Image imgCancion;
+	@Id("nombreCancion")
+	private Label nombreCancion;
 
-        Tabs tabs = getTabs();
+	/**
+	 * Creates a new VistaRetroceder_10s.
+	 */
+	public VistaRetroceder_10s() {
 
-        addToDrawer(tabs);
-        addToNavbar(toggle);
-    }
-    
-    private Tabs getTabs() {
-        Tabs tabs = new Tabs();
-        tabs.add(
-          createTab(VaadinIcon.DASHBOARD, "Dashboard"),
-          createTab(VaadinIcon.CART, "Orders"),
-          createTab(VaadinIcon.USER_HEART, "Customers"),
-          createTab(VaadinIcon.PACKAGE, "Products"),
-          createTab(VaadinIcon.RECORDS, "Documents"),
-          createTab(VaadinIcon.LIST, "Tasks"),
-          createTab(VaadinIcon.CHART, "Analytics")
-        );
-        tabs.setOrientation(Tabs.Orientation.VERTICAL);
-        return tabs;
-      }
+	}
 
-      private Tab createTab(VaadinIcon viewIcon, String viewName) {
-        Icon icon = viewIcon.create();
-        icon.getStyle()
-          .set("box-sizing", "border-box")
-          .set("margin-inline-end", "var(--lumo-space-m)")
-          .set("margin-inline-start", "var(--lumo-space-xs)")
-          .set("padding", "var(--lumo-space-xs)");
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
 
-        RouterLink link = new RouterLink();
-        link.add(icon, new Span(viewName));
-        // Demo has no routes
-        // link.setRoute(viewClass.java);
-        link.setTabIndex(-1);
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
 
-        return new Tab(link);
-      }
-      
+	public Image getImgCancion() {
+		return imgCancion;
+	}
+
+	public void setImgCancion(Image imgCancion) {
+		this.imgCancion = imgCancion;
+	}
+
+	public Label getNombreCancion() {
+		return nombreCancion;
+	}
+
+	public void setNombreCancion(Label nombreCancion) {
+		this.nombreCancion = nombreCancion;
+	}
 
 }

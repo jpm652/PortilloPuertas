@@ -17,6 +17,7 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 	public Pagina_principal _pagina_principal;
 	public Vector<Cancion_anterior> _list_cancion__registrado_ = new Vector<Cancion_anterior>();
 	
+	
 	public Ultimas_reproducciones(VerticalLayout vlpadre) {
 		
 		inicializar(vlpadre);

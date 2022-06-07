@@ -20,6 +20,7 @@ public class Artistas_seguidos extends VistaArtistas_seguidos{
 	}
 	
 	public void inicializar(VerticalLayout vlpadre) {
+		
 		CargarArtistas(vlpadre);
 		
 		Scroller scroller = this.getScroll();
@@ -35,7 +36,6 @@ public class Artistas_seguidos extends VistaArtistas_seguidos{
 		}
 		scroller.setContent(tempHl);
 	}
-	
 
 	public void CargarArtistas(VerticalLayout vl) {
 		Siguiente_cancion artista;

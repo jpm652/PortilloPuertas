@@ -23,43 +23,6 @@ import vistas.VistaBarra_reproduccion;
 @JsModule("./src/vistas/vista-album.ts")
 public class VistaAlbum extends LitTemplate {
 
-    @Id("vistaCabecera_registrado")
-	private VistaCabecera_registrado vistaCabecera_registrado;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("img")
-	private Image img;
-	@Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
-	@Id("label")
-	private Label label;
-	@Id("label1")
-	private Label label1;
-	@Id("label2")
-	private Label label2;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
-	@Id("vaadinButton")
-	private Button vaadinButton;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
-	@Id("vaadinButton2")
-	private Button vaadinButton2;
-	@Id("vaadinListBox")
-	private Element vaadinListBox;
-	@Id("vaadinItem")
-	private Element vaadinItem;
-	@Id("vaadinItem1")
-	private Element vaadinItem1;
-	@Id("vaadinItem2")
-	private Element vaadinItem2;
-	@Id("vaadinItem3")
-	private Element vaadinItem3;
-	@Id("vaadinBoard")
-	private Board vaadinBoard;
-	@Id("vistaBarra_reproduccion")
-	private VistaBarra_reproduccion vistaBarra_reproduccion;
-
 	/**
      * Creates a new VistaAlbum.
      */

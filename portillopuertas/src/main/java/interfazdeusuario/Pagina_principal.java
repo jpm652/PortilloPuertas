@@ -36,16 +36,25 @@ public class Pagina_principal extends VistaPagina_principal {
 	Barra_reproduccion barra_reproduccion = new Barra_reproduccion();
 
 	public Pagina_principal() {
-		inicializar(new VerticalLayout(), new String());
-	}
-
-	public void inicializar(VerticalLayout vlpadre, String usuario) {
 
 		this.getVaadinVerticalLayout().getStyle().set("width", "100%");
 		this.getVaadinVerticalLayout().getStyle().set("height", "100%");
 		this.getVaadinVerticalLayout().getStyle().set("padding", "0");
 
+		inicializar(new VerticalLayout(), new String());
+	}
+
+	public void inicializar(VerticalLayout vlpadre, String usuario) {
+
 		VerticalLayout vl_centro = new VerticalLayout();
+
+		cabecera(vl_centro, usuario);
+		centro(vl_centro);
+		barra();
+
+	}
+
+	public void cabecera(VerticalLayout vl_centro, String usuario) {
 
 		// Se introduce cabecera en pagina principal
 		VerticalLayout vl_cabecera = this.getVl_cabecera().as(VerticalLayout.class);
@@ -58,27 +67,32 @@ public class Pagina_principal extends VistaPagina_principal {
 		cr.getStyle().set("padding", "0");
 		vl_cabecera.add(cr);
 		cr.inicializar(vl_centro, usuario);
+	}
+
+	public void centro(VerticalLayout vl_centro) {
 
 		// Se introducen listas en la seccion central de la pagina
 		Scroller scroller = this.getScroller();
 
 		Ultimas_reproducciones ultimas = new Ultimas_reproducciones(vl_centro);
 		Artistas_seguidos artistasS = new Artistas_seguidos(vl_centro);
-		Ultimas_reproducciones ultimas3 = new Ultimas_reproducciones(vl_centro);
+		Albumes albumes = new Albumes(vl_centro);
 
 		vl_centro.add(ultimas);
 		vl_centro.add(artistasS);
-		vl_centro.add(ultimas3);
+		vl_centro.add(albumes);
 
-		
-		vl_centro.getStyle().set("width","100%");
+		vl_centro.getStyle().set("width", "100%");
 		vl_centro.getStyle().set("width", "100%");
 		ultimas.getStyle().set("width", "100%");
 		artistasS.getStyle().set("width", "100%");
-		ultimas3.getStyle().set("width", "100%");
+		albumes.getStyle().set("width", "100%");
 
 		scroller.setContent(vl_centro);
-		
+	}
+
+	public void barra() {
+
 		// Se introduce la barra de reproduccion en pagina principal
 		VerticalLayout vl_reproductor = this.getVl_reproductor().as(VerticalLayout.class);
 		vl_reproductor.getStyle().set("width", "100%");
@@ -89,6 +103,5 @@ public class Pagina_principal extends VistaPagina_principal {
 		barra_reproduccion.getStyle().set("height", "100%");
 		barra_reproduccion.getStyle().set("padding", "0");
 		vl_reproductor.add(barra_reproduccion);
-
 	}
 }

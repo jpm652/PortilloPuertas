@@ -24,54 +24,12 @@ export class VistaRetroceder_10s extends LitElement {
   }
 
   render() {
-    return html`<vaadin-app-layout>
-        <vaadin-drawer-toggle slot="navbar"></vaadin-drawer-toggle>
-        <vaadin-tabs slot="drawer" orientation="vertical">
-          <vaadin-tab>
-            <a tabindex="-1">
-              <vaadin-icon icon="vaadin:dashboard"></vaadin-icon>
-              <span>Dashboard</span>
-            </a>
-          </vaadin-tab>
-          <vaadin-tab>
-            <a tabindex="-1">
-              <vaadin-icon icon="vaadin:cart"></vaadin-icon>
-              <span>Orders</span>
-            </a>
-          </vaadin-tab>
-          <vaadin-tab>
-            <a tabindex="-1">
-              <vaadin-icon icon="vaadin:user-heart"></vaadin-icon>
-              <span>Customers</span>
-            </a>
-          </vaadin-tab>
-          <vaadin-tab>
-            <a tabindex="-1">
-              <vaadin-icon icon="vaadin:package"></vaadin-icon>
-              <span>Products</span>
-            </a>
-          </vaadin-tab>
-          <vaadin-tab>
-            <a tabindex="-1">
-              <vaadin-icon icon="vaadin:records"></vaadin-icon>
-              <span>Documents</span>
-            </a>
-          </vaadin-tab>
-          <vaadin-tab>
-            <a tabindex="-1">
-              <vaadin-icon icon="vaadin:list"></vaadin-icon>
-              <span>Tasks</span>
-            </a>
-          </vaadin-tab>
-          <vaadin-tab>
-            <a tabindex="-1">
-              <vaadin-icon icon="vaadin:chart"></vaadin-icon>
-              <span>Analytics</span>
-            </a>
-          </vaadin-tab>
-        </vaadin-tabs>
-      </vaadin-app-layout>
-    `;
+    return html`
+<vaadin-vertical-layout style="width: 20%; height: 50%; align-items: center; justify-content: center;" id="vaadinVerticalLayout">
+ <img id="imgCancion" style="width: 90%; height: 50%;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+ <label id="nombreCancion" style="margin: var(--lumo-space-s);">Album</label>
+</vaadin-vertical-layout>
+`;
   }
 
   // Remove this method to render the contents of this view inside Shadow DOM

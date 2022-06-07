@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.dialog.DialogVariant;
 import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -34,8 +35,6 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 
 	public void inicializar(VerticalLayout vlpadre, String usuario) {
 
-//		Label label = new Label();
-//		label.setText(usuario);
 		this.setNomb_user_cabecera(usuario);
 		
 		this.getMenu_user().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -87,120 +86,25 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 					vlpadre.add(dialog);
 					dialog.open();
 				}
-//				HorizontalLayout hl = new HorizontalLayout();
-//				HorizontalLayout hl2 = new HorizontalLayout();
-//				VerticalLayout vl1 = new VerticalLayout();
-//				VerticalLayout vl2 = new VerticalLayout();
-//
-//				Menu menu = new Menu();
-//				menu.getStyle().set("width", "400%");   
-//				menu.getStyle().set("height", "100%");
-//
-//				menu.inicializar(vlpadre);
-//				vlpadre.removeAll();
-
-//				Ultimas_reproducciones ultimas = new Ultimas_reproducciones(vl1);
-//				Ultimas_reproducciones ultimas2 = new Ultimas_reproducciones(vl1);
-//				Ultimas_reproducciones ultimas3 = new Ultimas_reproducciones(vl1);
-//
-//				vl1.add(ultimas);
-//				vl1.add(ultimas2);
-//				vl1.add(ultimas3);
-
-//				vl2.add(menu);
-
-//				ultimas.getStyle().set("width", "100%");
-//				ultimas2.getStyle().set("width", "100%");
-//				ultimas3.getStyle().set("width", "100%");
-//				hl.getStyle().set("width", "81%");
-//				hl.add(vl1);
-//				hl.add(hl2);
-//				hl2.add(vl2);
-
-				// vl2.add(menu);
-//				vlpadre.add(hl);
-//				HorizontalLayout hl = new HorizontalLayout();
-//				VerticalLayout vl1 = new VerticalLayout();
-//				vl1.getStyle(). set("width", "60%");
-
-//				Pagina_principal pagina_p = new Pagina_principal();
-//				pagina_p.getStyle().set("width", "60%");
-//				pagina_p.getStyle().set("height", "100%");
-//				
-//				pagina_p.inicializar(vlpadre);
-//				hl.add(pagina_p);
-
-//				VerticalLayout vl2 = new VerticalLayout();
-//				vl2.getStyle(). set("width", "40%");
-//				vl2.add(menu);
-//				hl.add(menu);
-//				hl.add(vl2);
-
-				// vlpadre.removeAll();
-
-				// vlpadre.add(menu);
-
-//				Dialog dialog = new Dialog();
-//				Menu menu = new Menu();
-//				menu.getStyle().set("width", "100%");   
-//				menu.getStyle().set("height", "100%");
-//				menu.inicializar(vlpadre);
-				// VerticalLayout vl = rec.getVaadinVerticalLayout().as(VerticalLayout.class);
-				
-//				TextField correo = new TextField();
-//				VerticalLayout dialogLayout = createDialogLayout(dialog, "Recordar clave",
-//						"Por favor, ingrese el correo al que esta asociado la cuenta");
-//				correo.getStyle().set("width", "70%");
-//				dialog.add(dialogLayout);
-//				dialog.add(correo);
-				
-//				dialog.add(menu);
-				
-//				Button closeButton = new Button("Enviar");
-//				closeButton.addClickListener(e -> dialog.close());
-//				closeButton.getStyle().set("margin-left", "20px").set("width", "120px");
-//				dialog.add(closeButton);
-//				
-//				vlpadre.add(dialog);
-//				dialog.open();
 
 			}
 		});
 
-//		this.getNotificacion_Pp().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				
-//				vlpadre.removeAll();
-//		    	
-//				Registrarse registrarse = new Registrarse();
-//		    	registrarse.getStyle().set("width", "100%");   
-//		    	registrarse.getStyle().set("height", "100%");
-//		    	registrarse.getStyle().set("padding", "0");
-//		    	vlpadre.add(registrarse);
-//		    	registrarse.inicializar(vlpadre);
-//			}
-//		});
+		this.getImg_cabecera_registrado().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Image> event) {
+				
+				vlpadre.removeAll();
 
+				Pagina_principal pagina_p = new Pagina_principal();
+				pagina_p.getStyle().set("width", "100%");
+				pagina_p.getStyle().set("height", "100%");
+				vlpadre.add(pagina_p);
+				pagina_p.inicializar(vlpadre, usuario);
+				// pagina_p.centro(vlpadre);
+				
+			}
+		});
 	}
-
-//	private static VerticalLayout createDialogLayout(Dialog dialog, String titulo, String mensaje) {
-//		H2 headline = new H2(titulo);
-//		headline.getStyle().set("margin", "var(--lumo-space-m) 0").set("font-size", "1.5em").set("font-weight", "bold");
-//
-//		Paragraph paragraph = new Paragraph(mensaje);
-//
-//		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph); // menu.getVaadinVerticalLayout().as(VerticalLayout.class);
-//																				// //new VerticalLayout(headline,
-//																				// paragraph, closeButton);
-//
-//		dialogLayout.setPadding(false);
-//		dialogLayout.setAlignItems(Alignment.STRETCH);
-//		dialogLayout.getStyle().set("width", "500px").set("max-width", "100%");
-//		dialogLayout.getStyle().set("height", "400px%");
-//
-////	dialogLayout.setAlignSelf(Alignment.END, closeButton);
-//
-//		return dialogLayout;
-//	}
 }

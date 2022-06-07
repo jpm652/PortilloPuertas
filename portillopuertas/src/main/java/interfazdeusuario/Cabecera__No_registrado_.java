@@ -34,22 +34,22 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado {
 
 		// Inicializar click img logo
 
-//		this.getImg_logo_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
-//			
-//			@Override
-//			public void onComponentEvent(ClickEvent<Image> event) {
-//				
-//				vlpadre.removeAll();
-//		    	
-//				Pagina_Principal__No_registrado_ pagina_no_registrado = new Pagina_Principal__No_registrado_();
-//				pagina_no_registrado.getStyle().set("width", "100%");   
-//				pagina_no_registrado.getStyle().set("height", "100%");
-//				pagina_no_registrado.getStyle().set("padding", "0");
-//		    	vlpadre.add(pagina_no_registrado);
+		this.getImg_logo_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Image> event) {
+				
+				vlpadre.removeAll();
+		    	
+				Pagina_Principal__No_registrado_ pagina_no_registrado = new Pagina_Principal__No_registrado_();
+				pagina_no_registrado.getStyle().set("width", "100%");   
+				pagina_no_registrado.getStyle().set("height", "100%");
+				pagina_no_registrado.getStyle().set("padding", "0");
+		    	vlpadre.add(pagina_no_registrado);
 //		    	pagina_no_registrado.inicializar();
-//				
-//			}
-//		});
+				
+			}
+		});
 
 		// Inicar evento boton registrarse
 		this.getButton_registrarse_cabecera().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -81,14 +81,6 @@ public class Cabecera__No_registrado_ extends VistaCabecera_no_registrado {
 				iniciar_sesion.getStyle().set("padding", "0");
 				vlpadre.add(iniciar_sesion);
 				iniciar_sesion.inicializar(vlpadre);
-				
-//				vlpadre.removeAll();
-
-//				Pagina_principal pagina_p = new Pagina_principal();
-//				pagina_p.getStyle().set("width", "100%");
-//				pagina_p.getStyle().set("height", "100%");
-//				vlpadre.add(pagina_p);
-//				pagina_p.inicializar(vlpadre);
 
 			}
 		});
