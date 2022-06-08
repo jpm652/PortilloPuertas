@@ -11,12 +11,16 @@ import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.Scroller.ScrollDirection;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iUsuario_no_registrado;
 import interfazdeusuario.Cancion__No_registrado_;
 
 public class Novedades extends VistaNovedades {
 	public Pagina_Principal__No_registrado_ _paginaPrincipal_No_registrado_;
 	public Vector<Cancion_anterior> _list_cancion__no_registrado_ = new Vector<Cancion_anterior>();
 
+	iUsuario_no_registrado userBD= new BDPrincipal();
+	
 	public Novedades() {
 		//inicializar(new VerticalLayout());
 
@@ -44,12 +48,18 @@ public class Novedades extends VistaNovedades {
 	}
 
 	public void CargarCanciones(VerticalLayout vl) {
+		
+		basededatos.Playlist canciones = userBD.cargar_lista_novedades();
 		Cancion_anterior cancion;
 
 		for (int i = 0; i < 5; i++) {
 			cancion = new Cancion_anterior(vl, "No", "");
 			cancion.getStyle().set("padding-left", "5%");
 			
+			if(i == 2) {
+				cancion.setNombreCancion("holaaa");
+				
+			}
 			_list_cancion__no_registrado_.add(cancion);
 		}
 

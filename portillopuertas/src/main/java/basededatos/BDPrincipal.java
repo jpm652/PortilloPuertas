@@ -8,7 +8,8 @@ import interfazdeusuario.Cancion__Registrado_;
 import interfazdeusuario.Eventos;
 import interfazdeusuario.artista;
 
-public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado, iAdministrador, iArtista, iAplicaciones_Terceros, iServidor_Correo_ {
+public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado, iAdministrador, iArtista,
+		iAplicaciones_Terceros, iServidor_Correo_ {
 	public BD_Cancion _bd_cancion;
 	public BD_Album _bd_album;
 	public BD_UsuarioRegistrado _bd_usuario_registrado = new BD_UsuarioRegistrado();
@@ -19,6 +20,8 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	public BD_Evento _bd_evento;
 
 	public Playlist cargar_lista_novedades() {
+		
+		
 		throw new UnsupportedOperationException();
 	}
 
@@ -26,9 +29,15 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public void iniciarSesionUsuario(String aNombreUsuario, String aContrasena) {
-		
-		throw new UnsupportedOperationException();
+	public boolean iniciarSesionUsuario(String aNombreUsuario, String aContrasena) {
+
+		try {
+			return _bd_usuario_registrado.iniciarSesionUsuario(aNombreUsuario, aContrasena);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	public void iniciarSesionArtista(String aNombreArtista, String aContrasena) {
@@ -49,12 +58,12 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 
 	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena) {
 		try {
-			_bd_usuario_registrado.Registrarse(aCorreo,aNombreUsuario,aContrasena);
+			_bd_usuario_registrado.Registrarse(aCorreo, aNombreUsuario, aContrasena);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
 		}
+	}
 
 	public void editarContrasena(int aId_usuario, String aAntiguaContrasena, String aNuevaContrasena) {
 		throw new UnsupportedOperationException();

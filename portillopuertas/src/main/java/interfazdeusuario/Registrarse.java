@@ -123,8 +123,12 @@ public class Registrarse extends VistaRegistrarse {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
+				String correo = getCorreo_registro().getValue();
+				String nombre = getNombre_registro().getValue();
+				String clave = getClave_registro().getValue();
 				
-				_iUser.Registrarse(getCorreo_registro().getValue(),getNombre_registro().getValue(),getClave_registro().getValue());
+				_iUser.Registrarse(correo, nombre, clave);
+				
 //				if (getCorreo_registro().getValue().equals("exito")) {
 //
 //					Dialog dialog = new Dialog();
