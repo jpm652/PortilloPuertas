@@ -1,5 +1,7 @@
 package interfazdeusuario;
 
+import java.util.ArrayList;
+
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
@@ -36,8 +38,14 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	public Recordar_clave _recordar_clave;
 	iUsuario_no_registrado _iUser = new BDPrincipal();
 
+//	UsuarioComun userComun = new UsuarioComun();
+//	
+//	ArrayList<UsuarioComun> arrayUsuarios = new ArrayList<UsuarioComun>();
+	
+	
 	public Iniciar_sesion() {
 		inicializar(new VerticalLayout());
+		
 	}
 
 	public void inicializar(VerticalLayout vlpadre) {
@@ -89,11 +97,18 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				String clave = getClave_iniciarsesion().getValue();
 				boolean usuario = false;
 				
-				//UsuarioComun usuario = _iUser.iniciarSesionUsuario(correo, clave);
 				
-				usuario = _iUser.iniciarSesionUsuario(correo, clave);
+				for(int i=0; i<Registrarse.arrayUsuarios.size(); i++) {
+					
+					if(Registrarse.arrayUsuarios.get(i).getCorreo().equals(correo)) {
+						usuario = true;
+					}
+					
+				}
 				
-				if(usuario == true) {
+
+				if (usuario == true) {
+
 					vlpadre.removeAll();
 
 					Pagina_principal pagina_p = new Pagina_principal();
@@ -101,41 +116,28 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p);
 					pagina_p.inicializar(vlpadre, "usuario");
-				}else {
-					Notification.show("Usuario no conocido");
-				}
 
-//				if (getCorreo_inicarsesion().getValue().equals("usuario")) {
-//
-//					vlpadre.removeAll();
-//
-//					Pagina_principal pagina_p = new Pagina_principal();
-//					pagina_p.getStyle().set("width", "100%");
-//					pagina_p.getStyle().set("height", "100%");
-//					vlpadre.add(pagina_p);
-//					pagina_p.inicializar(vlpadre, "usuario");
-//
-//				} else if (getCorreo_inicarsesion().getValue().equals("artista")) {
-//
-//					vlpadre.removeAll();
-//
-//					Pagina_principal pagina_p2 = new Pagina_principal();
-//					pagina_p2.getStyle().set("width", "100%");
-//					pagina_p2.getStyle().set("height", "100%");
-//					vlpadre.add(pagina_p2);
-//					pagina_p2.inicializar(vlpadre, "artista");
-//
-//				} else if (getCorreo_inicarsesion().getValue().equals("admin")) {
-//
-//					vlpadre.removeAll();
-//
-//					Pagina_principal pagina_p3 = new Pagina_principal();
-//					pagina_p3.getStyle().set("width", "100%");
-//					pagina_p3.getStyle().set("height", "100%");
-//					vlpadre.add(pagina_p3);
-//					pagina_p3.inicializar(vlpadre, "admin");
-//
-//				}
+				} else if (getCorreo_inicarsesion().getValue().equals("artista")) {
+
+					vlpadre.removeAll();
+
+					Pagina_principal pagina_p2 = new Pagina_principal();
+					pagina_p2.getStyle().set("width", "100%");
+					pagina_p2.getStyle().set("height", "100%");
+					vlpadre.add(pagina_p2);
+					pagina_p2.inicializar(vlpadre, "artista");
+
+				} else if (getCorreo_inicarsesion().getValue().equals("admin")) {
+
+					vlpadre.removeAll();
+
+					Pagina_principal pagina_p3 = new Pagina_principal();
+					pagina_p3.getStyle().set("width", "100%");
+					pagina_p3.getStyle().set("height", "100%");
+					vlpadre.add(pagina_p3);
+					pagina_p3.inicializar(vlpadre, "admin");
+
+				}
 
 			}
 		});

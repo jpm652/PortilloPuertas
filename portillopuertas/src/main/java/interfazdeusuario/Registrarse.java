@@ -1,5 +1,7 @@
 package interfazdeusuario;
 
+import java.util.ArrayList;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -9,6 +11,7 @@ import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -16,6 +19,7 @@ import com.vaadin.flow.router.RouteConfiguration;
 
 import basededatos.BDPrincipal;
 import basededatos.BD_UsuarioRegistrado;
+import basededatos.UsuarioComun;
 import basededatos.iUsuario_registrado;
 import vistas.VistaRegistrarse;
 
@@ -35,7 +39,10 @@ public class Registrarse extends VistaRegistrarse {
 //	private Button _iniciar_sesionB;
 	public Cabecera__No_registrado_ _cabecera__No_registrado_;
 	public Iniciar_sesion _iniciar_sesion;
-	iUsuario_registrado _iUser = new BDPrincipal();
+//	iUsuario_registrado _iUser = new BDPrincipal();
+	
+	UsuarioComun userComun = new UsuarioComun();
+	static ArrayList<UsuarioComun> arrayUsuarios = new ArrayList<UsuarioComun>();
 	
 	public Registrarse() {
 		inicializar(new VerticalLayout());
@@ -100,8 +107,12 @@ public class Registrarse extends VistaRegistrarse {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				if (getCorreo_registro().getValue().equals("error")) {
-
+				String correo = getCorreo_registro().getValue();
+				String nombre = getNombre_registro().getValue();
+				String contrasena = getClave_registro().getValue();
+				String contrasena_confirm = getConfirma_clave_registro().getValue();
+				
+				if(correo.isEmpty() || nombre.isEmpty() || contrasena.isEmpty() || contrasena_confirm.isEmpty()) {
 					Dialog dialog = new Dialog();
 
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error de registro",
@@ -110,9 +121,8 @@ public class Registrarse extends VistaRegistrarse {
 
 					vlpadre.add(dialog);
 					dialog.open();
-
 				}
-
+				
 			}
 		});
 	}
@@ -125,20 +135,28 @@ public class Registrarse extends VistaRegistrarse {
 
 				String correo = getCorreo_registro().getValue();
 				String nombre = getNombre_registro().getValue();
-				String clave = getClave_registro().getValue();
+				String contrasena = getClave_registro().getValue();
+				String contrasena_confirm = getConfirma_clave_registro().getValue();
+				int contador = 0;
 				
-				_iUser.Registrarse(correo, nombre, clave);
+				userComun.setId(contador);
+				userComun.setNombreUsuario(nombre);
+				userComun.setCorreo(correo);
+				userComun.setContrasena(contrasena_confirm);
+				
+				arrayUsuarios.add(userComun);
+				System.out.println(arrayUsuarios.get(contador).getCorreo());
 				
 //				if (getCorreo_registro().getValue().equals("exito")) {
-//
-//					Dialog dialog = new Dialog();
-//
-//					VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
-//							"Se ha enviado un mensaje a su correo electronico para validar su cuenta.");
-//					dialog.add(dialogLayout);
-//					vlpadre.add(dialog);
-//					dialog.open();
-//
+
+					Dialog dialog = new Dialog();
+
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
+							"Se ha enviado un mensaje a su correo electronico para validar su cuenta.");
+					dialog.add(dialogLayout);
+					vlpadre.add(dialog);
+					dialog.open();
+
 //				}
 
 			}

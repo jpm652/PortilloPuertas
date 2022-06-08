@@ -45,14 +45,6 @@ public class BD_UsuarioRegistrado {
 		if(user.getNombreUsuario().equals(aNombreUsuario)) {
 			return true;
 		}
-		
-		
-	//	UsuarioRegistrado[] u = c.listUsuarioRegistrado();
-//		if(u.length > 0) {
-//			return u[0];
-//		} else {
-//			return null;
-//		}
 		return false;
 	}
 
