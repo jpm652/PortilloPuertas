@@ -20,6 +20,7 @@ public class Correo extends VistaCorreo {
 
 	public Correo() {
 		inicializar(new VerticalLayout());
+		this.setLabel(Iniciar_sesion.userSesion.getCorreo());
 	}
 	
 	public void inicializar(VerticalLayout vlpadre) {

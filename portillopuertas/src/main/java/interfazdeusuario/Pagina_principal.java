@@ -31,6 +31,8 @@ public class Pagina_principal extends VistaPagina_principal {
 	public Playlist__2 _playlist;
 	public Busqueda _busqueda;
 	public Cabecera__registrado_ _cabecera_registrado_;
+	
+	//VerticalLayout vl_centro = new VerticalLayout();
 
 	Cabecera__registrado_ cr = new Cabecera__registrado_();
 	Barra_reproduccion barra_reproduccion = new Barra_reproduccion();

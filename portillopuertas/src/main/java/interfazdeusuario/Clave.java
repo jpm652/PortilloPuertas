@@ -23,6 +23,7 @@ public class Clave extends VistaClave {
 
 	public Clave() {
 		inicializar(new VerticalLayout());
+		this.setLabel(Iniciar_sesion.userSesion.getContrasena());
 	}
 	
 	public void inicializar(VerticalLayout vlpadre) {

@@ -50,26 +50,26 @@ public class VistaFavoritos extends LitTemplate {
 	public Label getTitulolabel() {
 		return titulolabel;
 	}
-	public void setTitulolabel(Label titulolabel) {
-		this.titulolabel = titulolabel;
+	public void setTitulolabel(String titulolabel) {
+		this.titulolabel.setText(titulolabel);
 	}
 	public Label getArtistalabel() {
 		return artistalabel;
 	}
-	public void setArtistalabel(Label artistalabel) {
-		this.artistalabel = artistalabel;
+	public void setArtistalabel(String artistalabel) {
+		this.artistalabel.setText(artistalabel);
 	}
 	public Label getAlbumlabel() {
 		return albumlabel;
 	}
-	public void setAlbumlabel(Label albumlabel) {
-		this.albumlabel = albumlabel;
+	public void setAlbumlabel(String albumlabel) {
+		this.albumlabel.setText(albumlabel);
 	}
 	public Label getDuracionlabel() {
 		return duracionlabel;
 	}
-	public void setDuracionlabel(Label duracionlabel) {
-		this.duracionlabel = duracionlabel;
+	public void setDuracionlabel(String duracionlabel) {
+		this.duracionlabel.setText(duracionlabel);
 	}
 	public Button getBt_Izq() {
 		return bt_Izq;

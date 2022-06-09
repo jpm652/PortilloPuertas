@@ -42,7 +42,6 @@ public class Registrarse extends VistaRegistrarse {
 //	iUsuario_registrado _iUser = new BDPrincipal();
 	
 	UsuarioComun userComun = new UsuarioComun();
-	static ArrayList<UsuarioComun> arrayUsuarios = new ArrayList<UsuarioComun>();
 	
 	public Registrarse() {
 		inicializar(new VerticalLayout());
@@ -137,15 +136,15 @@ public class Registrarse extends VistaRegistrarse {
 				String nombre = getNombre_registro().getValue();
 				String contrasena = getClave_registro().getValue();
 				String contrasena_confirm = getConfirma_clave_registro().getValue();
-				int contador = 0;
+				int contador = inicio.arrayUsuarios.size()+1;
 				
 				userComun.setId(contador);
 				userComun.setNombreUsuario(nombre);
 				userComun.setCorreo(correo);
 				userComun.setContrasena(contrasena_confirm);
+				userComun.setTipo("Registrado");
 				
-				arrayUsuarios.add(userComun);
-				System.out.println(arrayUsuarios.get(contador).getCorreo());
+				inicio.arrayUsuarios.add(userComun);
 				
 //				if (getCorreo_registro().getValue().equals("exito")) {
 

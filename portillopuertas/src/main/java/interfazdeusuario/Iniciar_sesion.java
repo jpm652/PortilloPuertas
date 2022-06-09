@@ -36,12 +36,13 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	public Cabecera__No_registrado_ _cabecera__No_registrado_;
 	public Registrarse _registrarse;
 	public Recordar_clave _recordar_clave;
-	iUsuario_no_registrado _iUser = new BDPrincipal();
+
 
 //	UsuarioComun userComun = new UsuarioComun();
 //	
 //	ArrayList<UsuarioComun> arrayUsuarios = new ArrayList<UsuarioComun>();
 	
+	static UsuarioComun userSesion = new UsuarioComun();
 	
 	public Iniciar_sesion() {
 		inicializar(new VerticalLayout());
@@ -96,16 +97,32 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				String correo = getCorreo_inicarsesion().getValue();
 				String clave = getClave_iniciarsesion().getValue();
 				boolean usuario = false;
+				boolean artista = false;
+				boolean admin = false;
 				
 				
-				for(int i=0; i<Registrarse.arrayUsuarios.size(); i++) {
-					
-					if(Registrarse.arrayUsuarios.get(i).getCorreo().equals(correo)) {
+				if(clave.isEmpty() & correo.isEmpty()) Notification.show("Insertar credenciales de usuario");
+
+				for(int i=0; i<inicio.arrayUsuarios.size(); i++) {
+					if((inicio.arrayUsuarios.get(i).getCorreo().equals(correo)||inicio.arrayUsuarios.get(i).getNombreUsuario().equals(correo))& inicio.arrayUsuarios.get(i).getContrasena().equals(clave) & inicio.arrayUsuarios.get(i).getTipo().equals("Registrado")) {
+						userSesion=inicio.arrayUsuarios.get(i);
 						usuario = true;
 					}
-					
+					else if((inicio.arrayUsuarios.get(i).getCorreo().equals(correo)||inicio.arrayUsuarios.get(i).getNombreUsuario().equals(correo))& inicio.arrayUsuarios.get(i).getContrasena().equals(clave) & inicio.arrayUsuarios.get(i).getTipo().equals("Artista")) {
+
+						userSesion=inicio.arrayUsuarios.get(i);
+						artista = true;
+					}
+					else if((inicio.arrayUsuarios.get(i).getCorreo().equals(correo)||inicio.arrayUsuarios.get(i).getNombreUsuario().equals(correo))& inicio.arrayUsuarios.get(i).getContrasena().equals(clave) & inicio.arrayUsuarios.get(i).getTipo().equals("Admin")) {
+
+						userSesion=inicio.arrayUsuarios.get(i);
+						admin = true;
+					}
 				}
 				
+				if(usuario==false & artista==false & admin == false) {
+					Notification.show("Credenciales incorrectas, Intentelo de nuevo");
+				}
 
 				if (usuario == true) {
 
@@ -115,9 +132,9 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p.getStyle().set("width", "100%");
 					pagina_p.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p);
-					pagina_p.inicializar(vlpadre, "usuario");
+					pagina_p.inicializar(vlpadre, userSesion.getNombreUsuario());
 
-				} else if (getCorreo_inicarsesion().getValue().equals("artista")) {
+				} else if (artista==true) {
 
 					vlpadre.removeAll();
 
@@ -125,9 +142,9 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p2.getStyle().set("width", "100%");
 					pagina_p2.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p2);
-					pagina_p2.inicializar(vlpadre, "artista");
+					pagina_p2.inicializar(vlpadre, userSesion.getNombreUsuario());
 
-				} else if (getCorreo_inicarsesion().getValue().equals("admin")) {
+				} else if (admin==true) {
 
 					vlpadre.removeAll();
 
@@ -135,7 +152,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p3.getStyle().set("width", "100%");
 					pagina_p3.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p3);
-					pagina_p3.inicializar(vlpadre, "admin");
+					pagina_p3.inicializar(vlpadre, userSesion.getNombreUsuario());
 
 				}
 

@@ -19,6 +19,7 @@ public class Favoritos extends VistaFavoritos {
 
 	public Favoritos(VerticalLayout vlpadre) {
 		inicializar(vlpadre);
+		
 	}
 
 	private void inicializar(VerticalLayout vlpadre) {

@@ -49,81 +49,103 @@ public class VistaConfiguracion extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout1;
 	@Id("darBaja")
 	private Button darBaja;
+
 	/**
      * Creates a new VistaConfiguracion.
      */
     public VistaConfiguracion() {
         // You can initialise any data required for the connected UI components here.
     }
+
 	public Element getVaadinVerticalLayout() {
 		return vaadinVerticalLayout;
 	}
+
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
 	}
+
 	public HorizontalLayout getVaadinHorizontalLayout2() {
 		return vaadinHorizontalLayout2;
 	}
+
 	public void setVaadinHorizontalLayout2(HorizontalLayout vaadinHorizontalLayout2) {
 		this.vaadinHorizontalLayout2 = vaadinHorizontalLayout2;
 	}
+
 	public Button getEstadisticabt() {
 		return estadisticabt;
 	}
+
 	public void setEstadisticabt(Button estadisticabt) {
 		this.estadisticabt = estadisticabt;
 	}
+
 	public HorizontalLayout getVaadinHorizontalLayout() {
 		return vaadinHorizontalLayout;
 	}
+
 	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
 		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
 	}
+
 	public Image getImgUser() {
 		return imgUser;
 	}
+
 	public void setImgUser(Image imgUser) {
 		this.imgUser = imgUser;
 	}
+
 	public Label getNombreUser() {
 		return nombreUser;
 	}
+
 	public void setNombreUser(String nombreUser) {
-		this.nombreUser.setText(nombreUser);;
+		this.nombreUser.setText(nombreUser);
 	}
+
 	public Hr getHr() {
 		return hr;
 	}
+
 	public void setHr(Hr hr) {
 		this.hr = hr;
 	}
+
 	public Element getVerticalcorreo() {
 		return verticalcorreo;
 	}
+
 	public void setVerticalcorreo(Element verticalcorreo) {
 		this.verticalcorreo = verticalcorreo;
 	}
+
 	public Element getVerticalclave() {
 		return verticalclave;
 	}
+
 	public void setVerticalclave(Element verticalclave) {
 		this.verticalclave = verticalclave;
 	}
+
 	public HorizontalLayout getVaadinHorizontalLayout1() {
 		return vaadinHorizontalLayout1;
 	}
+
 	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
 		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
 	}
+
 	public Button getDarBaja() {
 		return darBaja;
 	}
+
 	public void setDarBaja(Button darBaja) {
 		this.darBaja = darBaja;
 	}
-	public void setNombreUser(Label nombreUser) {
-		this.nombreUser = nombreUser;
-	}
+
+
     
     
 

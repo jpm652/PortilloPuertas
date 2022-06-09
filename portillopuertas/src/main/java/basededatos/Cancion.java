@@ -85,13 +85,13 @@ public class Cancion implements Serializable {
 	@Column(name="Duracion", nullable=false, length=10)	
 	private int duracion;
 	
-	@Column(name="Estilo", nullable=false, length=10)	
+	@Column(name="Estilo", nullable=true, length=10)	
 	private int estilo;
 	
 	@Column(name="Album", nullable=true, length=255)	
 	private String album;
 	
-	@Column(name="SoloRegistrados", nullable=false, length=1)	
+	@Column(name="SoloRegistrados", nullable=true, length=1)	
 	private boolean soloRegistrados;
 	
 	@Column(name="Imagen_cancion", nullable=true, length=255)	
@@ -118,7 +118,7 @@ public class Cancion implements Serializable {
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_es_reproducida_por = new java.util.HashSet();
 	
-	private void setId(int value) {
+	public void setId(int value) {
 		this.id = value;
 	}
 	

@@ -73,8 +73,8 @@ public class VistaCorreo extends LitTemplate {
 		return label;
 	}
 
-	public void setLabel(Label label) {
-		this.label = label;
+	public void setLabel(String label) {
+		this.label.setText(label);
 	}
 
     

@@ -26,6 +26,8 @@ public class Configuracion extends VistaConfiguracion{
 	
 	public Configuracion() {
 		inicializar(new VerticalLayout());
+		this.setNombreUser(Iniciar_sesion.userSesion.getNombreUsuario());
+		this.getNombreUser().getStyle().set("font-size","30px");
 	}
 	
 	public void inicializar(VerticalLayout vlpadre) {
@@ -41,6 +43,7 @@ public class Configuracion extends VistaConfiguracion{
 		_clave.getStyle().set("width", "100%").set("height", "100%");	
 		clave.add(_clave);
 		_clave.inicializar(vlpadre);
+		
 		
 		this.getEstadisticabt().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

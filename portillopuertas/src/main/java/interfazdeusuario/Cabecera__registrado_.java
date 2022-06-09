@@ -41,7 +41,7 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				if(usuario.equals("usuario")){
+				if(Iniciar_sesion.userSesion.getTipo().equals("Registrado")){
 					Dialog dialog = new Dialog();
 					Menu menu = new Menu();
 					menu.getStyle().set("width", "100%");   
@@ -57,7 +57,7 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 					
 				}
 				
-				if(usuario.equals("artista")) {
+				if(Iniciar_sesion.userSesion.getTipo().equals("Artista")) {
 					Dialog dialog = new Dialog();
 					Menu__artista_ menu = new Menu__artista_();
 					menu.getStyle().set("width", "100%");   
@@ -72,7 +72,7 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 					dialog.open();
 				}
 				
-				if(usuario.equals("admin")) {
+				if(Iniciar_sesion.userSesion.getTipo().equals("Admin")) {
 					Dialog dialog = new Dialog();
 					Menu__administrador_ menu = new Menu__administrador_();
 					menu.getStyle().set("width", "100%");   
@@ -90,21 +90,21 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 			}
 		});
 
-		this.getImg_cabecera_registrado().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Image> event) {
-				
-				vlpadre.removeAll();
-
-				Pagina_principal pagina_p = new Pagina_principal();
-				pagina_p.getStyle().set("width", "100%");
-				pagina_p.getStyle().set("height", "100%");
-				vlpadre.add(pagina_p);
-				pagina_p.inicializar(vlpadre, usuario);
-				// pagina_p.centro(vlpadre);
-				
-			}
-		});
+//		this.getImg_cabecera_registrado().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<Image> event) {
+//				
+//				vlpadre.removeAll();
+//
+//				Pagina_principal pagina_p = new Pagina_principal();
+//				pagina_p.getStyle().set("width", "100%");
+//				pagina_p.getStyle().set("height", "100%");
+//				vlpadre.add(pagina_p);
+//				pagina_p.inicializar(vlpadre, usuario);
+//				pagina_p.centro(pagina_p.getVaadinVerticalLayout().as(VerticalLayout.class),usuario);
+//				
+//			}
+//		});
 	}
 }

@@ -56,8 +56,8 @@ public class VistaClave extends LitTemplate {
 	public Label getLabel() {
 		return label;
 	}
-	public void setLabel(Label label) {
-		this.label = label;
+	public void setLabel(String label) {
+		this.label.setText(label);
 	}
 	public Button getVaadinButton() {
 		return vaadinButton;
