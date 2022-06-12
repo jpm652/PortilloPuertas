@@ -52,6 +52,22 @@ public class Menu extends VistaMenu {
 
 		});
 		
+		this.getHome_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				vlpadre.removeAll();
+
+				Pagina_principal pagina_p = new Pagina_principal(true);
+				pagina_p.getStyle().set("width", "100%");
+				pagina_p.getStyle().set("height", "100%");
+				vlpadre.add(pagina_p);
+				pagina_p.inicializar2(vlpadre, "usuario");
+
+			}
+
+		});
+		
 		this.getConfig_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override

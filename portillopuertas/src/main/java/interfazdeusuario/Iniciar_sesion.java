@@ -37,16 +37,15 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	public Registrarse _registrarse;
 	public Recordar_clave _recordar_clave;
 
-
 //	UsuarioComun userComun = new UsuarioComun();
 //	
 //	ArrayList<UsuarioComun> arrayUsuarios = new ArrayList<UsuarioComun>();
-	
+
 	static UsuarioComun userSesion = new UsuarioComun();
-	
+
 	public Iniciar_sesion() {
 		inicializar(new VerticalLayout());
-		
+
 	}
 
 	public void inicializar(VerticalLayout vlpadre) {
@@ -99,28 +98,34 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				boolean usuario = false;
 				boolean artista = false;
 				boolean admin = false;
-				
-				
-				if(clave.isEmpty() & correo.isEmpty()) Notification.show("Insertar credenciales de usuario");
 
-				for(int i=0; i<inicio.arrayUsuarios.size(); i++) {
-					if((inicio.arrayUsuarios.get(i).getCorreo().equals(correo)||inicio.arrayUsuarios.get(i).getNombreUsuario().equals(correo))& inicio.arrayUsuarios.get(i).getContrasena().equals(clave) & inicio.arrayUsuarios.get(i).getTipo().equals("Registrado")) {
-						userSesion=inicio.arrayUsuarios.get(i);
-						usuario = true;
-					}
-					else if((inicio.arrayUsuarios.get(i).getCorreo().equals(correo)||inicio.arrayUsuarios.get(i).getNombreUsuario().equals(correo))& inicio.arrayUsuarios.get(i).getContrasena().equals(clave) & inicio.arrayUsuarios.get(i).getTipo().equals("Artista")) {
+				if (clave.isEmpty() & correo.isEmpty())
+					Notification.show("Insertar credenciales de usuario");
 
-						userSesion=inicio.arrayUsuarios.get(i);
-						artista = true;
-					}
-					else if((inicio.arrayUsuarios.get(i).getCorreo().equals(correo)||inicio.arrayUsuarios.get(i).getNombreUsuario().equals(correo))& inicio.arrayUsuarios.get(i).getContrasena().equals(clave) & inicio.arrayUsuarios.get(i).getTipo().equals("Admin")) {
-
-						userSesion=inicio.arrayUsuarios.get(i);
-						admin = true;
-					}
+//				for(int i=0; i<inicio.arrayUsuarios.size(); i++) {
+//					if((inicio.arrayUsuarios.get(i).getCorreo().equals(correo)||inicio.arrayUsuarios.get(i).getNombreUsuario().equals(correo))& inicio.arrayUsuarios.get(i).getContrasena().equals(clave) & inicio.arrayUsuarios.get(i).getTipo().equals("Registrado")) {
+//						userSesion=inicio.arrayUsuarios.get(i);
+				if (correo.equals("usuario") ) {
+					usuario = true;
 				}
-				
-				if(usuario==false & artista==false & admin == false) {
+				// else
+				// if((inicio.arrayUsuarios.get(i).getCorreo().equals(correo)||inicio.arrayUsuarios.get(i).getNombreUsuario().equals(correo))&
+				// inicio.arrayUsuarios.get(i).getContrasena().equals(clave) &
+				// inicio.arrayUsuarios.get(i).getTipo().equals("Artista")) {
+
+				// userSesion=inicio.arrayUsuarios.get(i);
+				if (correo.equals("artista")) {
+					artista = true;
+				}
+//					else if((inicio.arrayUsuarios.get(i).getCorreo().equals(correo)||inicio.arrayUsuarios.get(i).getNombreUsuario().equals(correo))& inicio.arrayUsuarios.get(i).getContrasena().equals(clave) & inicio.arrayUsuarios.get(i).getTipo().equals("Admin")) {
+//
+//						userSesion=inicio.arrayUsuarios.get(i);
+				if (correo.equals("admin")) {
+
+					admin = true;
+				}
+
+				if (usuario == false & artista == false & admin == false) {
 					Notification.show("Credenciales incorrectas, Intentelo de nuevo");
 				}
 
@@ -132,9 +137,9 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p.getStyle().set("width", "100%");
 					pagina_p.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p);
-					pagina_p.inicializar(vlpadre, userSesion.getNombreUsuario());
+					pagina_p.inicializar(vlpadre, "usuario");
 
-				} else if (artista==true) {
+				} else if (artista == true) {
 
 					vlpadre.removeAll();
 
@@ -142,9 +147,9 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p2.getStyle().set("width", "100%");
 					pagina_p2.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p2);
-					pagina_p2.inicializar(vlpadre, userSesion.getNombreUsuario());
+					pagina_p2.inicializar(vlpadre, "artista");
 
-				} else if (admin==true) {
+				} else if (admin == true) {
 
 					vlpadre.removeAll();
 
@@ -152,12 +157,13 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p3.getStyle().set("width", "100%");
 					pagina_p3.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p3);
-					pagina_p3.inicializar(vlpadre, userSesion.getNombreUsuario());
+					pagina_p3.inicializar(vlpadre, "admin");
 
 				}
 
 			}
 		});
+
 	}
 
 	public void olvidarClave(VerticalLayout vlpadre) {

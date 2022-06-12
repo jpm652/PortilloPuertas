@@ -40,9 +40,9 @@ public class Registrarse extends VistaRegistrarse {
 	public Cabecera__No_registrado_ _cabecera__No_registrado_;
 	public Iniciar_sesion _iniciar_sesion;
 //	iUsuario_registrado _iUser = new BDPrincipal();
-	
+
 	UsuarioComun userComun = new UsuarioComun();
-	
+
 	public Registrarse() {
 		inicializar(new VerticalLayout());
 
@@ -80,7 +80,7 @@ public class Registrarse extends VistaRegistrarse {
 				iniciar.inicializar(vlpadre);
 			}
 		});
-		
+
 //		this.getIconTwitter().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 //
 //			@Override
@@ -94,7 +94,6 @@ public class Registrarse extends VistaRegistrarse {
 		comprobarRegistro(vlpadre);
 	}
 
-	
 	public void comprobarRegistro(VerticalLayout vlpadre) {
 		errorRegistro(vlpadre);
 		exitoRegistro(vlpadre);
@@ -110,8 +109,8 @@ public class Registrarse extends VistaRegistrarse {
 				String nombre = getNombre_registro().getValue();
 				String contrasena = getClave_registro().getValue();
 				String contrasena_confirm = getConfirma_clave_registro().getValue();
-				
-				if(correo.isEmpty() || nombre.isEmpty() || contrasena.isEmpty() || contrasena_confirm.isEmpty()) {
+
+				if (correo.isEmpty() || nombre.isEmpty() || contrasena.isEmpty() || contrasena_confirm.isEmpty()) {
 					Dialog dialog = new Dialog();
 
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error de registro",
@@ -121,7 +120,7 @@ public class Registrarse extends VistaRegistrarse {
 					vlpadre.add(dialog);
 					dialog.open();
 				}
-				
+
 			}
 		});
 	}
@@ -136,17 +135,8 @@ public class Registrarse extends VistaRegistrarse {
 				String nombre = getNombre_registro().getValue();
 				String contrasena = getClave_registro().getValue();
 				String contrasena_confirm = getConfirma_clave_registro().getValue();
-				int contador = inicio.arrayUsuarios.size()+1;
-				
-				userComun.setId(contador);
-				userComun.setNombreUsuario(nombre);
-				userComun.setCorreo(correo);
-				userComun.setContrasena(contrasena_confirm);
-				userComun.setTipo("Registrado");
-				
-				inicio.arrayUsuarios.add(userComun);
-				
-//				if (getCorreo_registro().getValue().equals("exito")) {
+
+				if (getCorreo_registro().getValue().equals("exito")) {
 
 					Dialog dialog = new Dialog();
 
@@ -156,8 +146,7 @@ public class Registrarse extends VistaRegistrarse {
 					vlpadre.add(dialog);
 					dialog.open();
 
-//				}
-
+				}
 			}
 		});
 	}
@@ -171,14 +160,16 @@ public class Registrarse extends VistaRegistrarse {
 		Button closeButton = new Button("Aceptar");
 		closeButton.addClickListener(e -> dialog.close());
 
-	
-		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph, closeButton); // menu.getVaadinVerticalLayout().as(VerticalLayout.class); //new VerticalLayout(headline, paragraph, closeButton);
+		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph, closeButton); // menu.getVaadinVerticalLayout().as(VerticalLayout.class);
+																							// //new
+																							// VerticalLayout(headline,
+																							// paragraph, closeButton);
 
 		dialogLayout.setPadding(false);
 		dialogLayout.setAlignItems(Alignment.STRETCH);
 		dialogLayout.getStyle().set("width", "100%").set("max-width", "100%");
 		dialogLayout.getStyle().set("height", "100%");
-		
+
 		dialogLayout.setAlignSelf(Alignment.END, closeButton);
 
 		return dialogLayout;

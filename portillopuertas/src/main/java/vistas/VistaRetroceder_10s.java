@@ -27,12 +27,13 @@ import com.vaadin.flow.component.html.Label;
 @JsModule("./src/vistas/vista-retroceder_10s.ts")
 public class VistaRetroceder_10s extends LitTemplate {
 
-	@Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
-	@Id("imgCancion")
-	private Image imgCancion;
+
 	@Id("nombreCancion")
 	private Label nombreCancion;
+	@Id("imgCancion")
+	private Image imgCancion;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
 
 	/**
 	 * Creates a new VistaRetroceder_10s.

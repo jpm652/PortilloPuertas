@@ -33,6 +33,8 @@ public class VistaMenu_artista extends LitTemplate {
 	private Button button_event_menu_artista;
 	@Id("button_conf_menu_artista")
 	private Button button_conf_menu_artista;
+	@Id("button_home_menu_artista")
+	private Button button_home_menu_artista;
 
 	/**
      * Creates a new VistaMenu_artista.
@@ -95,6 +97,18 @@ public class VistaMenu_artista extends LitTemplate {
 
 	public void setButton_conf_menu_artista(Button button_conf_menu_artista) {
 		this.button_conf_menu_artista = button_conf_menu_artista;
+	}
+
+	public Button getButton_home_menu_artista() {
+		return button_home_menu_artista;
+	}
+
+	public void setButton_home_menu_artista(Button button_home_menu_artista) {
+		this.button_home_menu_artista = button_home_menu_artista;
+	}
+
+	public void setNomb_artista_menu(Label nomb_artista_menu) {
+		this.nomb_artista_menu = nomb_artista_menu;
 	}
 
     

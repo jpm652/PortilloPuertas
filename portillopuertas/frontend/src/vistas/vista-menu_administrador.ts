@@ -28,7 +28,10 @@ export class VistaMenu_administrador extends LitElement {
   <vaadin-button style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 25px; color:white;" id="favoritos">
    <iron-icon slot="prefix" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-fav.png?raw=true"></iron-icon>Favoritos 
   </vaadin-button>
-  <vaadin-button style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 60px; color:white;" id="administracion">
+  <vaadin-button style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 75px; color:white;" id="home">
+   <iron-icon slot="prefix" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-home.png?raw=true"></iron-icon>Pagina Principal
+  </vaadin-button>
+  <vaadin-button style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 70px; color:white;" id="administracion">
    <iron-icon icon="lumo:edit" slot="prefix"></iron-icon>Administración 
   </vaadin-button>
   <vaadin-button style="margin-top: 350px; align-self: flex-end; color:white;" id="configuracion">

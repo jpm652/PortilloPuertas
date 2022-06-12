@@ -27,13 +27,13 @@ public class Menu_favoritos extends VistaMenu_favoritos {
 		Favoritos fav;
 		//System.out.println(inicio.arrayCanciones.size());
 
-		for (int i = 0; i <inicio.arrayCanciones.size(); i++) {
+		for (int i = 0; i <5; i++) {
 			fav = new Favoritos(vl);
 			fav.getStyle().set("width","100%");		
-			fav.setTitulolabel(inicio.arrayCanciones.get(i).getNombre());
-			fav.setAlbumlabel(inicio.arrayCanciones.get(i).getAlbum());
-			fav.setArtistalabel(inicio.arrayCanciones.get(i).getArtista());
-			fav.setDuracionlabel(Integer.toString(inicio.arrayCanciones.get(i).getDuracion()));
+//			fav.setTitulolabel(inicio.arrayCanciones.get(i).getNombre());
+//			fav.setAlbumlabel(inicio.arrayCanciones.get(i).getAlbum());
+//			fav.setArtistalabel(inicio.arrayCanciones.get(i).getArtista());
+//			fav.setDuracionlabel(Integer.toString(inicio.arrayCanciones.get(i).getDuracion()));
 
 			vl.add(fav);
 		}

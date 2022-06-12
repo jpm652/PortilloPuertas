@@ -43,7 +43,15 @@ public class Pagina_principal extends VistaPagina_principal {
 		this.getVaadinVerticalLayout().getStyle().set("height", "100%");
 		this.getVaadinVerticalLayout().getStyle().set("padding", "0");
 
-		inicializar(new VerticalLayout(), new String());
+			inicializar(new VerticalLayout(), new String());
+	}
+	public Pagina_principal(boolean completa) {
+
+		this.getVaadinVerticalLayout().getStyle().set("width", "100%");
+		this.getVaadinVerticalLayout().getStyle().set("height", "100%");
+		this.getVaadinVerticalLayout().getStyle().set("padding", "0");
+
+			inicializar2(new VerticalLayout(), new String());
 	}
 
 	public void inicializar(VerticalLayout vlpadre, String usuario) {
@@ -55,6 +63,13 @@ public class Pagina_principal extends VistaPagina_principal {
 		barra();
 
 	}
+	public void inicializar2(VerticalLayout vlpadre, String usuario) {
+
+		VerticalLayout vl_centro = new VerticalLayout();
+		centro(vl_centro, usuario);
+
+	}
+
 
 	public void cabecera(VerticalLayout vl_centro, String usuario) {
 

@@ -37,6 +37,8 @@ public class VistaMenu_administrador extends LitTemplate {
 	private Button administracion;
 	@Id("configuracion")
 	private Button configuracion;
+	@Id("home")
+	private Button home;
 
 	/**
      * Creates a new VistaMenu_administrador.
@@ -115,6 +117,18 @@ public class VistaMenu_administrador extends LitTemplate {
 
 	public void setConfiguracion(Button configuracion) {
 		this.configuracion = configuracion;
+	}
+
+	public Button getHome() {
+		return home;
+	}
+
+	public void setHome(Button home) {
+		this.home = home;
+	}
+
+	public void setNombre(Label nombre) {
+		this.nombre = nombre;
 	}
 
 }

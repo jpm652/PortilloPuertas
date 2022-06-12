@@ -84,6 +84,6 @@ public class Pagina_Principal__No_registrado_ extends VistaPagina_principal__no_
 		rss.getStyle().set("height", "100%");
 		rss.getStyle().set("width", "100%");
 		
-		inicio ini = new inicio();
+		
 	}
 }

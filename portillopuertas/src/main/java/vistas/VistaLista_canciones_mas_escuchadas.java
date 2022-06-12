@@ -7,8 +7,10 @@ import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Image;
 
 /**
  * A Designer generated component for the vista-lista_canciones_mas_escuchadas template.
@@ -20,62 +22,53 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vistas/vista-lista_canciones_mas_escuchadas.ts")
 public class VistaLista_canciones_mas_escuchadas extends LitTemplate {
 
-    @Id("vaadinVerticalLayout1")
-	private Element vaadinVerticalLayout1;
-	@Id("label")
-	private Label label;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
-	@Id("hr")
-	private Hr hr;
-	@Id("vaadinVerticalLayout2")
-	private Element vaadinVerticalLayout2;
-	@Id("vaadinButton")
-	private Button vaadinButton;
+
+
+	@Id("imgCancionMasEscuchada")
+	private Image imgCancionMasEscuchada;
 	@Id("label1")
 	private Label label1;
-	@Id("ironIcon")
-	private Element ironIcon;
-	@Id("label2")
-	private Label label2;
-	@Id("vaadinVerticalLayout3")
-	private Element vaadinVerticalLayout3;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
-	@Id("label3")
-	private Label label3;
-	@Id("ironIcon1")
-	private Element ironIcon1;
-	@Id("label4")
-	private Label label4;
-	@Id("vaadinVerticalLayout4")
-	private Element vaadinVerticalLayout4;
-	@Id("vaadinButton2")
-	private Button vaadinButton2;
-	@Id("label5")
-	private Label label5;
-	@Id("label6")
-	private Label label6;
-	@Id("ironIcon2")
-	private Element ironIcon2;
-	@Id("vaadinVerticalLayout5")
-	private Element vaadinVerticalLayout5;
-	@Id("vaadinButton3")
-	private Button vaadinButton3;
-	@Id("label7")
-	private Label label7;
-	@Id("label8")
-	private Label label8;
-	@Id("ironIcon3")
-	private Element ironIcon3;
-
+	@Id("numeroReproducciones")
+	private Label numeroReproducciones;
+	@Id("vlcancionmasescuchada")
+	private VerticalLayout vlcancionmasescuchada;
 	/**
      * Creates a new VistaLista_canciones_mas_escuchadas.
      */
     public VistaLista_canciones_mas_escuchadas() {
         // You can initialise any data required for the connected UI components here.
     }
+
+	public Image getImgCancionMasEscuchada() {
+		return imgCancionMasEscuchada;
+	}
+
+	public void setImgCancionMasEscuchada(Image imgCancionMasEscuchada) {
+		this.imgCancionMasEscuchada = imgCancionMasEscuchada;
+	}
+
+	public Label getLabel1() {
+		return label1;
+	}
+
+	public void setLabel1(Label label1) {
+		this.label1 = label1;
+	}
+
+	public Label getNumeroReproducciones() {
+		return numeroReproducciones;
+	}
+
+	public void setNumeroReproducciones(Label numeroReproducciones) {
+		this.numeroReproducciones = numeroReproducciones;
+	}
+
+	public VerticalLayout getVlcancionmasescuchada() {
+		return vlcancionmasescuchada;
+	}
+
+	public void setVlcancionmasescuchada(VerticalLayout vlcancionmasescuchada) {
+		this.vlcancionmasescuchada = vlcancionmasescuchada;
+	}
 
 }

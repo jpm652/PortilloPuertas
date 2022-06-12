@@ -1,13 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import './vista-datos_artista';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-lista_canciones_mas_escuchadas';
-import './vista-albumes';
-import './vista-playlist_donde_aparece';
-import '@vaadin/vaadin-button/src/vaadin-button.js';
-import '@polymer/iron-icon/iron-icon.js';
-import './vista-datos_evento';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-artista')
 export class VistaArtista extends LitElement {
@@ -22,35 +15,46 @@ export class VistaArtista extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; background:#D3E0EA;" id="vaadinVerticalLayout">
- <vista-datos_artista id="vistaDatos_artista" style="width: 100%; height: 400px;"></vista-datos_artista>
+<vaadin-vertical-layout style="width: 100%; height: 100%; background:#F6F5F5;" id="vlvistaartista">
+ <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="align-self: center; align-items: center; width: 33%;">
+  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="margin-left: 100px;">
+   <img id="imgPerfilArtista" style="width: 100px; height: 100px; margin-top: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+   <vaadin-button id="vaadinButton" style="align-self: center; margin-top: 100px;">
+     Seguir 
+   </vaadin-button>
+  </vaadin-horizontal-layout>
+  <label id="nombrePerfilArtista">Nombre del artista</label>
+  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 80%; justify-content: flex-start;">
+   <label id="generoMusical">Genero Musical</label>
+   <label id="Seguidores" style="margin-left: 350px;">Seguidores</label>
+  </vaadin-horizontal-layout>
+  <hr id="hr" style="width: 100%;">
+ </vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%;">
-  <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 60%;">
-   <vista-lista_canciones_mas_escuchadas id="vistaLista_canciones_mas_escuchadas" style="width: 100%;"></vista-lista_canciones_mas_escuchadas>
-   <vista-albumes id="vistaAlbumes" style="width: 100%;"></vista-albumes>
-   <vista-playlist_donde_aparece id="vistaPlaylist_donde_aparece" style="width: 100%;"></vista-playlist_donde_aparece>
+  <vaadin-vertical-layout theme="spacing" id="VLcancionesAlbumYlistas" style="width: 60%;">
+   <vaadin-vertical-layout theme="spacing" id="vlcancionesMasEscuchadas" style="width: 100%;">
+    <label id="label" style="margin-top: 50px; margin-left: 100px; font-size:30px;">Canciones mas escuchadas</label>
+    <hr id="hr" style="width: 80%;">
+    <vaadin-horizontal-layout theme="spacing-s" id="HLCancionesMasEscuchadas" style="margin-left: 100px;"></vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+   <vaadin-vertical-layout style="width: 100%;" id="vaadinVerticalLayout">
+    <label style="margin-top: 50px; font-size:30px; margin-left: 100px;" id="label">Albumes</label>
+    <hr style="width: 80%; align-self: center;" id="hr">
+    <vaadin-horizontal-layout theme="spacing-s" id="hlAlbumesArtista" style="margin-left: 100px;"></vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+   <vaadin-vertical-layout style="width: 100%;" id="vaadinVerticalLayout">
+    <label style="margin-top: 50px; font-size:30px; margin-left: 100px;" id="label">Listas de reproduccion donde aparece</label>
+    <hr style="width: 80%; align-self: center;" id="hr">
+    <vaadin-horizontal-layout theme="spacing" id="hlListasdondeaparece" style="margin-left: 100px;"></vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout2" style="width: 40%; align-items: center;">
+  <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 40%; align-items: center;">
    <label id="label" style="margin-top: 50px;font-size:30px;">Artistas Similares</label>
    <hr id="hr" style="width: 50%;">
-   <vaadin-button id="vaadinButton" style="width: 60%; height: 75px; align-self: center;">
-    <iron-icon slot="prefix" id="ironIcon" style="width: 60px; height: 60px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true"></iron-icon>Nombre del artista 
-   </vaadin-button>
-   <vaadin-button style="width: 60%; height: 75px; align-self: center;" id="vaadinButton1">
-    <iron-icon slot="prefix" style="width: 60px; height: 60px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true" id="ironIcon1"></iron-icon>Nombre del artista 
-   </vaadin-button>
-   <vaadin-button style="width: 60%; height: 75px; align-self: center;" id="vaadinButton2">
-    <iron-icon slot="prefix" style="width: 60px; height: 60px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true" id="ironIcon2"></iron-icon>Nombre del artista 
-   </vaadin-button>
-   <vaadin-button style="width: 60%; height: 75px; align-self: center;" id="vaadinButton3">
-    <iron-icon slot="prefix" style="width: 60px; height: 60px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true" id="ironIcon3"></iron-icon>Nombre del artista 
-   </vaadin-button>
-   <vaadin-button style="width: 60%; height: 75px; align-self: center;" id="vaadinButton4">
-    <iron-icon slot="prefix" style="width: 60px; height: 60px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true" id="ironIcon4"></iron-icon>Nombre del artista 
-   </vaadin-button>
+   <vaadin-vertical-layout theme="spacing" id="vlArtistasSimilares" style="width: 50%;"></vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vista-datos_evento id="vistaDatos_evento" style="width: 90%; align-self: center; margin-top: 50px;"></vista-datos_evento>
+ <vaadin-vertical-layout theme="spacing" id="vlEvento" style="margin-left: 100px; margin-top: 100px;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

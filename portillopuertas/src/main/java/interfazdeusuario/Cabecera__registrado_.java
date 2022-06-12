@@ -41,7 +41,7 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				if(Iniciar_sesion.userSesion.getTipo().equals("Registrado")){
+				if(usuario.equals("usuario")){
 					Dialog dialog = new Dialog();
 					Menu menu = new Menu();
 					menu.getStyle().set("width", "100%");   
@@ -57,7 +57,7 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 					
 				}
 				
-				if(Iniciar_sesion.userSesion.getTipo().equals("Artista")) {
+				if(usuario.equals("artista")) {
 					Dialog dialog = new Dialog();
 					Menu__artista_ menu = new Menu__artista_();
 					menu.getStyle().set("width", "100%");   
@@ -72,7 +72,7 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 					dialog.open();
 				}
 				
-				if(Iniciar_sesion.userSesion.getTipo().equals("Admin")) {
+				if(usuario.equals("admin")) {
 					Dialog dialog = new Dialog();
 					Menu__administrador_ menu = new Menu__administrador_();
 					menu.getStyle().set("width", "100%");   

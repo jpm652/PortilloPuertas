@@ -62,11 +62,11 @@ public class Cancion__Registrado_ extends VistaCancion_registrado {
 
 				vlpadre.removeAll();
 
-				Pagina_principal pagina_p = new Pagina_principal();
+				Pagina_principal pagina_p = new Pagina_principal(true);
 				pagina_p.getStyle().set("width", "100%");
 				pagina_p.getStyle().set("height", "100%");
 				vlpadre.add(pagina_p);
-				pagina_p.inicializar(vlpadre, usuario);
+				pagina_p.inicializar2(vlpadre, usuario);
 
 			}
 		});

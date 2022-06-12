@@ -29,10 +29,12 @@ public class VistaMenu extends LitTemplate {
 	private Label seguidores_menu;
 	@Id("lista_reproduccion_menu")
 	private Button lista_reproduccion_menu;
-	@Id("fav_menu")
-	private Button fav_menu;
 	@Id("config_menu")
 	private Button config_menu;
+	@Id("home_menu")
+	private Button home_menu;
+	@Id("fav_menu")
+	private Button fav_menu;
 
 	/**
 	 * Creates a new VistaMenu.
@@ -95,6 +97,18 @@ public class VistaMenu extends LitTemplate {
 
 	public void setConfig_menu(Button config_menu) {
 		this.config_menu = config_menu;
+	}
+
+	public Button getHome_menu() {
+		return home_menu;
+	}
+
+	public void setHome_menu(Button home_menu) {
+		this.home_menu = home_menu;
+	}
+
+	public void setNombre_menu(Label nombre_menu) {
+		this.nombre_menu = nombre_menu;
 	}
 
 }

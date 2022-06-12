@@ -1,6 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 @customElement('vista-menu_favoritos')
 export class VistaMenu_favoritos extends LitElement {
@@ -30,7 +30,7 @@ export class VistaMenu_favoritos extends LitElement {
    <label id="label1" style="font-weight:bold; margin-left: 250px;">Album</label>
    <label id="label1" style="font-weight:bold; margin-left: 250px;">Duracion</label>
   </vaadin-horizontal-layout>
-  <vaadin-vertical-layout theme="spacing" id="listafav" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
+  <vaadin-vertical-layout id="listafav" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;

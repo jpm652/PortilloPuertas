@@ -19,33 +19,82 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./src/vistas/vista-lista_canciones.ts")
 public class VistaLista_canciones extends LitTemplate {
 
-    @Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("label")
-	private Label label;
-	@Id("label1")
-	private Label label1;
-	@Id("label2")
-	private Label label2;
-	@Id("vaadinHorizontalLayout3")
-	private HorizontalLayout vaadinHorizontalLayout3;
-	@Id("vaadinButton")
-	private Button vaadinButton;
-	@Id("ironIcon1")
-	private Element ironIcon1;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
-	@Id("ironIcon")
-	private Element ironIcon;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
+	@Id("artistacancion")
+	private Label artistacancion;
+	@Id("albumCancion")
+	private Label albumCancion;
+	@Id("tituloCancion")
+	private Label tituloCancion;
+	@Id("duracioncancion")
+	private Label duracioncancion;
+	@Id("bt_compartir")
+	private Button bt_compartir;
+	@Id("bt_fav")
+	private Button bt_fav;
+	@Id("bt_eliminar")
+	private Button bt_eliminar;
+
 	/**
      * Creates a new VistaLista_canciones.
      */
     public VistaLista_canciones() {
         // You can initialise any data required for the connected UI components here.
     }
+
+	public Label getArtistacancion() {
+		return artistacancion;
+	}
+
+	public void setArtistacancion(Label artistacancion) {
+		this.artistacancion = artistacancion;
+	}
+
+	public Label getAlbumCancion() {
+		return albumCancion;
+	}
+
+	public void setAlbumCancion(Label albumCancion) {
+		this.albumCancion = albumCancion;
+	}
+
+	public Label getTituloCancion() {
+		return tituloCancion;
+	}
+
+	public void setTituloCancion(Label tituloCancion) {
+		this.tituloCancion = tituloCancion;
+	}
+
+	public Label getDuracioncancion() {
+		return duracioncancion;
+	}
+
+	public void setDuracioncancion(Label duracioncancion) {
+		this.duracioncancion = duracioncancion;
+	}
+
+	public Button getBt_compartir() {
+		return bt_compartir;
+	}
+
+	public void setBt_compartir(Button bt_compartir) {
+		this.bt_compartir = bt_compartir;
+	}
+
+	public Button getBt_fav() {
+		return bt_fav;
+	}
+
+	public void setBt_fav(Button bt_fav) {
+		this.bt_fav = bt_fav;
+	}
+
+	public Button getBt_eliminar() {
+		return bt_eliminar;
+	}
+
+	public void setBt_eliminar(Button bt_eliminar) {
+		this.bt_eliminar = bt_eliminar;
+	}
 
 }

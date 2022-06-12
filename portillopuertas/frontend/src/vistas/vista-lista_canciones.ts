@@ -14,135 +14,29 @@ export class VistaLista_canciones extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="height: 100%;" id="vaadinVerticalLayout">
- <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="margin-top: 25px; width: 100%; justify-content: flex-start;">
-  <label id="label" style="font-weight:bold; margin-left: 190px;">Título</label>
-  <label id="label1" style="font-weight:bold; margin-left: 215px;">Artista</label>
-  <label id="label1" style="font-weight:bold; margin-left: 210px;">Album</label>
-  <label id="label1" style="font-weight:bold; margin-left: 200px;">Duración</label>
- </vaadin-horizontal-layout>
+<vaadin-vertical-layout id="vaadinVerticalLayout">
  <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="width: 80%; justify-content: flex-start; align-self: center; margin-top: 25px; background:#F0F0F0; height: 50px;">
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 30px;" id="label2">Titulo cancion</label>
+   <label style="align-self: center; margin-left: 30px;" id="tituloCancion">Titulo cancion</label>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Artista cancion</label>
+   <label style="align-self: center; margin-left: 40px;" id="artistacancion">Artista cancion</label>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Album cancion</label>
+   <label style="align-self: center; margin-left: 40px;" id="albumCancion">Album cancion</label>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Duracion cancion</label>
+   <label style="align-self: center; margin-left: 40px;" id="duracioncancion">Duracion cancion</label>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout3" style="width: 15%; justify-content: space-between; margin-left: 30px;">
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
+   <vaadin-button theme="icon" aria-label="Add new" id="bt_compartir" style="align-self: center;">
+    <iron-icon id="ironIcon11" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-shareblack.png?raw=true"></iron-icon>
    </vaadin-button>
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton1" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon"></iron-icon>
+   <vaadin-button theme="icon" aria-label="Add new" id="bt_fav" style="align-self: center;">
+    <iron-icon id="ironIcon" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-fav.png?raw=true"></iron-icon>
    </vaadin-button>
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
-   </vaadin-button>
-  </vaadin-horizontal-layout>
- </vaadin-horizontal-layout>
- <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="width: 80%; justify-content: flex-start; align-self: center; margin-top: 25px; background:#F0F0F0; height: 50px;">
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 30px;" id="label2">Titulo cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Artista cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Album cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Duracion cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout3" style="width: 15%; justify-content: space-between; margin-left: 30px;">
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
-   </vaadin-button>
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton1" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon"></iron-icon>
-   </vaadin-button>
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
-   </vaadin-button>
-  </vaadin-horizontal-layout>
- </vaadin-horizontal-layout>
- <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="width: 80%; justify-content: flex-start; align-self: center; margin-top: 25px; background:#F0F0F0; height: 50px;">
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 30px;" id="label2">Titulo cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Artista cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Album cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Duracion cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout3" style="width: 15%; justify-content: space-between; margin-left: 30px;">
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
-   </vaadin-button>
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton1" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon"></iron-icon>
-   </vaadin-button>
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
-   </vaadin-button>
-  </vaadin-horizontal-layout>
- </vaadin-horizontal-layout>
- <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="width: 80%; justify-content: flex-start; align-self: center; margin-top: 25px; background:#F0F0F0; height: 50px;">
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 30px;" id="label2">Titulo cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Artista cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Album cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Duracion cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout3" style="width: 15%; justify-content: space-between; margin-left: 30px;">
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
-   </vaadin-button>
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton1" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon"></iron-icon>
-   </vaadin-button>
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
-   </vaadin-button>
-  </vaadin-horizontal-layout>
- </vaadin-horizontal-layout>
- <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="width: 80%; justify-content: flex-start; align-self: center; margin-top: 25px; background:#F0F0F0; height: 50px;">
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 30px;" id="label2">Titulo cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Artista cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Album cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 40px;" id="label2">Duracion cancion</label>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout3" style="width: 15%; justify-content: space-between; margin-left: 30px;">
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
-   </vaadin-button>
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton1" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon"></iron-icon>
-   </vaadin-button>
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton" style="align-self: center;">
-    <iron-icon icon="lumo:plus" id="ironIcon1"></iron-icon>
+   <vaadin-button theme="icon" aria-label="Add new" id="bt_eliminar" style="align-self: center;">
+    <iron-icon id="ironIcon1" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-delete.png?raw=true"></iron-icon>
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>

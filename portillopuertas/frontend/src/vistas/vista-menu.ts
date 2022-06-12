@@ -29,6 +29,9 @@ export class VistaMenu extends LitElement {
   <vaadin-button style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 25px; color:white;" id="fav_menu">
    <iron-icon slot="prefix" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-fav.png?raw=true"></iron-icon>Favoritos 
   </vaadin-button>
+  <vaadin-button style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 75px; color:white;" id="home_menu">
+   <iron-icon slot="prefix" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-home.png?raw=true"></iron-icon>Pagina Principal
+  </vaadin-button>
   <vaadin-button style="margin-top: 350px; align-self: flex-end; color:white;" id="config_menu">
    <iron-icon slot="prefix" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-config.png?raw=true"></iron-icon>Configuración 
   </vaadin-button>

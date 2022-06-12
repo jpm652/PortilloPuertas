@@ -26,7 +26,7 @@ public class Siguiente_cancion extends VistaSiguiente_cancion {
 				
 		    	artista artista = new artista();
 		    	artista.getStyle().set("width", "100%");   
-		    	artista.getStyle().set("height", "80%");
+		    	artista.getStyle().set("height", "100%");
 		    	vlpadre.add(artista);
 				
 			}

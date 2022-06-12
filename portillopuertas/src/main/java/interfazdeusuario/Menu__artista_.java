@@ -56,6 +56,22 @@ public class Menu__artista_ extends VistaMenu_artista {
 
 		});
 		
+		this.getButton_home_menu_artista().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				vlpadre.removeAll();
+
+				Pagina_principal pagina_p = new Pagina_principal(true);
+				pagina_p.getStyle().set("width", "100%");
+				pagina_p.getStyle().set("height", "100%");
+				vlpadre.add(pagina_p);
+				pagina_p.inicializar2(vlpadre, "artista");
+
+			}
+
+		});
+		
 		this.getButton_event_menu_artista().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
