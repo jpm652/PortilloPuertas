@@ -62,7 +62,7 @@ public class Menu extends VistaMenu {
 				pagina_p.getStyle().set("width", "100%");
 				pagina_p.getStyle().set("height", "100%");
 				vlpadre.add(pagina_p);
-				pagina_p.inicializar2(vlpadre, "usuario");
+				pagina_p.inicializar2(vlpadre, usuario);
 
 			}
 

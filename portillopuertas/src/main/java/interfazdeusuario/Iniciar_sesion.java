@@ -36,7 +36,8 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	public Cabecera__No_registrado_ _cabecera__No_registrado_;
 	public Registrarse _registrarse;
 	public Recordar_clave _recordar_clave;
-
+	iUsuario_registrado _iUser = new BDPrincipal();
+	
 //	UsuarioComun userComun = new UsuarioComun();
 //	
 //	ArrayList<UsuarioComun> arrayUsuarios = new ArrayList<UsuarioComun>();
@@ -44,7 +45,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	static UsuarioComun userSesion = new UsuarioComun();
 
 	public Iniciar_sesion() {
-		inicializar(new VerticalLayout());
+		//inicializar(new VerticalLayout());
 
 	}
 
@@ -82,6 +83,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			}
 		});
 
+		//Notification.show("Prueba");
 		comprobarUsuario(vlpadre);
 		olvidarClave(vlpadre);
 	}
@@ -102,6 +104,16 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				if (clave.isEmpty() & correo.isEmpty())
 					Notification.show("Insertar credenciales de usuario");
 
+				if(_iUser.iniciarSesionUsuario(correo, clave) == true) {
+					vlpadre.removeAll();
+
+					Pagina_principal pagina_p = new Pagina_principal();
+					pagina_p.getStyle().set("width", "100%");
+					pagina_p.getStyle().set("height", "100%");
+					vlpadre.add(pagina_p);
+					pagina_p.inicializar(vlpadre, "usuario");
+				}
+				
 //				for(int i=0; i<inicio.arrayUsuarios.size(); i++) {
 //					if((inicio.arrayUsuarios.get(i).getCorreo().equals(correo)||inicio.arrayUsuarios.get(i).getNombreUsuario().equals(correo))& inicio.arrayUsuarios.get(i).getContrasena().equals(clave) & inicio.arrayUsuarios.get(i).getTipo().equals("Registrado")) {
 //						userSesion=inicio.arrayUsuarios.get(i);

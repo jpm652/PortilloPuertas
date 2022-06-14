@@ -40,7 +40,7 @@ public class BD_UsuarioRegistrado {
 		
 		UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
 		
-		Notification.show(user.getNombreUsuario());
+		// Notification.show(user.getNombreUsuario());
 		
 		if(user.getNombreUsuario().equals(aNombreUsuario)) {
 			return true;
@@ -58,15 +58,15 @@ public class BD_UsuarioRegistrado {
 
 	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena)throws PersistentException {
 		
-		int id_usuario =-1;
+		// int id_usuario =-1;
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
 			UsuarioComun user = UsuarioComunDAO.createUsuarioComun();
 			user.setCorreo(aCorreo);
 			user.setNombreUsuario(aNombreUsuario);
 			user.setContrasena(aContrasena);
-			id_usuario = user.getORMID(); 
-			user.setId(id_usuario);
+//			id_usuario = user.getORMID(); 
+//			user.setId(id_usuario);
 			UsuarioComunDAO.save(user);
 			t.commit();
 		} catch (Exception e) {

@@ -1,5 +1,6 @@
 package interfazdeusuario;
 
+import com.example.test.AudioPlayer;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaBarra_reproduccion;
@@ -17,7 +18,9 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 	
 	public void inicializar() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		
+		AudioPlayer audio = new AudioPlayer();
+		vl.add(audio);
+		audio.setSource("");
 	}
 	
 }

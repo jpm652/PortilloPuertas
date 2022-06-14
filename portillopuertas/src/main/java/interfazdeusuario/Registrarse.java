@@ -39,12 +39,12 @@ public class Registrarse extends VistaRegistrarse {
 //	private Button _iniciar_sesionB;
 	public Cabecera__No_registrado_ _cabecera__No_registrado_;
 	public Iniciar_sesion _iniciar_sesion;
-//	iUsuario_registrado _iUser = new BDPrincipal();
+	iUsuario_registrado _iUser = new BDPrincipal();
 
-	UsuarioComun userComun = new UsuarioComun();
+//	UsuarioComun userComun = new UsuarioComun();
 
 	public Registrarse() {
-		inicializar(new VerticalLayout());
+		//inicializar(new VerticalLayout());
 
 	}
 
@@ -136,6 +136,8 @@ public class Registrarse extends VistaRegistrarse {
 				String contrasena = getClave_registro().getValue();
 				String contrasena_confirm = getConfirma_clave_registro().getValue();
 
+				_iUser.Registrarse(correo, nombre, contrasena_confirm);
+				
 				if (getCorreo_registro().getValue().equals("exito")) {
 
 					Dialog dialog = new Dialog();
