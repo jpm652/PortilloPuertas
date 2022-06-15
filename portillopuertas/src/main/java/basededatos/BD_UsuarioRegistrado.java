@@ -31,7 +31,7 @@ public class BD_UsuarioRegistrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean iniciarSesionUsuario(String aNombreUsuario, String aContrasena)throws PersistentException {
+	public UsuarioComun iniciarSesionUsuario(String aNombreUsuario, String aContrasena)throws PersistentException {
 		
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		
@@ -42,10 +42,7 @@ public class BD_UsuarioRegistrado {
 		
 		// Notification.show(user.getNombreUsuario());
 		
-		if(user.getNombreUsuario().equals(aNombreUsuario)) {
-			return true;
-		}
-		return false;
+		return user;
 	}
 
 	public boolean verificarUsuario(String aCorreo) {
@@ -65,6 +62,7 @@ public class BD_UsuarioRegistrado {
 			user.setCorreo(aCorreo);
 			user.setNombreUsuario(aNombreUsuario);
 			user.setContrasena(aContrasena);
+			user.setTipo("Registrado");
 //			id_usuario = user.getORMID(); 
 //			user.setId(id_usuario);
 			UsuarioComunDAO.save(user);

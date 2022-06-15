@@ -95,6 +95,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
+				UsuarioComun credenciales = new UsuarioComun();
 				String correo = getCorreo_inicarsesion().getValue();
 				String clave = getClave_iniciarsesion().getValue();
 				boolean usuario = false;
@@ -104,20 +105,22 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				if (clave.isEmpty() & correo.isEmpty())
 					Notification.show("Insertar credenciales de usuario");
 
-				if(_iUser.iniciarSesionUsuario(correo, clave) == true) {
-					vlpadre.removeAll();
-
-					Pagina_principal pagina_p = new Pagina_principal();
-					pagina_p.getStyle().set("width", "100%");
-					pagina_p.getStyle().set("height", "100%");
-					vlpadre.add(pagina_p);
-					pagina_p.inicializar(vlpadre, "usuario");
-				}
+				credenciales = _iUser.iniciarSesionUsuario(correo, clave);
+				
+//				if( == true) {
+//					vlpadre.removeAll();
+//
+//					Pagina_principal pagina_p = new Pagina_principal();
+//					pagina_p.getStyle().set("width", "100%");
+//					pagina_p.getStyle().set("height", "100%");
+//					vlpadre.add(pagina_p);
+//					pagina_p.inicializar(vlpadre, "usuario");
+//				}
 				
 //				for(int i=0; i<inicio.arrayUsuarios.size(); i++) {
 //					if((inicio.arrayUsuarios.get(i).getCorreo().equals(correo)||inicio.arrayUsuarios.get(i).getNombreUsuario().equals(correo))& inicio.arrayUsuarios.get(i).getContrasena().equals(clave) & inicio.arrayUsuarios.get(i).getTipo().equals("Registrado")) {
 //						userSesion=inicio.arrayUsuarios.get(i);
-				if (correo.equals("usuario") ) {
+				if (credenciales.getTipo().equals("Registrado")){
 					usuario = true;
 				}
 				// else

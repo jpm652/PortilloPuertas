@@ -38,7 +38,16 @@ public class BD_Cancion {
 		//return id_cancion;
 	};	
 
-	public List busqueda_cancion(String aNombre) {
-		throw new UnsupportedOperationException();
+	public List busqueda_cancion(String aNombre)throws PersistentException {
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+
+			List cancion = CancionDAO.queryCancion("Nombre = '"+aNombre + "'",null);
+			return cancion;
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return null;
 	}
 }
