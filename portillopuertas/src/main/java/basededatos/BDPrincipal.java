@@ -29,7 +29,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean iniciarSesionUsuario(String aNombreUsuario, String aContrasena) {
+	public UsuarioComun iniciarSesionUsuario(String aNombreUsuario, String aContrasena) {
 
 		try {
 			return _bd_usuario_registrado.iniciarSesionUsuario(aNombreUsuario, aContrasena);
@@ -37,7 +37,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 
 	public void iniciarSesionArtista(String aNombreArtista, String aContrasena) {
@@ -56,9 +56,9 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena) {
+	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena, String arutaFoto) {
 		try {
-			_bd_usuario_registrado.Registrarse(aCorreo, aNombreUsuario, aContrasena);
+			_bd_usuario_registrado.Registrarse(aCorreo, aNombreUsuario, aContrasena, arutaFoto);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

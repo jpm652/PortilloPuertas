@@ -60,6 +60,10 @@ public class VistaRegistrarse extends LitTemplate {
 	private Button boton_registrase;
 	@Id("img_cabecera_registro")
 	private Image img_cabecera_registro;
+	@Id("fotoImg")
+	private Image fotoImg;
+	@Id("fotoFC")
+	private Button fotoFC;
 
 	public Button getBtt_iniciarsesion() {
 		return btt_iniciarsesion;
@@ -218,6 +222,22 @@ public class VistaRegistrarse extends LitTemplate {
 
 	public void setBtt_iniciarsesion(Button btt_iniciarsesion) {
 		this.btt_iniciarsesion = btt_iniciarsesion;
+	}
+
+	public Image getFotoImg() {
+		return fotoImg;
+	}
+
+	public void setFotoImg(Image fotoImg) {
+		this.fotoImg = fotoImg;
+	}
+
+	public Button getFotoFC() {
+		return fotoFC;
+	}
+
+	public void setFotoFC(Button fotoFC) {
+		this.fotoFC = fotoFC;
 	}
 
 	

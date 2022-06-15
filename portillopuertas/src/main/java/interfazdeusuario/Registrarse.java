@@ -1,25 +1,24 @@
 package interfazdeusuario;
 
-import java.util.ArrayList;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
-import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
-import com.vaadin.flow.component.html.Span;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.router.RouteConfiguration;
+import com.vaadin.flow.component.upload.FinishedEvent;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
 import basededatos.BDPrincipal;
-import basededatos.BD_UsuarioRegistrado;
-import basededatos.UsuarioComun;
 import basededatos.iUsuario_registrado;
 import vistas.VistaRegistrarse;
 
@@ -40,6 +39,7 @@ public class Registrarse extends VistaRegistrarse {
 	public Cabecera__No_registrado_ _cabecera__No_registrado_;
 	public Iniciar_sesion _iniciar_sesion;
 	iUsuario_registrado _iUser = new BDPrincipal();
+	String rutaFoto = "";
 
 //	UsuarioComun userComun = new UsuarioComun();
 
@@ -91,6 +91,40 @@ public class Registrarse extends VistaRegistrarse {
 //		        add(link);
 //			}
 //		});
+		
+		
+		
+		this.getFotoFC().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				MemoryBuffer buffer = new MemoryBuffer();
+				Upload upload = new Upload(buffer);
+				Dialog modal = new Dialog(upload);
+				
+				upload.addFinishedListener(e -> {
+                    InputStream inputStream = buffer.getInputStream();
+                    // read the contents of the buffered memory
+                    // from inputStream
+                    
+                });
+				Button imgUpBtn = new Button();
+                imgUpBtn.setText("Subir");
+                modal.add(upload);
+                modal.add(imgUpBtn);
+                
+                imgUpBtn.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+                    @Override
+                    public void onComponentEvent(ClickEvent<Button> event) {
+                        Cambiar_Imagen(buffer);
+                    }
+                });
+				
+			}
+		});
+
 		comprobarRegistro(vlpadre);
 	}
 
@@ -109,7 +143,7 @@ public class Registrarse extends VistaRegistrarse {
 				String nombre = getNombre_registro().getValue();
 				String contrasena = getClave_registro().getValue();
 				String contrasena_confirm = getConfirma_clave_registro().getValue();
-
+				
 				if (correo.isEmpty() || nombre.isEmpty() || contrasena.isEmpty() || contrasena_confirm.isEmpty()) {
 					Dialog dialog = new Dialog();
 
@@ -136,7 +170,7 @@ public class Registrarse extends VistaRegistrarse {
 				String contrasena = getClave_registro().getValue();
 				String contrasena_confirm = getConfirma_clave_registro().getValue();
 
-				_iUser.Registrarse(correo, nombre, contrasena_confirm);
+				_iUser.Registrarse(correo, nombre, contrasena_confirm, rutaFoto);
 				
 				if (getCorreo_registro().getValue().equals("exito")) {
 
@@ -175,6 +209,34 @@ public class Registrarse extends VistaRegistrarse {
 		dialogLayout.setAlignSelf(Alignment.END, closeButton);
 
 		return dialogLayout;
+	}
+	
+	public String Cambiar_Imagen(MemoryBuffer memBuffer) {
+		
+		String ruta = "img/"+memBuffer.getFileName();
+
+        InputStream is = memBuffer.getInputStream();
+        
+        try {
+            OutputStream os = new FileOutputStream("./src/main/webapp/img/" + memBuffer.getFileName());
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            //read from is to buffer
+            while((bytesRead = is.read(buffer)) != -1){
+                os.write(buffer, 0, bytesRead);
+            }
+            is.close();
+            //flush OutputStream to write any buffered data to file
+            os.flush();
+            os.close();
+            
+            getFotoImg().setSrc(ruta);
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+		
+		return ruta;
 	}
 
 	public void validar_clave() {

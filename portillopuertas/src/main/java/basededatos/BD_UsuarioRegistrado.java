@@ -38,9 +38,8 @@ public class BD_UsuarioRegistrado {
 		UsuarioComunCriteria c = new UsuarioComunCriteria();
 		c.nombreUsuario.like("%"+aNombreUsuario.trim()+"%");
 		
-		UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
 		
-		// Notification.show(user.getNombreUsuario());
+		UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
 		
 		return user;
 	}
@@ -53,9 +52,8 @@ public class BD_UsuarioRegistrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena)throws PersistentException {
+	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena, String arutaFoto)throws PersistentException {
 		
-		// int id_usuario =-1;
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
 			UsuarioComun user = UsuarioComunDAO.createUsuarioComun();
@@ -63,8 +61,8 @@ public class BD_UsuarioRegistrado {
 			user.setNombreUsuario(aNombreUsuario);
 			user.setContrasena(aContrasena);
 			user.setTipo("Registrado");
-//			id_usuario = user.getORMID(); 
-//			user.setId(id_usuario);
+			user.setFoto(arutaFoto);
+			
 			UsuarioComunDAO.save(user);
 			t.commit();
 		} catch (Exception e) {

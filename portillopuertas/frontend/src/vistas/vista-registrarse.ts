@@ -47,9 +47,17 @@ export class VistaRegistrarse extends LitElement {
    <vaadin-checkbox id="terminos_registro">
      Aceptar términos y condiciones 
    </vaadin-checkbox>
-   <vaadin-button style="align-self: center; width: 80%;" id="boton_registrase">
-     Registrarse 
-   </vaadin-button>
+   <vaadin-horizontal-layout theme="spacing" style="align-self: center; justify-content: center; margin: var(--lumo-space-s);">
+    <img id="fotoImg" style="max-width: 100px; max-height: 100px;" src="https://github.com/mdmontesinos/MDS2-Spotify/blob/master/spotify/src/main/webapp/img/defaultuser.png?raw=true">
+    <vaadin-horizontal-layout theme="spacing" style="align-items: center;">
+     <vaadin-button id="fotoFC">
+       Foto de perfil 
+     </vaadin-button>
+     <vaadin-button style="align-self: center; width: 80%;" id="boton_registrase">
+       Registrarse 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+   </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 25%; height: 100%; align-items: center; padding-top: var(--lumo-space-l);" id="vaadinVerticalLayout2">
    <label style="font-weight:bold; font-size:20px;">¿Tienes cuenta?</label>

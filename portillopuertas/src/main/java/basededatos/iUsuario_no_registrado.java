@@ -6,7 +6,7 @@ public interface iUsuario_no_registrado {
 
 	public String verificarUsuario(String aNombreUsuario, String aContrasena);
 
-	public boolean iniciarSesionUsuario(String aNombreUsuario, String aContrasena);
+	public UsuarioComun iniciarSesionUsuario(String aNombreUsuario, String aContrasena);
 
 	public void iniciarSesionArtista(String aNombreArtista, String aContrasena);
 
@@ -16,5 +16,5 @@ public interface iUsuario_no_registrado {
 
 	public void recuperarContrasena(String aContrasena);
 
-	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena);
+	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena, String rutaFoto);
 }

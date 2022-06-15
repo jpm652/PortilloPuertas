@@ -23,7 +23,8 @@ public class Menu extends VistaMenu {
 
 	public void inicializar(VerticalLayout vlpadre, String usuario) {
 
-		this.setNombre_menu(Iniciar_sesion.userSesion.getNombreUsuario());
+		this.setNombre_menu(usuario);
+		
 		
 		this.getLista_reproduccion_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
