@@ -25,6 +25,7 @@ public class EventoDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression titulo;
 	public final StringExpression tipo;
 	public final StringExpression ubicacion;
+	public final StringExpression fecha;
 	public final StringExpression informacionAdicional;
 	
 	public EventoDetachedCriteria() {
@@ -35,6 +36,7 @@ public class EventoDetachedCriteria extends AbstractORMDetachedCriteria {
 		titulo = new StringExpression("titulo", this.getDetachedCriteria());
 		tipo = new StringExpression("tipo", this.getDetachedCriteria());
 		ubicacion = new StringExpression("ubicacion", this.getDetachedCriteria());
+		fecha = new StringExpression("fecha", this.getDetachedCriteria());
 		informacionAdicional = new StringExpression("informacionAdicional", this.getDetachedCriteria());
 	}
 	
@@ -46,6 +48,7 @@ public class EventoDetachedCriteria extends AbstractORMDetachedCriteria {
 		titulo = new StringExpression("titulo", this.getDetachedCriteria());
 		tipo = new StringExpression("tipo", this.getDetachedCriteria());
 		ubicacion = new StringExpression("ubicacion", this.getDetachedCriteria());
+		fecha = new StringExpression("fecha", this.getDetachedCriteria());
 		informacionAdicional = new StringExpression("informacionAdicional", this.getDetachedCriteria());
 	}
 	

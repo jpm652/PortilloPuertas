@@ -23,7 +23,6 @@ public class PlaylistDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression creada_por_usuarioId;
 	public final AssociationExpression creada_por_usuario;
 	public final StringExpression nombre;
-	public final IntegerExpression nCanciones;
 	public final StringExpression usuarioCreador;
 	public final CollectionExpression contiene_canciones;
 	
@@ -33,7 +32,6 @@ public class PlaylistDetachedCriteria extends AbstractORMDetachedCriteria {
 		creada_por_usuarioId = new IntegerExpression("creada_por_usuario.id", this.getDetachedCriteria());
 		creada_por_usuario = new AssociationExpression("creada_por_usuario", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
-		nCanciones = new IntegerExpression("nCanciones", this.getDetachedCriteria());
 		usuarioCreador = new StringExpression("usuarioCreador", this.getDetachedCriteria());
 		contiene_canciones = new CollectionExpression("ORM_contiene_canciones", this.getDetachedCriteria());
 	}
@@ -44,7 +42,6 @@ public class PlaylistDetachedCriteria extends AbstractORMDetachedCriteria {
 		creada_por_usuarioId = new IntegerExpression("creada_por_usuario.id", this.getDetachedCriteria());
 		creada_por_usuario = new AssociationExpression("creada_por_usuario", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
-		nCanciones = new IntegerExpression("nCanciones", this.getDetachedCriteria());
 		usuarioCreador = new StringExpression("usuarioCreador", this.getDetachedCriteria());
 		contiene_canciones = new CollectionExpression("ORM_contiene_canciones", this.getDetachedCriteria());
 	}

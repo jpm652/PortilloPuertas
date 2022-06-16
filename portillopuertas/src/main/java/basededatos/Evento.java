@@ -14,19 +14,7 @@
 package basededatos;
 
 import java.io.Serializable;
-import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Evento")
@@ -63,14 +51,14 @@ public class Evento implements Serializable {
 	@Column(name="Titulo", nullable=true, length=255)	
 	private String titulo;
 	
-	@Column(name="Tipo", nullable=true, length=10)	
+	@Column(name="Tipo", nullable=true, length=255)	
 	private String tipo;
 	
 	@Column(name="Ubicacion", nullable=true, length=255)	
 	private String ubicacion;
 	
-	@Column(name="Fecha", nullable=true)	
-	private Date fecha;
+	@Column(name="Fecha", nullable=true, length=255)	
+	private String fecha;
 	
 	@Column(name="InformacionAdicional", nullable=true, length=255)	
 	private String informacionAdicional;
@@ -111,11 +99,11 @@ public class Evento implements Serializable {
 		return ubicacion;
 	}
 	
-	public void setFecha(Date value) {
+	public void setFecha(String value) {
 		this.fecha = value;
 	}
 	
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 	

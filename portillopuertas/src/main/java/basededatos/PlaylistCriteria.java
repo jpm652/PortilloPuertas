@@ -23,7 +23,6 @@ public class PlaylistCriteria extends AbstractORMCriteria {
 	public final IntegerExpression creada_por_usuarioId;
 	public final AssociationExpression creada_por_usuario;
 	public final StringExpression nombre;
-	public final IntegerExpression nCanciones;
 	public final StringExpression usuarioCreador;
 	public final CollectionExpression contiene_canciones;
 	
@@ -33,7 +32,6 @@ public class PlaylistCriteria extends AbstractORMCriteria {
 		creada_por_usuarioId = new IntegerExpression("creada_por_usuario.id", this);
 		creada_por_usuario = new AssociationExpression("creada_por_usuario", this);
 		nombre = new StringExpression("nombre", this);
-		nCanciones = new IntegerExpression("nCanciones", this);
 		usuarioCreador = new StringExpression("usuarioCreador", this);
 		contiene_canciones = new CollectionExpression("ORM_contiene_canciones", this);
 	}

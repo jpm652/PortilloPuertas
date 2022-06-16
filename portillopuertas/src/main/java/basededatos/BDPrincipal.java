@@ -2,17 +2,14 @@ package basededatos;
 
 import java.util.List;
 
-import org.orm.PersistentException;
-
 import interfazdeusuario.Cancion__Registrado_;
 import interfazdeusuario.Eventos;
 import interfazdeusuario.artista;
 
-public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado, iAdministrador, iArtista,
-		iAplicaciones_Terceros, iServidor_Correo_ {
-	public BD_Cancion _bd_cancion = new BD_Cancion();
+public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado, iAdministrador, iArtista, iAplicaciones_Terceros, iServidor_Correo_ {
+	public BD_Cancion _bd_cancion;
 	public BD_Album _bd_album;
-	public BD_UsuarioRegistrado _bd_usuario_registrado = new BD_UsuarioRegistrado();
+	public BD_UsuarioRegistrado _bd_usuario_registrado;
 	public BD_Playlist _bd_playlist;
 	public BD_Artista _bd_artista;
 	public BD_Administrador _bd_administrador;
@@ -20,7 +17,6 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	public BD_Evento _bd_evento;
 
 	public Playlist cargar_lista_novedades() {
-
 		throw new UnsupportedOperationException();
 	}
 
@@ -29,14 +25,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	}
 
 	public UsuarioComun iniciarSesionUsuario(String aNombreUsuario, String aContrasena) {
-
-		try {
-			return _bd_usuario_registrado.iniciarSesionUsuario(aNombreUsuario, aContrasena);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	public void iniciarSesionArtista(String aNombreArtista, String aContrasena) {
@@ -55,13 +44,8 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena, String arutaFoto) {
-		try {
-			_bd_usuario_registrado.Registrarse(aCorreo, aNombreUsuario, aContrasena, arutaFoto);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena) {
+		throw new UnsupportedOperationException();
 	}
 
 	public void editarContrasena(int aId_usuario, String aAntiguaContrasena, String aNuevaContrasena) {
@@ -132,14 +116,8 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public void darAltaCancion(String aNombre, String aArtista, String aAlbum, String estilo, String productor,
-			String compositor, int duracion, String urlfoto) {
-		try {
-			_bd_cancion.darAltaCancion(aNombre, aArtista, aAlbum, estilo, productor, compositor, duracion, urlfoto);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void darAltaCancion(String aNombre, artista aArtista, Album aAlbum) {
+		throw new UnsupportedOperationException();
 	}
 
 	public void darAltaEstilo(String aNombre) {
@@ -156,5 +134,29 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 
 	public void anadirEvento(String aTitulo, String aTipo, String aUbicacion, String aFecha, String aInfoAdicional) {
 		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void darAltaAlbum(String aNombre, Artista aArtista) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void darAltaCancion(String aNombre, String aArtista, String aEstilo, String aProductor, String acompositor, int aDuracion, String aImagen) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void darBajaArtista(Artista aArtista) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena, String rutaFoto) {
+		// TODO Auto-generated method stub
+		
 	}
 }

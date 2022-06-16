@@ -3,8 +3,6 @@ package basededatos;
 import java.util.List;
 import java.util.Vector;
 
-// import basededatos.Album;
-// import Artista.Album;
 import interfazdeusuario.artista;
 
 public class BD_Album {

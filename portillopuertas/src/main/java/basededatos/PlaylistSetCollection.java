@@ -72,7 +72,6 @@ public class PlaylistSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id</li>
 	 * <li>nombre</li>
-	 * <li>nCanciones</li>
 	 * <li>usuarioCreador</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
@@ -86,7 +85,6 @@ public class PlaylistSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id</li>
 	 * <li>nombre</li>
-	 * <li>nCanciones</li>
 	 * <li>usuarioCreador</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending

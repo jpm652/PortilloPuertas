@@ -1,6 +1,6 @@
 package basededatos;
 
-import java.util.*;
+import java.util.List;
 
 import interfazdeusuario.Cancion__Registrado_;
 import interfazdeusuario.Eventos;

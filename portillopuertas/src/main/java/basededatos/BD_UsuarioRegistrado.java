@@ -2,11 +2,6 @@ package basededatos;
 
 import java.util.Vector;
 
-import org.orm.PersistentException;
-import org.orm.PersistentTransaction;
-
-import com.vaadin.flow.component.notification.Notification;
-
 public class BD_UsuarioRegistrado {
 	public BDPrincipal _bd_principal_usuario_registrado;
 	public Vector<UsuarioRegistrado> _contiene_usuarios_registrados = new Vector<UsuarioRegistrado>();
@@ -31,18 +26,8 @@ public class BD_UsuarioRegistrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public UsuarioComun iniciarSesionUsuario(String aNombreUsuario, String aContrasena)throws PersistentException {
-		
-		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
-		
-		UsuarioComunCriteria c = new UsuarioComunCriteria();
-		
-		c.nombreUsuario.like(aNombreUsuario);
-		c.contrasena.like(aContrasena);
-		
-		UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
-		
-		return user;
+	public void iniciarSesionUsuario(String aNombreUsuario, String aContrasena) {
+		throw new UnsupportedOperationException();
 	}
 
 	public boolean verificarUsuario(String aCorreo) {
@@ -53,21 +38,7 @@ public class BD_UsuarioRegistrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena, String arutaFoto)throws PersistentException {
-		
-		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
-		try {
-			UsuarioComun user = UsuarioComunDAO.createUsuarioComun();
-			user.setCorreo(aCorreo);
-			user.setNombreUsuario(aNombreUsuario);
-			user.setContrasena(aContrasena);
-			user.setTipo("Registrado");
-			user.setFoto(arutaFoto);
-			
-			UsuarioComunDAO.save(user);
-			t.commit();
-		} catch (Exception e) {
-			t.rollback();
-		}	
-		}
+	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena) {
+		throw new UnsupportedOperationException();
+	}
 }

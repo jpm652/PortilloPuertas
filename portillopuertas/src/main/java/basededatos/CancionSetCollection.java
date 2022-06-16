@@ -71,15 +71,15 @@ public class CancionSetCollection extends org.orm.util.ORMSet {
 	 * Return an sorted array containing all of the persistent objects in ORMSet
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id</li>
-	 * <li>nombre</li>
+	 * <li>titulo</li>
 	 * <li>artista</li>
 	 * <li>duracion</li>
 	 * <li>estilo</li>
-	 * <li>album</li>
-	 * <li>soloRegistrados</li>
 	 * <li>imagen_cancion</li>
 	 * <li>compositor</li>
 	 * <li>productor</li>
+	 * <li>numReproducciones</li>
+	 * <li>ficheroMultimedia</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -91,15 +91,15 @@ public class CancionSetCollection extends org.orm.util.ORMSet {
 	 * Return an sorted array containing all of the persistent objects in ORMSet
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id</li>
-	 * <li>nombre</li>
+	 * <li>titulo</li>
 	 * <li>artista</li>
 	 * <li>duracion</li>
 	 * <li>estilo</li>
-	 * <li>album</li>
-	 * <li>soloRegistrados</li>
 	 * <li>imagen_cancion</li>
 	 * <li>compositor</li>
 	 * <li>productor</li>
+	 * <li>numReproducciones</li>
+	 * <li>ficheroMultimedia</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

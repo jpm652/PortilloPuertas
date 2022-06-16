@@ -51,7 +51,7 @@ public class UsuarioComun implements Serializable {
 	@Column(name="NombreUsuario", nullable=true, length=255)	
 	private String nombreUsuario;
 	
-	@Column(name="Tipo", nullable=true, length=10)	
+	@Column(name="Tipo", nullable=true, length=255)	
 	private String tipo;
 	
 	@Column(name="Contrasena", nullable=true, length=255)	
@@ -60,8 +60,14 @@ public class UsuarioComun implements Serializable {
 	@Column(name="Correo", nullable=true, length=255)	
 	private String correo;
 	
-	@Column(name="Foto", nullable=true, length=10)	
+	@Column(name="Foto", nullable=true, length=255)	
 	private String foto;
+	
+	@Column(name="Seguidores", nullable=false, length=10)	
+	private int seguidores;
+	
+	@Column(name="Seguidos", nullable=false, length=10)	
+	private int seguidos;
 	
 	@ManyToMany(targetEntity=basededatos.Cancion.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -74,7 +80,7 @@ public class UsuarioComun implements Serializable {
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_crea_playlist = new java.util.HashSet();
 	
-	public void setId(int value) {
+	private void setId(int value) {
 		this.id = value;
 	}
 	
@@ -124,6 +130,22 @@ public class UsuarioComun implements Serializable {
 	
 	public String getFoto() {
 		return foto;
+	}
+	
+	public void setSeguidores(int value) {
+		this.seguidores = value;
+	}
+	
+	public int getSeguidores() {
+		return seguidores;
+	}
+	
+	public void setSeguidos(int value) {
+		this.seguidos = value;
+	}
+	
+	public int getSeguidos() {
+		return seguidos;
 	}
 	
 	private void setORM_Reproduce_cancion(java.util.Set value) {

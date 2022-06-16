@@ -25,6 +25,8 @@ public class UsuarioRegistradoDetachedCriteria extends AbstractORMDetachedCriter
 	public final StringExpression contrasena;
 	public final StringExpression correo;
 	public final StringExpression foto;
+	public final IntegerExpression seguidores;
+	public final IntegerExpression seguidos;
 	public final CollectionExpression reproduce_cancion;
 	public final CollectionExpression crea_playlist;
 	public final CollectionExpression sigue_a;
@@ -38,6 +40,8 @@ public class UsuarioRegistradoDetachedCriteria extends AbstractORMDetachedCriter
 		contrasena = new StringExpression("contrasena", this.getDetachedCriteria());
 		correo = new StringExpression("correo", this.getDetachedCriteria());
 		foto = new StringExpression("foto", this.getDetachedCriteria());
+		seguidores = new IntegerExpression("seguidores", this.getDetachedCriteria());
+		seguidos = new IntegerExpression("seguidos", this.getDetachedCriteria());
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this.getDetachedCriteria());
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this.getDetachedCriteria());
 		sigue_a = new CollectionExpression("ORM_sigue_a", this.getDetachedCriteria());
@@ -52,6 +56,8 @@ public class UsuarioRegistradoDetachedCriteria extends AbstractORMDetachedCriter
 		contrasena = new StringExpression("contrasena", this.getDetachedCriteria());
 		correo = new StringExpression("correo", this.getDetachedCriteria());
 		foto = new StringExpression("foto", this.getDetachedCriteria());
+		seguidores = new IntegerExpression("seguidores", this.getDetachedCriteria());
+		seguidos = new IntegerExpression("seguidos", this.getDetachedCriteria());
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this.getDetachedCriteria());
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this.getDetachedCriteria());
 		sigue_a = new CollectionExpression("ORM_sigue_a", this.getDetachedCriteria());

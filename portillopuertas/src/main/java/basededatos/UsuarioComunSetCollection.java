@@ -76,6 +76,8 @@ public class UsuarioComunSetCollection extends org.orm.util.ORMSet {
 	 * <li>contrasena</li>
 	 * <li>correo</li>
 	 * <li>foto</li>
+	 * <li>seguidores</li>
+	 * <li>seguidos</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -92,6 +94,8 @@ public class UsuarioComunSetCollection extends org.orm.util.ORMSet {
 	 * <li>contrasena</li>
 	 * <li>correo</li>
 	 * <li>foto</li>
+	 * <li>seguidores</li>
+	 * <li>seguidos</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

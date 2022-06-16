@@ -11,4 +11,8 @@ public class BD_Evento {
 	public Eventos cargarEvento() {
 		throw new UnsupportedOperationException();
 	}
+
+	public void anadirEvento(String aTitulo, String aTipo, String aUbicacion, String aFecha, String aInfoAdicional) {
+		throw new UnsupportedOperationException();
+	}
 }

@@ -25,6 +25,8 @@ public class UsuarioRegistradoCriteria extends AbstractORMCriteria {
 	public final StringExpression contrasena;
 	public final StringExpression correo;
 	public final StringExpression foto;
+	public final IntegerExpression seguidores;
+	public final IntegerExpression seguidos;
 	public final CollectionExpression reproduce_cancion;
 	public final CollectionExpression crea_playlist;
 	public final CollectionExpression sigue_a;
@@ -38,6 +40,8 @@ public class UsuarioRegistradoCriteria extends AbstractORMCriteria {
 		contrasena = new StringExpression("contrasena", this);
 		correo = new StringExpression("correo", this);
 		foto = new StringExpression("foto", this);
+		seguidores = new IntegerExpression("seguidores", this);
+		seguidos = new IntegerExpression("seguidos", this);
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this);
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this);
 		sigue_a = new CollectionExpression("ORM_sigue_a", this);

@@ -204,7 +204,7 @@ public String Cambiar_Imagen(MemoryBuffer memBuffer, Image imagen) {
 				int duracion = Integer.parseInt(getDuracionCancion().getValue());
 				String imagen = "url";
 
-				_iAdmin.darAltaCancion(nombrecancion, artista, album, estilo, productor, compositor, duracion, imagen);
+				_iAdmin.darAltaCancion(nombrecancion, artista, estilo, productor, compositor, duracion, imagen);
 			}
 		});
 	}

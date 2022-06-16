@@ -76,8 +76,8 @@ public class Cancion implements Serializable {
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private basededatos.Estilo pertenece_a_estilo;
 	
-	@Column(name="Nombre", nullable=true, length=255)	
-	private String nombre;
+	@Column(name="Titulo", nullable=true, length=255)	
+	private String titulo;
 	
 	@Column(name="Artista", nullable=true, length=255)	
 	private String artista;
@@ -85,14 +85,8 @@ public class Cancion implements Serializable {
 	@Column(name="Duracion", nullable=false, length=10)	
 	private int duracion;
 	
-	@Column(name="Estilo", nullable=true, length=10)	
+	@Column(name="Estilo", nullable=false, length=255)	
 	private String estilo;
-	
-	@Column(name="Album", nullable=true, length=255)	
-	private String album;
-	
-	@Column(name="SoloRegistrados", nullable=true, length=1)	
-	private boolean soloRegistrados;
 	
 	@Column(name="Imagen_cancion", nullable=true, length=255)	
 	private String imagen_cancion;
@@ -102,6 +96,12 @@ public class Cancion implements Serializable {
 	
 	@Column(name="Productor", nullable=true, length=255)	
 	private String productor;
+	
+	@Column(name="NumReproducciones", nullable=false, length=10)	
+	private int numReproducciones;
+	
+	@Column(name="FicheroMultimedia", nullable=true, length=255)	
+	private String ficheroMultimedia;
 	
 	@ManyToMany(mappedBy="ORM_contiene_canciones", targetEntity=basededatos.Album.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -118,7 +118,7 @@ public class Cancion implements Serializable {
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_es_reproducida_por = new java.util.HashSet();
 	
-	public void setId(int value) {
+	private void setId(int value) {
 		this.id = value;
 	}
 	
@@ -130,12 +130,12 @@ public class Cancion implements Serializable {
 		return getId();
 	}
 	
-	public void setNombre(String value) {
-		this.nombre = value;
+	public void setTitulo(String value) {
+		this.titulo = value;
 	}
 	
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 	
 	public void setArtista(String value) {
@@ -162,22 +162,6 @@ public class Cancion implements Serializable {
 		return estilo;
 	}
 	
-	public void setAlbum(String value) {
-		this.album = value;
-	}
-	
-	public String getAlbum() {
-		return album;
-	}
-	
-	public void setSoloRegistrados(boolean value) {
-		this.soloRegistrados = value;
-	}
-	
-	public boolean getSoloRegistrados() {
-		return soloRegistrados;
-	}
-	
 	public void setImagen_cancion(String value) {
 		this.imagen_cancion = value;
 	}
@@ -200,6 +184,22 @@ public class Cancion implements Serializable {
 	
 	public String getProductor() {
 		return productor;
+	}
+	
+	public void setNumReproducciones(int value) {
+		this.numReproducciones = value;
+	}
+	
+	public int getNumReproducciones() {
+		return numReproducciones;
+	}
+	
+	public void setFicheroMultimedia(String value) {
+		this.ficheroMultimedia = value;
+	}
+	
+	public String getFicheroMultimedia() {
+		return ficheroMultimedia;
 	}
 	
 	private void setORM_Pertenece_a_album(java.util.Set value) {

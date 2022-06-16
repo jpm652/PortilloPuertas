@@ -16,10 +16,10 @@ public class CreateMDS12022PFPortilloPuertasData {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : es_publicado
 			basededatos.EventoDAO.save(lbasededatosEvento);
 			basededatos.Cancion lbasededatosCancion = basededatos.CancionDAO.createCancion();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : es_reproducida_por, pertenece_a_playlist, pertenece_a_album, soloRegistrados, estilo, duracion, pertenece_a_estilo, es_dada_de_alta
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : es_reproducida_por, pertenece_a_playlist, pertenece_a_album, numReproducciones, estilo, duracion, pertenece_a_estilo, es_dada_de_alta
 			basededatos.CancionDAO.save(lbasededatosCancion);
 			basededatos.UsuarioComun lbasededatosUsuarioComun = basededatos.UsuarioComunDAO.createUsuarioComun();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : crea_playlist, reproduce_cancion
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : crea_playlist, reproduce_cancion, seguidos, seguidores
 			basededatos.UsuarioComunDAO.save(lbasededatosUsuarioComun);
 			basededatos.Artista lbasededatosArtista = basededatos.ArtistaDAO.createArtista();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : publica_eventos, crea_album, es_dado_de_alta
@@ -31,7 +31,7 @@ public class CreateMDS12022PFPortilloPuertasData {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : da_de_alta_estilo, da_de_alta_cancion, da_de_alta_album, da_de_alta_artista
 			basededatos.AdministradorDAO.save(lbasededatosAdministrador);
 			basededatos.Playlist lbasededatosPlaylist = basededatos.PlaylistDAO.createPlaylist();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contiene_canciones, nCanciones, creada_por_usuario
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contiene_canciones, creada_por_usuario
 			basededatos.PlaylistDAO.save(lbasededatosPlaylist);
 			basededatos.Estilo lbasededatosEstilo = basededatos.EstiloDAO.createEstilo();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contiene_cancion, es_dado_de_alta

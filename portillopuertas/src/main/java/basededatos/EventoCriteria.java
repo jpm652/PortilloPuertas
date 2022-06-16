@@ -25,6 +25,7 @@ public class EventoCriteria extends AbstractORMCriteria {
 	public final StringExpression titulo;
 	public final StringExpression tipo;
 	public final StringExpression ubicacion;
+	public final StringExpression fecha;
 	public final StringExpression informacionAdicional;
 	
 	public EventoCriteria(Criteria criteria) {
@@ -35,6 +36,7 @@ public class EventoCriteria extends AbstractORMCriteria {
 		titulo = new StringExpression("titulo", this);
 		tipo = new StringExpression("tipo", this);
 		ubicacion = new StringExpression("ubicacion", this);
+		fecha = new StringExpression("fecha", this);
 		informacionAdicional = new StringExpression("informacionAdicional", this);
 	}
 	

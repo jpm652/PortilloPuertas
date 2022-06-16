@@ -63,9 +63,6 @@ public class Playlist implements Serializable {
 	@Column(name="Nombre", nullable=true, length=255)	
 	private String nombre;
 	
-	@Column(name="NCanciones", nullable=false, length=10)	
-	private int nCanciones;
-	
 	@Column(name="UsuarioCreador", nullable=true, length=255)	
 	private String usuarioCreador;
 	
@@ -93,14 +90,6 @@ public class Playlist implements Serializable {
 	
 	public String getNombre() {
 		return nombre;
-	}
-	
-	public void setnCanciones(int value) {
-		this.nCanciones = value;
-	}
-	
-	public int getnCanciones() {
-		return nCanciones;
 	}
 	
 	public void setUsuarioCreador(String value) {

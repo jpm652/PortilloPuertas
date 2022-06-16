@@ -9,10 +9,6 @@ public class BD_Playlist {
 	public BDPrincipal _bd_principal_playlist;
 	public Vector<basededatos.Playlist> _contiene_playlists = new Vector<Playlist>();
 
-	public void anadirEvento(String aTitulo, String aTipo, String aUbicacion, String aFecha, String aInfoAdicional) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Playlist cargar_favoritos() {
 		throw new UnsupportedOperationException();
 	}
