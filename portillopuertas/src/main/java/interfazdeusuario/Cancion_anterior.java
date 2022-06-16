@@ -5,17 +5,18 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.UsuarioComun;
 import vistas.VistaCancion_anterior;
 
 public class Cancion_anterior extends VistaCancion_anterior {
 	// public Cancion__No_registrado_ _cancion__no_registrado_;
 
-	public Cancion_anterior(VerticalLayout vlpadre, String registrado, String usuario) {
+	public Cancion_anterior(VerticalLayout vlpadre, String registrado, UsuarioComun usuario) {
 
 		inicializar(vlpadre, registrado, usuario);
 	}
 
-	public void inicializar(VerticalLayout vlpadre, String registrado, String usuario) {
+	public void inicializar(VerticalLayout vlpadre, String registrado, UsuarioComun usuario) {
 
 		// this.getImgCancion().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true");
 		// this.getImgCancion().getStyle().set("height", "100%");

@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.UsuarioComun;
 import vistas.VistaMenu_artista;
 
 public class Menu__artista_ extends VistaMenu_artista {
@@ -14,12 +15,14 @@ public class Menu__artista_ extends VistaMenu_artista {
 	public Eventos _eventos;
 	
 	public Menu__artista_() {
-		inicializar(new VerticalLayout(), new String());
+		inicializar(new VerticalLayout(), new UsuarioComun());
 	}
 	
-	public void inicializar(VerticalLayout vlpadre, String usuario) {
+	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 		
-		this.setNomb_artista_menu(usuario);
+		this.setNomb_artista_menu(usuario.getNombreUsuario());
+		this.getImg_menu_artista().setSrc(usuario.getFoto());
+		// this.set("Seguidores: " + usuario.getSeguidores() + " / Seguidos: " + usuario.getSeguidos());
 		
 		this.getButton_lista_menu_artista().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
@@ -30,14 +33,7 @@ public class Menu__artista_ extends VistaMenu_artista {
 				menu_playlist.getStyle().set("width", "100%");
 				vlpadre.removeAll();
 				vlpadre.add(menu_playlist);
-				
-//				for(int i=1; i<=5; i++) {
-//					
-//					Lista_de_Playlist lista = new Lista_de_Playlist(vlpadre);
-//					lista.getStyle().set("width", "100%");
-//					vlpadre.add(lista);
-//				}
-				
+							
 
 			}
 		});
@@ -66,7 +62,7 @@ public class Menu__artista_ extends VistaMenu_artista {
 				pagina_p.getStyle().set("width", "100%");
 				pagina_p.getStyle().set("height", "100%");
 				vlpadre.add(pagina_p);
-				pagina_p.inicializar2(vlpadre, "artista");
+				pagina_p.inicializar2(vlpadre, usuario);
 
 			}
 

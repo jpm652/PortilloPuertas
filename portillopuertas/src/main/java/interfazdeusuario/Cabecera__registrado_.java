@@ -14,6 +14,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.textfield.TextField;
 
+import basededatos.UsuarioComun;
 import vistas.VistaCabecera_registrado;
 
 // import basededatos.iUsuario_registrado;
@@ -30,12 +31,12 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 
 	public Cabecera__registrado_() {
 
-		inicializar(new VerticalLayout(), new String(), new String());
+		inicializar(new VerticalLayout(), new UsuarioComun(), new String());
 	}
 
-	public void inicializar(VerticalLayout vlpadre, String usuario, String tipo) {
+	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario, String tipo) {
 
-		this.setNomb_user_cabecera(usuario);
+		this.setNomb_user_cabecera(usuario.getNombreUsuario());
 		
 		this.getMenu_user().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override

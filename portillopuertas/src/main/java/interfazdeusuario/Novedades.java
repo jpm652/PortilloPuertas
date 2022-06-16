@@ -12,6 +12,7 @@ import com.vaadin.flow.component.orderedlayout.Scroller.ScrollDirection;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
+import basededatos.UsuarioComun;
 import basededatos.iUsuario_no_registrado;
 import interfazdeusuario.Cancion__No_registrado_;
 
@@ -51,7 +52,7 @@ public class Novedades extends VistaNovedades {
 		Cancion_anterior cancion;
 		
 		for (int i = 0; i < 5; i++) {
-			cancion = new Cancion_anterior(vl, "No", "");
+			cancion = new Cancion_anterior(vl, "No", new UsuarioComun());
 			cancion.getStyle().set("padding-left", "5%");
 			//cancion.setNombreCancion(inicio.arrayCanciones.get(i).getNombre());
 			_list_cancion__no_registrado_.add(cancion);

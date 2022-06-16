@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.UsuarioComun;
 import vistas.VistaMenu_administrador;
 import interfazdeusuario.Lista_de_Playlist;
 
@@ -17,9 +18,10 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 		
 	}
 	
-	public void inicializar(VerticalLayout vlpadre, String usuario) {
+	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 
-		this.setNombre("usuario");
+		this.setNombre(usuario.getNombreUsuario());
+		this.setSeguidores("Seguidores: " + usuario.getSeguidores() + " / Seguidos: " + usuario.getSeguidos());
 		
 		this.getListas().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
@@ -30,9 +32,6 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 				menu_playlist.getStyle().set("width", "100%");
 				vlpadre.removeAll();
 				vlpadre.add(menu_playlist);
-				
-				
-				
 
 			}
 		});
@@ -61,7 +60,7 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 				pagina_p.getStyle().set("width", "100%");
 				pagina_p.getStyle().set("height", "100%");
 				vlpadre.add(pagina_p);
-				pagina_p.inicializar2(vlpadre, "admin");
+				pagina_p.inicializar2(vlpadre, usuario);
 
 			}
 

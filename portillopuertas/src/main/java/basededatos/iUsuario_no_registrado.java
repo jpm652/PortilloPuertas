@@ -4,7 +4,7 @@ public interface iUsuario_no_registrado {
 
 	public Playlist cargar_lista_novedades();
 
-	public String verificarUsuario(String aNombreUsuario, String aContrasena);
+	// public UsuarioComun verificarUsuario(String aCorreo, String aNombreUsuario, String aContrasena, String rutaFoto);
 
 	public UsuarioComun iniciarSesionUsuario(String aNombreUsuario, String aContrasena);
 
@@ -16,5 +16,5 @@ public interface iUsuario_no_registrado {
 
 	public void recuperarContrasena(String aContrasena);
 
-	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena, String rutaFoto);
+	public boolean Registrarse(String aCorreo, String aNombreUsuario, String aContrasena, String rutaFoto);
 }

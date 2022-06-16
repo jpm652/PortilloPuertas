@@ -111,7 +111,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p.getStyle().set("width", "100%");
 					pagina_p.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p);
-					pagina_p.inicializar(vlpadre, credenciales.getNombreUsuario(), credenciales.getTipo());
+					pagina_p.inicializar(vlpadre, credenciales, credenciales.getTipo());
 				}
 
 				if (credenciales.getTipo().equals("Artista")) {
@@ -122,7 +122,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p2.getStyle().set("width", "100%");
 					pagina_p2.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p2);
-					pagina_p2.inicializar(vlpadre, credenciales.getNombreUsuario(), credenciales.getTipo());
+					pagina_p2.inicializar(vlpadre, credenciales, credenciales.getTipo());
 				}
 
 				if (credenciales.getTipo().equals("Administrador")) {
@@ -133,7 +133,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p3.getStyle().set("width", "100%");
 					pagina_p3.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p3);
-					pagina_p3.inicializar(vlpadre, credenciales.getNombreUsuario(), credenciales.getTipo());
+					pagina_p3.inicializar(vlpadre, credenciales, credenciales.getTipo());
 				}
 
 			}

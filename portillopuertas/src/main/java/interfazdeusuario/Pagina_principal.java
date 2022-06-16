@@ -8,6 +8,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.UsuarioComun;
 import vistas.VistaPagina_principal;
 import vistas.VistaUltimas_reproducciones;
 import vistas.VistaUsuario_registrado;
@@ -43,7 +44,7 @@ public class Pagina_principal extends VistaPagina_principal {
 		this.getVaadinVerticalLayout().getStyle().set("height", "100%");
 		this.getVaadinVerticalLayout().getStyle().set("padding", "0");
 
-			inicializar(new VerticalLayout(), new String(), new String());
+			inicializar(new VerticalLayout(), new UsuarioComun(), new String());
 	}
 	public Pagina_principal(boolean completa) {
 
@@ -51,10 +52,10 @@ public class Pagina_principal extends VistaPagina_principal {
 		this.getVaadinVerticalLayout().getStyle().set("height", "100%");
 		this.getVaadinVerticalLayout().getStyle().set("padding", "0");
 
-			inicializar2(new VerticalLayout(), new String());
+			inicializar2(new VerticalLayout(), new UsuarioComun());
 	}
 
-	public void inicializar(VerticalLayout vlpadre, String usuario, String tipo) {
+	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario, String tipo) {
 
 		VerticalLayout vl_centro = new VerticalLayout();
 
@@ -63,7 +64,7 @@ public class Pagina_principal extends VistaPagina_principal {
 		barra();
 
 	}
-	public void inicializar2(VerticalLayout vlpadre, String usuario) {
+	public void inicializar2(VerticalLayout vlpadre, UsuarioComun usuario) {
 
 		VerticalLayout vl_centro = new VerticalLayout();
 		centro(vl_centro, usuario);
@@ -71,7 +72,7 @@ public class Pagina_principal extends VistaPagina_principal {
 	}
 
 
-	public void cabecera(VerticalLayout vl_centro, String usuario, String tipo) {
+	public void cabecera(VerticalLayout vl_centro, UsuarioComun usuario, String tipo) {
 
 		// Se introduce cabecera en pagina principal
 		VerticalLayout vl_cabecera = this.getVl_cabecera().as(VerticalLayout.class);
@@ -86,7 +87,7 @@ public class Pagina_principal extends VistaPagina_principal {
 		cr.inicializar(vl_centro, usuario, tipo);
 	}
 
-	public void centro(VerticalLayout vl_centro, String usuario) {
+	public void centro(VerticalLayout vl_centro, UsuarioComun usuario) {
 
 		// Se introducen listas en la seccion central de la pagina
 		Scroller scroller = this.getScroller();

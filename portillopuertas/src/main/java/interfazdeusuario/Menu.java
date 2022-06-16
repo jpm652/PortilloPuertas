@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.UsuarioComun;
 import vistas.VistaMenu;
 
 public class Menu extends VistaMenu {
@@ -18,21 +19,24 @@ public class Menu extends VistaMenu {
 	public Configuracion _configuracion;
 
 	public Menu() {
-		inicializar(new VerticalLayout(), new String());
+		inicializar(new VerticalLayout(), new UsuarioComun());
 	}
 
-	public void inicializar(VerticalLayout vlpadre, String usuario) {
+	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 
-		this.setNombre_menu(usuario);
+		this.setNombre_menu(usuario.getNombreUsuario());
+		this.getImg_menu().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-delete.png?raw=true");
+		// this.getImg_menu().getStyle().set("src", usuario.getFoto());
 		
-		
+		this.setSeguidores_menu("Seguidores: " + usuario.getSeguidores() + " / Seguidos: " + usuario.getSeguidos());
+
 		this.getLista_reproduccion_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				Menu_playlist menu_playlist = new Menu_playlist();
-				menu_playlist.getStyle().set("width","100%");
+				menu_playlist.getStyle().set("width", "100%");
 				vlpadre.removeAll();
 				vlpadre.add(menu_playlist);
 
@@ -45,14 +49,14 @@ public class Menu extends VistaMenu {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				Menu_favoritos favoritos = new Menu_favoritos();
-				favoritos.getStyle().set("width","100%");
+				favoritos.getStyle().set("width", "100%");
 				vlpadre.removeAll();
 				vlpadre.add(favoritos);
 
 			}
 
 		});
-		
+
 		this.getHome_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
@@ -68,14 +72,14 @@ public class Menu extends VistaMenu {
 			}
 
 		});
-		
+
 		this.getConfig_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				Configuracion config = new Configuracion();
-				config.getStyle().set("width","100%");
+				config.getStyle().set("width", "100%");
 				vlpadre.removeAll();
 				vlpadre.add(config);
 				config.inicializar(vlpadre);

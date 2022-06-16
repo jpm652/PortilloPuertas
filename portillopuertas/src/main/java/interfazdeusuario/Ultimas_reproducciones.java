@@ -9,6 +9,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.UsuarioComun;
 import interfazdeusuario.Cancion__Registrado_;
 import vistas.VistaCancion_anterior;
 import vistas.VistaUltimas_reproducciones;
@@ -18,12 +19,12 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 	public Vector<Cancion_anterior> _list_cancion__registrado_ = new Vector<Cancion_anterior>();
 	
 	
-	public Ultimas_reproducciones(VerticalLayout vlpadre, String usuario) {
+	public Ultimas_reproducciones(VerticalLayout vlpadre, UsuarioComun usuario) {
 		
 		inicializar(vlpadre, usuario);
 	}
 	
-	public void inicializar(VerticalLayout vlpadre, String usuario) {
+	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 
 		CargarCanciones(vlpadre, usuario);
 
@@ -43,7 +44,7 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 
 	}
 
-	public void CargarCanciones(VerticalLayout vl, String usuario) {
+	public void CargarCanciones(VerticalLayout vl, UsuarioComun usuario) {
 		Cancion_anterior cancion;
 
 		for (int i = 0; i < 8; i++) {

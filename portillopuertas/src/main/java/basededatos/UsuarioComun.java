@@ -48,19 +48,19 @@ public class UsuarioComun implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="BASEDEDATOS_USUARIOCOMUN_ID_GENERATOR", strategy="native")	
 	private int id;
 	
-	@Column(name="NombreUsuario", nullable=true, length=255)	
+	@Column(name="NombreUsuario", nullable=false, length=255)	
 	private String nombreUsuario;
 	
-	@Column(name="Tipo", nullable=true, length=255)	
+	@Column(name="Tipo", nullable=false, length=255)	
 	private String tipo;
 	
-	@Column(name="Contrasena", nullable=true, length=255)	
+	@Column(name="Contrasena", nullable=false, length=255)	
 	private String contrasena;
 	
-	@Column(name="Correo", nullable=true, length=255)	
+	@Column(name="Correo", nullable=false, length=255)	
 	private String correo;
 	
-	@Column(name="Foto", nullable=true, length=255)	
+	@Column(name="Foto", nullable=false, length=255)	
 	private String foto;
 	
 	@Column(name="Seguidores", nullable=false, length=10)	

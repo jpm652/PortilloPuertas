@@ -19,6 +19,7 @@ import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
 import basededatos.BDPrincipal;
+import basededatos.UsuarioComun;
 import basededatos.iUsuario_registrado;
 import vistas.VistaRegistrarse;
 
@@ -41,10 +42,8 @@ public class Registrarse extends VistaRegistrarse {
 	iUsuario_registrado _iUser = new BDPrincipal();
 	String rutaFoto = "";
 
-//	UsuarioComun userComun = new UsuarioComun();
-
 	public Registrarse() {
-		//inicializar(new VerticalLayout());
+		// inicializar(new VerticalLayout());
 
 	}
 
@@ -91,37 +90,29 @@ public class Registrarse extends VistaRegistrarse {
 //		        add(link);
 //			}
 //		});
-		
-		
-		
+
 		this.getFotoFC().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			
+
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				
+
 				MemoryBuffer buffer = new MemoryBuffer();
 				Upload upload = new Upload(buffer);
 				Dialog modal = new Dialog(upload);
-				
-				upload.addFinishedListener(e -> {
-                    InputStream inputStream = buffer.getInputStream();
-                    // read the contents of the buffered memory
-                    // from inputStream
-                    
-                });
-				Button imgUpBtn = new Button();
-                imgUpBtn.setText("Subir");
-                modal.add(upload);
-                modal.add(imgUpBtn);
-                
-                imgUpBtn.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-                    @Override
-                    public void onComponentEvent(ClickEvent<Button> event) {
-                        Cambiar_Imagen(buffer);
-                    }
-                });
-				
+
+				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
+
+					@Override
+					public void onComponentEvent(FinishedEvent event) {
+						rutaFoto = SubirImagen(buffer);
+
+						getFotoImg().setSrc(rutaFoto);
+
+						modal.close();
+					}
+				});
+
+				modal.open();
 			}
 		});
 
@@ -129,34 +120,8 @@ public class Registrarse extends VistaRegistrarse {
 	}
 
 	public void comprobarRegistro(VerticalLayout vlpadre) {
-		errorRegistro(vlpadre);
+		
 		exitoRegistro(vlpadre);
-	}
-
-	public void errorRegistro(VerticalLayout vlpadre) {
-
-		this.getBoton_registrase().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-
-				String correo = getCorreo_registro().getValue();
-				String nombre = getNombre_registro().getValue();
-				String contrasena = getClave_registro().getValue();
-				String contrasena_confirm = getConfirma_clave_registro().getValue();
-				
-				if (correo.isEmpty() || nombre.isEmpty() || contrasena.isEmpty() || contrasena_confirm.isEmpty()) {
-					Dialog dialog = new Dialog();
-
-					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error de registro",
-							"Hubo un error al registrarse. Por favor, revise los campos.");
-					dialog.add(dialogLayout);
-
-					vlpadre.add(dialog);
-					dialog.open();
-				}
-
-			}
-		});
 	}
 
 	public void exitoRegistro(VerticalLayout vlpadre) {
@@ -165,23 +130,33 @@ public class Registrarse extends VistaRegistrarse {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
+				//boolean existe;
+				
 				String correo = getCorreo_registro().getValue();
 				String nombre = getNombre_registro().getValue();
 				String contrasena = getClave_registro().getValue();
 				String contrasena_confirm = getConfirma_clave_registro().getValue();
 
-				_iUser.Registrarse(correo, nombre, contrasena_confirm, rutaFoto);
+				//existe = _iUser.verificarUsuario(correo);
 				
-				if (getCorreo_registro().getValue().equals("exito")) {
+				Dialog dialog = new Dialog();
+				
+				if (correo.isEmpty() || nombre.isEmpty() || contrasena.isEmpty() || contrasena_confirm.isEmpty()) {
 
-					Dialog dialog = new Dialog();
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error de registro",
+							"Hubo un error al registrarse. Por favor, revise los campos.");
+					dialog.add(dialogLayout);
 
+					vlpadre.add(dialog);
+					dialog.open();
+					
+				}else if(_iUser.Registrarse(correo, nombre, contrasena_confirm, rutaFoto) == true) {
+					
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
 							"Se ha enviado un mensaje a su correo electronico para validar su cuenta.");
 					dialog.add(dialogLayout);
 					vlpadre.add(dialog);
 					dialog.open();
-
 				}
 			}
 		});
@@ -196,10 +171,7 @@ public class Registrarse extends VistaRegistrarse {
 		Button closeButton = new Button("Aceptar");
 		closeButton.addClickListener(e -> dialog.close());
 
-		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph, closeButton); // menu.getVaadinVerticalLayout().as(VerticalLayout.class);
-																							// //new
-																							// VerticalLayout(headline,
-																							// paragraph, closeButton);
+		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph, closeButton); 
 
 		dialogLayout.setPadding(false);
 		dialogLayout.setAlignItems(Alignment.STRETCH);
@@ -210,32 +182,30 @@ public class Registrarse extends VistaRegistrarse {
 
 		return dialogLayout;
 	}
-	
-	public String Cambiar_Imagen(MemoryBuffer memBuffer) {
-		
-		String ruta = "img/"+memBuffer.getFileName();
 
-        InputStream is = memBuffer.getInputStream();
-        
-        try {
-            OutputStream os = new FileOutputStream("./src/main/webapp/img/" + memBuffer.getFileName());
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            //read from is to buffer
-            while((bytesRead = is.read(buffer)) != -1){
-                os.write(buffer, 0, bytesRead);
-            }
-            is.close();
-            //flush OutputStream to write any buffered data to file
-            os.flush();
-            os.close();
-            
-            getFotoImg().setSrc(ruta);
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-		
+	public String SubirImagen(MemoryBuffer memBuffer) {
+
+		String ruta = "img/" + memBuffer.getFileName();
+		String _path = "src/main/webapp/";
+		InputStream is = memBuffer.getInputStream();
+
+		try {
+			OutputStream os = new FileOutputStream(_path + ruta);
+			byte[] buffer = new byte[1024];
+			int bytesRead;
+			// read from is to buffer
+			while ((bytesRead = is.read(buffer)) != -1) {
+				os.write(buffer, 0, bytesRead);
+			}
+			is.close();
+			// flush OutputStream to write any buffered data to file
+			os.flush();
+			os.close();
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
 		return ruta;
 	}
 

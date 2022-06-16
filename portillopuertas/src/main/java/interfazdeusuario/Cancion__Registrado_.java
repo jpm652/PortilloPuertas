@@ -8,6 +8,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.UsuarioComun;
 import vistas.VistaCancion_registrado;
 
 
@@ -50,10 +51,10 @@ public class Cancion__Registrado_ extends VistaCancion_registrado {
 	
 	public Cancion__Registrado_() {
 		this.getVaadinVerticalLayout().getStyle().set("width", "100%").set("height", "100%");
-		inicializar(new VerticalLayout(), new String());
+		inicializar(new VerticalLayout(), new UsuarioComun());
 	}
 
-	public void inicializar(VerticalLayout vlpadre, String usuario) {
+	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 
 		this.getMin_cancion_registrado().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 

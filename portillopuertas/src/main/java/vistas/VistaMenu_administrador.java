@@ -83,8 +83,8 @@ public class VistaMenu_administrador extends LitTemplate {
 		return seguidores;
 	}
 
-	public void setSeguidores(Label seguidores) {
-		this.seguidores = seguidores;
+	public void setSeguidores(String seguidores) {
+		this.seguidores.setText(seguidores);
 	}
 
 	public Button getListas() {

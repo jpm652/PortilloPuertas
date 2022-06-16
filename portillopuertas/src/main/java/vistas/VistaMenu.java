@@ -71,8 +71,8 @@ public class VistaMenu extends LitTemplate {
 		return seguidores_menu;
 	}
 
-	public void setSeguidores_menu(Label seguidores_menu) {
-		this.seguidores_menu = seguidores_menu;
+	public void setSeguidores_menu(String seguidores_menu) {
+		this.seguidores_menu.setText(seguidores_menu);
 	}
 
 	public Button getLista_reproduccion_menu() {
