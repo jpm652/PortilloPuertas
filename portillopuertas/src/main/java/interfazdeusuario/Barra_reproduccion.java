@@ -19,6 +19,7 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 	public void inicializar() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		AudioPlayer audio = new AudioPlayer();
+		audio.getElement().getStyle().set("width", "100%");
 		vl.add(audio);
 		audio.setSource("");
 	}

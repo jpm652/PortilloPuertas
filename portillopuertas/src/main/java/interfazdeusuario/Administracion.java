@@ -1,7 +1,21 @@
 package interfazdeusuario;
 
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
+
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import vistas.VistaAdministracion;
 
 public class Administracion extends VistaAdministracion{
@@ -34,6 +48,8 @@ public class Administracion extends VistaAdministracion{
 //	public Vista_usuario _vista_usuario;
 //	public Buscar_elementos _buscar_elementos;
 	
+	iAdministrador _iAdmin = new BDPrincipal();
+	
 	public Administracion() {
 		inicializar();
 	}
@@ -41,6 +57,124 @@ public class Administracion extends VistaAdministracion{
 	public void inicializar() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
+		
+		this.getBt_FotoArtista().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				MemoryBuffer buffer = new MemoryBuffer();
+				Upload upload = new Upload(buffer);
+				Dialog modal = new Dialog(upload);
+				
+				upload.addFinishedListener(e -> {
+	                InputStream inputStream = buffer.getInputStream();
+	                // read the contents of the buffered memory
+	                // from inputStream
+	                
+	            });
+				Button imgUpBtn = new Button();
+	            imgUpBtn.setText("Subir");
+	            modal.add(upload);
+	            modal.add(imgUpBtn);
+	            
+	            imgUpBtn.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+	                @Override
+	                public void onComponentEvent(ClickEvent<Button> event) {
+	                    Cambiar_Imagen(buffer,getFotoartista());
+	                }
+	            });
+				
+			}
+		});
+		
+		this.getBt_fotoAlbum().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				MemoryBuffer buffer = new MemoryBuffer();
+				Upload upload = new Upload(buffer);
+				Dialog modal = new Dialog(upload);
+				
+				upload.addFinishedListener(e -> {
+	                InputStream inputStream = buffer.getInputStream();
+	                // read the contents of the buffered memory
+	                // from inputStream
+	                
+	            });
+				Button imgUpBtn = new Button();
+	            imgUpBtn.setText("Subir");
+	            modal.add(upload);
+	            modal.add(imgUpBtn);
+	            
+	            imgUpBtn.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+	                @Override
+	                public void onComponentEvent(ClickEvent<Button> event) {
+	                    Cambiar_Imagen(buffer,getFotoAlbum());
+	                }
+	            });
+				
+			}
+		});
+		
+		this.getBt_fotocancion().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				MemoryBuffer buffer = new MemoryBuffer();
+				Upload upload = new Upload(buffer);
+				Dialog modal = new Dialog(upload);
+				
+				upload.addFinishedListener(e -> {
+	                InputStream inputStream = buffer.getInputStream();
+	                // read the contents of the buffered memory
+	                // from inputStream
+	                
+	            });
+				Button imgUpBtn = new Button();
+	            imgUpBtn.setText("Subir");
+	            modal.add(upload);
+	            modal.add(imgUpBtn);
+	            
+	            imgUpBtn.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+	                @Override
+	                public void onComponentEvent(ClickEvent<Button> event) {
+	                    Cambiar_Imagen(buffer,getFotoCancion());
+	                }
+	            });
+				
+			}
+		});
+		
+		anadir_cancion();
+	}
+
+	
+public String Cambiar_Imagen(MemoryBuffer memBuffer, Image imagen) {
+		
+		String ruta = "img/"+memBuffer.getFileName();
+
+        InputStream is = memBuffer.getInputStream();
+        
+        try {
+            OutputStream os = new FileOutputStream("./src/main/webapp/img/" + memBuffer.getFileName());
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            //read from is to buffer
+            while((bytesRead = is.read(buffer)) != -1){
+                os.write(buffer, 0, bytesRead);
+            }
+            is.close();
+            //flush OutputStream to write any buffered data to file
+            os.flush();
+            os.close();
+            
+            imagen.setSrc(ruta);
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+		
+		return ruta;
 	}
 
 	public void alta_estilo() {
@@ -56,7 +190,23 @@ public class Administracion extends VistaAdministracion{
 	}
 
 	public void anadir_cancion() {
-		throw new UnsupportedOperationException();
+		this.getAnadircancion().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				
+				String nombrecancion = getNombrecancionanadircancion().getValue();
+				String artista = getNombreartistaanadircancion().getValue();
+				String album =getNombrealbunanadircancion().getValue();
+				String estilo = getNombreestiloanadircancion().getValue();
+				String productor = getNombreproductoranadircancion().getValue();
+				String compositor = getNombrecompositoranadircancion().getValue();
+				int duracion = Integer.parseInt(getDuracionCancion().getValue());
+				String imagen = "url";
+
+				_iAdmin.darAltaCancion(nombrecancion, artista, album, estilo, productor, compositor, duracion, imagen);
+			}
+		});
 	}
 
 	public void baja_artista() {

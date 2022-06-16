@@ -36,8 +36,9 @@ public class BD_UsuarioRegistrado {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		
 		UsuarioComunCriteria c = new UsuarioComunCriteria();
-		c.nombreUsuario.like("%"+aNombreUsuario.trim()+"%");
 		
+		c.nombreUsuario.like(aNombreUsuario);
+		c.contrasena.like(aContrasena);
 		
 		UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
 		

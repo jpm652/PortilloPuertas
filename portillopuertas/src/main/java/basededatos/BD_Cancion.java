@@ -21,15 +21,22 @@ public class BD_Cancion {
 		throw new UnsupportedOperationException();
 	}
 
-	public void darAltaCancion(String aNombre, artista aArtista, Album aAlbum)throws PersistentException {
+	public void darAltaCancion(String aNombre, String aArtista, String aAlbum,String estilo, String productor, String compositor, int duracion, String urlfoto)throws PersistentException {
 		int id_cancion = -1;
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
 
 			Cancion cancion = CancionDAO.createCancion();
 			cancion.setNombre(aNombre);
+			cancion.setArtista(aArtista);
+			cancion.setAlbum(aAlbum);
+			cancion.setEstilo(estilo);
+			cancion.setProductor(productor);
+			cancion.setCompositor(compositor);
+			cancion.setDuracion(duracion);
+			cancion.setImagen_cancion(urlfoto);
+
 			CancionDAO.save(cancion);
-			id_cancion = cancion.getORMID();
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

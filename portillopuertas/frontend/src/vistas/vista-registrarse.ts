@@ -1,10 +1,10 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-checkbox/src/vaadin-checkbox.js';
-import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-registrarse')
 export class VistaRegistrarse extends LitElement {
@@ -44,20 +44,18 @@ export class VistaRegistrarse extends LitElement {
    <vaadin-text-field label="Nombre de usuario" style="width: 100%;" id="nombre_registro"></vaadin-text-field>
    <vaadin-text-field label="Contraseña" style="width: 100%; type:password;" id="clave_registro"></vaadin-text-field>
    <vaadin-text-field label="Confirmar Contraseña" style="width: 100%;" id="confirma_clave_registro"></vaadin-text-field>
+   <vaadin-horizontal-layout theme="spacing" style="align-self: center; justify-content: center; margin: var(--lumo-space-s); align-items: center;">
+    <img id="fotoImg" style="max-width: 100px; max-height: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true">
+    <vaadin-button id="fotoFC">
+      Foto de perfil 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
    <vaadin-checkbox id="terminos_registro">
      Aceptar términos y condiciones 
    </vaadin-checkbox>
-   <vaadin-horizontal-layout theme="spacing" style="align-self: center; justify-content: center; margin: var(--lumo-space-s);">
-    <img id="fotoImg" style="max-width: 100px; max-height: 100px;" src="https://github.com/mdmontesinos/MDS2-Spotify/blob/master/spotify/src/main/webapp/img/defaultuser.png?raw=true">
-    <vaadin-horizontal-layout theme="spacing" style="align-items: center;">
-     <vaadin-button id="fotoFC">
-       Foto de perfil 
-     </vaadin-button>
-     <vaadin-button style="align-self: center; width: 80%;" id="boton_registrase">
-       Registrarse 
-     </vaadin-button>
-    </vaadin-horizontal-layout>
-   </vaadin-horizontal-layout>
+   <vaadin-button style="align-self: center; width: 80%;" id="boton_registrase">
+     Registrarse 
+   </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 25%; height: 100%; align-items: center; padding-top: var(--lumo-space-l);" id="vaadinVerticalLayout2">
    <label style="font-weight:bold; font-size:20px;">¿Tienes cuenta?</label>

@@ -24,7 +24,6 @@ import com.vaadin.flow.component.select.Select;
 @JsModule("./src/vistas/vista-administracion.ts")
 public class VistaAdministracion extends LitTemplate {
 	
-
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
 	@Id("busca_administracion")
@@ -39,32 +38,59 @@ public class VistaAdministracion extends LitTemplate {
 	private TextField text_login_anadirartista;
 	@Id("vaadinTextField")
 	private TextField vaadinTextField;
+	@Id("text_estiloartista")
+	private TextField text_estiloartista;
 	@Id("button_anadirartista")
 	private Button button_anadirartista;
-	@Id("select_artista_anadiralbum")
-	private Select select_artista_anadiralbum;
-	@Id("text_nombre_anadiralbum")
-	private TextField text_nombre_anadiralbum;
+	@Id("nombrealbunanadiralbum")
+	private TextField nombrealbunanadiralbum;
+	@Id("text_nombreartistaanadiralbum")
+	private TextField text_nombreartistaanadiralbum;
 	@Id("button_anadiralbum")
 	private Button button_anadiralbum;
-	@Id("select_artista_anadircancion")
-	private Select select_artista_anadircancion;
-	@Id("select_album_anadircancion")
-	private Select select_album_anadircancion;
-	@Id("text_estio_anadircancion")
-	private TextField text_estio_anadircancion;
+	@Id("nombrealbunanadircancion")
+	private TextField nombrealbunanadircancion;
 	@Id("anadircancion")
 	private Button anadircancion;
-	@Id("select_bajaartista")
-	private Select select_bajaartista;
+	@Id("nombreartistadarbaja")
+	private TextField nombreartistadarbaja;
 	@Id("button_bajaartista")
 	private Button button_bajaartista;
-	@Id("select_bajausuario")
-	private Select select_bajausuario;
+	@Id("nombreusuariodarbaja")
+	private TextField nombreusuariodarbaja;
 	@Id("button_bajausuario")
 	private Button button_bajausuario;
-	
-	
+	@Id("fotoartista")
+	private Image fotoartista;
+	@Id("bt_FotoArtista")
+	private Button bt_FotoArtista;
+	@Id("fotoAlbum")
+	private Image fotoAlbum;
+	@Id("bt_fotoAlbum")
+	private Button bt_fotoAlbum;
+	@Id("fotoCancion")
+	private Image fotoCancion;
+	@Id("bt_fotocancion")
+	private Button bt_fotocancion;
+	@Id("nombreestiloanadircancion")
+	private TextField nombreestiloanadircancion;
+	@Id("nombreproductoranadircancion")
+	private TextField nombreproductoranadircancion;
+	@Id("nombrecompositoranadircancion")
+	private TextField nombrecompositoranadircancion;
+	@Id("duracionCancion")
+	private TextField duracionCancion;
+	@Id("nombrecancionanadircancion")
+	private TextField nombrecancionanadircancion;
+	@Id("nombreartistaanadircancion")
+	private TextField nombreartistaanadircancion;
+	/**
+     * Creates a new VistaAdministracion.
+     */
+    public VistaAdministracion() {
+        // You can initialise any data required for the connected UI components here.
+    }
+
 	public Element getVaadinVerticalLayout() {
 		return vaadinVerticalLayout;
 	}
@@ -121,6 +147,14 @@ public class VistaAdministracion extends LitTemplate {
 		this.vaadinTextField = vaadinTextField;
 	}
 
+	public TextField getText_estiloartista() {
+		return text_estiloartista;
+	}
+
+	public void setText_estiloartista(TextField text_estiloartista) {
+		this.text_estiloartista = text_estiloartista;
+	}
+
 	public Button getButton_anadirartista() {
 		return button_anadirartista;
 	}
@@ -129,20 +163,20 @@ public class VistaAdministracion extends LitTemplate {
 		this.button_anadirartista = button_anadirartista;
 	}
 
-	public Select getSelect_artista_anadiralbum() {
-		return select_artista_anadiralbum;
+	public TextField getNombrealbunanadiralbum() {
+		return nombrealbunanadiralbum;
 	}
 
-	public void setSelect_artista_anadiralbum(Select select_artista_anadiralbum) {
-		this.select_artista_anadiralbum = select_artista_anadiralbum;
+	public void setNombrealbunanadiralbum(TextField nombrealbunanadiralbum) {
+		this.nombrealbunanadiralbum = nombrealbunanadiralbum;
 	}
 
-	public TextField getText_nombre_anadiralbum() {
-		return text_nombre_anadiralbum;
+	public TextField getText_nombreartistaanadiralbum() {
+		return text_nombreartistaanadiralbum;
 	}
 
-	public void setText_nombre_anadiralbum(TextField text_nombre_anadiralbum) {
-		this.text_nombre_anadiralbum = text_nombre_anadiralbum;
+	public void setText_nombreartistaanadiralbum(TextField text_nombreartistaanadiralbum) {
+		this.text_nombreartistaanadiralbum = text_nombreartistaanadiralbum;
 	}
 
 	public Button getButton_anadiralbum() {
@@ -153,28 +187,28 @@ public class VistaAdministracion extends LitTemplate {
 		this.button_anadiralbum = button_anadiralbum;
 	}
 
-	public Select getSelect_artista_anadircancion() {
-		return select_artista_anadircancion;
+	public TextField getNombreartistaanadircancion() {
+		return nombreartistaanadircancion;
 	}
 
-	public void setSelect_artista_anadircancion(Select select_artista_anadircancion) {
-		this.select_artista_anadircancion = select_artista_anadircancion;
+	public void setNombreartistaanadircancion(TextField nombreartistaanadircancion) {
+		this.nombreartistaanadircancion = nombreartistaanadircancion;
 	}
 
-	public Select getSelect_album_anadircancion() {
-		return select_album_anadircancion;
+	public TextField getNombrealbunanadircancion() {
+		return nombrealbunanadircancion;
 	}
 
-	public void setSelect_album_anadircancion(Select select_album_anadircancion) {
-		this.select_album_anadircancion = select_album_anadircancion;
+	public void setNombrealbunanadircancion(TextField nombrealbunanadircancion) {
+		this.nombrealbunanadircancion = nombrealbunanadircancion;
 	}
 
-	public TextField getText_estio_anadircancion() {
-		return text_estio_anadircancion;
+	public TextField getNombreestiloanadircancion() {
+		return nombreestiloanadircancion;
 	}
 
-	public void setText_estio_anadircancion(TextField text_estio_anadircancion) {
-		this.text_estio_anadircancion = text_estio_anadircancion;
+	public void setNombreestiloanadircancion(TextField nombreestiloanadircancion) {
+		this.nombreestiloanadircancion = nombreestiloanadircancion;
 	}
 
 	public Button getAnadircancion() {
@@ -185,12 +219,12 @@ public class VistaAdministracion extends LitTemplate {
 		this.anadircancion = anadircancion;
 	}
 
-	public Select getSelect_bajaartista() {
-		return select_bajaartista;
+	public TextField getNombreartistadarbaja() {
+		return nombreartistadarbaja;
 	}
 
-	public void setSelect_bajaartista(Select select_bajaartista) {
-		this.select_bajaartista = select_bajaartista;
+	public void setNombreartistadarbaja(TextField nombreartistadarbaja) {
+		this.nombreartistadarbaja = nombreartistadarbaja;
 	}
 
 	public Button getButton_bajaartista() {
@@ -201,12 +235,12 @@ public class VistaAdministracion extends LitTemplate {
 		this.button_bajaartista = button_bajaartista;
 	}
 
-	public Select getSelect_bajausuario() {
-		return select_bajausuario;
+	public TextField getNombreusuariodarbaja() {
+		return nombreusuariodarbaja;
 	}
 
-	public void setSelect_bajausuario(Select select_bajausuario) {
-		this.select_bajausuario = select_bajausuario;
+	public void setNombreusuariodarbaja(TextField nombreusuariodarbaja) {
+		this.nombreusuariodarbaja = nombreusuariodarbaja;
 	}
 
 	public Button getButton_bajausuario() {
@@ -217,13 +251,86 @@ public class VistaAdministracion extends LitTemplate {
 		this.button_bajausuario = button_bajausuario;
 	}
 
-	/**
-     * Creates a new VistaAdministracion.
-     */
-    public VistaAdministracion() {
-        // You can initialise any data required for the connected UI components here.
+	public Image getFotoartista() {
+		return fotoartista;
+	}
 
-    	
-    }
+	public void setFotoartista(Image fotoartista) {
+		this.fotoartista = fotoartista;
+	}
 
+	public Button getBt_FotoArtista() {
+		return bt_FotoArtista;
+	}
+
+	public void setBt_FotoArtista(Button bt_FotoArtista) {
+		this.bt_FotoArtista = bt_FotoArtista;
+	}
+
+	public Image getFotoAlbum() {
+		return fotoAlbum;
+	}
+
+	public void setFotoAlbum(Image fotoAlbum) {
+		this.fotoAlbum = fotoAlbum;
+	}
+
+	public Button getBt_fotoAlbum() {
+		return bt_fotoAlbum;
+	}
+
+	public void setBt_fotoAlbum(Button bt_fotoAlbum) {
+		this.bt_fotoAlbum = bt_fotoAlbum;
+	}
+
+	public Image getFotoCancion() {
+		return fotoCancion;
+	}
+
+	public void setFotoCancion(Image fotoCancion) {
+		this.fotoCancion = fotoCancion;
+	}
+
+	public Button getBt_fotocancion() {
+		return bt_fotocancion;
+	}
+
+	public void setBt_fotocancion(Button bt_fotocancion) {
+		this.bt_fotocancion = bt_fotocancion;
+	}
+
+	public TextField getNombreproductoranadircancion() {
+		return nombreproductoranadircancion;
+	}
+
+	public void setNombreproductoranadircancion(TextField nombreproductoranadircancion) {
+		this.nombreproductoranadircancion = nombreproductoranadircancion;
+	}
+
+	public TextField getNombrecompositoranadircancion() {
+		return nombrecompositoranadircancion;
+	}
+
+	public void setNombrecompositoranadircancion(TextField nombrecompositoranadircancion) {
+		this.nombrecompositoranadircancion = nombrecompositoranadircancion;
+	}
+
+	public TextField getDuracionCancion() {
+		return duracionCancion;
+	}
+
+	public void setDuracionCancion(TextField duracionCancion) {
+		this.duracionCancion = duracionCancion;
+	}
+
+	public TextField getNombrecancionanadircancion() {
+		return nombrecancionanadircancion;
+	}
+
+	public void setNombrecancionanadircancion(TextField nombrecancionanadircancion) {
+		this.nombrecancionanadircancion = nombrecancionanadircancion;
+	}
+
+
+    
 }

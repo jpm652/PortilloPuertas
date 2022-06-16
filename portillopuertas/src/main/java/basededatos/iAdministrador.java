@@ -1,5 +1,7 @@
 package basededatos;
 
+import org.orm.PersistentException;
+
 import interfazdeusuario.artista;
 
 public interface iAdministrador extends iUsuario_registrado {
@@ -12,7 +14,7 @@ public interface iAdministrador extends iUsuario_registrado {
 
 	public void darAltaArtista(String aNombre, String aLogin, String aContrasena);
 
-	public void darAltaCancion(String aNombre, artista aArtista, Album aAlbum);
+	public void darAltaCancion(String aNombre, String aArtista, String aAlbum,String estilo, String productor, String compositor, int duracion, String urlfoto);
 
 	public void darAltaEstilo(String aNombre);
 

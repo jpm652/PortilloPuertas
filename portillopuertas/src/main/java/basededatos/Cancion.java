@@ -86,7 +86,7 @@ public class Cancion implements Serializable {
 	private int duracion;
 	
 	@Column(name="Estilo", nullable=true, length=10)	
-	private int estilo;
+	private String estilo;
 	
 	@Column(name="Album", nullable=true, length=255)	
 	private String album;
@@ -154,11 +154,11 @@ public class Cancion implements Serializable {
 		return duracion;
 	}
 	
-	public void setEstilo(int value) {
+	public void setEstilo(String value) {
 		this.estilo = value;
 	}
 	
-	public int getEstilo() {
+	public String getEstilo() {
 		return estilo;
 	}
 	

@@ -10,7 +10,7 @@ import interfazdeusuario.artista;
 
 public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado, iAdministrador, iArtista,
 		iAplicaciones_Terceros, iServidor_Correo_ {
-	public BD_Cancion _bd_cancion;
+	public BD_Cancion _bd_cancion = new BD_Cancion();
 	public BD_Album _bd_album;
 	public BD_UsuarioRegistrado _bd_usuario_registrado = new BD_UsuarioRegistrado();
 	public BD_Playlist _bd_playlist;
@@ -20,8 +20,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	public BD_Evento _bd_evento;
 
 	public Playlist cargar_lista_novedades() {
-		
-		
+
 		throw new UnsupportedOperationException();
 	}
 
@@ -133,8 +132,14 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public void darAltaCancion(String aNombre, artista aArtista, Album aAlbum) {
-		throw new UnsupportedOperationException();
+	public void darAltaCancion(String aNombre, String aArtista, String aAlbum, String estilo, String productor,
+			String compositor, int duracion, String urlfoto) {
+		try {
+			_bd_cancion.darAltaCancion(aNombre, aArtista, aAlbum, estilo, productor, compositor, duracion, urlfoto);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void darAltaEstilo(String aNombre) {
