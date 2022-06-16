@@ -128,8 +128,13 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public void darAltaArtista(String aNombre, String aLogin, String aContrasena) {
-		throw new UnsupportedOperationException();
+	public void darAltaArtista(String aNombre, String aLogin, String aContrasena, String arutaFoto) {
+		try {
+			 _bd_artista.darAltaArtista(aNombre, aLogin, aContrasena, arutaFoto);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void darAltaCancion(String aNombre, artista aArtista, Album aAlbum) {
@@ -137,10 +142,15 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	}
 
 	public void darAltaEstilo(String aNombre) {
-		throw new UnsupportedOperationException();
+		try {
+			 _bd_estilo.darAltaEstilo(aNombre);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	public void darBajaArtista(artista aArtista) {
+	public void darBajaArtista(String aArtista) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -153,9 +163,14 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	}
 
 	@Override
-	public void darAltaAlbum(String aNombre, Artista aArtista) {
-		// TODO Auto-generated method stub
-
+	public void darAltaAlbum(String aNombre, String aArtista, String arutaFoto) {
+		try {
+			 _bd_album.darAltaAlbum(aNombre, aArtista, arutaFoto);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override
@@ -168,12 +183,6 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-	}
-
-	@Override
-	public void darBajaArtista(Artista aArtista) {
-		// TODO Auto-generated method stub
 
 	}
 

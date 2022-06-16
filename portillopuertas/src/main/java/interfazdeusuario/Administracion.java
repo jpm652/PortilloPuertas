@@ -11,11 +11,13 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.upload.FinishedEvent;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
+import basededatos.iUsuario_registrado;
 import vistas.VistaAdministracion;
 
 public class Administracion extends VistaAdministracion{
@@ -49,6 +51,9 @@ public class Administracion extends VistaAdministracion{
 //	public Buscar_elementos _buscar_elementos;
 	
 	iAdministrador _iAdmin = new BDPrincipal();
+	String rutaFotoArtista = "";
+	String rutaFotoAlbum = "";
+	String rutaFotoCancion = "";
 	
 	public Administracion() {
 		inicializar();
@@ -57,36 +62,33 @@ public class Administracion extends VistaAdministracion{
 	public void inicializar() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		
+		// Botones cargar imagen Artista 
 		this.getBt_FotoArtista().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				
+
 				MemoryBuffer buffer = new MemoryBuffer();
 				Upload upload = new Upload(buffer);
 				Dialog modal = new Dialog(upload);
-				
-				upload.addFinishedListener(e -> {
-	                InputStream inputStream = buffer.getInputStream();
-	                // read the contents of the buffered memory
-	                // from inputStream
-	                
-	            });
-				Button imgUpBtn = new Button();
-	            imgUpBtn.setText("Subir");
-	            modal.add(upload);
-	            modal.add(imgUpBtn);
-	            
-	            imgUpBtn.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-	                @Override
-	                public void onComponentEvent(ClickEvent<Button> event) {
-	                    Cambiar_Imagen(buffer,getFotoartista());
-	                }
-	            });
-				
+
+				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
+
+					@Override
+					public void onComponentEvent(FinishedEvent event) {
+						
+						rutaFotoArtista = Registrarse.SubirImagen(buffer);
+						getFotoartista().setSrc(rutaFotoArtista);
+
+						modal.close();
+					}
+				});
+
+				modal.open();
 			}
 		});
 		
+		// Botones cargar imagen Album 
 		this.getBt_fotoAlbum().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -94,28 +96,25 @@ public class Administracion extends VistaAdministracion{
 				MemoryBuffer buffer = new MemoryBuffer();
 				Upload upload = new Upload(buffer);
 				Dialog modal = new Dialog(upload);
-				
-				upload.addFinishedListener(e -> {
-	                InputStream inputStream = buffer.getInputStream();
-	                // read the contents of the buffered memory
-	                // from inputStream
-	                
-	            });
-				Button imgUpBtn = new Button();
-	            imgUpBtn.setText("Subir");
-	            modal.add(upload);
-	            modal.add(imgUpBtn);
-	            
-	            imgUpBtn.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-	                @Override
-	                public void onComponentEvent(ClickEvent<Button> event) {
-	                    Cambiar_Imagen(buffer,getFotoAlbum());
-	                }
-	            });
-				
+
+				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
+
+					@Override
+					public void onComponentEvent(FinishedEvent event) {
+						
+						rutaFotoAlbum = Registrarse.SubirImagen(buffer);
+						
+						getFotoAlbum().setSrc(rutaFotoAlbum);
+
+						modal.close();
+					}
+				});
+
+				modal.open();
 			}
 		});
 		
+		// Botones cargar imagen Cancion
 		this.getBt_fotocancion().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -123,77 +122,85 @@ public class Administracion extends VistaAdministracion{
 				MemoryBuffer buffer = new MemoryBuffer();
 				Upload upload = new Upload(buffer);
 				Dialog modal = new Dialog(upload);
-				
-				upload.addFinishedListener(e -> {
-	                InputStream inputStream = buffer.getInputStream();
-	                // read the contents of the buffered memory
-	                // from inputStream
-	                
-	            });
-				Button imgUpBtn = new Button();
-	            imgUpBtn.setText("Subir");
-	            modal.add(upload);
-	            modal.add(imgUpBtn);
-	            
-	            imgUpBtn.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-	                @Override
-	                public void onComponentEvent(ClickEvent<Button> event) {
-	                    Cambiar_Imagen(buffer,getFotoCancion());
-	                }
-	            });
-				
+
+				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
+
+					@Override
+					public void onComponentEvent(FinishedEvent event) {
+						
+						rutaFotoCancion = Registrarse.SubirImagen(buffer);
+						getFotoCancion().setSrc(rutaFotoCancion);
+
+						modal.close();
+					}
+				});
+
+				modal.open();
 			}
 		});
 		
+		alta_estilo();
+		anadir_artista();
+		anadir_album();
 		anadir_cancion();
-	}
-
-	
-public String Cambiar_Imagen(MemoryBuffer memBuffer, Image imagen) {
-		
-		String ruta = "img/"+memBuffer.getFileName();
-
-        InputStream is = memBuffer.getInputStream();
-        
-        try {
-            OutputStream os = new FileOutputStream("./src/main/webapp/img/" + memBuffer.getFileName());
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            //read from is to buffer
-            while((bytesRead = is.read(buffer)) != -1){
-                os.write(buffer, 0, bytesRead);
-            }
-            is.close();
-            //flush OutputStream to write any buffered data to file
-            os.flush();
-            os.close();
-            
-            imagen.setSrc(ruta);
-            
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-		
-		return ruta;
+		baja_artista();
+		baja_usuario();
 	}
 
 	public void alta_estilo() {
-		throw new UnsupportedOperationException();
+		
+		String estilo = this.getText_altaestilo().getValue();
+		
+		this.getButton_altaestilo().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				_iAdmin.darAltaEstilo(estilo);
+			}
+		});
 	}
 
 	public void anadir_artista() {
-		throw new UnsupportedOperationException();
+		
+		this.getButton_altaestilo().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				String nomArtista = getText_nombre_anadirartista().getValue();
+				String nomLogin = getText_login_anadirartista().getValue();
+				String contrasena = getClave_artista().getValue();
+				String foto = rutaFotoArtista;
+				
+				_iAdmin.darAltaArtista(nomArtista, nomLogin, contrasena, rutaFotoArtista);
+			}
+		
+		});
+						
 	}
 
 	public void anadir_album() {
-		throw new UnsupportedOperationException();
+		
+		this.getBt_FotoArtista().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				String nomArtistaAlbum = getText_nombreartistaanadiralbum().getValue();
+				String nomAlbum = getNombrealbunanadiralbum().getValue();
+				String foto = rutaFotoAlbum;
+				
+				_iAdmin.darAltaAlbum(nomAlbum, nomArtistaAlbum, foto);
+			}
+		
+		});
 	}
 
 	public void anadir_cancion() {
+		
 		this.getAnadircancion().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-
 				
 				String nombrecancion = getNombrecancionanadircancion().getValue();
 				String artista = getNombreartistaanadircancion().getValue();
@@ -202,7 +209,7 @@ public String Cambiar_Imagen(MemoryBuffer memBuffer, Image imagen) {
 				String productor = getNombreproductoranadircancion().getValue();
 				String compositor = getNombrecompositoranadircancion().getValue();
 				int duracion = Integer.parseInt(getDuracionCancion().getValue());
-				String imagen = "url";
+				String imagen = rutaFotoCancion;
 
 				_iAdmin.darAltaCancion(nombrecancion, artista, estilo, productor, compositor, duracion, imagen);
 			}
@@ -210,10 +217,27 @@ public String Cambiar_Imagen(MemoryBuffer memBuffer, Image imagen) {
 	}
 
 	public void baja_artista() {
-		throw new UnsupportedOperationException();
+		this.getButton_bajaartista().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				String nomBajaArtista = getNombreartistadarbaja().getValue();
+				
+				_iAdmin.darBajaArtista(nomBajaArtista);
+			}
+		});
 	}
 
 	public void baja_usuario() {
-		throw new UnsupportedOperationException();
+		
+		this.getButton_bajausuario().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				String nomBajaUsuario = getNombreusuariodarbaja().getValue();
+				
+				_iAdmin.darBajaUsuario(nomBajaUsuario);
+			}
+		});
 	}
 }

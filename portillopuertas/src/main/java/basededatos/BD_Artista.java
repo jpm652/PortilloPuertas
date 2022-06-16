@@ -3,6 +3,9 @@ package basededatos;
 import java.util.List;
 import java.util.Vector;
 
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
+
 import interfazdeusuario.artista;
 
 public class BD_Artista {
@@ -17,8 +20,22 @@ public class BD_Artista {
 		throw new UnsupportedOperationException();
 	}
 
-	public void darAltaArtista(String aNombre, String aLogin, String aContrasena) {
-		throw new UnsupportedOperationException();
+	public void darAltaArtista(String aNombre, String aLogin, String aContrasena, String arutaFoto) throws PersistentException{
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+
+			Artista artista = ArtistaDAO.createArtista();
+			artista.setNombreArtista(aNombre);
+			artista.setNombreUsuario(aLogin);
+			artista.setContrasena(aContrasena);
+			artista.setFoto(arutaFoto);
+			ArtistaDAO.save(artista);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
 	}
 
 	public void darBajaArtista(artista aArtista) {

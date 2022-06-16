@@ -1,9 +1,9 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
-import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 
 @customElement('vista-administracion')
 export class VistaAdministracion extends LitElement {
@@ -40,8 +40,7 @@ export class VistaAdministracion extends LitElement {
    </vaadin-horizontal-layout>
    <vaadin-text-field placeholder="Nombre del artista " style="width: 50%;" id="text_nombre_anadirartista"></vaadin-text-field>
    <vaadin-text-field placeholder="Nombre de usuario (login) " style="width: 50%;" id="text_login_anadirartista"></vaadin-text-field>
-   <vaadin-text-field placeholder="Contraseña " style="width: 50%;" id="vaadinTextField"></vaadin-text-field>
-   <vaadin-text-field placeholder="Nombre del estilo" style="width: 50%;" id="text_estiloartista"></vaadin-text-field>
+   <vaadin-text-field placeholder="Contraseña " style="width: 50%;" id="clave_artista"></vaadin-text-field>
    <vaadin-horizontal-layout theme="spacing" style="align-self: center; justify-content: center; margin: var(--lumo-space-s); align-items: center;">
     <img id="fotoartista" style="max-width: 100px; max-height: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true">
     <vaadin-button id="bt_FotoArtista">

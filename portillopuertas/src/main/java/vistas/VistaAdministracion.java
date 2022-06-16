@@ -36,10 +36,6 @@ public class VistaAdministracion extends LitTemplate {
 	private TextField text_nombre_anadirartista;
 	@Id("text_login_anadirartista")
 	private TextField text_login_anadirartista;
-	@Id("vaadinTextField")
-	private TextField vaadinTextField;
-	@Id("text_estiloartista")
-	private TextField text_estiloartista;
 	@Id("button_anadirartista")
 	private Button button_anadirartista;
 	@Id("nombrealbunanadiralbum")
@@ -84,6 +80,8 @@ public class VistaAdministracion extends LitTemplate {
 	private TextField nombrecancionanadircancion;
 	@Id("nombreartistaanadircancion")
 	private TextField nombreartistaanadircancion;
+	@Id("clave_artista")
+	private TextField clave_artista;
 	/**
      * Creates a new VistaAdministracion.
      */
@@ -137,22 +135,6 @@ public class VistaAdministracion extends LitTemplate {
 
 	public void setText_login_anadirartista(TextField text_login_anadirartista) {
 		this.text_login_anadirartista = text_login_anadirartista;
-	}
-
-	public TextField getVaadinTextField() {
-		return vaadinTextField;
-	}
-
-	public void setVaadinTextField(TextField vaadinTextField) {
-		this.vaadinTextField = vaadinTextField;
-	}
-
-	public TextField getText_estiloartista() {
-		return text_estiloartista;
-	}
-
-	public void setText_estiloartista(TextField text_estiloartista) {
-		this.text_estiloartista = text_estiloartista;
 	}
 
 	public Button getButton_anadirartista() {
@@ -331,6 +313,12 @@ public class VistaAdministracion extends LitTemplate {
 		this.nombrecancionanadircancion = nombrecancionanadircancion;
 	}
 
+	public TextField getClave_artista() {
+		return clave_artista;
+	}
 
+	public void setClave_artista(TextField clave_artista) {
+		this.clave_artista = clave_artista;
+	}
     
 }

@@ -183,7 +183,7 @@ public class Registrarse extends VistaRegistrarse {
 		return dialogLayout;
 	}
 
-	public String SubirImagen(MemoryBuffer memBuffer) {
+	public static String SubirImagen(MemoryBuffer memBuffer) {
 
 		String ruta = "img/" + memBuffer.getFileName();
 		String _path = "src/main/webapp/";
