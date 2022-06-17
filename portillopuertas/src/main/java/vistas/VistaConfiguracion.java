@@ -35,8 +35,6 @@ public class VistaConfiguracion extends LitTemplate {
 	private Button estadisticabt;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("imgUser")
-	private Image imgUser;
 	@Id("nombreUser")
 	private Label nombreUser;
 	@Id("hr")
@@ -49,6 +47,8 @@ public class VistaConfiguracion extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout1;
 	@Id("darBaja")
 	private Button darBaja;
+	@Id("imagenPerfil")
+	private Image imagenPerfil;
 
 	/**
      * Creates a new VistaConfiguracion.
@@ -87,14 +87,6 @@ public class VistaConfiguracion extends LitTemplate {
 
 	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
 		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
-	}
-
-	public Image getImgUser() {
-		return imgUser;
-	}
-
-	public void setImgUser(Image imgUser) {
-		this.imgUser = imgUser;
 	}
 
 	public Label getNombreUser() {
@@ -143,6 +135,18 @@ public class VistaConfiguracion extends LitTemplate {
 
 	public void setDarBaja(Button darBaja) {
 		this.darBaja = darBaja;
+	}
+
+	public Image getImagenPerfil() {
+		return imagenPerfil;
+	}
+
+	public void setImagenPerfil(Image imagenPerfil) {
+		this.imagenPerfil = imagenPerfil;
+	}
+
+	public void setNombreUser(Label nombreUser) {
+		this.nombreUser = nombreUser;
 	}
 
 

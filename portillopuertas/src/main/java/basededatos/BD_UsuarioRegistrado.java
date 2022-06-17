@@ -9,17 +9,54 @@ public class BD_UsuarioRegistrado {
 	public BDPrincipal _bd_principal_usuario_registrado;
 	public Vector<UsuarioRegistrado> _contiene_usuarios_registrados = new Vector<UsuarioRegistrado>();
 
-	public void editarContrasena(String aAntiguaContrasena, String aNuevaContrasena, int aId_usuario) {
-		throw new UnsupportedOperationException();
+	public void editarContrasena(String aRepetirContrasena, String aNuevaContrasena, int aId_usuario)
+			throws PersistentException {
+		UsuarioComunCriteria user = new UsuarioComunCriteria();
+		user.id.eq(aId_usuario);
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			UsuarioComun datos = UsuarioComunDAO.loadUsuarioComunByCriteria(user);
+			datos.setContrasena(aNuevaContrasena.trim());
+			UsuarioComunDAO.save(datos);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 	}
 
-	public void editarCorreo(String aCorreo, int aId_usuario) {
-		throw new UnsupportedOperationException();
+	public void editarCorreo(String aCorreo, int aId_usuario)throws PersistentException {
+		UsuarioComunCriteria user = new UsuarioComunCriteria();
+		user.id.eq(aId_usuario);
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			UsuarioComun datos = UsuarioComunDAO.loadUsuarioComunByCriteria(user);
+			datos.setCorreo(aCorreo.trim());
+			UsuarioComunDAO.save(datos);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 	}
 
-	public void darBaja(int aId_usuario) {
-		throw new UnsupportedOperationException();
-	}
+	public void darBaja(int aId_usuario) throws PersistentException{
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(aId_usuario);
+			
+			UsuarioComunDAO.delete(user);
+			t.commit();
+			
+		} catch (Exception e) {
+			t.rollback();
+		}
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+		}
 
 	public void darBajaUsuario(String aNombre) {
 		throw new UnsupportedOperationException();
@@ -35,7 +72,7 @@ public class BD_UsuarioRegistrado {
 
 		UsuarioComunCriteria c = new UsuarioComunCriteria();
 
-		c.nombreUsuario.like(aNombreUsuario);
+		c.nombreUsuario.like(aNombreUsuario.trim());
 		c.contrasena.like(aContrasena);
 
 		UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
@@ -50,14 +87,14 @@ public class BD_UsuarioRegistrado {
 		try {
 
 			UsuarioComun[] usuario = UsuarioComunDAO.listUsuarioComunByQuery(null, null);
-			
-			for(UsuarioComun comun : usuario) {
-				
-				if(comun.getCorreo().equals(aCorreo)) {
+
+			for (UsuarioComun comun : usuario) {
+
+				if (comun.getCorreo().equals(aCorreo)) {
 					return true;
 				}
 			}
-			
+
 		} catch (Exception e) {
 			t.rollback();
 		}

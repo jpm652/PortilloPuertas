@@ -88,11 +88,11 @@ public class Menu__artista_ extends VistaMenu_artista {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				Configuracion config = new Configuracion();
+				Configuracion config = new Configuracion(usuario);
 				config.getStyle().set("width","100%");
 				vlpadre.removeAll();
 				vlpadre.add(config);
-				config.inicializar(vlpadre);
+				config.inicializar(vlpadre,usuario);
 			}
 
 		});

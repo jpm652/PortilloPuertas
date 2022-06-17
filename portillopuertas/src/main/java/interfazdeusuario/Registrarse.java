@@ -12,6 +12,7 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.FinishedEvent;
@@ -107,7 +108,6 @@ public class Registrarse extends VistaRegistrarse {
 						rutaFoto = SubirImagen(buffer);
 
 						getFotoImg().setSrc(rutaFoto);
-
 						modal.close();
 					}
 				});
@@ -136,7 +136,6 @@ public class Registrarse extends VistaRegistrarse {
 				String nombre = getNombre_registro().getValue();
 				String contrasena = getClave_registro().getValue();
 				String contrasena_confirm = getConfirma_clave_registro().getValue();
-
 				//existe = _iUser.verificarUsuario(correo);
 				
 				Dialog dialog = new Dialog();
@@ -144,9 +143,16 @@ public class Registrarse extends VistaRegistrarse {
 				if (correo.isEmpty() || nombre.isEmpty() || contrasena.isEmpty() || contrasena_confirm.isEmpty()) {
 
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error de registro",
-							"Hubo un error al registrarse. Por favor, revise los campos.");
+							"No puede haber campos en blanco");
 					dialog.add(dialogLayout);
 
+					vlpadre.add(dialog);
+					dialog.open();
+					
+				}else if(contrasena.equals(contrasena_confirm)== false){
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error de registro",
+							"No coinciden las contraseñas");
+					dialog.add(dialogLayout);
 					vlpadre.add(dialog);
 					dialog.open();
 					

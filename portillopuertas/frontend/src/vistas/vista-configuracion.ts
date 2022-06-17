@@ -23,7 +23,7 @@ export class VistaConfiguracion extends LitElement {
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%; margin-left: 75px; margin-bottom: 20px;">
-  <img id="imgUser" style="width: 100px; height: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+  <img id="imagenPerfil" style="width: 100px; height: 100px;">
   <label id="nombreUser" style="align-self: center;font-weight:bold">Nombre de usuario </label>
  </vaadin-horizontal-layout>
  <hr id="hr" style="width: 90%; margin-bottom: 50px;">

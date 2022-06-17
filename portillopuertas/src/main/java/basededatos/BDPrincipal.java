@@ -64,13 +64,20 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public void editarContrasena(int aId_usuario, String aAntiguaContrasena, String aNuevaContrasena) {
-		throw new UnsupportedOperationException();
+	public void editarContrasena(int aId_usuario, String RepetirContrasena, String aNuevaContrasena) {
+		try {
+			_bd_usuario_registrado.editarContrasena(RepetirContrasena, aNuevaContrasena, aId_usuario);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void editarCorreo(int aId_usuario, String aCorreo) {
-		throw new UnsupportedOperationException();
-	}
+		try {
+			_bd_usuario_registrado.editarCorreo(aCorreo, aId_usuario);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}	}
 
 	public Album cargar_album() {
 		throw new UnsupportedOperationException();
@@ -121,8 +128,11 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	}
 
 	public void darBaja(int aId_usuario) {
-		throw new UnsupportedOperationException();
-	}
+		try {
+			_bd_usuario_registrado.darBaja(aId_usuario);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}	}
 
 	public void darAltaAlbum(String aNombre, artista aArtista) {
 		throw new UnsupportedOperationException();
@@ -130,7 +140,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 
 	public void darAltaArtista(String aNombre, String aLogin, String aContrasena, String arutaFoto) {
 		try {
-			 _bd_artista.darAltaArtista(aNombre, aLogin, aContrasena, arutaFoto);
+			_bd_artista.darAltaArtista(aNombre, aLogin, aContrasena, arutaFoto);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -143,7 +153,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 
 	public void darAltaEstilo(String aNombre) {
 		try {
-			 _bd_estilo.darAltaEstilo(aNombre);
+			_bd_estilo.darAltaEstilo(aNombre);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -165,18 +175,18 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	@Override
 	public void darAltaAlbum(String aNombre, String aArtista, String arutaFoto) {
 		try {
-			 _bd_album.darAltaAlbum(aNombre, aArtista, arutaFoto);
+			_bd_album.darAltaAlbum(aNombre, aArtista, arutaFoto);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
 	public void darAltaCancion(String aNombre, String aArtista, String aEstilo, String aProductor, String acompositor,
 			int aDuracion, String aImagen) {
-		
+
 		try {
 			_bd_cancion.darAltaCancion(aNombre, aArtista, aEstilo, aProductor, acompositor, aDuracion, aImagen);
 		} catch (PersistentException e) {

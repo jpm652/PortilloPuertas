@@ -3,6 +3,7 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Image;
@@ -20,9 +21,7 @@ import com.vaadin.flow.component.button.Button;
 public class VistaMenu extends LitTemplate {
 
 	@Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
-	@Id("img_menu")
-	private Image img_menu;
+	private VerticalLayout vaadinVerticalLayout;
 	@Id("nombre_menu")
 	private Label nombre_menu;
 	@Id("seguidores_menu")
@@ -35,7 +34,8 @@ public class VistaMenu extends LitTemplate {
 	private Button home_menu;
 	@Id("fav_menu")
 	private Button fav_menu;
-
+	@Id("imgMenu")
+	private Image imgMenu;
 	/**
 	 * Creates a new VistaMenu.
 	 */
@@ -43,20 +43,12 @@ public class VistaMenu extends LitTemplate {
 		// You can initialise any data required for the connected UI components here.
 	}
 
-	public Element getVaadinVerticalLayout() {
+	public VerticalLayout getVaadinVerticalLayout() {
 		return vaadinVerticalLayout;
 	}
 
-	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+	public void setVaadinVerticalLayout(VerticalLayout vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
-	}
-
-	public Image getImg_menu() {
-		return img_menu;
-	}
-
-	public void setImg_menu(Image img_menu) {
-		this.img_menu = img_menu;
 	}
 
 	public Label getNombre_menu() {
@@ -110,5 +102,19 @@ public class VistaMenu extends LitTemplate {
 	public void setNombre_menu(Label nombre_menu) {
 		this.nombre_menu = nombre_menu;
 	}
+
+	public void setSeguidores_menu(Label seguidores_menu) {
+		this.seguidores_menu = seguidores_menu;
+	}
+
+	public Image getImgMenu() {
+		return imgMenu;
+	}
+
+	public void setImgMenu(Image imgMenu) {
+		this.imgMenu = imgMenu;
+	}
+	
+	
 
 }

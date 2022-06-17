@@ -33,6 +33,8 @@ public class VistaCabecera_registrado extends LitTemplate {
 	private Label nomb_user_cabecera;
 	@Id("menu_user")
 	private Button menu_user;
+	@Id("bt_cerrarSesion")
+	private Button bt_cerrarSesion;
 
 	/**
 	 * Creates a new VistaCabecera_registrado.
@@ -87,6 +89,18 @@ public class VistaCabecera_registrado extends LitTemplate {
 
 	public void setMenu_user(Button menu_user) {
 		this.menu_user = menu_user;
+	}
+
+	public Button getBt_cerrarSesion() {
+		return bt_cerrarSesion;
+	}
+
+	public void setBt_cerrarSesion(Button bt_cerrarSesion) {
+		this.bt_cerrarSesion = bt_cerrarSesion;
+	}
+
+	public void setNomb_user_cabecera(Label nomb_user_cabecera) {
+		this.nomb_user_cabecera = nomb_user_cabecera;
 	}	
 	
 

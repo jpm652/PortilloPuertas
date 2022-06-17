@@ -37,7 +37,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	public Registrarse _registrarse;
 	public Recordar_clave _recordar_clave;
 	iUsuario_registrado _iUser = new BDPrincipal();
-	
+
 //	UsuarioComun userComun = new UsuarioComun();
 //	
 //	ArrayList<UsuarioComun> arrayUsuarios = new ArrayList<UsuarioComun>();
@@ -45,7 +45,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 	static UsuarioComun userSesion = new UsuarioComun();
 
 	public Iniciar_sesion() {
-		//inicializar(new VerticalLayout());
+		// inicializar(new VerticalLayout());
 
 	}
 
@@ -97,14 +97,37 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				UsuarioComun credenciales = new UsuarioComun();
 				String correo = getCorreo_inicarsesion().getValue();
 				String clave = getClave_iniciarsesion().getValue();
-
-				if (clave.isEmpty() & correo.isEmpty())
-					Notification.show("Insertar credenciales de usuario");
+				Dialog dialog = new Dialog();
 
 				credenciales = _iUser.iniciarSesionUsuario(correo, clave);
-
-				if (credenciales.getTipo().equals("Registrado")){
+				if (clave.isEmpty() | correo.isEmpty()) {
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error Inicio de sesion",
+							"No puede haber campos en blanco, por favor inserte las credenciales.");
 					
+					Button closeButton = new Button("Aceptar");
+					closeButton.addClickListener(e -> dialog.close());
+					closeButton.getStyle().set("margin-left", "20px").set("width", "120px");
+					dialog.add(dialogLayout);
+					dialog.add(closeButton);
+					vlpadre.add(dialog);
+					dialog.open();
+				}
+		
+				else if(credenciales==null) {
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error Inicio de sesion",
+							"Las credenciales no coinciden");
+					
+					Button closeButton = new Button("Aceptar");
+					closeButton.addClickListener(e -> dialog.close());
+					closeButton.getStyle().set("margin-left", "20px").set("width", "120px");
+					dialog.add(dialogLayout);
+					dialog.add(closeButton);
+					vlpadre.add(dialog);
+					dialog.open();
+				}else {
+					
+				if (credenciales.getTipo().equals("Registrado")) {
+
 					vlpadre.removeAll();
 
 					Pagina_principal pagina_p = new Pagina_principal();
@@ -115,7 +138,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				}
 
 				if (credenciales.getTipo().equals("Artista")) {
-					
+
 					vlpadre.removeAll();
 
 					Pagina_principal pagina_p2 = new Pagina_principal();
@@ -134,6 +157,7 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 					pagina_p3.getStyle().set("height", "100%");
 					vlpadre.add(pagina_p3);
 					pagina_p3.inicializar(vlpadre, credenciales, credenciales.getTipo());
+				}
 				}
 
 			}

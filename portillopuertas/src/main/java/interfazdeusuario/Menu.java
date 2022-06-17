@@ -3,6 +3,7 @@ package interfazdeusuario;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.UsuarioComun;
@@ -19,15 +20,13 @@ public class Menu extends VistaMenu {
 	public Configuracion _configuracion;
 
 	public Menu() {
-		inicializar(new VerticalLayout(), new UsuarioComun());
+		//inicializar(new VerticalLayout(), new UsuarioComun());
 	}
 
 	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 
 		this.setNombre_menu(usuario.getNombreUsuario());
-		this.getImg_menu().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-delete.png?raw=true");
-		// this.getImg_menu().getStyle().set("src", usuario.getFoto());
-		
+		this.getImgMenu().setSrc(usuario.getFoto());	
 		this.setSeguidores_menu("Seguidores: " + usuario.getSeguidores() + " / Seguidos: " + usuario.getSeguidos());
 
 		this.getLista_reproduccion_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -78,11 +77,11 @@ public class Menu extends VistaMenu {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				Configuracion config = new Configuracion();
+				Configuracion config = new Configuracion(usuario);
 				config.getStyle().set("width", "100%");
 				vlpadre.removeAll();
 				vlpadre.add(config);
-				config.inicializar(vlpadre);
+				config.inicializar(vlpadre,usuario);
 
 			}
 

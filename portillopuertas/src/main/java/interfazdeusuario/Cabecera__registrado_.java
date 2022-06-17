@@ -2,6 +2,7 @@ package interfazdeusuario;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.dialog.DialogVariant;
@@ -37,53 +38,53 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario, String tipo) {
 
 		this.setNomb_user_cabecera(usuario.getNombreUsuario());
-		
+
 		this.getMenu_user().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				if(tipo.equals("Registrado")){
+				if (tipo.equals("Registrado")) {
 					Dialog dialog = new Dialog();
 					Menu menu = new Menu();
-					menu.getStyle().set("width", "100%");   
+					menu.getStyle().set("width", "100%");
 					menu.getStyle().set("height", "90%");
 					menu.inicializar(vlpadre, usuario);
-					
+
 					dialog.setWidth("25%");
 					dialog.addThemeVariants(DialogVariant.LUMO_NO_PADDING);
 					dialog.add(menu);
-					
+
 					vlpadre.add(dialog);
 					dialog.open();
-					
+
 				}
-				
-				if(tipo.equals("Artista")) {
+
+				if (tipo.equals("Artista")) {
 					Dialog dialog = new Dialog();
 					Menu__artista_ menu = new Menu__artista_();
-					menu.getStyle().set("width", "100%");   
+					menu.getStyle().set("width", "100%");
 					menu.getStyle().set("height", "100%");
 					menu.inicializar(vlpadre, usuario);
-					
+
 					dialog.setWidth("25%");
 					dialog.addThemeVariants(DialogVariant.LUMO_NO_PADDING);
 					dialog.add(menu);
-					
+
 					vlpadre.add(dialog);
 					dialog.open();
 				}
-				
-				if(tipo.equals("Administrador")) {
+
+				if (tipo.equals("Administrador")) {
 					Dialog dialog = new Dialog();
 					Menu__administrador_ menu = new Menu__administrador_();
-					menu.getStyle().set("width", "100%");   
+					menu.getStyle().set("width", "100%");
 					menu.getStyle().set("height", "100%");
 					menu.inicializar(vlpadre, usuario);
-					
+
 					dialog.setWidth("25%");
 					dialog.addThemeVariants(DialogVariant.LUMO_NO_PADDING);
 					dialog.add(menu);
-					
+
 					vlpadre.add(dialog);
 					dialog.open();
 				}
@@ -91,21 +92,11 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 			}
 		});
 
-//		this.getImg_cabecera_registrado().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
-//			
-//			@Override
-//			public void onComponentEvent(ClickEvent<Image> event) {
-//				
-//				vlpadre.removeAll();
-//
-//				Pagina_principal pagina_p = new Pagina_principal();
-//				pagina_p.getStyle().set("width", "100%");
-//				pagina_p.getStyle().set("height", "100%");
-//				vlpadre.add(pagina_p);
-//				pagina_p.inicializar(vlpadre, usuario);
-//				pagina_p.centro(pagina_p.getVaadinVerticalLayout().as(VerticalLayout.class),usuario);
-//				
-//			}
-//		});
+		this.getBt_cerrarSesion().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+			    UI.getCurrent().getPage().reload();
+			}
+		});
 	}
 }

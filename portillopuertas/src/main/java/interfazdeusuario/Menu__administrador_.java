@@ -22,7 +22,9 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 
 		this.setNombre(usuario.getNombreUsuario());
 		this.setSeguidores("Seguidores: " + usuario.getSeguidores() + " / Seguidos: " + usuario.getSeguidos());
+		this.getImg().setSrc(usuario.getFoto());
 		
+		System.out.println(usuario.getFoto());
 		this.getListas().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
@@ -71,12 +73,12 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				Configuracion config = new Configuracion();
+				Configuracion config = new Configuracion(usuario);
 				config.getStyle().set("width","100%");
 				
 				vlpadre.removeAll();
 				vlpadre.add(config);
-				config.inicializar(vlpadre);
+				config.inicializar(vlpadre,usuario);
 
 			}
 

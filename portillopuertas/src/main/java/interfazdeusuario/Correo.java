@@ -10,6 +10,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.textfield.TextField;
 
+import basededatos.BDPrincipal;
+import basededatos.UsuarioComun;
+import basededatos.iUsuario_registrado;
 import vistas.VistaCorreo;
 
 public class Correo extends VistaCorreo {
@@ -17,13 +20,14 @@ public class Correo extends VistaCorreo {
 //	private Label _correoL;
 //	private TextField _correoTF;
 	public Configuracion _configuracion;
-
-	public Correo() {
-		inicializar(new VerticalLayout());
-		this.setLabel(Iniciar_sesion.userSesion.getCorreo());
+	iUsuario_registrado _iUser = new BDPrincipal();
+	
+	public Correo(UsuarioComun usuario) {
+		//inicializar(new VerticalLayout());
+		this.setLabel(usuario.getCorreo());
 	}
 	
-	public void inicializar(VerticalLayout vlpadre) {
+	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -36,11 +40,22 @@ public class Correo extends VistaCorreo {
 						"Por favor, ingrese el correo al que quiere asociar la cuenta");
 				correo.getStyle().set("width", "70%");
 				correo.setPlaceholder("Nuevo Correo");
+				
 				dialog.add(dialogLayout);
 				dialog.add(correo);
 				
 				Button closeButton = new Button("Aceptar");
-				closeButton.addClickListener(e -> dialog.close());
+				closeButton.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					public void onComponentEvent(ClickEvent<Button> event) {
+						String campoCorreo = correo.getValue();
+						
+						_iUser.editarCorreo(usuario.getId(), campoCorreo);
+						usuario.setCorreo(campoCorreo);
+						
+						dialog.close();
+					}
+				});
+				
 				closeButton.getStyle().set("margin-left","20px").set("width","120px");
 				dialog.add(closeButton);
 				vlpadre.add(dialog);
