@@ -81,25 +81,19 @@ public class BD_UsuarioRegistrado {
 	}
 
 	public boolean verificarUsuario(String aCorreo) throws PersistentException {
-
+		
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		
+		UsuarioComunCriteria c = new UsuarioComunCriteria();
 
-		try {
+		c.correo.like(aCorreo.trim());
+		
+			UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
 
-			UsuarioComun[] usuario = UsuarioComunDAO.listUsuarioComunByQuery(null, null);
-
-			for (UsuarioComun comun : usuario) {
-
-				if (comun.getCorreo().equals(aCorreo)) {
-					return true;
-				}
-			}
-
-		} catch (Exception e) {
-			t.rollback();
-		}
+            if (user == null) {
+                return true;
+            }
 		return false;
-
 	}
 
 	public void recuperarContrasena(String aContrasena) {

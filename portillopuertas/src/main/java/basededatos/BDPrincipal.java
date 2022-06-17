@@ -53,7 +53,13 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	}
 
 	public boolean verificarUsuario(String aCorreo) {
-		throw new UnsupportedOperationException();
+		try {
+			return _bd_usuario_registrado.verificarUsuario(aCorreo);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return true;
 	}
 
 	public void recuperarContrasena(String aContrasena) {
@@ -77,7 +83,8 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			_bd_usuario_registrado.editarCorreo(aCorreo, aId_usuario);
 		} catch (PersistentException e) {
 			e.printStackTrace();
-		}	}
+		}
+	}
 
 	public Album cargar_album() {
 		throw new UnsupportedOperationException();
@@ -132,7 +139,8 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			_bd_usuario_registrado.darBaja(aId_usuario);
 		} catch (PersistentException e) {
 			e.printStackTrace();
-		}	}
+		}
+	}
 
 	public void darAltaAlbum(String aNombre, artista aArtista) {
 		throw new UnsupportedOperationException();

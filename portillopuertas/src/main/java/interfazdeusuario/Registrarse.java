@@ -156,6 +156,12 @@ public class Registrarse extends VistaRegistrarse {
 					vlpadre.add(dialog);
 					dialog.open();
 					
+				}else if(_iUser.verificarUsuario(correo) == false) {
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error de registro",
+							"Correo electronico ya registrado");
+					dialog.add(dialogLayout);
+					vlpadre.add(dialog);
+					dialog.open();
 				}else if(_iUser.Registrarse(correo, nombre, contrasena_confirm, rutaFoto) == true) {
 					
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
