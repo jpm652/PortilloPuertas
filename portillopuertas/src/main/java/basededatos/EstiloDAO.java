@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class EstiloDAO {
 	
 	public static Estilo loadEstiloByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Estilo) session.load(basededatos.Estilo.class, Integer.valueOf(id));
+			return (Estilo) session.load(basededatos.Estilo.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class EstiloDAO {
 	
 	public static Estilo getEstiloByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Estilo) session.get(basededatos.Estilo.class, Integer.valueOf(id));
+			return (Estilo) session.get(basededatos.Estilo.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class EstiloDAO {
 	
 	public static Estilo loadEstiloByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Estilo) session.load(basededatos.Estilo.class, Integer.valueOf(id), lockMode);
+			return (Estilo) session.load(basededatos.Estilo.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class EstiloDAO {
 	
 	public static Estilo getEstiloByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Estilo) session.get(basededatos.Estilo.class, Integer.valueOf(id), lockMode);
+			return (Estilo) session.get(basededatos.Estilo.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -323,10 +323,6 @@ public class EstiloDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Estilo estilo)throws PersistentException {
 		try {
-			if (estilo.getEs_dado_de_alta() != null) {
-				estilo.getEs_dado_de_alta().da_de_alta_estilo.remove(estilo);
-			}
-			
 			basededatos.Cancion[] lContiene_cancions = estilo.contiene_cancion.toArray();
 			for(int i = 0; i < lContiene_cancions.length; i++) {
 				lContiene_cancions[i].setPertenece_a_estilo(null);
@@ -341,10 +337,6 @@ public class EstiloDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Estilo estilo, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (estilo.getEs_dado_de_alta() != null) {
-				estilo.getEs_dado_de_alta().da_de_alta_estilo.remove(estilo);
-			}
-			
 			basededatos.Cancion[] lContiene_cancions = estilo.contiene_cancion.toArray();
 			for(int i = 0; i < lContiene_cancions.length; i++) {
 				lContiene_cancions[i].setPertenece_a_estilo(null);

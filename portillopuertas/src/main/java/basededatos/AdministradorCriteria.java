@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -29,10 +29,6 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 	public final IntegerExpression seguidos;
 	public final CollectionExpression reproduce_cancion;
 	public final CollectionExpression crea_playlist;
-	public final CollectionExpression da_de_alta_artista;
-	public final CollectionExpression da_de_alta_album;
-	public final CollectionExpression da_de_alta_cancion;
-	public final CollectionExpression da_de_alta_estilo;
 	
 	public AdministradorCriteria(Criteria criteria) {
 		super(criteria);
@@ -46,10 +42,6 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 		seguidos = new IntegerExpression("seguidos", this);
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this);
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this);
-		da_de_alta_artista = new CollectionExpression("ORM_da_de_alta_artista", this);
-		da_de_alta_album = new CollectionExpression("ORM_da_de_alta_album", this);
-		da_de_alta_cancion = new CollectionExpression("ORM_da_de_alta_cancion", this);
-		da_de_alta_estilo = new CollectionExpression("ORM_da_de_alta_estilo", this);
 	}
 	
 	public AdministradorCriteria(PersistentSession session) {
@@ -58,22 +50,6 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 	
 	public AdministradorCriteria() throws PersistentException {
 		this(MDS12022PFPortilloPuertasPersistentManager.instance().getSession());
-	}
-	
-	public ArtistaCriteria createDa_de_alta_artistaCriteria() {
-		return new ArtistaCriteria(createCriteria("ORM_da_de_alta_artista"));
-	}
-	
-	public AlbumCriteria createDa_de_alta_albumCriteria() {
-		return new AlbumCriteria(createCriteria("ORM_da_de_alta_album"));
-	}
-	
-	public CancionCriteria createDa_de_alta_cancionCriteria() {
-		return new CancionCriteria(createCriteria("ORM_da_de_alta_cancion"));
-	}
-	
-	public EstiloCriteria createDa_de_alta_estiloCriteria() {
-		return new EstiloCriteria(createCriteria("ORM_da_de_alta_estilo"));
 	}
 	
 	public CancionCriteria createReproduce_cancionCriteria() {

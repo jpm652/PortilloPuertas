@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -30,20 +30,10 @@ public class Estilo implements Serializable {
 		return null;
 	}
 	
-	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_ESTILO_ES_DADO_DE_ALTA) {
-			this.es_dado_de_alta = (basededatos.Administrador) owner;
-		}
-	}
-	
 	@Transient	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
 		public java.util.Set getSet(int key) {
 			return this_getSet(key);
-		}
-		
-		public void setOwner(Object owner, int key) {
-			this_setOwner(owner, key);
 		}
 		
 	};
@@ -53,12 +43,6 @@ public class Estilo implements Serializable {
 	@GeneratedValue(generator="BASEDEDATOS_ESTILO_ID_GENERATOR")	
 	@org.hibernate.annotations.GenericGenerator(name="BASEDEDATOS_ESTILO_ID_GENERATOR", strategy="native")	
 	private int id;
-	
-	@ManyToOne(targetEntity=basededatos.Administrador.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioComunId", referencedColumnName="UsuarioComunId", nullable=true) })	
-	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private basededatos.Administrador es_dado_de_alta;
 	
 	@Column(name="Nombre", nullable=true, length=255)	
 	private String nombre;
@@ -86,30 +70,6 @@ public class Estilo implements Serializable {
 	
 	public int getORMID() {
 		return getId();
-	}
-	
-	public void setEs_dado_de_alta(basededatos.Administrador value) {
-		if (es_dado_de_alta != null) {
-			es_dado_de_alta.da_de_alta_estilo.remove(this);
-		}
-		if (value != null) {
-			value.da_de_alta_estilo.add(this);
-		}
-	}
-	
-	public basededatos.Administrador getEs_dado_de_alta() {
-		return es_dado_de_alta;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Es_dado_de_alta(basededatos.Administrador value) {
-		this.es_dado_de_alta = value;
-	}
-	
-	private basededatos.Administrador getORM_Es_dado_de_alta() {
-		return es_dado_de_alta;
 	}
 	
 	private void setORM_Contiene_cancion(java.util.Set value) {

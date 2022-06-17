@@ -1,5 +1,5 @@
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package ormsamples;
@@ -57,14 +57,6 @@ public class ListMDS12022PFPortilloPuertasData {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
-		System.out.println("Listing Administrador...");
-		basededatos.Administrador[] basededatosAdministradors = basededatos.AdministradorDAO.listAdministradorByQuery(null, null);
-		length = Math.min(basededatosAdministradors.length, ROW_COUNT);
-		for (int i = 0; i < length; i++) {
-			System.out.println(basededatosAdministradors[i]);
-		}
-		System.out.println(length + " record(s) retrieved.");
-		
 		System.out.println("Listing Playlist...");
 		basededatos.Playlist[] basededatosPlaylists = basededatos.PlaylistDAO.listPlaylistByQuery(null, null);
 		length = Math.min(basededatosPlaylists.length, ROW_COUNT);
@@ -78,6 +70,14 @@ public class ListMDS12022PFPortilloPuertasData {
 		length = Math.min(basededatosEstilos.length, ROW_COUNT);
 		for (int i = 0; i < length; i++) {
 			System.out.println(basededatosEstilos[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
+		System.out.println("Listing Administrador...");
+		basededatos.Administrador[] basededatosAdministradors = basededatos.AdministradorDAO.listAdministradorByQuery(null, null);
+		length = Math.min(basededatosAdministradors.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(basededatosAdministradors[i]);
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
@@ -156,18 +156,6 @@ public class ListMDS12022PFPortilloPuertasData {
 		}
 		System.out.println(length + " UsuarioRegistrado record(s) retrieved."); 
 		
-		System.out.println("Listing Administrador by Criteria...");
-		basededatos.AdministradorCriteria lbasededatosAdministradorCriteria = new basededatos.AdministradorCriteria();
-		// Please uncomment the follow line and fill in parameter(s) 
-		//lbasededatosAdministradorCriteria.id.eq();
-		lbasededatosAdministradorCriteria.setMaxResults(ROW_COUNT);
-		basededatos.Administrador[] basededatosAdministradors = lbasededatosAdministradorCriteria.listAdministrador();
-		length =basededatosAdministradors== null ? 0 : Math.min(basededatosAdministradors.length, ROW_COUNT); 
-		for (int i = 0; i < length; i++) {
-			 System.out.println(basededatosAdministradors[i]);
-		}
-		System.out.println(length + " Administrador record(s) retrieved."); 
-		
 		System.out.println("Listing Playlist by Criteria...");
 		basededatos.PlaylistCriteria lbasededatosPlaylistCriteria = new basededatos.PlaylistCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
@@ -191,6 +179,18 @@ public class ListMDS12022PFPortilloPuertasData {
 			 System.out.println(basededatosEstilos[i]);
 		}
 		System.out.println(length + " Estilo record(s) retrieved."); 
+		
+		System.out.println("Listing Administrador by Criteria...");
+		basededatos.AdministradorCriteria lbasededatosAdministradorCriteria = new basededatos.AdministradorCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//lbasededatosAdministradorCriteria.id.eq();
+		lbasededatosAdministradorCriteria.setMaxResults(ROW_COUNT);
+		basededatos.Administrador[] basededatosAdministradors = lbasededatosAdministradorCriteria.listAdministrador();
+		length =basededatosAdministradors== null ? 0 : Math.min(basededatosAdministradors.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(basededatosAdministradors[i]);
+		}
+		System.out.println(length + " Administrador record(s) retrieved."); 
 		
 	}
 	

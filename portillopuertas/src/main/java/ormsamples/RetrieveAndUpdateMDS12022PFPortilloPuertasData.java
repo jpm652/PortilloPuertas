@@ -1,5 +1,5 @@
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package ormsamples;
@@ -27,15 +27,15 @@ public class RetrieveAndUpdateMDS12022PFPortilloPuertasData {
 			basededatos.UsuarioRegistrado lbasededatosUsuarioRegistrado = basededatos.UsuarioRegistradoDAO.loadUsuarioRegistradoByQuery(null, null);
 			// Update the properties of the persistent object
 			basededatos.UsuarioRegistradoDAO.save(lbasededatosUsuarioRegistrado);
-			basededatos.Administrador lbasededatosAdministrador = basededatos.AdministradorDAO.loadAdministradorByQuery(null, null);
-			// Update the properties of the persistent object
-			basededatos.AdministradorDAO.save(lbasededatosAdministrador);
 			basededatos.Playlist lbasededatosPlaylist = basededatos.PlaylistDAO.loadPlaylistByQuery(null, null);
 			// Update the properties of the persistent object
 			basededatos.PlaylistDAO.save(lbasededatosPlaylist);
 			basededatos.Estilo lbasededatosEstilo = basededatos.EstiloDAO.loadEstiloByQuery(null, null);
 			// Update the properties of the persistent object
 			basededatos.EstiloDAO.save(lbasededatosEstilo);
+			basededatos.Administrador lbasededatosAdministrador = basededatos.AdministradorDAO.loadAdministradorByQuery(null, null);
+			// Update the properties of the persistent object
+			basededatos.AdministradorDAO.save(lbasededatosAdministrador);
 			t.commit();
 		}
 		catch (Exception e) {
@@ -81,12 +81,6 @@ public class RetrieveAndUpdateMDS12022PFPortilloPuertasData {
 		//lbasededatosUsuarioRegistradoCriteria.id.eq();
 		System.out.println(lbasededatosUsuarioRegistradoCriteria.uniqueUsuarioRegistrado());
 		
-		System.out.println("Retrieving Administrador by AdministradorCriteria");
-		basededatos.AdministradorCriteria lbasededatosAdministradorCriteria = new basededatos.AdministradorCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//lbasededatosAdministradorCriteria.id.eq();
-		System.out.println(lbasededatosAdministradorCriteria.uniqueAdministrador());
-		
 		System.out.println("Retrieving Playlist by PlaylistCriteria");
 		basededatos.PlaylistCriteria lbasededatosPlaylistCriteria = new basededatos.PlaylistCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
@@ -98,6 +92,12 @@ public class RetrieveAndUpdateMDS12022PFPortilloPuertasData {
 		// Please uncomment the follow line and fill in parameter(s)
 		//lbasededatosEstiloCriteria.id.eq();
 		System.out.println(lbasededatosEstiloCriteria.uniqueEstilo());
+		
+		System.out.println("Retrieving Administrador by AdministradorCriteria");
+		basededatos.AdministradorCriteria lbasededatosAdministradorCriteria = new basededatos.AdministradorCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lbasededatosAdministradorCriteria.id.eq();
+		System.out.println(lbasededatosAdministradorCriteria.uniqueAdministrador());
 		
 	}
 	

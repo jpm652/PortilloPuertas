@@ -1,5 +1,5 @@
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package ormsamples;
@@ -27,15 +27,15 @@ public class DeleteMDS12022PFPortilloPuertasData {
 			basededatos.UsuarioRegistrado lbasededatosUsuarioRegistrado = basededatos.UsuarioRegistradoDAO.loadUsuarioRegistradoByQuery(null, null);
 			// Delete the persistent object
 			basededatos.UsuarioRegistradoDAO.delete(lbasededatosUsuarioRegistrado);
-			basededatos.Administrador lbasededatosAdministrador = basededatos.AdministradorDAO.loadAdministradorByQuery(null, null);
-			// Delete the persistent object
-			basededatos.AdministradorDAO.delete(lbasededatosAdministrador);
 			basededatos.Playlist lbasededatosPlaylist = basededatos.PlaylistDAO.loadPlaylistByQuery(null, null);
 			// Delete the persistent object
 			basededatos.PlaylistDAO.delete(lbasededatosPlaylist);
 			basededatos.Estilo lbasededatosEstilo = basededatos.EstiloDAO.loadEstiloByQuery(null, null);
 			// Delete the persistent object
 			basededatos.EstiloDAO.delete(lbasededatosEstilo);
+			basededatos.Administrador lbasededatosAdministrador = basededatos.AdministradorDAO.loadAdministradorByQuery(null, null);
+			// Delete the persistent object
+			basededatos.AdministradorDAO.delete(lbasededatosAdministrador);
 			t.commit();
 		}
 		catch (Exception e) {

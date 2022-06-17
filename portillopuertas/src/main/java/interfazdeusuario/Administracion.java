@@ -149,12 +149,12 @@ public class Administracion extends VistaAdministracion{
 
 	public void alta_estilo() {
 		
-		String estilo = this.getText_altaestilo().getValue();
 		
 		this.getButton_altaestilo().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				String estilo = getText_altaestilo().getValue();
 				_iAdmin.darAltaEstilo(estilo);
 			}
 		});

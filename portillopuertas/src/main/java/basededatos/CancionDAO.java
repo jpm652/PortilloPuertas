@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class CancionDAO {
 	
 	public static Cancion loadCancionByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Cancion) session.load(basededatos.Cancion.class, Integer.valueOf(id));
+			return (Cancion) session.load(basededatos.Cancion.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class CancionDAO {
 	
 	public static Cancion getCancionByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Cancion) session.get(basededatos.Cancion.class, Integer.valueOf(id));
+			return (Cancion) session.get(basededatos.Cancion.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class CancionDAO {
 	
 	public static Cancion loadCancionByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Cancion) session.load(basededatos.Cancion.class, Integer.valueOf(id), lockMode);
+			return (Cancion) session.load(basededatos.Cancion.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class CancionDAO {
 	
 	public static Cancion getCancionByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Cancion) session.get(basededatos.Cancion.class, Integer.valueOf(id), lockMode);
+			return (Cancion) session.get(basededatos.Cancion.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -323,10 +323,6 @@ public class CancionDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Cancion cancion)throws PersistentException {
 		try {
-			if (cancion.getEs_dada_de_alta() != null) {
-				cancion.getEs_dada_de_alta().da_de_alta_cancion.remove(cancion);
-			}
-			
 			if (cancion.getPertenece_a_estilo() != null) {
 				cancion.getPertenece_a_estilo().contiene_cancion.remove(cancion);
 			}
@@ -353,10 +349,6 @@ public class CancionDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Cancion cancion, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (cancion.getEs_dada_de_alta() != null) {
-				cancion.getEs_dada_de_alta().da_de_alta_cancion.remove(cancion);
-			}
-			
 			if (cancion.getPertenece_a_estilo() != null) {
 				cancion.getPertenece_a_estilo().contiene_cancion.remove(cancion);
 			}

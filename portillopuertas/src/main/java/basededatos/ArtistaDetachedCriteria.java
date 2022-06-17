@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -30,8 +30,6 @@ public class ArtistaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final CollectionExpression reproduce_cancion;
 	public final CollectionExpression crea_playlist;
 	public final StringExpression nombreArtista;
-	public final IntegerExpression es_dado_de_altaId;
-	public final AssociationExpression es_dado_de_alta;
 	public final CollectionExpression crea_album;
 	public final CollectionExpression publica_eventos;
 	
@@ -48,8 +46,6 @@ public class ArtistaDetachedCriteria extends AbstractORMDetachedCriteria {
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this.getDetachedCriteria());
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this.getDetachedCriteria());
 		nombreArtista = new StringExpression("nombreArtista", this.getDetachedCriteria());
-		es_dado_de_altaId = new IntegerExpression("es_dado_de_alta.", this.getDetachedCriteria());
-		es_dado_de_alta = new AssociationExpression("es_dado_de_alta", this.getDetachedCriteria());
 		crea_album = new CollectionExpression("ORM_crea_album", this.getDetachedCriteria());
 		publica_eventos = new CollectionExpression("ORM_publica_eventos", this.getDetachedCriteria());
 	}
@@ -67,14 +63,8 @@ public class ArtistaDetachedCriteria extends AbstractORMDetachedCriteria {
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this.getDetachedCriteria());
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this.getDetachedCriteria());
 		nombreArtista = new StringExpression("nombreArtista", this.getDetachedCriteria());
-		es_dado_de_altaId = new IntegerExpression("es_dado_de_alta.", this.getDetachedCriteria());
-		es_dado_de_alta = new AssociationExpression("es_dado_de_alta", this.getDetachedCriteria());
 		crea_album = new CollectionExpression("ORM_crea_album", this.getDetachedCriteria());
 		publica_eventos = new CollectionExpression("ORM_publica_eventos", this.getDetachedCriteria());
-	}
-	
-	public AdministradorDetachedCriteria createEs_dado_de_altaCriteria() {
-		return new AdministradorDetachedCriteria(createCriteria("es_dado_de_alta"));
 	}
 	
 	public AlbumDetachedCriteria createCrea_albumCriteria() {

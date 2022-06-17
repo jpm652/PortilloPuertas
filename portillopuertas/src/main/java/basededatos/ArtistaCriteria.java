@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -30,8 +30,6 @@ public class ArtistaCriteria extends AbstractORMCriteria {
 	public final CollectionExpression reproduce_cancion;
 	public final CollectionExpression crea_playlist;
 	public final StringExpression nombreArtista;
-	public final IntegerExpression es_dado_de_altaId;
-	public final AssociationExpression es_dado_de_alta;
 	public final CollectionExpression crea_album;
 	public final CollectionExpression publica_eventos;
 	
@@ -48,8 +46,6 @@ public class ArtistaCriteria extends AbstractORMCriteria {
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this);
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this);
 		nombreArtista = new StringExpression("nombreArtista", this);
-		es_dado_de_altaId = new IntegerExpression("es_dado_de_alta.", this);
-		es_dado_de_alta = new AssociationExpression("es_dado_de_alta", this);
 		crea_album = new CollectionExpression("ORM_crea_album", this);
 		publica_eventos = new CollectionExpression("ORM_publica_eventos", this);
 	}
@@ -60,10 +56,6 @@ public class ArtistaCriteria extends AbstractORMCriteria {
 	
 	public ArtistaCriteria() throws PersistentException {
 		this(MDS12022PFPortilloPuertasPersistentManager.instance().getSession());
-	}
-	
-	public AdministradorCriteria createEs_dado_de_altaCriteria() {
-		return new AdministradorCriteria(createCriteria("es_dado_de_alta"));
 	}
 	
 	public AlbumCriteria createCrea_albumCriteria() {

@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -20,16 +20,12 @@ import org.orm.criteria.*;
 
 public class EstiloDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
-	public final IntegerExpression es_dado_de_altaId;
-	public final AssociationExpression es_dado_de_alta;
 	public final StringExpression nombre;
 	public final CollectionExpression contiene_cancion;
 	
 	public EstiloDetachedCriteria() {
 		super(basededatos.Estilo.class, basededatos.EstiloCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
-		es_dado_de_altaId = new IntegerExpression("es_dado_de_alta.", this.getDetachedCriteria());
-		es_dado_de_alta = new AssociationExpression("es_dado_de_alta", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		contiene_cancion = new CollectionExpression("ORM_contiene_cancion", this.getDetachedCriteria());
 	}
@@ -37,14 +33,8 @@ public class EstiloDetachedCriteria extends AbstractORMDetachedCriteria {
 	public EstiloDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, basededatos.EstiloCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
-		es_dado_de_altaId = new IntegerExpression("es_dado_de_alta.", this.getDetachedCriteria());
-		es_dado_de_alta = new AssociationExpression("es_dado_de_alta", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		contiene_cancion = new CollectionExpression("ORM_contiene_cancion", this.getDetachedCriteria());
-	}
-	
-	public AdministradorDetachedCriteria createEs_dado_de_altaCriteria() {
-		return new AdministradorDetachedCriteria(createCriteria("es_dado_de_alta"));
 	}
 	
 	public CancionDetachedCriteria createContiene_cancionCriteria() {

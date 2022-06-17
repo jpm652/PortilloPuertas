@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class AlbumDAO {
 	
 	public static Album loadAlbumByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Album) session.load(basededatos.Album.class, Integer.valueOf(id));
+			return (Album) session.load(basededatos.Album.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class AlbumDAO {
 	
 	public static Album getAlbumByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Album) session.get(basededatos.Album.class, Integer.valueOf(id));
+			return (Album) session.get(basededatos.Album.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class AlbumDAO {
 	
 	public static Album loadAlbumByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Album) session.load(basededatos.Album.class, Integer.valueOf(id), lockMode);
+			return (Album) session.load(basededatos.Album.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class AlbumDAO {
 	
 	public static Album getAlbumByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Album) session.get(basededatos.Album.class, Integer.valueOf(id), lockMode);
+			return (Album) session.get(basededatos.Album.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -323,10 +323,6 @@ public class AlbumDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Album album)throws PersistentException {
 		try {
-			if (album.getEs_dado_de_alta() != null) {
-				album.getEs_dado_de_alta().da_de_alta_album.remove(album);
-			}
-			
 			if (album.getPertenece_a_artista() != null) {
 				album.getPertenece_a_artista().crea_album.remove(album);
 			}
@@ -345,10 +341,6 @@ public class AlbumDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Album album, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (album.getEs_dado_de_alta() != null) {
-				album.getEs_dado_de_alta().da_de_alta_album.remove(album);
-			}
-			
 			if (album.getPertenece_a_artista() != null) {
 				album.getPertenece_a_artista().crea_album.remove(album);
 			}

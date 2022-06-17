@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class ArtistaDAO {
 	
 	public static Artista loadArtistaByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Artista) session.load(basededatos.Artista.class, Integer.valueOf(id));
+			return (Artista) session.load(basededatos.Artista.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class ArtistaDAO {
 	
 	public static Artista getArtistaByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Artista) session.get(basededatos.Artista.class, Integer.valueOf(id));
+			return (Artista) session.get(basededatos.Artista.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class ArtistaDAO {
 	
 	public static Artista loadArtistaByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Artista) session.load(basededatos.Artista.class, Integer.valueOf(id), lockMode);
+			return (Artista) session.load(basededatos.Artista.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class ArtistaDAO {
 	
 	public static Artista getArtistaByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Artista) session.get(basededatos.Artista.class, Integer.valueOf(id), lockMode);
+			return (Artista) session.get(basededatos.Artista.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -323,10 +323,6 @@ public class ArtistaDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Artista artista)throws PersistentException {
 		try {
-			if (artista.getEs_dado_de_alta() != null) {
-				artista.getEs_dado_de_alta().da_de_alta_artista.remove(artista);
-			}
-			
 			basededatos.Album[] lCrea_albums = artista.crea_album.toArray();
 			for(int i = 0; i < lCrea_albums.length; i++) {
 				lCrea_albums[i].setPertenece_a_artista(null);
@@ -353,10 +349,6 @@ public class ArtistaDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Artista artista, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (artista.getEs_dado_de_alta() != null) {
-				artista.getEs_dado_de_alta().da_de_alta_artista.remove(artista);
-			}
-			
 			basededatos.Album[] lCrea_albums = artista.crea_album.toArray();
 			for(int i = 0; i < lCrea_albums.length; i++) {
 				lCrea_albums[i].setPertenece_a_artista(null);

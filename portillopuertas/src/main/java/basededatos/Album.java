@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -34,10 +34,6 @@ public class Album implements Serializable {
 		if (key == ORMConstants.KEY_ALBUM_PERTENECE_A_ARTISTA) {
 			this.pertenece_a_artista = (basededatos.Artista) owner;
 		}
-		
-		else if (key == ORMConstants.KEY_ALBUM_ES_DADO_DE_ALTA) {
-			this.es_dado_de_alta = (basededatos.Administrador) owner;
-		}
 	}
 	
 	@Transient	
@@ -57,12 +53,6 @@ public class Album implements Serializable {
 	@GeneratedValue(generator="BASEDEDATOS_ALBUM_ID_GENERATOR")	
 	@org.hibernate.annotations.GenericGenerator(name="BASEDEDATOS_ALBUM_ID_GENERATOR", strategy="native")	
 	private int id;
-	
-	@ManyToOne(targetEntity=basededatos.Administrador.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioComunId", referencedColumnName="UsuarioComunId", nullable=false) }, foreignKey=@ForeignKey(name="FKAlbum199127"))	
-	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private basededatos.Administrador es_dado_de_alta;
 	
 	@ManyToOne(targetEntity=basededatos.Artista.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
@@ -154,30 +144,6 @@ public class Album implements Serializable {
 	
 	private basededatos.Artista getORM_Pertenece_a_artista() {
 		return pertenece_a_artista;
-	}
-	
-	public void setEs_dado_de_alta(basededatos.Administrador value) {
-		if (es_dado_de_alta != null) {
-			es_dado_de_alta.da_de_alta_album.remove(this);
-		}
-		if (value != null) {
-			value.da_de_alta_album.add(this);
-		}
-	}
-	
-	public basededatos.Administrador getEs_dado_de_alta() {
-		return es_dado_de_alta;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Es_dado_de_alta(basededatos.Administrador value) {
-		this.es_dado_de_alta = value;
-	}
-	
-	private basededatos.Administrador getORM_Es_dado_de_alta() {
-		return es_dado_de_alta;
 	}
 	
 	public String toString() {

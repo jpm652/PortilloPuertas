@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class AdministradorDAO {
 	
 	public static Administrador loadAdministradorByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Administrador) session.load(basededatos.Administrador.class, Integer.valueOf(id));
+			return (Administrador) session.load(basededatos.Administrador.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class AdministradorDAO {
 	
 	public static Administrador getAdministradorByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Administrador) session.get(basededatos.Administrador.class, Integer.valueOf(id));
+			return (Administrador) session.get(basededatos.Administrador.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class AdministradorDAO {
 	
 	public static Administrador loadAdministradorByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Administrador) session.load(basededatos.Administrador.class, Integer.valueOf(id), lockMode);
+			return (Administrador) session.load(basededatos.Administrador.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class AdministradorDAO {
 	
 	public static Administrador getAdministradorByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Administrador) session.get(basededatos.Administrador.class, Integer.valueOf(id), lockMode);
+			return (Administrador) session.get(basededatos.Administrador.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -323,22 +323,6 @@ public class AdministradorDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Administrador administrador)throws PersistentException {
 		try {
-			basededatos.Artista[] lDa_de_alta_artistas = administrador.da_de_alta_artista.toArray();
-			for(int i = 0; i < lDa_de_alta_artistas.length; i++) {
-				lDa_de_alta_artistas[i].setEs_dado_de_alta(null);
-			}
-			basededatos.Album[] lDa_de_alta_albums = administrador.da_de_alta_album.toArray();
-			for(int i = 0; i < lDa_de_alta_albums.length; i++) {
-				lDa_de_alta_albums[i].setEs_dado_de_alta(null);
-			}
-			basededatos.Cancion[] lDa_de_alta_cancions = administrador.da_de_alta_cancion.toArray();
-			for(int i = 0; i < lDa_de_alta_cancions.length; i++) {
-				lDa_de_alta_cancions[i].setEs_dada_de_alta(null);
-			}
-			basededatos.Estilo[] lDa_de_alta_estilos = administrador.da_de_alta_estilo.toArray();
-			for(int i = 0; i < lDa_de_alta_estilos.length; i++) {
-				lDa_de_alta_estilos[i].setEs_dado_de_alta(null);
-			}
 			basededatos.Cancion[] lReproduce_cancions = administrador.reproduce_cancion.toArray();
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
 				lReproduce_cancions[i].es_reproducida_por.remove(administrador);
@@ -357,22 +341,6 @@ public class AdministradorDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Administrador administrador, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			basededatos.Artista[] lDa_de_alta_artistas = administrador.da_de_alta_artista.toArray();
-			for(int i = 0; i < lDa_de_alta_artistas.length; i++) {
-				lDa_de_alta_artistas[i].setEs_dado_de_alta(null);
-			}
-			basededatos.Album[] lDa_de_alta_albums = administrador.da_de_alta_album.toArray();
-			for(int i = 0; i < lDa_de_alta_albums.length; i++) {
-				lDa_de_alta_albums[i].setEs_dado_de_alta(null);
-			}
-			basededatos.Cancion[] lDa_de_alta_cancions = administrador.da_de_alta_cancion.toArray();
-			for(int i = 0; i < lDa_de_alta_cancions.length; i++) {
-				lDa_de_alta_cancions[i].setEs_dada_de_alta(null);
-			}
-			basededatos.Estilo[] lDa_de_alta_estilos = administrador.da_de_alta_estilo.toArray();
-			for(int i = 0; i < lDa_de_alta_estilos.length; i++) {
-				lDa_de_alta_estilos[i].setEs_dado_de_alta(null);
-			}
 			basededatos.Cancion[] lReproduce_cancions = administrador.reproduce_cancion.toArray();
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
 				lReproduce_cancions[i].es_reproducida_por.remove(administrador);

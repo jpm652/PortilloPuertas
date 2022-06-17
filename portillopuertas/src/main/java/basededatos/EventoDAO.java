@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class EventoDAO {
 	
 	public static Evento loadEventoByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Evento) session.load(basededatos.Evento.class, Integer.valueOf(id));
+			return (Evento) session.load(basededatos.Evento.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class EventoDAO {
 	
 	public static Evento getEventoByORMID(PersistentSession session, int id) throws PersistentException {
 		try {
-			return (Evento) session.get(basededatos.Evento.class, Integer.valueOf(id));
+			return (Evento) session.get(basededatos.Evento.class, new Integer(id));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class EventoDAO {
 	
 	public static Evento loadEventoByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Evento) session.load(basededatos.Evento.class, Integer.valueOf(id), lockMode);
+			return (Evento) session.load(basededatos.Evento.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class EventoDAO {
 	
 	public static Evento getEventoByORMID(PersistentSession session, int id, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Evento) session.get(basededatos.Evento.class, Integer.valueOf(id), lockMode);
+			return (Evento) session.get(basededatos.Evento.class, new Integer(id), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

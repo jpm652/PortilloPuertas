@@ -22,7 +22,6 @@ public class BD_Estilo {
 			estilo.setNombre(aNombre);
 			
 			EstiloDAO.save(estilo);
-
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

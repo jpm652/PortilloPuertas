@@ -8,33 +8,19 @@
  */
 
 /**
- * Licensee: Jose Luis Portillo Martin(University of Almeria)
+ * Licensee: MSI2(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
 
 public interface ORMConstants extends org.orm.util.ORMBaseConstants {
-	final int KEY_ADMINISTRADOR_DA_DE_ALTA_ALBUM = 1332826854;
-	
-	final int KEY_ADMINISTRADOR_DA_DE_ALTA_ARTISTA = 1134402737;
-	
-	final int KEY_ADMINISTRADOR_DA_DE_ALTA_CANCION = -1877982388;
-	
-	final int KEY_ADMINISTRADOR_DA_DE_ALTA_ESTILO = -1510534449;
-	
 	final int KEY_ALBUM_CONTIENE_CANCIONES = -1395323335;
-	
-	final int KEY_ALBUM_ES_DADO_DE_ALTA = 32680800;
 	
 	final int KEY_ALBUM_PERTENECE_A_ARTISTA = 1201705364;
 	
 	final int KEY_ARTISTA_CREA_ALBUM = -930210304;
 	
-	final int KEY_ARTISTA_ES_DADO_DE_ALTA = -1485616917;
-	
 	final int KEY_ARTISTA_PUBLICA_EVENTOS = 974385010;
-	
-	final int KEY_CANCION_ES_DADA_DE_ALTA = -1326102664;
 	
 	final int KEY_CANCION_ES_REPRODUCIDA_POR = -1134160741;
 	
@@ -45,8 +31,6 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_CANCION_PERTENECE_A_PLAYLIST = 2130978578;
 	
 	final int KEY_ESTILO_CONTIENE_CANCION = 1854244596;
-	
-	final int KEY_ESTILO_ES_DADO_DE_ALTA = 1321735063;
 	
 	final int KEY_EVENTO_ES_PUBLICADO = -597409252;
 	
