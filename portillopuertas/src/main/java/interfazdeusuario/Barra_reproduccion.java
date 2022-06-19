@@ -12,17 +12,20 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 	public Minimizar _minimizar;
 	// public iUsuario_registrado _unnamed_iUsuario_registrado_;
 	public Maximizar _maximizar;
-	
+	AudioPlayer audio = new AudioPlayer();
+
 	public Barra_reproduccion(Cancion cancion) {
 		inicializar(cancion);
+		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		audio.getElement().getStyle().set("width", "100%");
+		vl.add(audio);
 	}
 	
 	public void inicializar(Cancion cancion) {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		AudioPlayer audio = new AudioPlayer();
-		audio.getElement().getStyle().set("width", "100%");
-		vl.add(audio);
+
 		audio.setSource(cancion.getFicheroMultimedia());
+		setCancion_barra(cancion.getTitulo());
+		setAutor_barra(cancion.getArtista());
 	}
 	
 }

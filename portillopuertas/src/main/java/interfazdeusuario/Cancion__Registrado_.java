@@ -78,6 +78,8 @@ public class Cancion__Registrado_ extends VistaCancion_registrado {
 			}
 		});
 	
+		Pagina_principal.barra_reproduccion.inicializar(cancion);
+
 	}
 	
 	public void anadir_a_playlist() {

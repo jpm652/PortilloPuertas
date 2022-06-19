@@ -18,12 +18,12 @@ public class Albumes extends VistaAlbumes {
 	public Vector<Cancion_anterior> _list_album = new Vector<Cancion_anterior>();
 	iUsuario_no_registrado iUser = new BDPrincipal();
 	
-	public Albumes(VerticalLayout vlpadre, Barra_reproduccion reproductor) {
+	public Albumes(VerticalLayout vlpadre) {
 
-		// inicializar(vlpadre, new Barra_reproduccion(null));
+		 inicializar(vlpadre);
 	}
 
-	public void inicializar(VerticalLayout vlpadre, Barra_reproduccion reproductor) {
+	public void inicializar(VerticalLayout vlpadre) {
 
 		CargarAlbumes(vlpadre);
 
@@ -41,15 +41,14 @@ public class Albumes extends VistaAlbumes {
 	}
 
 	public void CargarAlbumes(VerticalLayout vl) {
-		Cancion[] novedades = iUser.cargar_lista_novedades();	
+		Cancion[] recomendadas = iUser.cargar_lista_novedades();	
 		Cancion_anterior cancion;
 		
-		for (int i = 0; i < novedades.length; i++) {
-			cancion = new Cancion_anterior(vl, "Si", new UsuarioComun(), novedades[i]);
+		for (int i = 0; i < recomendadas.length; i++) {
+			cancion = new Cancion_anterior(vl, "Si", new UsuarioComun(), recomendadas[i]);
 			cancion.getStyle().set("padding-left", "5%");
-			cancion.setNombreCancion(novedades[i].getTitulo());
-			cancion.getImgCancion().setSrc(novedades[i].getImagen_cancion());
-			//cancion.setNombreCancion(inicio.arrayCanciones.get(i).getNombre());
+			cancion.setNombreCancion(recomendadas[i].getTitulo());
+			cancion.getImgCancion().setSrc(recomendadas[i].getImagen_cancion());
 			_list_album.add(cancion);
 		}
 
