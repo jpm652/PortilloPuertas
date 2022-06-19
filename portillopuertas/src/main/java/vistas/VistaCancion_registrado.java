@@ -33,12 +33,12 @@ public class VistaCancion_registrado extends LitTemplate {
 	private Label artista_canc_Reg;
 	@Id("nom_canc_Reg")
 	private Label nom_canc_Reg;
-	@Id("img_canc_Reg")
-	private Image img_canc_Reg;
 	@Id("nom2__canc_Reg")
 	private Label nom2__canc_Reg;
 	@Id("vaadinProgressBar")
 	private ProgressBar vaadinProgressBar;
+	@Id("img_canc_Reg")
+	private Image img_canc_Reg;
 
 	/**
      * Creates a new VistaCancion_registrado.
