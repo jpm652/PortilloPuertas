@@ -12,6 +12,7 @@ import com.vaadin.flow.component.orderedlayout.Scroller.ScrollDirection;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
+import basededatos.Cancion;
 import basededatos.UsuarioComun;
 import basededatos.iUsuario_no_registrado;
 import interfazdeusuario.Cancion__No_registrado_;
@@ -19,7 +20,7 @@ import interfazdeusuario.Cancion__No_registrado_;
 public class Novedades extends VistaNovedades {
 	public Pagina_Principal__No_registrado_ _paginaPrincipal_No_registrado_;
 	public Vector<Cancion_anterior> _list_cancion__no_registrado_ = new Vector<Cancion_anterior>();
-
+	iUsuario_no_registrado user = new BDPrincipal();
 	
 	public Novedades() {
 		//inicializar(new VerticalLayout());
@@ -48,12 +49,14 @@ public class Novedades extends VistaNovedades {
 	}
 
 	public void CargarCanciones(VerticalLayout vl) {
-				
+		Cancion[] novedades = user.cargar_lista_novedades();	
 		Cancion_anterior cancion;
 		
-		for (int i = 0; i < 5; i++) {
-			cancion = new Cancion_anterior(vl, "No", new UsuarioComun());
+		for (int i = 0; i < novedades.length; i++) {
+			cancion = new Cancion_anterior(vl, "No", new UsuarioComun(), novedades[i]);
 			cancion.getStyle().set("padding-left", "5%");
+			cancion.setNombreCancion(novedades[i].getTitulo());
+			cancion.getImgCancion().setSrc(novedades[i].getImagen_cancion());
 			//cancion.setNombreCancion(inicio.arrayCanciones.get(i).getNombre());
 			_list_cancion__no_registrado_.add(cancion);
 		}

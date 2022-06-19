@@ -29,9 +29,16 @@ public class ArtistaCriteria extends AbstractORMCriteria {
 	public final IntegerExpression seguidos;
 	public final CollectionExpression reproduce_cancion;
 	public final CollectionExpression crea_playlist;
+	public final IntegerExpression favoritosId;
+	public final AssociationExpression favoritos;
+	public final IntegerExpression ultimasReproduccionesId;
+	public final AssociationExpression ultimasReproducciones;
 	public final StringExpression nombreArtista;
+	public final IntegerExpression es_dado_de_altaId;
+	public final AssociationExpression es_dado_de_alta;
 	public final CollectionExpression crea_album;
 	public final CollectionExpression publica_eventos;
+	public final CollectionExpression tiene_canciones;
 	
 	public ArtistaCriteria(Criteria criteria) {
 		super(criteria);
@@ -45,9 +52,16 @@ public class ArtistaCriteria extends AbstractORMCriteria {
 		seguidos = new IntegerExpression("seguidos", this);
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this);
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this);
+		favoritosId = new IntegerExpression("favoritos.id", this);
+		favoritos = new AssociationExpression("favoritos", this);
+		ultimasReproduccionesId = new IntegerExpression("ultimasReproducciones.id", this);
+		ultimasReproducciones = new AssociationExpression("ultimasReproducciones", this);
 		nombreArtista = new StringExpression("nombreArtista", this);
+		es_dado_de_altaId = new IntegerExpression("es_dado_de_alta.", this);
+		es_dado_de_alta = new AssociationExpression("es_dado_de_alta", this);
 		crea_album = new CollectionExpression("ORM_crea_album", this);
 		publica_eventos = new CollectionExpression("ORM_publica_eventos", this);
+		tiene_canciones = new CollectionExpression("ORM_tiene_canciones", this);
 	}
 	
 	public ArtistaCriteria(PersistentSession session) {
@@ -58,6 +72,10 @@ public class ArtistaCriteria extends AbstractORMCriteria {
 		this(MDS12022PFPortilloPuertasPersistentManager.instance().getSession());
 	}
 	
+	public AdministradorCriteria createEs_dado_de_altaCriteria() {
+		return new AdministradorCriteria(createCriteria("es_dado_de_alta"));
+	}
+	
 	public AlbumCriteria createCrea_albumCriteria() {
 		return new AlbumCriteria(createCriteria("ORM_crea_album"));
 	}
@@ -66,12 +84,24 @@ public class ArtistaCriteria extends AbstractORMCriteria {
 		return new EventoCriteria(createCriteria("ORM_publica_eventos"));
 	}
 	
+	public CancionCriteria createTiene_cancionesCriteria() {
+		return new CancionCriteria(createCriteria("ORM_tiene_canciones"));
+	}
+	
 	public CancionCriteria createReproduce_cancionCriteria() {
 		return new CancionCriteria(createCriteria("ORM_reproduce_cancion"));
 	}
 	
 	public PlaylistCriteria createCrea_playlistCriteria() {
 		return new PlaylistCriteria(createCriteria("ORM_crea_playlist"));
+	}
+	
+	public PlaylistCriteria createFavoritosCriteria() {
+		return new PlaylistCriteria(createCriteria("favoritos"));
+	}
+	
+	public PlaylistCriteria createUltimasReproduccionesCriteria() {
+		return new PlaylistCriteria(createCriteria("ultimasReproducciones"));
 	}
 	
 	public Artista uniqueArtista() {

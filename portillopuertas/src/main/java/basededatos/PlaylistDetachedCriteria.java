@@ -20,6 +20,10 @@ import org.orm.criteria.*;
 
 public class PlaylistDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
+	public final IntegerExpression usuarioReproductorId;
+	public final AssociationExpression usuarioReproductor;
+	public final IntegerExpression usuarioPertenecienteId;
+	public final AssociationExpression usuarioPerteneciente;
 	public final IntegerExpression creada_por_usuarioId;
 	public final AssociationExpression creada_por_usuario;
 	public final StringExpression nombre;
@@ -29,6 +33,10 @@ public class PlaylistDetachedCriteria extends AbstractORMDetachedCriteria {
 	public PlaylistDetachedCriteria() {
 		super(basededatos.Playlist.class, basededatos.PlaylistCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		usuarioReproductorId = new IntegerExpression("usuarioReproductor.id", this.getDetachedCriteria());
+		usuarioReproductor = new AssociationExpression("usuarioReproductor", this.getDetachedCriteria());
+		usuarioPertenecienteId = new IntegerExpression("usuarioPerteneciente.id", this.getDetachedCriteria());
+		usuarioPerteneciente = new AssociationExpression("usuarioPerteneciente", this.getDetachedCriteria());
 		creada_por_usuarioId = new IntegerExpression("creada_por_usuario.id", this.getDetachedCriteria());
 		creada_por_usuario = new AssociationExpression("creada_por_usuario", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
@@ -39,11 +47,23 @@ public class PlaylistDetachedCriteria extends AbstractORMDetachedCriteria {
 	public PlaylistDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, basededatos.PlaylistCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		usuarioReproductorId = new IntegerExpression("usuarioReproductor.id", this.getDetachedCriteria());
+		usuarioReproductor = new AssociationExpression("usuarioReproductor", this.getDetachedCriteria());
+		usuarioPertenecienteId = new IntegerExpression("usuarioPerteneciente.id", this.getDetachedCriteria());
+		usuarioPerteneciente = new AssociationExpression("usuarioPerteneciente", this.getDetachedCriteria());
 		creada_por_usuarioId = new IntegerExpression("creada_por_usuario.id", this.getDetachedCriteria());
 		creada_por_usuario = new AssociationExpression("creada_por_usuario", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		usuarioCreador = new StringExpression("usuarioCreador", this.getDetachedCriteria());
 		contiene_canciones = new CollectionExpression("ORM_contiene_canciones", this.getDetachedCriteria());
+	}
+	
+	public UsuarioComunDetachedCriteria createUsuarioReproductorCriteria() {
+		return new UsuarioComunDetachedCriteria(createCriteria("usuarioReproductor"));
+	}
+	
+	public UsuarioComunDetachedCriteria createUsuarioPertenecienteCriteria() {
+		return new UsuarioComunDetachedCriteria(createCriteria("usuarioPerteneciente"));
 	}
 	
 	public UsuarioComunDetachedCriteria createCreada_por_usuarioCriteria() {

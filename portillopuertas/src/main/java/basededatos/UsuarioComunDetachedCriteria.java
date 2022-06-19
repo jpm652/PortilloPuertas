@@ -29,6 +29,10 @@ public class UsuarioComunDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression seguidos;
 	public final CollectionExpression reproduce_cancion;
 	public final CollectionExpression crea_playlist;
+	public final IntegerExpression favoritosId;
+	public final AssociationExpression favoritos;
+	public final IntegerExpression ultimasReproduccionesId;
+	public final AssociationExpression ultimasReproducciones;
 	
 	public UsuarioComunDetachedCriteria() {
 		super(basededatos.UsuarioComun.class, basededatos.UsuarioComunCriteria.class);
@@ -42,6 +46,10 @@ public class UsuarioComunDetachedCriteria extends AbstractORMDetachedCriteria {
 		seguidos = new IntegerExpression("seguidos", this.getDetachedCriteria());
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this.getDetachedCriteria());
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this.getDetachedCriteria());
+		favoritosId = new IntegerExpression("favoritos.id", this.getDetachedCriteria());
+		favoritos = new AssociationExpression("favoritos", this.getDetachedCriteria());
+		ultimasReproduccionesId = new IntegerExpression("ultimasReproducciones.id", this.getDetachedCriteria());
+		ultimasReproducciones = new AssociationExpression("ultimasReproducciones", this.getDetachedCriteria());
 	}
 	
 	public UsuarioComunDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -56,6 +64,10 @@ public class UsuarioComunDetachedCriteria extends AbstractORMDetachedCriteria {
 		seguidos = new IntegerExpression("seguidos", this.getDetachedCriteria());
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this.getDetachedCriteria());
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this.getDetachedCriteria());
+		favoritosId = new IntegerExpression("favoritos.id", this.getDetachedCriteria());
+		favoritos = new AssociationExpression("favoritos", this.getDetachedCriteria());
+		ultimasReproduccionesId = new IntegerExpression("ultimasReproducciones.id", this.getDetachedCriteria());
+		ultimasReproducciones = new AssociationExpression("ultimasReproducciones", this.getDetachedCriteria());
 	}
 	
 	public CancionDetachedCriteria createReproduce_cancionCriteria() {
@@ -64,6 +76,14 @@ public class UsuarioComunDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public PlaylistDetachedCriteria createCrea_playlistCriteria() {
 		return new PlaylistDetachedCriteria(createCriteria("ORM_crea_playlist"));
+	}
+	
+	public PlaylistDetachedCriteria createFavoritosCriteria() {
+		return new PlaylistDetachedCriteria(createCriteria("favoritos"));
+	}
+	
+	public PlaylistDetachedCriteria createUltimasReproduccionesCriteria() {
+		return new PlaylistDetachedCriteria(createCriteria("ultimasReproducciones"));
 	}
 	
 	public UsuarioComun uniqueUsuarioComun(PersistentSession session) {

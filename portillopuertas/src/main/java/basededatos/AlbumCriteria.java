@@ -20,6 +20,8 @@ import org.orm.criteria.*;
 
 public class AlbumCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
+	public final IntegerExpression es_dado_de_altaId;
+	public final AssociationExpression es_dado_de_alta;
 	public final IntegerExpression pertenece_a_artistaId;
 	public final AssociationExpression pertenece_a_artista;
 	public final StringExpression nombre;
@@ -30,6 +32,8 @@ public class AlbumCriteria extends AbstractORMCriteria {
 	public AlbumCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
+		es_dado_de_altaId = new IntegerExpression("es_dado_de_alta.", this);
+		es_dado_de_alta = new AssociationExpression("es_dado_de_alta", this);
 		pertenece_a_artistaId = new IntegerExpression("pertenece_a_artista.", this);
 		pertenece_a_artista = new AssociationExpression("pertenece_a_artista", this);
 		nombre = new StringExpression("nombre", this);
@@ -44,6 +48,10 @@ public class AlbumCriteria extends AbstractORMCriteria {
 	
 	public AlbumCriteria() throws PersistentException {
 		this(MDS12022PFPortilloPuertasPersistentManager.instance().getSession());
+	}
+	
+	public AdministradorCriteria createEs_dado_de_altaCriteria() {
+		return new AdministradorCriteria(createCriteria("es_dado_de_alta"));
 	}
 	
 	public ArtistaCriteria createPertenece_a_artistaCriteria() {

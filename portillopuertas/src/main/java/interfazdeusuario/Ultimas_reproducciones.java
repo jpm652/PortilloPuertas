@@ -26,7 +26,7 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 	
 	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 
-		CargarCanciones(vlpadre, usuario);
+		//CargarCanciones(vlpadre, usuario);
 
 		Scroller scroller = this.getScroll();
 		HorizontalLayout tempHl = new HorizontalLayout();
@@ -44,18 +44,18 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 
 	}
 
-	public void CargarCanciones(VerticalLayout vl, UsuarioComun usuario) {
-		Cancion_anterior cancion;
+//	public void CargarCanciones(VerticalLayout vl, UsuarioComun usuario) {
+//		Cancion_anterior cancion;
+//
+//		for (int i = 0; i < 8; i++) {
+//		//	cancion = new Cancion_anterior(vl, "Si", usuario);
+//			
+//			if(i==2) {
+//				cancion.setNombreCancion("Cancion Pepe");	
+//				cancion.getImgCancion().getStyle().set("src","https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-lista.png?raw=true");
+//				}
+//			_list_cancion__registrado_.add(cancion);
+//		}
 
-		for (int i = 0; i < 8; i++) {
-			cancion = new Cancion_anterior(vl, "Si", usuario);
-			
-			if(i==2) {
-				cancion.setNombreCancion("Cancion Pepe");	
-				cancion.getImgCancion().getStyle().set("src","https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-lista.png?raw=true");
-				}
-			_list_cancion__registrado_.add(cancion);
-		}
-
-	}
+	
 }

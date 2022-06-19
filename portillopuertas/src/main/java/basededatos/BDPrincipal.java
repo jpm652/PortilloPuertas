@@ -19,9 +19,15 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	public BD_Estilo _bd_estilo = new BD_Estilo();
 	public BD_Evento _bd_evento = new BD_Evento();
 
-	public Playlist cargar_lista_novedades() {
-		throw new UnsupportedOperationException();
-	}
+	public Cancion[] cargar_lista_novedades() {
+		try {
+			return _bd_playlist.cargar_lista_novedades();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}	
 
 //	public UsuarioComun verificarUsuario(String aCorreo, String aNombreUsuario, String aContrasena, String rutaFoto) {
 //		
@@ -62,9 +68,14 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		return true;
 	}
 
-	public void recuperarContrasena(String aContrasena) {
-		throw new UnsupportedOperationException();
-	}
+	public UsuarioComun recuperarContrasena(String correo) {
+		try {
+			return _bd_usuario_registrado.recuperarContrasena(correo);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;	}
 
 	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena) {
 		throw new UnsupportedOperationException();
@@ -81,6 +92,13 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	public void editarCorreo(int aId_usuario, String aCorreo) {
 		try {
 			_bd_usuario_registrado.editarCorreo(aCorreo, aId_usuario);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+	public void editarFoto(int aId_usuario, String aFoto)  {
+		try {
+			_bd_usuario_registrado.editarFoto(aId_usuario, aFoto);;
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
@@ -193,10 +211,10 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 
 	@Override
 	public void darAltaCancion(String aNombre, String aArtista, String aEstilo, String aProductor, String acompositor,
-			int aDuracion, String aImagen) {
+			int aDuracion, String aImagen,String aArchivoCancion) {
 
 		try {
-			_bd_cancion.darAltaCancion(aNombre, aArtista, aEstilo, aProductor, acompositor, aDuracion, aImagen);
+			_bd_cancion.darAltaCancion(aNombre, aArtista, aEstilo, aProductor, acompositor, aDuracion, aImagen,aArchivoCancion);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

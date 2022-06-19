@@ -20,6 +20,10 @@ import org.orm.criteria.*;
 
 public class CancionCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
+	public final IntegerExpression pertenece_a_artistaCancionId;
+	public final AssociationExpression pertenece_a_artistaCancion;
+	public final IntegerExpression es_dada_de_altaId;
+	public final AssociationExpression es_dada_de_alta;
 	public final IntegerExpression pertenece_a_estiloId;
 	public final AssociationExpression pertenece_a_estilo;
 	public final StringExpression titulo;
@@ -31,6 +35,7 @@ public class CancionCriteria extends AbstractORMCriteria {
 	public final StringExpression productor;
 	public final IntegerExpression numReproducciones;
 	public final StringExpression ficheroMultimedia;
+	public final StringExpression album;
 	public final CollectionExpression pertenece_a_album;
 	public final CollectionExpression pertenece_a_playlist;
 	public final CollectionExpression es_reproducida_por;
@@ -38,6 +43,10 @@ public class CancionCriteria extends AbstractORMCriteria {
 	public CancionCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
+		pertenece_a_artistaCancionId = new IntegerExpression("pertenece_a_artistaCancion.", this);
+		pertenece_a_artistaCancion = new AssociationExpression("pertenece_a_artistaCancion", this);
+		es_dada_de_altaId = new IntegerExpression("es_dada_de_alta.", this);
+		es_dada_de_alta = new AssociationExpression("es_dada_de_alta", this);
 		pertenece_a_estiloId = new IntegerExpression("pertenece_a_estilo.id", this);
 		pertenece_a_estilo = new AssociationExpression("pertenece_a_estilo", this);
 		titulo = new StringExpression("titulo", this);
@@ -49,6 +58,7 @@ public class CancionCriteria extends AbstractORMCriteria {
 		productor = new StringExpression("productor", this);
 		numReproducciones = new IntegerExpression("numReproducciones", this);
 		ficheroMultimedia = new StringExpression("ficheroMultimedia", this);
+		album = new StringExpression("album", this);
 		pertenece_a_album = new CollectionExpression("ORM_pertenece_a_album", this);
 		pertenece_a_playlist = new CollectionExpression("ORM_pertenece_a_playlist", this);
 		es_reproducida_por = new CollectionExpression("ORM_es_reproducida_por", this);
@@ -60,6 +70,14 @@ public class CancionCriteria extends AbstractORMCriteria {
 	
 	public CancionCriteria() throws PersistentException {
 		this(MDS12022PFPortilloPuertasPersistentManager.instance().getSession());
+	}
+	
+	public ArtistaCriteria createPertenece_a_artistaCancionCriteria() {
+		return new ArtistaCriteria(createCriteria("pertenece_a_artistaCancion"));
+	}
+	
+	public AdministradorCriteria createEs_dada_de_altaCriteria() {
+		return new AdministradorCriteria(createCriteria("es_dada_de_alta"));
 	}
 	
 	public EstiloCriteria createPertenece_a_estiloCriteria() {

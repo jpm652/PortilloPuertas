@@ -21,8 +21,6 @@ public class VistaMenu_artista extends LitTemplate {
 
     @Id("verticalLayout")
 	private Element verticalLayout;
-	@Id("img_menu_artista")
-	private Image img_menu_artista;
 	@Id("nomb_artista_menu")
 	private Label nomb_artista_menu;
 	@Id("button_lista_menu_artista")
@@ -35,7 +33,10 @@ public class VistaMenu_artista extends LitTemplate {
 	private Button button_conf_menu_artista;
 	@Id("button_home_menu_artista")
 	private Button button_home_menu_artista;
-
+	@Id("imgMenu")
+	private Image imgMenu;
+	@Id("seg_artista_menu")
+	private Label seg_artista_menu;
 	/**
      * Creates a new VistaMenu_artista.
      */
@@ -49,14 +50,6 @@ public class VistaMenu_artista extends LitTemplate {
 
 	public void setVerticalLayout(Element verticalLayout) {
 		this.verticalLayout = verticalLayout;
-	}
-
-	public Image getImg_menu_artista() {
-		return img_menu_artista;
-	}
-
-	public void setImg_menu_artista(Image img_menu_artista) {
-		this.img_menu_artista = img_menu_artista;
 	}
 
 	public Label getNomb_artista_menu() {
@@ -109,6 +102,22 @@ public class VistaMenu_artista extends LitTemplate {
 
 	public void setNomb_artista_menu(Label nomb_artista_menu) {
 		this.nomb_artista_menu = nomb_artista_menu;
+	}
+
+	public Image getImgMenu() {
+		return imgMenu;
+	}
+
+	public void setImgMenu(Image imgMenu) {
+		this.imgMenu = imgMenu;
+	}
+
+	public Label getSeg_artista_menu() {
+		return seg_artista_menu;
+	}
+
+	public void setSeg_artista_menu(String seg_artista_menu) {
+		this.seg_artista_menu.setText(seg_artista_menu);
 	}
 
     

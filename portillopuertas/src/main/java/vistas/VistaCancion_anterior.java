@@ -20,10 +20,10 @@ public class VistaCancion_anterior extends LitTemplate {
 
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("imgCancion")
-	private Image imgCancion;
 	@Id("nombreCancion")
 	private Label nombreCancion;
+	@Id("imgCancion")
+	private Image imgCancion;
 	
     public Element getVaadinVerticalLayout() {
 		return vaadinVerticalLayout;

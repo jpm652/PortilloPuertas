@@ -5,18 +5,19 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Cancion;
 import basededatos.UsuarioComun;
 import vistas.VistaCancion_anterior;
 
 public class Cancion_anterior extends VistaCancion_anterior {
 	// public Cancion__No_registrado_ _cancion__no_registrado_;
 
-	public Cancion_anterior(VerticalLayout vlpadre, String registrado, UsuarioComun usuario) {
+	public Cancion_anterior(VerticalLayout vlpadre, String registrado, UsuarioComun usuario, Cancion cancion) {
 
-		inicializar(vlpadre, registrado, usuario);
+		inicializar(vlpadre, registrado, usuario,cancion);
 	}
 
-	public void inicializar(VerticalLayout vlpadre, String registrado, UsuarioComun usuario) {
+	public void inicializar(VerticalLayout vlpadre, String registrado, UsuarioComun usuario, Cancion cancion) {
 
 		// this.getImgCancion().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true");
 		// this.getImgCancion().getStyle().set("height", "100%");
@@ -39,7 +40,7 @@ public class Cancion_anterior extends VistaCancion_anterior {
 					cancion_no_regist.getStyle().set("width", "100%");
 					cancion_no_regist.getStyle().set("height", "80%");
 					vlpadre.add(cancion_no_regist);
-					cancion_no_regist.inicializar(vlpadre);
+					cancion_no_regist.inicializar(vlpadre,cancion);
 					
 				}else if(registrado.equals("Si")){
 					vlpadre.removeAll();

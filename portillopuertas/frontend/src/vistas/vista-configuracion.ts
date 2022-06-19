@@ -25,6 +25,9 @@ export class VistaConfiguracion extends LitElement {
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%; margin-left: 75px; margin-bottom: 20px;">
   <img id="imagenPerfil" style="width: 100px; height: 100px;">
   <label id="nombreUser" style="align-self: center;font-weight:bold">Nombre de usuario </label>
+  <vaadin-button id="bt_foto" style="align-self: center;">
+   Editar foto
+  </vaadin-button>
  </vaadin-horizontal-layout>
  <hr id="hr" style="width: 90%; margin-bottom: 50px;">
  <vaadin-vertical-layout theme="spacing" id="verticalcorreo" style="width: 100%;"></vaadin-vertical-layout>

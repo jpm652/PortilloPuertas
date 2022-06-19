@@ -20,6 +20,10 @@ import org.orm.criteria.*;
 
 public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
+	public final IntegerExpression pertenece_a_artistaCancionId;
+	public final AssociationExpression pertenece_a_artistaCancion;
+	public final IntegerExpression es_dada_de_altaId;
+	public final AssociationExpression es_dada_de_alta;
 	public final IntegerExpression pertenece_a_estiloId;
 	public final AssociationExpression pertenece_a_estilo;
 	public final StringExpression titulo;
@@ -31,6 +35,7 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression productor;
 	public final IntegerExpression numReproducciones;
 	public final StringExpression ficheroMultimedia;
+	public final StringExpression album;
 	public final CollectionExpression pertenece_a_album;
 	public final CollectionExpression pertenece_a_playlist;
 	public final CollectionExpression es_reproducida_por;
@@ -38,6 +43,10 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 	public CancionDetachedCriteria() {
 		super(basededatos.Cancion.class, basededatos.CancionCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		pertenece_a_artistaCancionId = new IntegerExpression("pertenece_a_artistaCancion.", this.getDetachedCriteria());
+		pertenece_a_artistaCancion = new AssociationExpression("pertenece_a_artistaCancion", this.getDetachedCriteria());
+		es_dada_de_altaId = new IntegerExpression("es_dada_de_alta.", this.getDetachedCriteria());
+		es_dada_de_alta = new AssociationExpression("es_dada_de_alta", this.getDetachedCriteria());
 		pertenece_a_estiloId = new IntegerExpression("pertenece_a_estilo.id", this.getDetachedCriteria());
 		pertenece_a_estilo = new AssociationExpression("pertenece_a_estilo", this.getDetachedCriteria());
 		titulo = new StringExpression("titulo", this.getDetachedCriteria());
@@ -49,6 +58,7 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 		productor = new StringExpression("productor", this.getDetachedCriteria());
 		numReproducciones = new IntegerExpression("numReproducciones", this.getDetachedCriteria());
 		ficheroMultimedia = new StringExpression("ficheroMultimedia", this.getDetachedCriteria());
+		album = new StringExpression("album", this.getDetachedCriteria());
 		pertenece_a_album = new CollectionExpression("ORM_pertenece_a_album", this.getDetachedCriteria());
 		pertenece_a_playlist = new CollectionExpression("ORM_pertenece_a_playlist", this.getDetachedCriteria());
 		es_reproducida_por = new CollectionExpression("ORM_es_reproducida_por", this.getDetachedCriteria());
@@ -57,6 +67,10 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 	public CancionDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, basededatos.CancionCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		pertenece_a_artistaCancionId = new IntegerExpression("pertenece_a_artistaCancion.", this.getDetachedCriteria());
+		pertenece_a_artistaCancion = new AssociationExpression("pertenece_a_artistaCancion", this.getDetachedCriteria());
+		es_dada_de_altaId = new IntegerExpression("es_dada_de_alta.", this.getDetachedCriteria());
+		es_dada_de_alta = new AssociationExpression("es_dada_de_alta", this.getDetachedCriteria());
 		pertenece_a_estiloId = new IntegerExpression("pertenece_a_estilo.id", this.getDetachedCriteria());
 		pertenece_a_estilo = new AssociationExpression("pertenece_a_estilo", this.getDetachedCriteria());
 		titulo = new StringExpression("titulo", this.getDetachedCriteria());
@@ -68,9 +82,18 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 		productor = new StringExpression("productor", this.getDetachedCriteria());
 		numReproducciones = new IntegerExpression("numReproducciones", this.getDetachedCriteria());
 		ficheroMultimedia = new StringExpression("ficheroMultimedia", this.getDetachedCriteria());
+		album = new StringExpression("album", this.getDetachedCriteria());
 		pertenece_a_album = new CollectionExpression("ORM_pertenece_a_album", this.getDetachedCriteria());
 		pertenece_a_playlist = new CollectionExpression("ORM_pertenece_a_playlist", this.getDetachedCriteria());
 		es_reproducida_por = new CollectionExpression("ORM_es_reproducida_por", this.getDetachedCriteria());
+	}
+	
+	public ArtistaDetachedCriteria createPertenece_a_artistaCancionCriteria() {
+		return new ArtistaDetachedCriteria(createCriteria("pertenece_a_artistaCancion"));
+	}
+	
+	public AdministradorDetachedCriteria createEs_dada_de_altaCriteria() {
+		return new AdministradorDetachedCriteria(createCriteria("es_dada_de_alta"));
 	}
 	
 	public EstiloDetachedCriteria createPertenece_a_estiloCriteria() {

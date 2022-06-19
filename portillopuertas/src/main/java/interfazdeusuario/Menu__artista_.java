@@ -15,14 +15,14 @@ public class Menu__artista_ extends VistaMenu_artista {
 	public Eventos _eventos;
 	
 	public Menu__artista_() {
-		inicializar(new VerticalLayout(), new UsuarioComun());
+		//inicializar(new VerticalLayout(), new UsuarioComun());
 	}
 	
 	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 		
 		this.setNomb_artista_menu(usuario.getNombreUsuario());
-		this.getImg_menu_artista().setSrc(usuario.getFoto());
-		// this.set("Seguidores: " + usuario.getSeguidores() + " / Seguidos: " + usuario.getSeguidos());
+		this.getImgMenu().setSrc(usuario.getFoto());
+		this.setSeg_artista_menu("Seguidores: " + usuario.getSeguidores() + " / Seguidos: " + usuario.getSeguidos());
 		
 		this.getButton_lista_menu_artista().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 

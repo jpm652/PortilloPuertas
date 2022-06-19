@@ -12,6 +12,9 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.upload.FinishedEvent;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
 import basededatos.BDPrincipal;
 import basededatos.UsuarioComun;
@@ -29,6 +32,8 @@ public class Configuracion extends VistaConfiguracion {
 	public Estadisticas_usuario _estadisticas_usuario;
 	iUsuario_registrado _iUser = new BDPrincipal();
 
+	String rutaFoto = "";
+	
 	public Configuracion(UsuarioComun usuario) {
 		// inicializar(new VerticalLayout());
 		this.setNombreUser(usuario.getNombreUsuario());
@@ -126,6 +131,30 @@ public class Configuracion extends VistaConfiguracion {
 				vlpadre.add(dialog);
 				dialog.open();
 
+			}
+		});
+		
+		this.getBt_foto().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				MemoryBuffer buffer = new MemoryBuffer();
+				Upload upload = new Upload(buffer);
+				Dialog modal = new Dialog(upload);
+
+				upload.addFinishedListener(new ComponentEventListener<FinishedEvent>() {
+
+					@Override
+					public void onComponentEvent(FinishedEvent event) {
+
+						rutaFoto = Registrarse.SubirImagen(buffer);
+						getImagenPerfil().setSrc(rutaFoto);
+						modal.close();
+						_iUser.editarFoto(usuario.getId(), rutaFoto);
+					}
+				});
+
+				modal.open();
 			}
 		});
 	}

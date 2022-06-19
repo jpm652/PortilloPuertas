@@ -20,6 +20,8 @@ import org.orm.criteria.*;
 
 public class AlbumDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
+	public final IntegerExpression es_dado_de_altaId;
+	public final AssociationExpression es_dado_de_alta;
 	public final IntegerExpression pertenece_a_artistaId;
 	public final AssociationExpression pertenece_a_artista;
 	public final StringExpression nombre;
@@ -30,6 +32,8 @@ public class AlbumDetachedCriteria extends AbstractORMDetachedCriteria {
 	public AlbumDetachedCriteria() {
 		super(basededatos.Album.class, basededatos.AlbumCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		es_dado_de_altaId = new IntegerExpression("es_dado_de_alta.", this.getDetachedCriteria());
+		es_dado_de_alta = new AssociationExpression("es_dado_de_alta", this.getDetachedCriteria());
 		pertenece_a_artistaId = new IntegerExpression("pertenece_a_artista.", this.getDetachedCriteria());
 		pertenece_a_artista = new AssociationExpression("pertenece_a_artista", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
@@ -41,12 +45,18 @@ public class AlbumDetachedCriteria extends AbstractORMDetachedCriteria {
 	public AlbumDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, basededatos.AlbumCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
+		es_dado_de_altaId = new IntegerExpression("es_dado_de_alta.", this.getDetachedCriteria());
+		es_dado_de_alta = new AssociationExpression("es_dado_de_alta", this.getDetachedCriteria());
 		pertenece_a_artistaId = new IntegerExpression("pertenece_a_artista.", this.getDetachedCriteria());
 		pertenece_a_artista = new AssociationExpression("pertenece_a_artista", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		artista = new StringExpression("artista", this.getDetachedCriteria());
 		imagen_album = new StringExpression("imagen_album", this.getDetachedCriteria());
 		contiene_canciones = new CollectionExpression("ORM_contiene_canciones", this.getDetachedCriteria());
+	}
+	
+	public AdministradorDetachedCriteria createEs_dado_de_altaCriteria() {
+		return new AdministradorDetachedCriteria(createCriteria("es_dado_de_alta"));
 	}
 	
 	public ArtistaDetachedCriteria createPertenece_a_artistaCriteria() {

@@ -44,6 +44,23 @@ public class BD_UsuarioRegistrado {
 		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 	}
 
+	public void editarFoto(int aId_usuario, String aFoto) throws PersistentException {
+		UsuarioComunCriteria user = new UsuarioComunCriteria();
+		user.id.eq(aId_usuario);
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			UsuarioComun datos = UsuarioComunDAO.loadUsuarioComunByCriteria(user);
+			datos.setFoto(aFoto);
+			UsuarioComunDAO.save(datos);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+	}
+	
 	public void darBaja(int aId_usuario) throws PersistentException{
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
@@ -71,11 +88,22 @@ public class BD_UsuarioRegistrado {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 
 		UsuarioComunCriteria c = new UsuarioComunCriteria();
+		UsuarioComunCriteria c2 = new UsuarioComunCriteria();
 
 		c.nombreUsuario.like(aNombreUsuario.trim());
 		c.contrasena.like(aContrasena);
 
+		c2.correo.like(aNombreUsuario.trim());
+		c2.contrasena.like(aContrasena);
+		
 		UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
+		UsuarioComun user2 = UsuarioComunDAO.loadUsuarioComunByCriteria(c2);
+		
+		if(user == null) {
+			return user2;
+		}else if(user2 == null) {
+			return user;
+		}
 
 		return user;
 	}
@@ -85,19 +113,28 @@ public class BD_UsuarioRegistrado {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		
 		UsuarioComunCriteria c = new UsuarioComunCriteria();
+		UsuarioComunCriteria c2 = new UsuarioComunCriteria();
 
 		c.correo.like(aCorreo.trim());
+		c2.nombreUsuario.like(aCorreo);
 		
 			UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
+			UsuarioComun user2 = UsuarioComunDAO.loadUsuarioComunByCriteria(c2);
 
-            if (user == null) {
+            if (user == null & user2 == null) {
                 return true;
             }
 		return false;
 	}
 
-	public void recuperarContrasena(String aContrasena) {
-		throw new UnsupportedOperationException();
+	public UsuarioComun recuperarContrasena(String correo) throws PersistentException {
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		UsuarioComunCriteria c = new UsuarioComunCriteria();
+
+		c.correo.like(correo);
+		
+			UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
+			return user;
 	}
 
 	public boolean Registrarse(String aCorreo, String aNombreUsuario, String aContrasena, String rutaFoto)
@@ -105,7 +142,7 @@ public class BD_UsuarioRegistrado {
 
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
-			UsuarioComun user = UsuarioComunDAO.createUsuarioComun();
+			UsuarioRegistrado user = UsuarioRegistradoDAO.createUsuarioRegistrado();
 			user.setCorreo(aCorreo);
 			user.setNombreUsuario(aNombreUsuario);
 			user.setContrasena(aContrasena);

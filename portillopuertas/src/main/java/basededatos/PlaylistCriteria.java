@@ -20,6 +20,10 @@ import org.orm.criteria.*;
 
 public class PlaylistCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
+	public final IntegerExpression usuarioReproductorId;
+	public final AssociationExpression usuarioReproductor;
+	public final IntegerExpression usuarioPertenecienteId;
+	public final AssociationExpression usuarioPerteneciente;
 	public final IntegerExpression creada_por_usuarioId;
 	public final AssociationExpression creada_por_usuario;
 	public final StringExpression nombre;
@@ -29,6 +33,10 @@ public class PlaylistCriteria extends AbstractORMCriteria {
 	public PlaylistCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
+		usuarioReproductorId = new IntegerExpression("usuarioReproductor.id", this);
+		usuarioReproductor = new AssociationExpression("usuarioReproductor", this);
+		usuarioPertenecienteId = new IntegerExpression("usuarioPerteneciente.id", this);
+		usuarioPerteneciente = new AssociationExpression("usuarioPerteneciente", this);
 		creada_por_usuarioId = new IntegerExpression("creada_por_usuario.id", this);
 		creada_por_usuario = new AssociationExpression("creada_por_usuario", this);
 		nombre = new StringExpression("nombre", this);
@@ -42,6 +50,14 @@ public class PlaylistCriteria extends AbstractORMCriteria {
 	
 	public PlaylistCriteria() throws PersistentException {
 		this(MDS12022PFPortilloPuertasPersistentManager.instance().getSession());
+	}
+	
+	public UsuarioComunCriteria createUsuarioReproductorCriteria() {
+		return new UsuarioComunCriteria(createCriteria("usuarioReproductor"));
+	}
+	
+	public UsuarioComunCriteria createUsuarioPertenecienteCriteria() {
+		return new UsuarioComunCriteria(createCriteria("usuarioPerteneciente"));
 	}
 	
 	public UsuarioComunCriteria createCreada_por_usuarioCriteria() {

@@ -11,6 +11,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.checkbox.Checkbox;
+import com.vaadin.flow.component.textfield.PasswordField;
 
 /**
  * A Designer generated component for the vista-registrarse template.
@@ -50,10 +51,6 @@ public class VistaRegistrarse extends LitTemplate {
 	private TextField correo_registro;
 	@Id("nombre_registro")
 	private TextField nombre_registro;
-	@Id("clave_registro")
-	private TextField clave_registro;
-	@Id("confirma_clave_registro")
-	private TextField confirma_clave_registro;
 	@Id("terminos_registro")
 	private Checkbox terminos_registro;
 	@Id("boton_registrase")
@@ -64,6 +61,10 @@ public class VistaRegistrarse extends LitTemplate {
 	private Image fotoImg;
 	@Id("fotoFC")
 	private Button fotoFC;
+	@Id("clave_registro")
+	private PasswordField clave_registro;
+	@Id("confirma_clave_registro")
+	private PasswordField confirma_clave_registro;
 
 	public Button getBtt_iniciarsesion() {
 		return btt_iniciarsesion;
@@ -180,22 +181,6 @@ public class VistaRegistrarse extends LitTemplate {
 		this.nombre_registro = nombre_registro;
 	}
 
-	public TextField getClave_registro() {
-		return clave_registro;
-	}
-
-	public void setClave_registro(TextField clave_registro) {
-		this.clave_registro = clave_registro;
-	}
-
-	public TextField getConfirma_clave_registro() {
-		return confirma_clave_registro;
-	}
-
-	public void setConfirma_clave_registro(TextField confirma_clave_registro) {
-		this.confirma_clave_registro = confirma_clave_registro;
-	}
-
 	public Checkbox getTerminos_registro() {
 		return terminos_registro;
 	}
@@ -238,6 +223,22 @@ public class VistaRegistrarse extends LitTemplate {
 
 	public void setFotoFC(Button fotoFC) {
 		this.fotoFC = fotoFC;
+	}
+
+	public PasswordField getClave_registro() {
+		return clave_registro;
+	}
+
+	public void setClave_registro(PasswordField clave_registro) {
+		this.clave_registro = clave_registro;
+	}
+
+	public PasswordField getConfirma_clave_registro() {
+		return confirma_clave_registro;
+	}
+
+	public void setConfirma_clave_registro(PasswordField confirma_clave_registro) {
+		this.confirma_clave_registro = confirma_clave_registro;
 	}
 
 	

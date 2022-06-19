@@ -10,6 +10,8 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 	public void editarContrasena(int aId_usuario, String aAntiguaContrasena, String aNuevaContrasena);
 
 	public void editarCorreo(int aId_usuario, String aCorreo);
+	
+	public void editarFoto(int aId_usuario, String aFoto);
 
 	public Album cargar_album();
 

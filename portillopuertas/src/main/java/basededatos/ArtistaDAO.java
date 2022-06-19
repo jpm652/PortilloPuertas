@@ -323,6 +323,10 @@ public class ArtistaDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Artista artista)throws PersistentException {
 		try {
+			if (artista.getEs_dado_de_alta() != null) {
+				artista.getEs_dado_de_alta().da_de_alta_artista.remove(artista);
+			}
+			
 			basededatos.Album[] lCrea_albums = artista.crea_album.toArray();
 			for(int i = 0; i < lCrea_albums.length; i++) {
 				lCrea_albums[i].setPertenece_a_artista(null);
@@ -330,6 +334,10 @@ public class ArtistaDAO {
 			basededatos.Evento[] lPublica_eventoss = artista.publica_eventos.toArray();
 			for(int i = 0; i < lPublica_eventoss.length; i++) {
 				lPublica_eventoss[i].setEs_publicado(null);
+			}
+			basededatos.Cancion[] lTiene_cancioness = artista.tiene_canciones.toArray();
+			for(int i = 0; i < lTiene_cancioness.length; i++) {
+				lTiene_cancioness[i].setPertenece_a_artistaCancion(null);
 			}
 			basededatos.Cancion[] lReproduce_cancions = artista.reproduce_cancion.toArray();
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
@@ -339,6 +347,14 @@ public class ArtistaDAO {
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			if (artista.getFavoritos() != null) {
+				artista.getFavoritos().setUsuarioPerteneciente(null);
+			}
+			
+			if (artista.getUltimasReproducciones() != null) {
+				artista.getUltimasReproducciones().setUsuarioReproductor(null);
+			}
+			
 			return delete(artista);
 		}
 		catch(Exception e) {
@@ -349,6 +365,10 @@ public class ArtistaDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Artista artista, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			if (artista.getEs_dado_de_alta() != null) {
+				artista.getEs_dado_de_alta().da_de_alta_artista.remove(artista);
+			}
+			
 			basededatos.Album[] lCrea_albums = artista.crea_album.toArray();
 			for(int i = 0; i < lCrea_albums.length; i++) {
 				lCrea_albums[i].setPertenece_a_artista(null);
@@ -356,6 +376,10 @@ public class ArtistaDAO {
 			basededatos.Evento[] lPublica_eventoss = artista.publica_eventos.toArray();
 			for(int i = 0; i < lPublica_eventoss.length; i++) {
 				lPublica_eventoss[i].setEs_publicado(null);
+			}
+			basededatos.Cancion[] lTiene_cancioness = artista.tiene_canciones.toArray();
+			for(int i = 0; i < lTiene_cancioness.length; i++) {
+				lTiene_cancioness[i].setPertenece_a_artistaCancion(null);
 			}
 			basededatos.Cancion[] lReproduce_cancions = artista.reproduce_cancion.toArray();
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
@@ -365,6 +389,14 @@ public class ArtistaDAO {
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			if (artista.getFavoritos() != null) {
+				artista.getFavoritos().setUsuarioPerteneciente(null);
+			}
+			
+			if (artista.getUltimasReproducciones() != null) {
+				artista.getUltimasReproducciones().setUsuarioReproductor(null);
+			}
+			
 			try {
 				session.delete(artista);
 				return true;

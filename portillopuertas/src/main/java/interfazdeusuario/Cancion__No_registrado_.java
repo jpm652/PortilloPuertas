@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Cancion;
 import vistas.VistaCancion_no_registrado;
 
 public class Cancion__No_registrado_ extends VistaCancion_no_registrado {
@@ -28,12 +29,16 @@ public class Cancion__No_registrado_ extends VistaCancion_no_registrado {
 
 	public Cancion__No_registrado_() {
 
-		this.getVaadinVerticalLayout().getStyle().set("width", "100%").set("height", "100%");
-		inicializar(new VerticalLayout());
+//		this.getVaadinVerticalLayout().getStyle().set("width", "100%").set("height", "100%");
+//		inicializar(new VerticalLayout());
 	}
 
-	public void inicializar(VerticalLayout vlpadre) {
-
+	public void inicializar(VerticalLayout vlpadre, Cancion cancion) {
+		
+		this.setNom_canc_noReg(cancion.getTitulo());
+		this.setNom2__canc_noReg(cancion.getTitulo());
+		this.getImg_canc_noReg().setSrc(cancion.getImagen_cancion());
+		this.setArtista_canc_noReg(cancion.getArtista());
 		this.getMin_cancion_no_registrado().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
@@ -59,13 +64,15 @@ public class Cancion__No_registrado_ extends VistaCancion_no_registrado {
 				Creditos creditos = new Creditos();
 				creditos.getStyle().set("width", "100%").set("height", "100%");
 				vlpadre.add(creditos);
-				creditos.inicializar(vlpadre);
+				creditos.inicializar(vlpadre,cancion);
 			}
 		});
 		
-		Barra_reproduccion barra_reproduccion = new Barra_reproduccion();
+		Barra_reproduccion barra_reproduccion = new Barra_reproduccion(cancion);
 		barra_reproduccion.getStyle().set("width", "100%").set("height", "100%");
-		
+		barra_reproduccion.setAutor_barra(cancion.getArtista());
+		barra_reproduccion.setCancion_barra(cancion.getTitulo());
+//		barra_reproduccion
 		vlpadre.add(barra_reproduccion);
 
 	}

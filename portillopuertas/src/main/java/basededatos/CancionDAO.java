@@ -323,6 +323,14 @@ public class CancionDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Cancion cancion)throws PersistentException {
 		try {
+			if (cancion.getPertenece_a_artistaCancion() != null) {
+				cancion.getPertenece_a_artistaCancion().tiene_canciones.remove(cancion);
+			}
+			
+			if (cancion.getEs_dada_de_alta() != null) {
+				cancion.getEs_dada_de_alta().da_de_alta_cancion.remove(cancion);
+			}
+			
 			if (cancion.getPertenece_a_estilo() != null) {
 				cancion.getPertenece_a_estilo().contiene_cancion.remove(cancion);
 			}
@@ -349,6 +357,14 @@ public class CancionDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Cancion cancion, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			if (cancion.getPertenece_a_artistaCancion() != null) {
+				cancion.getPertenece_a_artistaCancion().tiene_canciones.remove(cancion);
+			}
+			
+			if (cancion.getEs_dada_de_alta() != null) {
+				cancion.getEs_dada_de_alta().da_de_alta_cancion.remove(cancion);
+			}
+			
 			if (cancion.getPertenece_a_estilo() != null) {
 				cancion.getPertenece_a_estilo().contiene_cancion.remove(cancion);
 			}

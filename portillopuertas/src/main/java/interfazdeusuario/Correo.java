@@ -51,7 +51,7 @@ public class Correo extends VistaCorreo {
 						
 						_iUser.editarCorreo(usuario.getId(), campoCorreo);
 						usuario.setCorreo(campoCorreo);
-						
+						setLabel(campoCorreo);
 						dialog.close();
 					}
 				});

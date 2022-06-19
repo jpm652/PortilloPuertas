@@ -29,6 +29,10 @@ public class UsuarioRegistradoCriteria extends AbstractORMCriteria {
 	public final IntegerExpression seguidos;
 	public final CollectionExpression reproduce_cancion;
 	public final CollectionExpression crea_playlist;
+	public final IntegerExpression favoritosId;
+	public final AssociationExpression favoritos;
+	public final IntegerExpression ultimasReproduccionesId;
+	public final AssociationExpression ultimasReproducciones;
 	public final CollectionExpression sigue_a;
 	public final CollectionExpression es_seguido;
 	
@@ -44,6 +48,10 @@ public class UsuarioRegistradoCriteria extends AbstractORMCriteria {
 		seguidos = new IntegerExpression("seguidos", this);
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this);
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this);
+		favoritosId = new IntegerExpression("favoritos.id", this);
+		favoritos = new AssociationExpression("favoritos", this);
+		ultimasReproduccionesId = new IntegerExpression("ultimasReproducciones.id", this);
+		ultimasReproducciones = new AssociationExpression("ultimasReproducciones", this);
 		sigue_a = new CollectionExpression("ORM_sigue_a", this);
 		es_seguido = new CollectionExpression("ORM_es_seguido", this);
 	}
@@ -70,6 +78,14 @@ public class UsuarioRegistradoCriteria extends AbstractORMCriteria {
 	
 	public PlaylistCriteria createCrea_playlistCriteria() {
 		return new PlaylistCriteria(createCriteria("ORM_crea_playlist"));
+	}
+	
+	public PlaylistCriteria createFavoritosCriteria() {
+		return new PlaylistCriteria(createCriteria("favoritos"));
+	}
+	
+	public PlaylistCriteria createUltimasReproduccionesCriteria() {
+		return new PlaylistCriteria(createCriteria("ultimasReproducciones"));
 	}
 	
 	public UsuarioRegistrado uniqueUsuarioRegistrado() {

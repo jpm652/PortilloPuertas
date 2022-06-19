@@ -22,15 +22,21 @@ public class BD_Artista {
 
 	public void darAltaArtista(String aNombre, String aLogin, String aContrasena, String arutaFoto) throws PersistentException{
 		
-		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();	
+		
 		try {
-
+			
+			Administrador admin =AdministradorDAO.getAdministradorByORMID(2);
+			
 			Artista artista = ArtistaDAO.createArtista();
 			artista.setNombreArtista(aNombre);
 			artista.setNombreUsuario(aLogin);
+			artista.setCorreo(aLogin+"@gmail.com");
 			artista.setContrasena(aContrasena);
+			artista.setTipo("Artista");
 			artista.setFoto(arutaFoto);
-			ArtistaDAO.save(artista);
+			artista.setEs_dado_de_alta(admin);
+			
 			
 			t.commit();
 		} catch (Exception e) {

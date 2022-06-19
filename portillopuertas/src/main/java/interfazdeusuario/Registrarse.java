@@ -51,7 +51,6 @@ public class Registrarse extends VistaRegistrarse {
 	public void inicializar(VerticalLayout vlpadre) {
 
 		this.getImg_cabecera_registro().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
-
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 
@@ -136,6 +135,7 @@ public class Registrarse extends VistaRegistrarse {
 				String nombre = getNombre_registro().getValue();
 				String contrasena = getClave_registro().getValue();
 				String contrasena_confirm = getConfirma_clave_registro().getValue();
+				String imagenPerfil = rutaFoto;
 				//existe = _iUser.verificarUsuario(correo);
 				
 				Dialog dialog = new Dialog();
@@ -156,13 +156,37 @@ public class Registrarse extends VistaRegistrarse {
 					vlpadre.add(dialog);
 					dialog.open();
 					
+				}else if(nombre.equals(correo)) {
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error de registro",
+							"El nombre de usuario no puede coincidir con el correo");
+					dialog.add(dialogLayout);
+					vlpadre.add(dialog);
+					dialog.open();
+					
 				}else if(_iUser.verificarUsuario(correo) == false) {
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error de registro",
 							"Correo electronico ya registrado");
 					dialog.add(dialogLayout);
 					vlpadre.add(dialog);
 					dialog.open();
-				}else if(_iUser.Registrarse(correo, nombre, contrasena_confirm, rutaFoto) == true) {
+					
+				}else if(_iUser.verificarUsuario(nombre) == false) {
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error de registro",
+							"Nombre de usuario ya registrado");
+					dialog.add(dialogLayout);
+					vlpadre.add(dialog);
+					dialog.open();
+					
+				}else if(imagenPerfil.isEmpty()) {
+					imagenPerfil = "https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/usuariodefault.png?raw=true";
+					_iUser.Registrarse(correo, nombre, contrasena_confirm, imagenPerfil);
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
+							"Se ha enviado un mensaje a su correo electronico para validar su cuenta.");
+					dialog.add(dialogLayout);
+					vlpadre.add(dialog);
+					dialog.open();
+					
+				}else if(_iUser.Registrarse(correo, nombre, contrasena_confirm, imagenPerfil) == true) {
 					
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
 							"Se ha enviado un mensaje a su correo electronico para validar su cuenta.");

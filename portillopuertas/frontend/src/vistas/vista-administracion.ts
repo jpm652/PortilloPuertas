@@ -44,7 +44,7 @@ export class VistaAdministracion extends LitElement {
    <vaadin-horizontal-layout theme="spacing" style="align-self: center; justify-content: center; margin: var(--lumo-space-s); align-items: center;">
     <img id="fotoartista" style="max-width: 100px; max-height: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true">
     <vaadin-button id="bt_FotoArtista">
-      Foto de album 
+      Foto de Artista 
     </vaadin-button>
    </vaadin-horizontal-layout>
    <vaadin-button id="button_anadirartista">
@@ -75,7 +75,6 @@ export class VistaAdministracion extends LitElement {
    </vaadin-horizontal-layout>
    <vaadin-text-field placeholder="Nombre de la Cancion" style="width: 50%;" id="nombrecancionanadircancion"></vaadin-text-field>
    <vaadin-text-field placeholder="Nombre del artista" style="width: 50%;" id="nombreartistaanadircancion"></vaadin-text-field>
-   <vaadin-text-field placeholder="Nombre del album" style="width: 50%;" id="nombrealbunanadircancion"></vaadin-text-field>
    <vaadin-text-field placeholder="Nombre del estilo" style="width: 50%;" id="nombreestiloanadircancion"></vaadin-text-field>
    <vaadin-text-field placeholder="Nombre Productor" style="width: 50%;" id="nombreproductoranadircancion"></vaadin-text-field>
    <vaadin-text-field placeholder="Nombre Compositor" style="width: 50%;" id="nombrecompositoranadircancion"></vaadin-text-field>
@@ -83,7 +82,12 @@ export class VistaAdministracion extends LitElement {
    <vaadin-horizontal-layout theme="spacing" style="align-self: center; justify-content: center; margin: var(--lumo-space-s); align-items: center;" id="vaadinHorizontalLayout1">
     <img id="fotoCancion" style="max-width: 100px; max-height: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true">
     <vaadin-button id="bt_fotocancion">
-      Foto de album 
+      Foto de Cancion 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout theme="spacing" style="align-self: center; justify-content: center; margin: var(--lumo-space-s); align-items: center;" id="vaadinHorizontalLayout1">
+    <vaadin-button id="bt_anadirficheromultimedia" style="width: 300px;">
+     <iron-icon icon="lumo:plus" slot="prefix"></iron-icon>Añadir fichero multimedia 
     </vaadin-button>
    </vaadin-horizontal-layout>
    <vaadin-button id="anadircancion">

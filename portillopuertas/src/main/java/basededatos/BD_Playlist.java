@@ -2,6 +2,9 @@ package basededatos;
 
 import java.util.List;
 import java.util.Vector;
+
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
 // import basededatos.Playlist;
 // import Artista.Playlist;
 
@@ -13,8 +16,18 @@ public class BD_Playlist {
 		throw new UnsupportedOperationException();
 	}
 
-	public Playlist cargar_lista_novedades() {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_lista_novedades() throws PersistentException {
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Cancion[] canciones = CancionDAO.listCancionByQuery("AdministradorUsuarioComunId = 2", null);
+			t.commit();
+			return canciones;
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return null;
 	}
 
 	public Playlist cargar_Playlist() {

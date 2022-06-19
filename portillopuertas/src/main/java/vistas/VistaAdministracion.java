@@ -44,8 +44,6 @@ public class VistaAdministracion extends LitTemplate {
 	private TextField text_nombreartistaanadiralbum;
 	@Id("button_anadiralbum")
 	private Button button_anadiralbum;
-	@Id("nombrealbunanadircancion")
-	private TextField nombrealbunanadircancion;
 	@Id("anadircancion")
 	private Button anadircancion;
 	@Id("nombreartistadarbaja")
@@ -82,6 +80,8 @@ public class VistaAdministracion extends LitTemplate {
 	private TextField nombreartistaanadircancion;
 	@Id("clave_artista")
 	private TextField clave_artista;
+	@Id("bt_anadirficheromultimedia")
+	private Button bt_anadirficheromultimedia;
 	/**
      * Creates a new VistaAdministracion.
      */
@@ -177,13 +177,7 @@ public class VistaAdministracion extends LitTemplate {
 		this.nombreartistaanadircancion = nombreartistaanadircancion;
 	}
 
-	public TextField getNombrealbunanadircancion() {
-		return nombrealbunanadircancion;
-	}
 
-	public void setNombrealbunanadircancion(TextField nombrealbunanadircancion) {
-		this.nombrealbunanadircancion = nombrealbunanadircancion;
-	}
 
 	public TextField getNombreestiloanadircancion() {
 		return nombreestiloanadircancion;
@@ -319,6 +313,14 @@ public class VistaAdministracion extends LitTemplate {
 
 	public void setClave_artista(TextField clave_artista) {
 		this.clave_artista = clave_artista;
+	}
+
+	public Button getBt_anadirficheromultimedia() {
+		return bt_anadirficheromultimedia;
+	}
+
+	public void setBt_anadirficheromultimedia(Button bt_anadirficheromultimedia) {
+		this.bt_anadirficheromultimedia = bt_anadirficheromultimedia;
 	}
     
 }

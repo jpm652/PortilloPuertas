@@ -29,9 +29,16 @@ public class ArtistaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression seguidos;
 	public final CollectionExpression reproduce_cancion;
 	public final CollectionExpression crea_playlist;
+	public final IntegerExpression favoritosId;
+	public final AssociationExpression favoritos;
+	public final IntegerExpression ultimasReproduccionesId;
+	public final AssociationExpression ultimasReproducciones;
 	public final StringExpression nombreArtista;
+	public final IntegerExpression es_dado_de_altaId;
+	public final AssociationExpression es_dado_de_alta;
 	public final CollectionExpression crea_album;
 	public final CollectionExpression publica_eventos;
+	public final CollectionExpression tiene_canciones;
 	
 	public ArtistaDetachedCriteria() {
 		super(basededatos.Artista.class, basededatos.ArtistaCriteria.class);
@@ -45,9 +52,16 @@ public class ArtistaDetachedCriteria extends AbstractORMDetachedCriteria {
 		seguidos = new IntegerExpression("seguidos", this.getDetachedCriteria());
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this.getDetachedCriteria());
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this.getDetachedCriteria());
+		favoritosId = new IntegerExpression("favoritos.id", this.getDetachedCriteria());
+		favoritos = new AssociationExpression("favoritos", this.getDetachedCriteria());
+		ultimasReproduccionesId = new IntegerExpression("ultimasReproducciones.id", this.getDetachedCriteria());
+		ultimasReproducciones = new AssociationExpression("ultimasReproducciones", this.getDetachedCriteria());
 		nombreArtista = new StringExpression("nombreArtista", this.getDetachedCriteria());
+		es_dado_de_altaId = new IntegerExpression("es_dado_de_alta.", this.getDetachedCriteria());
+		es_dado_de_alta = new AssociationExpression("es_dado_de_alta", this.getDetachedCriteria());
 		crea_album = new CollectionExpression("ORM_crea_album", this.getDetachedCriteria());
 		publica_eventos = new CollectionExpression("ORM_publica_eventos", this.getDetachedCriteria());
+		tiene_canciones = new CollectionExpression("ORM_tiene_canciones", this.getDetachedCriteria());
 	}
 	
 	public ArtistaDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -62,9 +76,20 @@ public class ArtistaDetachedCriteria extends AbstractORMDetachedCriteria {
 		seguidos = new IntegerExpression("seguidos", this.getDetachedCriteria());
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this.getDetachedCriteria());
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this.getDetachedCriteria());
+		favoritosId = new IntegerExpression("favoritos.id", this.getDetachedCriteria());
+		favoritos = new AssociationExpression("favoritos", this.getDetachedCriteria());
+		ultimasReproduccionesId = new IntegerExpression("ultimasReproducciones.id", this.getDetachedCriteria());
+		ultimasReproducciones = new AssociationExpression("ultimasReproducciones", this.getDetachedCriteria());
 		nombreArtista = new StringExpression("nombreArtista", this.getDetachedCriteria());
+		es_dado_de_altaId = new IntegerExpression("es_dado_de_alta.", this.getDetachedCriteria());
+		es_dado_de_alta = new AssociationExpression("es_dado_de_alta", this.getDetachedCriteria());
 		crea_album = new CollectionExpression("ORM_crea_album", this.getDetachedCriteria());
 		publica_eventos = new CollectionExpression("ORM_publica_eventos", this.getDetachedCriteria());
+		tiene_canciones = new CollectionExpression("ORM_tiene_canciones", this.getDetachedCriteria());
+	}
+	
+	public AdministradorDetachedCriteria createEs_dado_de_altaCriteria() {
+		return new AdministradorDetachedCriteria(createCriteria("es_dado_de_alta"));
 	}
 	
 	public AlbumDetachedCriteria createCrea_albumCriteria() {
@@ -75,12 +100,24 @@ public class ArtistaDetachedCriteria extends AbstractORMDetachedCriteria {
 		return new EventoDetachedCriteria(createCriteria("ORM_publica_eventos"));
 	}
 	
+	public CancionDetachedCriteria createTiene_cancionesCriteria() {
+		return new CancionDetachedCriteria(createCriteria("ORM_tiene_canciones"));
+	}
+	
 	public CancionDetachedCriteria createReproduce_cancionCriteria() {
 		return new CancionDetachedCriteria(createCriteria("ORM_reproduce_cancion"));
 	}
 	
 	public PlaylistDetachedCriteria createCrea_playlistCriteria() {
 		return new PlaylistDetachedCriteria(createCriteria("ORM_crea_playlist"));
+	}
+	
+	public PlaylistDetachedCriteria createFavoritosCriteria() {
+		return new PlaylistDetachedCriteria(createCriteria("favoritos"));
+	}
+	
+	public PlaylistDetachedCriteria createUltimasReproduccionesCriteria() {
+		return new PlaylistDetachedCriteria(createCriteria("ultimasReproducciones"));
 	}
 	
 	public Artista uniqueArtista(PersistentSession session) {

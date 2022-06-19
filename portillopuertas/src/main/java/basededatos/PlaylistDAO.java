@@ -323,6 +323,14 @@ public class PlaylistDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Playlist playlist)throws PersistentException {
 		try {
+			if (playlist.getUsuarioReproductor() != null) {
+				playlist.getUsuarioReproductor().setUltimasReproducciones(null);
+			}
+			
+			if (playlist.getUsuarioPerteneciente() != null) {
+				playlist.getUsuarioPerteneciente().setFavoritos(null);
+			}
+			
 			if (playlist.getCreada_por_usuario() != null) {
 				playlist.getCreada_por_usuario().crea_playlist.remove(playlist);
 			}
@@ -341,6 +349,14 @@ public class PlaylistDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Playlist playlist, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			if (playlist.getUsuarioReproductor() != null) {
+				playlist.getUsuarioReproductor().setUltimasReproducciones(null);
+			}
+			
+			if (playlist.getUsuarioPerteneciente() != null) {
+				playlist.getUsuarioPerteneciente().setFavoritos(null);
+			}
+			
 			if (playlist.getCreada_por_usuario() != null) {
 				playlist.getCreada_por_usuario().crea_playlist.remove(playlist);
 			}

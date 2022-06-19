@@ -29,6 +29,10 @@ public class UsuarioComunCriteria extends AbstractORMCriteria {
 	public final IntegerExpression seguidos;
 	public final CollectionExpression reproduce_cancion;
 	public final CollectionExpression crea_playlist;
+	public final IntegerExpression favoritosId;
+	public final AssociationExpression favoritos;
+	public final IntegerExpression ultimasReproduccionesId;
+	public final AssociationExpression ultimasReproducciones;
 	
 	public UsuarioComunCriteria(Criteria criteria) {
 		super(criteria);
@@ -42,6 +46,10 @@ public class UsuarioComunCriteria extends AbstractORMCriteria {
 		seguidos = new IntegerExpression("seguidos", this);
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this);
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this);
+		favoritosId = new IntegerExpression("favoritos.id", this);
+		favoritos = new AssociationExpression("favoritos", this);
+		ultimasReproduccionesId = new IntegerExpression("ultimasReproducciones.id", this);
+		ultimasReproducciones = new AssociationExpression("ultimasReproducciones", this);
 	}
 	
 	public UsuarioComunCriteria(PersistentSession session) {
@@ -58,6 +66,14 @@ public class UsuarioComunCriteria extends AbstractORMCriteria {
 	
 	public PlaylistCriteria createCrea_playlistCriteria() {
 		return new PlaylistCriteria(createCriteria("ORM_crea_playlist"));
+	}
+	
+	public PlaylistCriteria createFavoritosCriteria() {
+		return new PlaylistCriteria(createCriteria("favoritos"));
+	}
+	
+	public PlaylistCriteria createUltimasReproduccionesCriteria() {
+		return new PlaylistCriteria(createCriteria("ultimasReproducciones"));
 	}
 	
 	public UsuarioComun uniqueUsuarioComun() {

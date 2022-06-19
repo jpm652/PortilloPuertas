@@ -25,12 +25,20 @@ public class BD_Album {
 	public void darAltaAlbum(String aNombre, String aArtista, String arutaFoto) throws PersistentException {
 
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		
+		ArtistaCriteria c = new ArtistaCriteria();
+		c.nombreArtista.like(aArtista);
+		
+		Artista artista = ArtistaDAO.loadArtistaByCriteria(c);
 		try {
+			Administrador admin =AdministradorDAO.getAdministradorByORMID(2);
 
 			Album album = AlbumDAO.createAlbum();
 			album.setNombre(aNombre);
 			album.setArtista(aArtista);
 			album.setImagen_album(arutaFoto);
+			album.setPertenece_a_artista(artista);
+			album.setEs_dado_de_alta(admin);
 			AlbumDAO.save(album);
 			
 			t.commit();

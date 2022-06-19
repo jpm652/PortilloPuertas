@@ -29,6 +29,14 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression seguidos;
 	public final CollectionExpression reproduce_cancion;
 	public final CollectionExpression crea_playlist;
+	public final IntegerExpression favoritosId;
+	public final AssociationExpression favoritos;
+	public final IntegerExpression ultimasReproduccionesId;
+	public final AssociationExpression ultimasReproducciones;
+	public final CollectionExpression da_de_alta_artista;
+	public final CollectionExpression da_de_alta_album;
+	public final CollectionExpression da_de_alta_cancion;
+	public final CollectionExpression da_de_alta_estilo;
 	
 	public AdministradorDetachedCriteria() {
 		super(basededatos.Administrador.class, basededatos.AdministradorCriteria.class);
@@ -42,6 +50,14 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 		seguidos = new IntegerExpression("seguidos", this.getDetachedCriteria());
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this.getDetachedCriteria());
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this.getDetachedCriteria());
+		favoritosId = new IntegerExpression("favoritos.id", this.getDetachedCriteria());
+		favoritos = new AssociationExpression("favoritos", this.getDetachedCriteria());
+		ultimasReproduccionesId = new IntegerExpression("ultimasReproducciones.id", this.getDetachedCriteria());
+		ultimasReproducciones = new AssociationExpression("ultimasReproducciones", this.getDetachedCriteria());
+		da_de_alta_artista = new CollectionExpression("ORM_da_de_alta_artista", this.getDetachedCriteria());
+		da_de_alta_album = new CollectionExpression("ORM_da_de_alta_album", this.getDetachedCriteria());
+		da_de_alta_cancion = new CollectionExpression("ORM_da_de_alta_cancion", this.getDetachedCriteria());
+		da_de_alta_estilo = new CollectionExpression("ORM_da_de_alta_estilo", this.getDetachedCriteria());
 	}
 	
 	public AdministradorDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -56,6 +72,30 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 		seguidos = new IntegerExpression("seguidos", this.getDetachedCriteria());
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this.getDetachedCriteria());
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this.getDetachedCriteria());
+		favoritosId = new IntegerExpression("favoritos.id", this.getDetachedCriteria());
+		favoritos = new AssociationExpression("favoritos", this.getDetachedCriteria());
+		ultimasReproduccionesId = new IntegerExpression("ultimasReproducciones.id", this.getDetachedCriteria());
+		ultimasReproducciones = new AssociationExpression("ultimasReproducciones", this.getDetachedCriteria());
+		da_de_alta_artista = new CollectionExpression("ORM_da_de_alta_artista", this.getDetachedCriteria());
+		da_de_alta_album = new CollectionExpression("ORM_da_de_alta_album", this.getDetachedCriteria());
+		da_de_alta_cancion = new CollectionExpression("ORM_da_de_alta_cancion", this.getDetachedCriteria());
+		da_de_alta_estilo = new CollectionExpression("ORM_da_de_alta_estilo", this.getDetachedCriteria());
+	}
+	
+	public ArtistaDetachedCriteria createDa_de_alta_artistaCriteria() {
+		return new ArtistaDetachedCriteria(createCriteria("ORM_da_de_alta_artista"));
+	}
+	
+	public AlbumDetachedCriteria createDa_de_alta_albumCriteria() {
+		return new AlbumDetachedCriteria(createCriteria("ORM_da_de_alta_album"));
+	}
+	
+	public CancionDetachedCriteria createDa_de_alta_cancionCriteria() {
+		return new CancionDetachedCriteria(createCriteria("ORM_da_de_alta_cancion"));
+	}
+	
+	public EstiloDetachedCriteria createDa_de_alta_estiloCriteria() {
+		return new EstiloDetachedCriteria(createCriteria("ORM_da_de_alta_estilo"));
 	}
 	
 	public CancionDetachedCriteria createReproduce_cancionCriteria() {
@@ -64,6 +104,14 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public PlaylistDetachedCriteria createCrea_playlistCriteria() {
 		return new PlaylistDetachedCriteria(createCriteria("ORM_crea_playlist"));
+	}
+	
+	public PlaylistDetachedCriteria createFavoritosCriteria() {
+		return new PlaylistDetachedCriteria(createCriteria("favoritos"));
+	}
+	
+	public PlaylistDetachedCriteria createUltimasReproduccionesCriteria() {
+		return new PlaylistDetachedCriteria(createCriteria("ultimasReproducciones"));
 	}
 	
 	public Administrador uniqueAdministrador(PersistentSession session) {

@@ -323,6 +323,22 @@ public class AdministradorDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Administrador administrador)throws PersistentException {
 		try {
+			basededatos.Artista[] lDa_de_alta_artistas = administrador.da_de_alta_artista.toArray();
+			for(int i = 0; i < lDa_de_alta_artistas.length; i++) {
+				lDa_de_alta_artistas[i].setEs_dado_de_alta(null);
+			}
+			basededatos.Album[] lDa_de_alta_albums = administrador.da_de_alta_album.toArray();
+			for(int i = 0; i < lDa_de_alta_albums.length; i++) {
+				lDa_de_alta_albums[i].setEs_dado_de_alta(null);
+			}
+			basededatos.Cancion[] lDa_de_alta_cancions = administrador.da_de_alta_cancion.toArray();
+			for(int i = 0; i < lDa_de_alta_cancions.length; i++) {
+				lDa_de_alta_cancions[i].setEs_dada_de_alta(null);
+			}
+			basededatos.Estilo[] lDa_de_alta_estilos = administrador.da_de_alta_estilo.toArray();
+			for(int i = 0; i < lDa_de_alta_estilos.length; i++) {
+				lDa_de_alta_estilos[i].setEs_dado_de_alta(null);
+			}
 			basededatos.Cancion[] lReproduce_cancions = administrador.reproduce_cancion.toArray();
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
 				lReproduce_cancions[i].es_reproducida_por.remove(administrador);
@@ -331,6 +347,14 @@ public class AdministradorDAO {
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			if (administrador.getFavoritos() != null) {
+				administrador.getFavoritos().setUsuarioPerteneciente(null);
+			}
+			
+			if (administrador.getUltimasReproducciones() != null) {
+				administrador.getUltimasReproducciones().setUsuarioReproductor(null);
+			}
+			
 			return delete(administrador);
 		}
 		catch(Exception e) {
@@ -341,6 +365,22 @@ public class AdministradorDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Administrador administrador, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			basededatos.Artista[] lDa_de_alta_artistas = administrador.da_de_alta_artista.toArray();
+			for(int i = 0; i < lDa_de_alta_artistas.length; i++) {
+				lDa_de_alta_artistas[i].setEs_dado_de_alta(null);
+			}
+			basededatos.Album[] lDa_de_alta_albums = administrador.da_de_alta_album.toArray();
+			for(int i = 0; i < lDa_de_alta_albums.length; i++) {
+				lDa_de_alta_albums[i].setEs_dado_de_alta(null);
+			}
+			basededatos.Cancion[] lDa_de_alta_cancions = administrador.da_de_alta_cancion.toArray();
+			for(int i = 0; i < lDa_de_alta_cancions.length; i++) {
+				lDa_de_alta_cancions[i].setEs_dada_de_alta(null);
+			}
+			basededatos.Estilo[] lDa_de_alta_estilos = administrador.da_de_alta_estilo.toArray();
+			for(int i = 0; i < lDa_de_alta_estilos.length; i++) {
+				lDa_de_alta_estilos[i].setEs_dado_de_alta(null);
+			}
 			basededatos.Cancion[] lReproduce_cancions = administrador.reproduce_cancion.toArray();
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
 				lReproduce_cancions[i].es_reproducida_por.remove(administrador);
@@ -349,6 +389,14 @@ public class AdministradorDAO {
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			if (administrador.getFavoritos() != null) {
+				administrador.getFavoritos().setUsuarioPerteneciente(null);
+			}
+			
+			if (administrador.getUltimasReproducciones() != null) {
+				administrador.getUltimasReproducciones().setUsuarioReproductor(null);
+			}
+			
 			try {
 				session.delete(administrador);
 				return true;

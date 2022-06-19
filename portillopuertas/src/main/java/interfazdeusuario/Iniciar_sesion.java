@@ -173,7 +173,6 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				Dialog dialog = new Dialog();
-				Recordar_clave rec = new Recordar_clave();
 
 				TextField correo = new TextField();
 				VerticalLayout dialogLayout = createDialogLayout(dialog, "Recordar clave",
@@ -183,25 +182,44 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				dialog.add(correo);
 
 				Button closeButton = new Button("Enviar");
-				closeButton.addClickListener(e -> dialog.close());
+				closeButton.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						UsuarioComun user = _iUser.recuperarContrasena(correo.getValue());
+						
+						if(user == null) {
+							Dialog dialog = new Dialog();
+							VerticalLayout dialogLayout = createDialogLayout(dialog, "Recordar clave",
+									"No hay ninguna cuenta asociada a ese correo");
+							dialog.add(dialogLayout);
+							Button closeButton2 = new Button("Aceptar");
+							closeButton2.getStyle().set("margin-left", "20px").set("width", "120px");
+							closeButton2.addClickListener(e -> dialog.close());
+							dialog.add(closeButton2);
+							vlpadre.add(dialog);
+							dialog.open();
+
+						}else {
+							Dialog dialog = new Dialog();
+							VerticalLayout dialogLayout = createDialogLayout(dialog, "Recordar clave",
+									"La contraseña de este correo es:"+ user.getContrasena());
+							dialog.add(dialogLayout);
+							Button closeButton3 = new Button("Aceptar");
+							closeButton3.getStyle().set("margin-left", "20px").set("width", "120px");
+							closeButton3.addClickListener(e -> dialog.close());
+							dialog.add(closeButton3);
+							vlpadre.add(dialog);
+							dialog.open();
+
+						}
+						
+					}
+				});
 				closeButton.getStyle().set("margin-left", "20px").set("width", "120px");
 				dialog.add(closeButton);
 				vlpadre.add(dialog);
 				dialog.open();
-
-				closeButton.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-
-						Dialog dialog = new Dialog();
-
-						VerticalLayout dialogLayout = createDialogLayout(dialog, "Recordar clave",
-								"Se ha enviado un mensaje a su correo electronico con su clave.");
-						dialog.add(dialogLayout);
-						vlpadre.add(dialog);
-						dialog.open();
-					}
-				});
 
 			}
 		});

@@ -339,6 +339,14 @@ public class UsuarioRegistradoDAO {
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			if (usuarioRegistrado.getFavoritos() != null) {
+				usuarioRegistrado.getFavoritos().setUsuarioPerteneciente(null);
+			}
+			
+			if (usuarioRegistrado.getUltimasReproducciones() != null) {
+				usuarioRegistrado.getUltimasReproducciones().setUsuarioReproductor(null);
+			}
+			
 			return delete(usuarioRegistrado);
 		}
 		catch(Exception e) {
@@ -365,6 +373,14 @@ public class UsuarioRegistradoDAO {
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			if (usuarioRegistrado.getFavoritos() != null) {
+				usuarioRegistrado.getFavoritos().setUsuarioPerteneciente(null);
+			}
+			
+			if (usuarioRegistrado.getUltimasReproducciones() != null) {
+				usuarioRegistrado.getUltimasReproducciones().setUsuarioReproductor(null);
+			}
+			
 			try {
 				session.delete(usuarioRegistrado);
 				return true;

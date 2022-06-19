@@ -8,6 +8,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Cancion;
 import basededatos.UsuarioComun;
 import vistas.VistaPagina_principal;
 import vistas.VistaUltimas_reproducciones;
@@ -36,7 +37,7 @@ public class Pagina_principal extends VistaPagina_principal {
 	//VerticalLayout vl_centro = new VerticalLayout();
 
 	Cabecera__registrado_ cr = new Cabecera__registrado_();
-	Barra_reproduccion barra_reproduccion = new Barra_reproduccion();
+	Barra_reproduccion barra_reproduccion = new Barra_reproduccion(new Cancion());
 
 	public Pagina_principal() {
 

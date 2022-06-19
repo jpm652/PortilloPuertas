@@ -323,6 +323,10 @@ public class EstiloDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Estilo estilo)throws PersistentException {
 		try {
+			if (estilo.getEs_dado_de_alta() != null) {
+				estilo.getEs_dado_de_alta().da_de_alta_estilo.remove(estilo);
+			}
+			
 			basededatos.Cancion[] lContiene_cancions = estilo.contiene_cancion.toArray();
 			for(int i = 0; i < lContiene_cancions.length; i++) {
 				lContiene_cancions[i].setPertenece_a_estilo(null);
@@ -337,6 +341,10 @@ public class EstiloDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Estilo estilo, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			if (estilo.getEs_dado_de_alta() != null) {
+				estilo.getEs_dado_de_alta().da_de_alta_estilo.remove(estilo);
+			}
+			
 			basededatos.Cancion[] lContiene_cancions = estilo.contiene_cancion.toArray();
 			for(int i = 0; i < lContiene_cancions.length; i++) {
 				lContiene_cancions[i].setPertenece_a_estilo(null);

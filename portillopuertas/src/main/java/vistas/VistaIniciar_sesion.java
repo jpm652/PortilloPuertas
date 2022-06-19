@@ -48,7 +48,7 @@ public class VistaIniciar_sesion extends LitTemplate {
 	private Button boton_iniciarsesion;
 	@Id("olvidar_clave")
 	private Button olvidar_clave;
-
+ 
 	/**
 	 * Creates a new VistaIniciar_sesion.
 	 */

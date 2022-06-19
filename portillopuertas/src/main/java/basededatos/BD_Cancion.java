@@ -21,11 +21,23 @@ public class BD_Cancion {
 	}
 
 	public void darAltaCancion(String aNombre, String aArtista, String aEstilo, String aProductor, String acompositor,
-			int aDuracion, String aImagen) throws PersistentException {
+			int aDuracion, String aImagen, String archivoMultimedia) throws PersistentException {
 		int id_cancion = -1;
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		
+		EstiloCriteria c = new EstiloCriteria();
+		c.nombre.like(aEstilo);
+		
+		ArtistaCriteria cArtista = new ArtistaCriteria();
+		cArtista.nombreArtista.like(aArtista);
+		
+		Estilo estilo = EstiloDAO.loadEstiloByCriteria(c);
+		Artista artista = ArtistaDAO.loadArtistaByCriteria(cArtista);
 		try {
 
+			Administrador admin =AdministradorDAO.getAdministradorByORMID(2);
+			
+			
 			Cancion cancion = CancionDAO.createCancion();
 			cancion.setTitulo(aNombre);
 			cancion.setArtista(aArtista);
@@ -34,8 +46,13 @@ public class BD_Cancion {
 			cancion.setCompositor(acompositor);
 			cancion.setDuracion(aDuracion);
 			cancion.setImagen_cancion(aImagen);
-
+			cancion.setNumReproducciones(0);
+			cancion.setFicheroMultimedia(archivoMultimedia);
+			cancion.setEs_dada_de_alta(admin);
+			cancion.setPertenece_a_estilo(estilo);
+			cancion.setORM_Pertenece_a_artistaCancion(artista);
 			CancionDAO.save(cancion);
+			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

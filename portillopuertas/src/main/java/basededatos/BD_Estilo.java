@@ -19,9 +19,11 @@ public class BD_Estilo {
 		try {
 
 			Estilo estilo = EstiloDAO.createEstilo();
+			Administrador admin =AdministradorDAO.getAdministradorByORMID(2);
 			estilo.setNombre(aNombre);
-			
+			estilo.setEs_dado_de_alta(admin);
 			EstiloDAO.save(estilo);
+
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

@@ -49,6 +49,8 @@ public class VistaConfiguracion extends LitTemplate {
 	private Button darBaja;
 	@Id("imagenPerfil")
 	private Image imagenPerfil;
+	@Id("bt_foto")
+	private Button bt_foto;
 
 	/**
      * Creates a new VistaConfiguracion.
@@ -147,6 +149,14 @@ public class VistaConfiguracion extends LitTemplate {
 
 	public void setNombreUser(Label nombreUser) {
 		this.nombreUser = nombreUser;
+	}
+
+	public Button getBt_foto() {
+		return bt_foto;
+	}
+
+	public void setBt_foto(Button bt_foto) {
+		this.bt_foto = bt_foto;
 	}
 
 

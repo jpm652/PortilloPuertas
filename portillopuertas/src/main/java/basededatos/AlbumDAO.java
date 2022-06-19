@@ -323,6 +323,10 @@ public class AlbumDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Album album)throws PersistentException {
 		try {
+			if (album.getEs_dado_de_alta() != null) {
+				album.getEs_dado_de_alta().da_de_alta_album.remove(album);
+			}
+			
 			if (album.getPertenece_a_artista() != null) {
 				album.getPertenece_a_artista().crea_album.remove(album);
 			}
@@ -341,6 +345,10 @@ public class AlbumDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.Album album, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			if (album.getEs_dado_de_alta() != null) {
+				album.getEs_dado_de_alta().da_de_alta_album.remove(album);
+			}
+			
 			if (album.getPertenece_a_artista() != null) {
 				album.getPertenece_a_artista().crea_album.remove(album);
 			}

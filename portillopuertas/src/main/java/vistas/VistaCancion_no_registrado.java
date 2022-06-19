@@ -25,8 +25,6 @@ public class VistaCancion_no_registrado extends LitTemplate {
 	private Element vaadinVerticalLayout;
 	@Id("creditos_no_registrado")
 	private Button creditos_no_registrado;
-	@Id("img_canc_noReg")
-	private Image img_canc_noReg;
 	@Id("nom2__canc_noReg")
 	private Label nom2__canc_noReg;
 	@Id("nom_canc_noReg")
@@ -37,6 +35,8 @@ public class VistaCancion_no_registrado extends LitTemplate {
 	private Button min_cancion_no_registrado;
 	@Id("vaadinProgressBar")
 	private ProgressBar vaadinProgressBar;
+	@Id("img_canc_noReg")
+	private Image img_canc_noReg;
 
 	/**
 	 * Creates a new VistaCancion_no_registrado.
@@ -73,24 +73,24 @@ public class VistaCancion_no_registrado extends LitTemplate {
 		return nom2__canc_noReg;
 	}
 
-	public void setNom2__canc_noReg(Label nom2__canc_noReg) {
-		this.nom2__canc_noReg = nom2__canc_noReg;
+	public void setNom2__canc_noReg(String nom2__canc_noReg) {
+		this.nom2__canc_noReg.setText(nom2__canc_noReg);
 	}
 
 	public Label getNom_canc_noReg() {
 		return nom_canc_noReg;
 	}
 
-	public void setNom_canc_noReg(Label nom_canc_noReg) {
-		this.nom_canc_noReg = nom_canc_noReg;
+	public void setNom_canc_noReg(String nom_canc_noReg) {
+		this.nom_canc_noReg.setText(nom_canc_noReg);
 	}
 
 	public Label getArtista_canc_noReg() {
 		return artista_canc_noReg;
 	}
 
-	public void setArtista_canc_noReg(Label artista_canc_noReg) {
-		this.artista_canc_noReg = artista_canc_noReg;
+	public void setArtista_canc_noReg(String artista_canc_noReg) {
+		this.artista_canc_noReg.setText(artista_canc_noReg);
 	}
 
 	public Button getMin_cancion_no_registrado() {

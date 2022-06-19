@@ -33,7 +33,7 @@ export class VistaCancion_no_registrado extends LitElement {
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; flex-direction: column; height: 100%;" id="vaadinHorizontalLayout1">
   <label style="align-self: center; font-size:50px; font-weight:bold; margin-bottom: 25px;" id="nom2__canc_noReg">Nombre canción</label>
-  <img style="width: 250px; height: 250px; align-self: center; margin-bottom: 40px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true" id="img_canc_noReg">
+  <img id="img_canc_noReg" style="width: 250px; height: 250px; align-self: center; margin-bottom: 40px;">
   <label style="align-self: flex-start; font-size:30px; font-weight:bold; margin-bottom: 15px; margin-left: 100px;" id="nom_canc_noReg">Nombre canción</label>
   <label style="align-self: flex-start; font-size:30px; font-weight:bold; margin-bottom: 25px; margin-left: 100px;" id="artista_canc_noReg">Nombre artista</label>
   <vaadin-progress-bar style="height: 20px; width: 80%; align-self: center;" id="vaadinProgressBar"></vaadin-progress-bar>

@@ -69,6 +69,7 @@ public class Clave extends VistaClave {
 							_iUser.editarContrasena(usuario.getId(), campoClave, campoRepetirClave);
 							usuario.setContrasena(campoRepetirClave);
 							dialog.close();
+							setLabel(campoRepetirClave);
 						}else {
 							Notification.show("La contraseña debe de ser la misma en ambos campos");
 						}

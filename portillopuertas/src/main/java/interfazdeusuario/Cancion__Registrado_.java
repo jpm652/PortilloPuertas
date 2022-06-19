@@ -82,7 +82,7 @@ public class Cancion__Registrado_ extends VistaCancion_registrado {
 				Creditos creditos = new Creditos();
 				creditos.getStyle().set("width", "100%").set("height", "100%");
 				vlpadre.add(creditos);
-				creditos.inicializar(vlpadre);
+			//	creditos.inicializar(vlpadre);
 			}
 		});
 	

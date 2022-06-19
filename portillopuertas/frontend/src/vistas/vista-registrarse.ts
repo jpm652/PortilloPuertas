@@ -2,9 +2,10 @@ import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-checkbox/src/vaadin-checkbox.js';
 import '@polymer/iron-icon/iron-icon.js';
-import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-text-field/src/vaadin-password-field.js';
+import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 
 @customElement('vista-registrarse')
 export class VistaRegistrarse extends LitElement {
@@ -42,8 +43,8 @@ export class VistaRegistrarse extends LitElement {
    <hr style="width: 80%; align-self: center; height: 2%; background:black;" id="hr">
    <vaadin-text-field label="Correo" style="width: 100%;" id="correo_registro"></vaadin-text-field>
    <vaadin-text-field label="Nombre de usuario" style="width: 100%;" id="nombre_registro"></vaadin-text-field>
-   <vaadin-text-field label="Contraseña" style="width: 100%; type:password;" id="clave_registro"></vaadin-text-field>
-   <vaadin-text-field label="Confirmar Contraseña" style="width: 100%;" id="confirma_clave_registro"></vaadin-text-field>
+   <vaadin-password-field id="clave_registro" style="width: 100%;" label="Contraseña"></vaadin-password-field>
+   <vaadin-password-field id="confirma_clave_registro" style="width: 100%;" label="Confirmar Contraseña"></vaadin-password-field>
    <vaadin-horizontal-layout theme="spacing" style="align-self: center; justify-content: center; margin: var(--lumo-space-s); align-items: center;">
     <img id="fotoImg" style="max-width: 100px; max-height: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true">
     <vaadin-button id="fotoFC">

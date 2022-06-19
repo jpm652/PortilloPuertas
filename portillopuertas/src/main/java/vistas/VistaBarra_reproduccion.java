@@ -94,16 +94,16 @@ public class VistaBarra_reproduccion extends LitTemplate {
 		return cancion_barra;
 	}
 
-	public void setCancion_barra(Label cancion_barra) {
-		this.cancion_barra = cancion_barra;
+	public void setCancion_barra(String cancion_barra) {
+		this.cancion_barra.setText(cancion_barra);
 	}
 
 	public Label getAutor_barra() {
 		return autor_barra;
 	}
 
-	public void setAutor_barra(Label autor_barra) {
-		this.autor_barra = autor_barra;
+	public void setAutor_barra(String autor_barra) {
+		this.autor_barra.setText(autor_barra);
 	}
 
 	public Button getBt_barra_10before() {

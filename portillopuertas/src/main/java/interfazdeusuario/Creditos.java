@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Cancion;
 import vistas.VistaCreditos;
 
 public class Creditos extends VistaCreditos {
@@ -19,10 +20,10 @@ public class Creditos extends VistaCreditos {
 	public Creditos() {
 
 		this.getVaadinVerticalLayout().getStyle().set("width", "100%").set("height", "100%");
-		inicializar(new VerticalLayout());
+		//inicializar(new VerticalLayout());
 	}
 
-	public void inicializar(VerticalLayout vlpadre) {
+	public void inicializar(VerticalLayout vlpadre, Cancion cancion) {
 
 		this.getMin_creditos_no_registrado().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
@@ -35,7 +36,7 @@ public class Creditos extends VistaCreditos {
 				cancion_no_regist.getStyle().set("width", "100%");
 				cancion_no_regist.getStyle().set("height", "80%");
 				vlpadre.add(cancion_no_regist);
-				cancion_no_regist.inicializar(vlpadre);
+				cancion_no_regist.inicializar(vlpadre,cancion);
 
 			}
 		});

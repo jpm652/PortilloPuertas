@@ -34,6 +34,14 @@ public class Playlist implements Serializable {
 		if (key == ORMConstants.KEY_PLAYLIST_CREADA_POR_USUARIO) {
 			this.creada_por_usuario = (basededatos.UsuarioComun) owner;
 		}
+		
+		else if (key == ORMConstants.KEY_PLAYLIST_USUARIOPERTENECIENTE) {
+			this.usuarioPerteneciente = (basededatos.UsuarioComun) owner;
+		}
+		
+		else if (key == ORMConstants.KEY_PLAYLIST_USUARIOREPRODUCTOR) {
+			this.usuarioReproductor = (basededatos.UsuarioComun) owner;
+		}
 	}
 	
 	@Transient	
@@ -53,6 +61,18 @@ public class Playlist implements Serializable {
 	@GeneratedValue(generator="BASEDEDATOS_PLAYLIST_ID_GENERATOR")	
 	@org.hibernate.annotations.GenericGenerator(name="BASEDEDATOS_PLAYLIST_ID_GENERATOR", strategy="native")	
 	private int id;
+	
+	@OneToOne(targetEntity=basededatos.UsuarioComun.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="UsuarioComunId3", referencedColumnName="Id", nullable=false) }, foreignKey=@ForeignKey(name="FKPlaylist909968"))	
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
+	private basededatos.UsuarioComun usuarioReproductor;
+	
+	@OneToOne(optional=false, targetEntity=basededatos.UsuarioComun.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="UsuarioComunId2", referencedColumnName="Id", nullable=false) }, foreignKey=@ForeignKey(name="FKPlaylist909967"))	
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
+	private basededatos.UsuarioComun usuarioPerteneciente;
 	
 	@ManyToOne(targetEntity=basededatos.UsuarioComun.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
@@ -134,6 +154,40 @@ public class Playlist implements Serializable {
 	
 	@Transient	
 	public final basededatos.CancionSetCollection contiene_canciones = new basededatos.CancionSetCollection(this, _ormAdapter, ORMConstants.KEY_PLAYLIST_CONTIENE_CANCIONES, ORMConstants.KEY_CANCION_PERTENECE_A_PLAYLIST, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	
+	public void setUsuarioPerteneciente(basededatos.UsuarioComun value) {
+		if (this.usuarioPerteneciente != value) {
+			basededatos.UsuarioComun lusuarioPerteneciente = this.usuarioPerteneciente;
+			this.usuarioPerteneciente = value;
+			if (value != null) {
+				usuarioPerteneciente.setFavoritos(this);
+			}
+			if (lusuarioPerteneciente != null && lusuarioPerteneciente.getFavoritos() == this) {
+				lusuarioPerteneciente.setFavoritos(null);
+			}
+		}
+	}
+	
+	public basededatos.UsuarioComun getUsuarioPerteneciente() {
+		return usuarioPerteneciente;
+	}
+	
+	public void setUsuarioReproductor(basededatos.UsuarioComun value) {
+		if (this.usuarioReproductor != value) {
+			basededatos.UsuarioComun lusuarioReproductor = this.usuarioReproductor;
+			this.usuarioReproductor = value;
+			if (value != null) {
+				usuarioReproductor.setUltimasReproducciones(this);
+			}
+			if (lusuarioReproductor != null && lusuarioReproductor.getUltimasReproducciones() == this) {
+				lusuarioReproductor.setUltimasReproducciones(null);
+			}
+		}
+	}
+	
+	public basededatos.UsuarioComun getUsuarioReproductor() {
+		return usuarioReproductor;
+	}
 	
 	public String toString() {
 		return String.valueOf(getId());
