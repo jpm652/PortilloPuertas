@@ -17,12 +17,13 @@ public class Albumes extends VistaAlbumes {
 	public artista _artista;
 	public Vector<Cancion_anterior> _list_album = new Vector<Cancion_anterior>();
 	iUsuario_no_registrado iUser = new BDPrincipal();
-	public Albumes(VerticalLayout vlpadre) {
+	
+	public Albumes(VerticalLayout vlpadre, Barra_reproduccion reproductor) {
 
-		inicializar(vlpadre);
+		// inicializar(vlpadre, new Barra_reproduccion(null));
 	}
 
-	public void inicializar(VerticalLayout vlpadre) {
+	public void inicializar(VerticalLayout vlpadre, Barra_reproduccion reproductor) {
 
 		CargarAlbumes(vlpadre);
 
