@@ -31,7 +31,7 @@ public class BD_Album {
 		
 		Artista artista = ArtistaDAO.loadArtistaByCriteria(c);
 		try {
-			Administrador admin =AdministradorDAO.getAdministradorByORMID(2);
+			Administrador admin =AdministradorDAO.getAdministradorByORMID(1);
 
 			Album album = AlbumDAO.createAlbum();
 			album.setNombre(aNombre);

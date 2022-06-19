@@ -36,6 +36,7 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression numReproducciones;
 	public final StringExpression ficheroMultimedia;
 	public final StringExpression album;
+	public final BooleanExpression novedades;
 	public final CollectionExpression pertenece_a_album;
 	public final CollectionExpression pertenece_a_playlist;
 	public final CollectionExpression es_reproducida_por;
@@ -59,6 +60,7 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 		numReproducciones = new IntegerExpression("numReproducciones", this.getDetachedCriteria());
 		ficheroMultimedia = new StringExpression("ficheroMultimedia", this.getDetachedCriteria());
 		album = new StringExpression("album", this.getDetachedCriteria());
+		novedades = new BooleanExpression("novedades", this.getDetachedCriteria());
 		pertenece_a_album = new CollectionExpression("ORM_pertenece_a_album", this.getDetachedCriteria());
 		pertenece_a_playlist = new CollectionExpression("ORM_pertenece_a_playlist", this.getDetachedCriteria());
 		es_reproducida_por = new CollectionExpression("ORM_es_reproducida_por", this.getDetachedCriteria());
@@ -83,6 +85,7 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 		numReproducciones = new IntegerExpression("numReproducciones", this.getDetachedCriteria());
 		ficheroMultimedia = new StringExpression("ficheroMultimedia", this.getDetachedCriteria());
 		album = new StringExpression("album", this.getDetachedCriteria());
+		novedades = new BooleanExpression("novedades", this.getDetachedCriteria());
 		pertenece_a_album = new CollectionExpression("ORM_pertenece_a_album", this.getDetachedCriteria());
 		pertenece_a_playlist = new CollectionExpression("ORM_pertenece_a_playlist", this.getDetachedCriteria());
 		es_reproducida_por = new CollectionExpression("ORM_es_reproducida_por", this.getDetachedCriteria());

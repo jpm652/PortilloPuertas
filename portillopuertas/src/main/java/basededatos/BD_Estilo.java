@@ -19,7 +19,7 @@ public class BD_Estilo {
 		try {
 
 			Estilo estilo = EstiloDAO.createEstilo();
-			Administrador admin =AdministradorDAO.getAdministradorByORMID(2);
+			Administrador admin =AdministradorDAO.getAdministradorByORMID(1);
 			estilo.setNombre(aNombre);
 			estilo.setEs_dado_de_alta(admin);
 			EstiloDAO.save(estilo);

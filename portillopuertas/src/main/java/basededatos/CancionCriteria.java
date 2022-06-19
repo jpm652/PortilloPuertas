@@ -36,6 +36,7 @@ public class CancionCriteria extends AbstractORMCriteria {
 	public final IntegerExpression numReproducciones;
 	public final StringExpression ficheroMultimedia;
 	public final StringExpression album;
+	public final BooleanExpression novedades;
 	public final CollectionExpression pertenece_a_album;
 	public final CollectionExpression pertenece_a_playlist;
 	public final CollectionExpression es_reproducida_por;
@@ -59,6 +60,7 @@ public class CancionCriteria extends AbstractORMCriteria {
 		numReproducciones = new IntegerExpression("numReproducciones", this);
 		ficheroMultimedia = new StringExpression("ficheroMultimedia", this);
 		album = new StringExpression("album", this);
+		novedades = new BooleanExpression("novedades", this);
 		pertenece_a_album = new CollectionExpression("ORM_pertenece_a_album", this);
 		pertenece_a_playlist = new CollectionExpression("ORM_pertenece_a_playlist", this);
 		es_reproducida_por = new CollectionExpression("ORM_es_reproducida_por", this);

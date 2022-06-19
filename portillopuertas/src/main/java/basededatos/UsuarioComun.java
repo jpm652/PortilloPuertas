@@ -27,8 +27,14 @@ public class UsuarioComun implements Serializable {
 		if (key == ORMConstants.KEY_USUARIOCOMUN_REPRODUCE_CANCION) {
 			return ORM_reproduce_cancion;
 		}
+		else if (key == ORMConstants.KEY_USUARIOCOMUN_SIGUE_A) {
+			return ORM_sigue_a;
+		}
 		else if (key == ORMConstants.KEY_USUARIOCOMUN_CREA_PLAYLIST) {
 			return ORM_crea_playlist;
+		}
+		else if (key == ORMConstants.KEY_USUARIOCOMUN_ES_SEGUIDO) {
+			return ORM_es_seguido;
 		}
 		
 		return null;
@@ -39,8 +45,8 @@ public class UsuarioComun implements Serializable {
 			this.favoritos = (basededatos.Playlist) owner;
 		}
 		
-		else if (key == ORMConstants.KEY_USUARIOCOMUN_ULTIMASREPRODUCCIONES) {
-			this.ultimasReproducciones = (basededatos.Playlist) owner;
+		else if (key == ORMConstants.KEY_USUARIOCOMUN_ULTIMAS_REPRODUCCIONES) {
+			this.ultimas_reproducciones = (basededatos.Playlist) owner;
 		}
 	}
 	
@@ -89,12 +95,23 @@ public class UsuarioComun implements Serializable {
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_reproduce_cancion = new java.util.HashSet();
 	
+	@ManyToMany(targetEntity=basededatos.UsuarioComun.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinTable(name="UsuarioComun_UsuarioComun", joinColumns={ @JoinColumn(name="UsuarioComunId2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioComunId") })	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_sigue_a = new java.util.HashSet();
+	
 	@OneToMany(mappedBy="creada_por_usuario", targetEntity=basededatos.Playlist.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_crea_playlist = new java.util.HashSet();
 	
-	@OneToOne(mappedBy="usuarioPerteneciente", targetEntity=basededatos.Playlist.class, fetch=FetchType.LAZY)	
+	@ManyToMany(mappedBy="ORM_sigue_a", targetEntity=basededatos.UsuarioComun.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_es_seguido = new java.util.HashSet();
+	
+	@OneToOne(mappedBy="usuario", targetEntity=basededatos.Playlist.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private basededatos.Playlist favoritos;
@@ -102,7 +119,7 @@ public class UsuarioComun implements Serializable {
 	@OneToOne(mappedBy="usuarioReproductor", targetEntity=basededatos.Playlist.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private basededatos.Playlist ultimasReproducciones;
+	private basededatos.Playlist ultimas_reproducciones;
 	
 	private void setId(int value) {
 		this.id = value;
@@ -183,6 +200,17 @@ public class UsuarioComun implements Serializable {
 	@Transient	
 	public final basededatos.CancionSetCollection reproduce_cancion = new basededatos.CancionSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIOCOMUN_REPRODUCE_CANCION, ORMConstants.KEY_CANCION_ES_REPRODUCIDA_POR, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
+	private void setORM_Sigue_a(java.util.Set value) {
+		this.ORM_sigue_a = value;
+	}
+	
+	private java.util.Set getORM_Sigue_a() {
+		return ORM_sigue_a;
+	}
+	
+	@Transient	
+	public final basededatos.UsuarioComunSetCollection sigue_a = new basededatos.UsuarioComunSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIOCOMUN_SIGUE_A, ORMConstants.KEY_USUARIOCOMUN_ES_SEGUIDO, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	
 	private void setORM_Crea_playlist(java.util.Set value) {
 		this.ORM_crea_playlist = value;
 	}
@@ -194,15 +222,26 @@ public class UsuarioComun implements Serializable {
 	@Transient	
 	public final basededatos.PlaylistSetCollection crea_playlist = new basededatos.PlaylistSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIOCOMUN_CREA_PLAYLIST, ORMConstants.KEY_PLAYLIST_CREADA_POR_USUARIO, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
+	private void setORM_Es_seguido(java.util.Set value) {
+		this.ORM_es_seguido = value;
+	}
+	
+	private java.util.Set getORM_Es_seguido() {
+		return ORM_es_seguido;
+	}
+	
+	@Transient	
+	public final basededatos.UsuarioComunSetCollection es_seguido = new basededatos.UsuarioComunSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIOCOMUN_ES_SEGUIDO, ORMConstants.KEY_USUARIOCOMUN_SIGUE_A, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	
 	public void setFavoritos(basededatos.Playlist value) {
 		if (this.favoritos != value) {
 			basededatos.Playlist lfavoritos = this.favoritos;
 			this.favoritos = value;
 			if (value != null) {
-				favoritos.setUsuarioPerteneciente(this);
+				favoritos.setUsuario(this);
 			}
-			if (lfavoritos != null && lfavoritos.getUsuarioPerteneciente() == this) {
-				lfavoritos.setUsuarioPerteneciente(null);
+			if (lfavoritos != null && lfavoritos.getUsuario() == this) {
+				lfavoritos.setUsuario(null);
 			}
 		}
 	}
@@ -211,21 +250,21 @@ public class UsuarioComun implements Serializable {
 		return favoritos;
 	}
 	
-	public void setUltimasReproducciones(basededatos.Playlist value) {
-		if (this.ultimasReproducciones != value) {
-			basededatos.Playlist lultimasReproducciones = this.ultimasReproducciones;
-			this.ultimasReproducciones = value;
+	public void setUltimas_reproducciones(basededatos.Playlist value) {
+		if (this.ultimas_reproducciones != value) {
+			basededatos.Playlist lultimas_reproducciones = this.ultimas_reproducciones;
+			this.ultimas_reproducciones = value;
 			if (value != null) {
-				ultimasReproducciones.setUsuarioReproductor(this);
+				ultimas_reproducciones.setUsuarioReproductor(this);
 			}
-			if (lultimasReproducciones != null && lultimasReproducciones.getUsuarioReproductor() == this) {
-				lultimasReproducciones.setUsuarioReproductor(null);
+			if (lultimas_reproducciones != null && lultimas_reproducciones.getUsuarioReproductor() == this) {
+				lultimas_reproducciones.setUsuarioReproductor(null);
 			}
 		}
 	}
 	
-	public basededatos.Playlist getUltimasReproducciones() {
-		return ultimasReproducciones;
+	public basededatos.Playlist getUltimas_reproducciones() {
+		return ultimas_reproducciones;
 	}
 	
 	public String toString() {

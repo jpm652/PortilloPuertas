@@ -339,16 +339,24 @@ public class UsuarioComunDAO {
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
 				lReproduce_cancions[i].es_reproducida_por.remove(usuarioComun);
 			}
+			basededatos.UsuarioComun[] lSigue_as = usuarioComun.sigue_a.toArray();
+			for(int i = 0; i < lSigue_as.length; i++) {
+				lSigue_as[i].es_seguido.remove(usuarioComun);
+			}
 			basededatos.Playlist[] lCrea_playlists = usuarioComun.crea_playlist.toArray();
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			basededatos.UsuarioComun[] lEs_seguidos = usuarioComun.es_seguido.toArray();
+			for(int i = 0; i < lEs_seguidos.length; i++) {
+				lEs_seguidos[i].sigue_a.remove(usuarioComun);
+			}
 			if (usuarioComun.getFavoritos() != null) {
-				usuarioComun.getFavoritos().setUsuarioPerteneciente(null);
+				usuarioComun.getFavoritos().setUsuario(null);
 			}
 			
-			if (usuarioComun.getUltimasReproducciones() != null) {
-				usuarioComun.getUltimasReproducciones().setUsuarioReproductor(null);
+			if (usuarioComun.getUltimas_reproducciones() != null) {
+				usuarioComun.getUltimas_reproducciones().setUsuarioReproductor(null);
 			}
 			
 			return delete(usuarioComun);
@@ -377,16 +385,24 @@ public class UsuarioComunDAO {
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
 				lReproduce_cancions[i].es_reproducida_por.remove(usuarioComun);
 			}
+			basededatos.UsuarioComun[] lSigue_as = usuarioComun.sigue_a.toArray();
+			for(int i = 0; i < lSigue_as.length; i++) {
+				lSigue_as[i].es_seguido.remove(usuarioComun);
+			}
 			basededatos.Playlist[] lCrea_playlists = usuarioComun.crea_playlist.toArray();
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			basededatos.UsuarioComun[] lEs_seguidos = usuarioComun.es_seguido.toArray();
+			for(int i = 0; i < lEs_seguidos.length; i++) {
+				lEs_seguidos[i].sigue_a.remove(usuarioComun);
+			}
 			if (usuarioComun.getFavoritos() != null) {
-				usuarioComun.getFavoritos().setUsuarioPerteneciente(null);
+				usuarioComun.getFavoritos().setUsuario(null);
 			}
 			
-			if (usuarioComun.getUltimasReproducciones() != null) {
-				usuarioComun.getUltimasReproducciones().setUsuarioReproductor(null);
+			if (usuarioComun.getUltimas_reproducciones() != null) {
+				usuarioComun.getUltimas_reproducciones().setUsuarioReproductor(null);
 			}
 			
 			try {

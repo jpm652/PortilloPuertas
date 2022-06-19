@@ -26,7 +26,7 @@ public class BD_Artista {
 		
 		try {
 			
-			Administrador admin =AdministradorDAO.getAdministradorByORMID(2);
+			Administrador admin =AdministradorDAO.getAdministradorByORMID(1);
 			
 			Artista artista = ArtistaDAO.createArtista();
 			artista.setNombreArtista(aNombre);

@@ -22,8 +22,8 @@ public class PlaylistCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
 	public final IntegerExpression usuarioReproductorId;
 	public final AssociationExpression usuarioReproductor;
-	public final IntegerExpression usuarioPertenecienteId;
-	public final AssociationExpression usuarioPerteneciente;
+	public final IntegerExpression usuarioId;
+	public final AssociationExpression usuario;
 	public final IntegerExpression creada_por_usuarioId;
 	public final AssociationExpression creada_por_usuario;
 	public final StringExpression nombre;
@@ -35,8 +35,8 @@ public class PlaylistCriteria extends AbstractORMCriteria {
 		id = new IntegerExpression("id", this);
 		usuarioReproductorId = new IntegerExpression("usuarioReproductor.id", this);
 		usuarioReproductor = new AssociationExpression("usuarioReproductor", this);
-		usuarioPertenecienteId = new IntegerExpression("usuarioPerteneciente.id", this);
-		usuarioPerteneciente = new AssociationExpression("usuarioPerteneciente", this);
+		usuarioId = new IntegerExpression("usuario.id", this);
+		usuario = new AssociationExpression("usuario", this);
 		creada_por_usuarioId = new IntegerExpression("creada_por_usuario.id", this);
 		creada_por_usuario = new AssociationExpression("creada_por_usuario", this);
 		nombre = new StringExpression("nombre", this);
@@ -56,8 +56,8 @@ public class PlaylistCriteria extends AbstractORMCriteria {
 		return new UsuarioComunCriteria(createCriteria("usuarioReproductor"));
 	}
 	
-	public UsuarioComunCriteria createUsuarioPertenecienteCriteria() {
-		return new UsuarioComunCriteria(createCriteria("usuarioPerteneciente"));
+	public UsuarioComunCriteria createUsuarioCriteria() {
+		return new UsuarioComunCriteria(createCriteria("usuario"));
 	}
 	
 	public UsuarioComunCriteria createCreada_por_usuarioCriteria() {

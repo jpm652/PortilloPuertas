@@ -309,6 +309,17 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="Novedades">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>1</Type>
+      <Length>1</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
   </Entity>
   <Entity name="Artista" Unlogged="false" PKClustered="0">
     <Column name="NombreArtista">
@@ -676,6 +687,32 @@
       <UserTypes/>
     </Column>
   </Entity>
+  <Entity name="UsuarioComun_UsuarioComun" Unlogged="false" PKClustered="0">
+    <Column name="UsuarioComunId">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Diagrama de la Base de Datos.UsuarioComun.Id</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioComunId2">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Diagrama de la Base de Datos.UsuarioComun.Id</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
   <ForeignKey name="FKArtista950209">
     <ReferenceTable>Artista</ReferenceTable>
     <ReferencedTable>UsuarioComun</ReferencedTable>
@@ -866,6 +903,36 @@
       <Column>UsuarioComunId</Column>
     </RefColumns>
   </ForeignKey>
+  <ForeignKey name="FKCancion201138">
+    <ReferenceTable>Cancion</ReferenceTable>
+    <ReferencedTable>Artista</ReferencedTable>
+    <Columns>
+      <Column>ArtistaUsuarioComunId</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuarioComunId</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuarioCom723634">
+    <ReferenceTable>UsuarioComun_UsuarioComun</ReferenceTable>
+    <ReferencedTable>UsuarioComun</ReferencedTable>
+    <Columns>
+      <Column>UsuarioComunId</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuarioCom216526">
+    <ReferenceTable>UsuarioComun_UsuarioComun</ReferenceTable>
+    <ReferencedTable>UsuarioComun</ReferencedTable>
+    <Columns>
+      <Column>UsuarioComunId2</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id</Column>
+    </RefColumns>
+  </ForeignKey>
   <ForeignKey name="FKPlaylist909967">
     <ReferenceTable>Playlist</ReferenceTable>
     <ReferencedTable>UsuarioComun</ReferencedTable>
@@ -884,16 +951,6 @@
     </Columns>
     <RefColumns>
       <Column>Id</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKCancion201138">
-    <ReferenceTable>Cancion</ReferenceTable>
-    <ReferencedTable>Artista</ReferencedTable>
-    <Columns>
-      <Column>ArtistaUsuarioComunId</Column>
-    </Columns>
-    <RefColumns>
-      <Column>UsuarioComunId</Column>
     </RefColumns>
   </ForeignKey>
 </Model>

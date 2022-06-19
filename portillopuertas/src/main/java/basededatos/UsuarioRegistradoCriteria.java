@@ -28,13 +28,13 @@ public class UsuarioRegistradoCriteria extends AbstractORMCriteria {
 	public final IntegerExpression seguidores;
 	public final IntegerExpression seguidos;
 	public final CollectionExpression reproduce_cancion;
+	public final CollectionExpression sigue_a;
 	public final CollectionExpression crea_playlist;
+	public final CollectionExpression es_seguido;
 	public final IntegerExpression favoritosId;
 	public final AssociationExpression favoritos;
-	public final IntegerExpression ultimasReproduccionesId;
-	public final AssociationExpression ultimasReproducciones;
-	public final CollectionExpression sigue_a;
-	public final CollectionExpression es_seguido;
+	public final IntegerExpression ultimas_reproduccionesId;
+	public final AssociationExpression ultimas_reproducciones;
 	
 	public UsuarioRegistradoCriteria(Criteria criteria) {
 		super(criteria);
@@ -47,13 +47,13 @@ public class UsuarioRegistradoCriteria extends AbstractORMCriteria {
 		seguidores = new IntegerExpression("seguidores", this);
 		seguidos = new IntegerExpression("seguidos", this);
 		reproduce_cancion = new CollectionExpression("ORM_reproduce_cancion", this);
+		sigue_a = new CollectionExpression("ORM_sigue_a", this);
 		crea_playlist = new CollectionExpression("ORM_crea_playlist", this);
+		es_seguido = new CollectionExpression("ORM_es_seguido", this);
 		favoritosId = new IntegerExpression("favoritos.id", this);
 		favoritos = new AssociationExpression("favoritos", this);
-		ultimasReproduccionesId = new IntegerExpression("ultimasReproducciones.id", this);
-		ultimasReproducciones = new AssociationExpression("ultimasReproducciones", this);
-		sigue_a = new CollectionExpression("ORM_sigue_a", this);
-		es_seguido = new CollectionExpression("ORM_es_seguido", this);
+		ultimas_reproduccionesId = new IntegerExpression("ultimas_reproducciones.id", this);
+		ultimas_reproducciones = new AssociationExpression("ultimas_reproducciones", this);
 	}
 	
 	public UsuarioRegistradoCriteria(PersistentSession session) {
@@ -64,28 +64,28 @@ public class UsuarioRegistradoCriteria extends AbstractORMCriteria {
 		this(MDS12022PFPortilloPuertasPersistentManager.instance().getSession());
 	}
 	
-	public UsuarioRegistradoCriteria createSigue_aCriteria() {
-		return new UsuarioRegistradoCriteria(createCriteria("ORM_sigue_a"));
-	}
-	
-	public UsuarioRegistradoCriteria createEs_seguidoCriteria() {
-		return new UsuarioRegistradoCriteria(createCriteria("ORM_es_seguido"));
-	}
-	
 	public CancionCriteria createReproduce_cancionCriteria() {
 		return new CancionCriteria(createCriteria("ORM_reproduce_cancion"));
+	}
+	
+	public UsuarioComunCriteria createSigue_aCriteria() {
+		return new UsuarioComunCriteria(createCriteria("ORM_sigue_a"));
 	}
 	
 	public PlaylistCriteria createCrea_playlistCriteria() {
 		return new PlaylistCriteria(createCriteria("ORM_crea_playlist"));
 	}
 	
+	public UsuarioComunCriteria createEs_seguidoCriteria() {
+		return new UsuarioComunCriteria(createCriteria("ORM_es_seguido"));
+	}
+	
 	public PlaylistCriteria createFavoritosCriteria() {
 		return new PlaylistCriteria(createCriteria("favoritos"));
 	}
 	
-	public PlaylistCriteria createUltimasReproduccionesCriteria() {
-		return new PlaylistCriteria(createCriteria("ultimasReproducciones"));
+	public PlaylistCriteria createUltimas_reproduccionesCriteria() {
+		return new PlaylistCriteria(createCriteria("ultimas_reproducciones"));
 	}
 	
 	public UsuarioRegistrado uniqueUsuarioRegistrado() {

@@ -343,16 +343,24 @@ public class ArtistaDAO {
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
 				lReproduce_cancions[i].es_reproducida_por.remove(artista);
 			}
+			basededatos.UsuarioComun[] lSigue_as = artista.sigue_a.toArray();
+			for(int i = 0; i < lSigue_as.length; i++) {
+				lSigue_as[i].es_seguido.remove(artista);
+			}
 			basededatos.Playlist[] lCrea_playlists = artista.crea_playlist.toArray();
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			basededatos.UsuarioComun[] lEs_seguidos = artista.es_seguido.toArray();
+			for(int i = 0; i < lEs_seguidos.length; i++) {
+				lEs_seguidos[i].sigue_a.remove(artista);
+			}
 			if (artista.getFavoritos() != null) {
-				artista.getFavoritos().setUsuarioPerteneciente(null);
+				artista.getFavoritos().setUsuario(null);
 			}
 			
-			if (artista.getUltimasReproducciones() != null) {
-				artista.getUltimasReproducciones().setUsuarioReproductor(null);
+			if (artista.getUltimas_reproducciones() != null) {
+				artista.getUltimas_reproducciones().setUsuarioReproductor(null);
 			}
 			
 			return delete(artista);
@@ -385,16 +393,24 @@ public class ArtistaDAO {
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
 				lReproduce_cancions[i].es_reproducida_por.remove(artista);
 			}
+			basededatos.UsuarioComun[] lSigue_as = artista.sigue_a.toArray();
+			for(int i = 0; i < lSigue_as.length; i++) {
+				lSigue_as[i].es_seguido.remove(artista);
+			}
 			basededatos.Playlist[] lCrea_playlists = artista.crea_playlist.toArray();
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			basededatos.UsuarioComun[] lEs_seguidos = artista.es_seguido.toArray();
+			for(int i = 0; i < lEs_seguidos.length; i++) {
+				lEs_seguidos[i].sigue_a.remove(artista);
+			}
 			if (artista.getFavoritos() != null) {
-				artista.getFavoritos().setUsuarioPerteneciente(null);
+				artista.getFavoritos().setUsuario(null);
 			}
 			
-			if (artista.getUltimasReproducciones() != null) {
-				artista.getUltimasReproducciones().setUsuarioReproductor(null);
+			if (artista.getUltimas_reproducciones() != null) {
+				artista.getUltimas_reproducciones().setUsuarioReproductor(null);
 			}
 			
 			try {

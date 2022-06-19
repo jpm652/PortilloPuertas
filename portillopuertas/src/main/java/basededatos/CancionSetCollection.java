@@ -81,6 +81,7 @@ public class CancionSetCollection extends org.orm.util.ORMSet {
 	 * <li>numReproducciones</li>
 	 * <li>ficheroMultimedia</li>
 	 * <li>album</li>
+	 * <li>novedades</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -102,6 +103,7 @@ public class CancionSetCollection extends org.orm.util.ORMSet {
 	 * <li>numReproducciones</li>
 	 * <li>ficheroMultimedia</li>
 	 * <li>album</li>
+	 * <li>novedades</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

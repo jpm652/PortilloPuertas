@@ -323,28 +323,28 @@ public class UsuarioRegistradoDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.UsuarioRegistrado usuarioRegistrado)throws PersistentException {
 		try {
-			basededatos.UsuarioRegistrado[] lSigue_as = usuarioRegistrado.sigue_a.toArray();
-			for(int i = 0; i < lSigue_as.length; i++) {
-				lSigue_as[i].es_seguido.remove(usuarioRegistrado);
-			}
-			basededatos.UsuarioRegistrado[] lEs_seguidos = usuarioRegistrado.es_seguido.toArray();
-			for(int i = 0; i < lEs_seguidos.length; i++) {
-				lEs_seguidos[i].sigue_a.remove(usuarioRegistrado);
-			}
 			basededatos.Cancion[] lReproduce_cancions = usuarioRegistrado.reproduce_cancion.toArray();
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
 				lReproduce_cancions[i].es_reproducida_por.remove(usuarioRegistrado);
+			}
+			basededatos.UsuarioComun[] lSigue_as = usuarioRegistrado.sigue_a.toArray();
+			for(int i = 0; i < lSigue_as.length; i++) {
+				lSigue_as[i].es_seguido.remove(usuarioRegistrado);
 			}
 			basededatos.Playlist[] lCrea_playlists = usuarioRegistrado.crea_playlist.toArray();
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			basededatos.UsuarioComun[] lEs_seguidos = usuarioRegistrado.es_seguido.toArray();
+			for(int i = 0; i < lEs_seguidos.length; i++) {
+				lEs_seguidos[i].sigue_a.remove(usuarioRegistrado);
+			}
 			if (usuarioRegistrado.getFavoritos() != null) {
-				usuarioRegistrado.getFavoritos().setUsuarioPerteneciente(null);
+				usuarioRegistrado.getFavoritos().setUsuario(null);
 			}
 			
-			if (usuarioRegistrado.getUltimasReproducciones() != null) {
-				usuarioRegistrado.getUltimasReproducciones().setUsuarioReproductor(null);
+			if (usuarioRegistrado.getUltimas_reproducciones() != null) {
+				usuarioRegistrado.getUltimas_reproducciones().setUsuarioReproductor(null);
 			}
 			
 			return delete(usuarioRegistrado);
@@ -357,28 +357,28 @@ public class UsuarioRegistradoDAO {
 	
 	public static boolean deleteAndDissociate(basededatos.UsuarioRegistrado usuarioRegistrado, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			basededatos.UsuarioRegistrado[] lSigue_as = usuarioRegistrado.sigue_a.toArray();
-			for(int i = 0; i < lSigue_as.length; i++) {
-				lSigue_as[i].es_seguido.remove(usuarioRegistrado);
-			}
-			basededatos.UsuarioRegistrado[] lEs_seguidos = usuarioRegistrado.es_seguido.toArray();
-			for(int i = 0; i < lEs_seguidos.length; i++) {
-				lEs_seguidos[i].sigue_a.remove(usuarioRegistrado);
-			}
 			basededatos.Cancion[] lReproduce_cancions = usuarioRegistrado.reproduce_cancion.toArray();
 			for(int i = 0; i < lReproduce_cancions.length; i++) {
 				lReproduce_cancions[i].es_reproducida_por.remove(usuarioRegistrado);
+			}
+			basededatos.UsuarioComun[] lSigue_as = usuarioRegistrado.sigue_a.toArray();
+			for(int i = 0; i < lSigue_as.length; i++) {
+				lSigue_as[i].es_seguido.remove(usuarioRegistrado);
 			}
 			basededatos.Playlist[] lCrea_playlists = usuarioRegistrado.crea_playlist.toArray();
 			for(int i = 0; i < lCrea_playlists.length; i++) {
 				lCrea_playlists[i].setCreada_por_usuario(null);
 			}
+			basededatos.UsuarioComun[] lEs_seguidos = usuarioRegistrado.es_seguido.toArray();
+			for(int i = 0; i < lEs_seguidos.length; i++) {
+				lEs_seguidos[i].sigue_a.remove(usuarioRegistrado);
+			}
 			if (usuarioRegistrado.getFavoritos() != null) {
-				usuarioRegistrado.getFavoritos().setUsuarioPerteneciente(null);
+				usuarioRegistrado.getFavoritos().setUsuario(null);
 			}
 			
-			if (usuarioRegistrado.getUltimasReproducciones() != null) {
-				usuarioRegistrado.getUltimasReproducciones().setUsuarioReproductor(null);
+			if (usuarioRegistrado.getUltimas_reproducciones() != null) {
+				usuarioRegistrado.getUltimas_reproducciones().setUsuarioReproductor(null);
 			}
 			
 			try {

@@ -37,16 +37,16 @@ public class Cancion implements Serializable {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_CANCION_ES_DADA_DE_ALTA) {
+		if (key == ORMConstants.KEY_CANCION_PERTENECE_A_ARTISTACANCION) {
+			this.pertenece_a_artistaCancion = (basededatos.Artista) owner;
+		}
+		
+		else if (key == ORMConstants.KEY_CANCION_ES_DADA_DE_ALTA) {
 			this.es_dada_de_alta = (basededatos.Administrador) owner;
 		}
 		
 		else if (key == ORMConstants.KEY_CANCION_PERTENECE_A_ESTILO) {
 			this.pertenece_a_estilo = (basededatos.Estilo) owner;
-		}
-		
-		else if (key == ORMConstants.KEY_CANCION_PERTENECE_A_ARTISTACANCION) {
-			this.pertenece_a_artistaCancion = (basededatos.Artista) owner;
 		}
 	}
 	
@@ -115,6 +115,9 @@ public class Cancion implements Serializable {
 	
 	@Column(name="Album", nullable=true, length=255)	
 	private String album;
+	
+	@Column(name="Novedades", nullable=false, length=1)	
+	private boolean novedades;
 	
 	@ManyToMany(mappedBy="ORM_contiene_canciones", targetEntity=basededatos.Album.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -223,6 +226,38 @@ public class Cancion implements Serializable {
 		return album;
 	}
 	
+	public void setNovedades(boolean value) {
+		this.novedades = value;
+	}
+	
+	public boolean getNovedades() {
+		return novedades;
+	}
+	
+	public void setPertenece_a_artistaCancion(basededatos.Artista value) {
+		if (pertenece_a_artistaCancion != null) {
+			pertenece_a_artistaCancion.tiene_canciones.remove(this);
+		}
+		if (value != null) {
+			value.tiene_canciones.add(this);
+		}
+	}
+	
+	public basededatos.Artista getPertenece_a_artistaCancion() {
+		return pertenece_a_artistaCancion;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Pertenece_a_artistaCancion(basededatos.Artista value) {
+		this.pertenece_a_artistaCancion = value;
+	}
+	
+	private basededatos.Artista getORM_Pertenece_a_artistaCancion() {
+		return pertenece_a_artistaCancion;
+	}
+	
 	private void setORM_Pertenece_a_album(java.util.Set value) {
 		this.ORM_pertenece_a_album = value;
 	}
@@ -303,30 +338,6 @@ public class Cancion implements Serializable {
 	
 	@Transient	
 	public final basededatos.UsuarioComunSetCollection es_reproducida_por = new basededatos.UsuarioComunSetCollection(this, _ormAdapter, ORMConstants.KEY_CANCION_ES_REPRODUCIDA_POR, ORMConstants.KEY_USUARIOCOMUN_REPRODUCE_CANCION, ORMConstants.KEY_MUL_MANY_TO_MANY);
-	
-	public void setPertenece_a_artistaCancion(basededatos.Artista value) {
-		if (pertenece_a_artistaCancion != null) {
-			pertenece_a_artistaCancion.tiene_canciones.remove(this);
-		}
-		if (value != null) {
-			value.tiene_canciones.add(this);
-		}
-	}
-	
-	public basededatos.Artista getPertenece_a_artistaCancion() {
-		return pertenece_a_artistaCancion;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Pertenece_a_artistaCancion(basededatos.Artista value) {
-		this.pertenece_a_artistaCancion = value;
-	}
-	
-	private basededatos.Artista getORM_Pertenece_a_artistaCancion() {
-		return pertenece_a_artistaCancion;
-	}
 	
 	public String toString() {
 		return String.valueOf(getId());

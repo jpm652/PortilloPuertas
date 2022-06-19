@@ -20,7 +20,7 @@ public class BD_Playlist {
 		
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Cancion[] canciones = CancionDAO.listCancionByQuery("AdministradorUsuarioComunId = 2", null);
+			Cancion[] canciones = CancionDAO.listCancionByQuery("AdministradorUsuarioComunId = 1", null);
 			t.commit();
 			return canciones;
 		} catch (Exception e) {

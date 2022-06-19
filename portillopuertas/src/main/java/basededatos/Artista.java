@@ -110,17 +110,6 @@ public class Artista extends basededatos.UsuarioComun implements Serializable {
 	@Transient	
 	public final basededatos.EventoSetCollection publica_eventos = new basededatos.EventoSetCollection(this, _ormAdapter, ORMConstants.KEY_ARTISTA_PUBLICA_EVENTOS, ORMConstants.KEY_EVENTO_ES_PUBLICADO, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
-	private void setORM_Tiene_canciones(java.util.Set value) {
-		this.ORM_tiene_canciones = value;
-	}
-	
-	private java.util.Set getORM_Tiene_canciones() {
-		return ORM_tiene_canciones;
-	}
-	
-	@Transient	
-	public final basededatos.CancionSetCollection tiene_canciones = new basededatos.CancionSetCollection(this, _ormAdapter, ORMConstants.KEY_ARTISTA_TIENE_CANCIONES, ORMConstants.KEY_CANCION_PERTENECE_A_ARTISTACANCION, ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
 	public void setEs_dado_de_alta(basededatos.Administrador value) {
 		if (es_dado_de_alta != null) {
 			es_dado_de_alta.da_de_alta_artista.remove(this);
@@ -144,6 +133,17 @@ public class Artista extends basededatos.UsuarioComun implements Serializable {
 	private basededatos.Administrador getORM_Es_dado_de_alta() {
 		return es_dado_de_alta;
 	}
+	
+	private void setORM_Tiene_canciones(java.util.Set value) {
+		this.ORM_tiene_canciones = value;
+	}
+	
+	private java.util.Set getORM_Tiene_canciones() {
+		return ORM_tiene_canciones;
+	}
+	
+	@Transient	
+	public final basededatos.CancionSetCollection tiene_canciones = new basededatos.CancionSetCollection(this, _ormAdapter, ORMConstants.KEY_ARTISTA_TIENE_CANCIONES, ORMConstants.KEY_CANCION_PERTENECE_A_ARTISTACANCION, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return super.toString();
