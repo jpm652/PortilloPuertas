@@ -13,6 +13,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.component.checkbox.Checkbox;
 
 /**
  * A Designer generated component for the vista-administracion template.
@@ -82,6 +83,8 @@ public class VistaAdministracion extends LitTemplate {
 	private TextField clave_artista;
 	@Id("bt_anadirficheromultimedia")
 	private Button bt_anadirficheromultimedia;
+	@Id("novedades")
+	private Checkbox novedades;
 	/**
      * Creates a new VistaAdministracion.
      */
@@ -321,6 +324,14 @@ public class VistaAdministracion extends LitTemplate {
 
 	public void setBt_anadirficheromultimedia(Button bt_anadirficheromultimedia) {
 		this.bt_anadirficheromultimedia = bt_anadirficheromultimedia;
+	}
+
+	public Checkbox getNovedades() {
+		return novedades;
+	}
+
+	public void setNovedades(Checkbox novedades) {
+		this.novedades = novedades;
 	}
     
 }

@@ -49,7 +49,7 @@ public class Cancion_anterior extends VistaCancion_anterior {
 					cancion__Registrado_.getStyle().set("width", "100%");
 					cancion__Registrado_.getStyle().set("height", "80%");
 					vlpadre.add(cancion__Registrado_);
-					cancion__Registrado_.inicializar(vlpadre, usuario);
+					cancion__Registrado_.inicializar(vlpadre, usuario,cancion);
 				}
 				
 

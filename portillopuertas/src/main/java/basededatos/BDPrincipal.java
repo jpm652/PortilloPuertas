@@ -211,10 +211,10 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 
 	@Override
 	public void darAltaCancion(String aNombre, String aArtista, String aEstilo, String aProductor, String acompositor,
-			int aDuracion, String aImagen,String aArchivoCancion) {
+			int aDuracion, String aImagen,String aArchivoCancion, boolean novedades) {
 
 		try {
-			_bd_cancion.darAltaCancion(aNombre, aArtista, aEstilo, aProductor, acompositor, aDuracion, aImagen,aArchivoCancion);
+			_bd_cancion.darAltaCancion(aNombre, aArtista, aEstilo, aProductor, acompositor, aDuracion, aImagen,aArchivoCancion, novedades);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

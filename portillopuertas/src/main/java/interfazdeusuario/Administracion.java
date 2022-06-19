@@ -312,6 +312,7 @@ public class Administracion extends VistaAdministracion {
 				String productor = getNombreproductoranadircancion().getValue();
 				String compositor = getNombrecompositoranadircancion().getValue();
 				int duracion = Integer.parseInt(getDuracionCancion().getValue());
+				boolean novedades = getNovedades().getValue();
 				String imagen = rutaFotoCancion;
 				String cancion = rutaCancion;
 				
@@ -330,7 +331,7 @@ public class Administracion extends VistaAdministracion {
 					imagen = "https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/canciondefault.png?raw=true";
 					
 					_iAdmin.darAltaCancion(nombrecancion, artista, estilo, productor, compositor, duracion, imagen,
-							cancion);
+							cancion,novedades);
 					Dialog dialog = new Dialog();
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Dar alta Cancion",
 							"Cancion dada de alta correctamente");
@@ -345,7 +346,7 @@ public class Administracion extends VistaAdministracion {
 				else {
 
 					_iAdmin.darAltaCancion(nombrecancion, artista, estilo, productor, compositor, duracion, imagen,
-							cancion);
+							cancion,novedades);
 					Dialog dialog = new Dialog();
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Dar alta Cancion",
 							"Cancion dada de alta correctamente");

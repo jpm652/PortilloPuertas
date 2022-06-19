@@ -4,6 +4,7 @@ import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
+import '@vaadin/vaadin-checkbox/src/vaadin-checkbox.js';
 
 @customElement('vista-administracion')
 export class VistaAdministracion extends LitElement {
@@ -79,6 +80,9 @@ export class VistaAdministracion extends LitElement {
    <vaadin-text-field placeholder="Nombre Productor" style="width: 50%;" id="nombreproductoranadircancion"></vaadin-text-field>
    <vaadin-text-field placeholder="Nombre Compositor" style="width: 50%;" id="nombrecompositoranadircancion"></vaadin-text-field>
    <vaadin-text-field placeholder="Duracion" style="width: 50%;" id="duracionCancion"></vaadin-text-field>
+   <vaadin-checkbox id="novedades" style="align-self: center; width: 50%;">
+    Añadir a Novedades
+   </vaadin-checkbox>
    <vaadin-horizontal-layout theme="spacing" style="align-self: center; justify-content: center; margin: var(--lumo-space-s); align-items: center;" id="vaadinHorizontalLayout1">
     <img id="fotoCancion" style="max-width: 100px; max-height: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true">
     <vaadin-button id="bt_fotocancion">

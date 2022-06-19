@@ -10,7 +10,7 @@ public interface iAdministrador extends iUsuario_registrado {
 
 	public void darAltaArtista(String aNombre, String aLogin, String aContrasena, String arutaFoto);
 
-	public void darAltaCancion(String aNombre, String aArtista, String aEstilo, String aProductor, String acompositor, int aDuracion, String aImagen, String aArchivoCancion);
+	public void darAltaCancion(String aNombre, String aArtista, String aEstilo, String aProductor, String acompositor, int aDuracion, String aImagen, String aArchivoCancion, boolean novedades);
 
 	public void darAltaEstilo(String aNombre);
 

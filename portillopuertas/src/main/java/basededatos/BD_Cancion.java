@@ -21,7 +21,7 @@ public class BD_Cancion {
 	}
 
 	public void darAltaCancion(String aNombre, String aArtista, String aEstilo, String aProductor, String acompositor,
-			int aDuracion, String aImagen, String archivoMultimedia) throws PersistentException {
+			int aDuracion, String aImagen, String archivoMultimedia, boolean novedades) throws PersistentException {
 		int id_cancion = -1;
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		
@@ -51,6 +51,7 @@ public class BD_Cancion {
 			cancion.setEs_dada_de_alta(admin);
 			cancion.setPertenece_a_estilo(estilo);
 			cancion.setORM_Pertenece_a_artistaCancion(artista);
+			cancion.setNovedades(novedades);
 			CancionDAO.save(cancion);
 			
 			t.commit();

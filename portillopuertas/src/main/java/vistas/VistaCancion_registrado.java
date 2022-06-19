@@ -75,16 +75,16 @@ public class VistaCancion_registrado extends LitTemplate {
 		return artista_canc_Reg;
 	}
 
-	public void setArtista_canc_Reg(Label artista_canc_Reg) {
-		this.artista_canc_Reg = artista_canc_Reg;
+	public void setArtista_canc_Reg(String artista_canc_Reg) {
+		this.artista_canc_Reg.setText(artista_canc_Reg);
 	}
 
 	public Label getNom_canc_Reg() {
 		return nom_canc_Reg;
 	}
 
-	public void setNom_canc_Reg(Label nom_canc_Reg) {
-		this.nom_canc_Reg = nom_canc_Reg;
+	public void setNom_canc_Reg(String nom_canc_Reg) {
+		this.nom_canc_Reg.setText(nom_canc_Reg);
 	}
 
 	public Image getImg_canc_Reg() {
@@ -99,8 +99,8 @@ public class VistaCancion_registrado extends LitTemplate {
 		return nom2__canc_Reg;
 	}
 
-	public void setNom2__canc_Reg(Label nom2__canc_Reg) {
-		this.nom2__canc_Reg = nom2__canc_Reg;
+	public void setNom2__canc_Reg(String nom2__canc_Reg) {
+		this.nom2__canc_Reg.setText(nom2__canc_Reg);
 	}
 
 	public ProgressBar getVaadinProgressBar() {

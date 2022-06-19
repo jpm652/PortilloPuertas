@@ -8,6 +8,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Cancion;
 import basededatos.UsuarioComun;
 import vistas.VistaCancion_registrado;
 
@@ -33,29 +34,20 @@ public class Cancion__Registrado_ extends VistaCancion_registrado {
 	public Busqueda_cancion _busqueda_cancion;
 	public Minimizar _minimizar;
 
-	public void anadir_a_playlist() {
-		throw new UnsupportedOperationException();
-	}
 
-	public void quitar_favoritos() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void eliminar_de_playlist() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void anadir_a_favoritos() {
-		throw new UnsupportedOperationException();
-	}
 	
 	public Cancion__Registrado_() {
-		this.getVaadinVerticalLayout().getStyle().set("width", "100%").set("height", "100%");
-		inicializar(new VerticalLayout(), new UsuarioComun());
+//		this.getVaadinVerticalLayout().getStyle().set("width", "100%").set("height", "100%");
+//		inicializar(new VerticalLayout(), new UsuarioComun());
 	}
 
-	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
+	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario, Cancion cancion) {
 
+		this.setNom_canc_Reg(cancion.getTitulo());
+		this.setNom2__canc_Reg(cancion.getTitulo());
+		this.getImg_canc_Reg().setSrc(cancion.getImagen_cancion());
+		this.setArtista_canc_Reg(cancion.getArtista());		
+		
 		this.getMin_cancion_registrado().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
@@ -86,5 +78,21 @@ public class Cancion__Registrado_ extends VistaCancion_registrado {
 			}
 		});
 	
+	}
+	
+	public void anadir_a_playlist() {
+		throw new UnsupportedOperationException();
+	}
+
+	public void quitar_favoritos() {
+		throw new UnsupportedOperationException();
+	}
+
+	public void eliminar_de_playlist() {
+		throw new UnsupportedOperationException();
+	}
+
+	public void anadir_a_favoritos() {
+		throw new UnsupportedOperationException();
 	}
 }
