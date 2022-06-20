@@ -159,6 +159,7 @@ public class BD_UsuarioRegistrado {
 	}
 
 	public void anadirCancionFavoritos(int idUsuario, int idCancion) throws PersistentException {
+		
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 
 		try {
@@ -176,7 +177,7 @@ public class BD_UsuarioRegistrado {
 		} catch (Exception e) {
 			t.rollback();
 		}
-		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+//		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 
 	}
 

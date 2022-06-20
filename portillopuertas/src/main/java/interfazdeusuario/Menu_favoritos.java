@@ -18,20 +18,20 @@ public class Menu_favoritos extends VistaMenu_favoritos {
 	public Reproducir_favoritos _reproducir_favoritos;
 	iUsuario_registrado user = new BDPrincipal();
 	public Menu_favoritos(UsuarioComun usuario) {
-//		
+		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.getStyle().set("width", "100%");
 		vl.getStyle().set("height", "100%");
 		vl.getStyle().set("padding", "0");
-		CargarFavoritos(vl,usuario);
+		CargarFavoritos(this.getListafav(),usuario.getId());
 	}
 	
 	
-	public void CargarFavoritos(VerticalLayout vl, UsuarioComun usuario) {
-		Cancion[] canciones = user.cargar_favoritos(usuario.getId());
+	public void CargarFavoritos(VerticalLayout vl, int usuario) {
+		
+		Cancion[] canciones = user.cargar_favoritos(usuario);
 		
 		Favoritos fav;
-		//System.out.println(inicio.arrayCanciones.size());
 
 		for (int i = 0; i <canciones.length; i++) {
 			fav = new Favoritos(vl);
