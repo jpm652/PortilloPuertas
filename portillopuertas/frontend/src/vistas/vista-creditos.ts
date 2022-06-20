@@ -28,22 +28,22 @@ export class VistaCreditos extends LitElement {
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; flex-direction: column; align-items: center;" id="vaadinHorizontalLayout1">
    <img id="imgcancion" style="width: 200px; margin-top: 25px; height: 200px;">
-   <label id="nombreCancion" style="margin-top: 25px;">Nombre Canción</label>
-   <label id="albumcancion">Album/Género</label>
+   <label id="nombreCancion" style="margin-top: 25px; font-weight: bold; font-size:20px;">Nombre Canción</label>
+   <label id="albumcancion" style="font-weight: bold;">Album/Género</label>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 1; align-items: center; justify-content: center; align-self: center;" id="vaadinHorizontalLayout2">
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 1; align-items: center; justify-content: center; align-self: center; margin-top: var(--lumo-space-xl);" id="vaadinHorizontalLayout2">
    <vaadin-vertical-layout theme="spacing" style="flex-grow: 0; width: 20%;" id="vaadinVerticalLayout2">
-    <label id="label3">Compositores </label>
+    <label id="label3" style="font-weight: bold;">Compositores </label>
     <hr style="width: 100%;" id="hr1">
     <label id="compositor">Nombre compositor</label>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" style="flex-grow: 0; width: 20%;" id="vaadinVerticalLayout3">
-    <label id="label5">Productores</label>
+    <label id="label5" style="font-weight: bold;">Productores</label>
     <hr style="width: 100%;">
     <label id="productor">Nombre productor</label>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" style="flex-grow: 0; width: 20%;" id="vaadinVerticalLayout4">
-    <label id="label7">Intérpretes</label>
+    <label id="label7" style="font-weight: bold;">Intérpretes</label>
     <hr style="width: 100%;" id="hr2">
     <label id="artista">Nombre Intérpretes</label>
    </vaadin-vertical-layout>

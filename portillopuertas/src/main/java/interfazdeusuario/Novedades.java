@@ -33,7 +33,7 @@ public class Novedades extends VistaNovedades {
 
 		Scroller scroller = this.getScroll();
 		scroller.setScrollDirection(ScrollDirection.HORIZONTAL);
-		scroller.getStyle().set("height", "200px");
+		scroller.getStyle().set("height", "100%");
 		scroller.getStyle().set("width", "100%");
 
 		HorizontalLayout tempHl = new HorizontalLayout();
@@ -54,10 +54,14 @@ public class Novedades extends VistaNovedades {
 		
 		for (int i = 0; i < novedades.length; i++) {
 			cancion = new Cancion_anterior(vl, "No", new UsuarioComun(), novedades[i]);
-			cancion.getStyle().set("padding-left", "5%");
+			
+			cancion.getStyle().set("padding-left", "2%");
+			cancion.getStyle().set("padding-top", "3%");
+			cancion.getStyle().set("margin-top", "2%");
+			
 			cancion.setNombreCancion(novedades[i].getTitulo());
 			cancion.getImgCancion().setSrc(novedades[i].getImagen_cancion());
-			//cancion.setNombreCancion(inicio.arrayCanciones.get(i).getNombre());
+
 			_list_cancion__no_registrado_.add(cancion);
 		}
 

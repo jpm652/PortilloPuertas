@@ -19,16 +19,16 @@ export class VistaRedes_sociales_informacion extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; justify-content: flex-start; background: #D3E0EA;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; background: #D3E0EA;">
-  <img style="width: 50px; height: 50px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
-  <label style="align-self: center;">PP Music</label>
+  <img style="width: 80px; height: 80px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/logoSoundCity.png?raw=true">
+  <label style="align-self: center; font-weight:bold;">Sound City</label>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout class="footer" style="width: 100%; var(--lumo-size-l); flex-shrink: 0; background-color: #D3E0EA; justify-content: space-between; flex-grow: 0; height: 20%; align-items: flex-start;" id="vaadinHorizontalLayout">
-  <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 25%; height: 100%;">
+ <vaadin-horizontal-layout class="footer" style="width: 100%; var(--lumo-size-l); flex-shrink: 0; background-color: #D3E0EA; justify-content: space-between; flex-grow: 0; height: 15%; align-items: flex-start;" id="vaadinHorizontalLayout">
+  <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 25%; height: 90%;">
    <vaadin-list-box style="height: 100%; width: 100%; margin: var(--lumo-space-xl);" id="vaadinListBox">
     <b style="padding-left: var(--lumo-space-l);">Contacto</b>
     <hr id="hr">
     <vaadin-item id="vaadinItem1">
-      correoelectronico@gmail.com 
+     SoundCityContacto@gmail.com
     </vaadin-item>
     <vaadin-item id="vaadinItem">
       950 56 59 98 
@@ -40,10 +40,10 @@ export class VistaRedes_sociales_informacion extends LitElement {
     <b style="padding-left: var(--lumo-space-l);">Redes Sociales</b>
     <hr id="hr1">
     <vaadin-item id="vaadinItem2">
-      Facebook 
+     Facebook : SoundCity
     </vaadin-item>
     <vaadin-item id="vaadinItem3">
-      Twitter 
+     Twitter: SoundCity
     </vaadin-item>
    </vaadin-list-box>
   </vaadin-vertical-layout>

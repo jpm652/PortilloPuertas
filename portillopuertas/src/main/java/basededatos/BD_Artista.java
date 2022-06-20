@@ -61,7 +61,16 @@ public class BD_Artista {
 		throw new UnsupportedOperationException();
 	}
 
-	public List busqueda_artista(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Artista[] busqueda_artista(String aNombre) throws PersistentException {
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+
+			Artista[] artista = ArtistaDAO.listArtistaByQuery("NombreArtista LIKE '%" + aNombre + "%'", null);
+			return artista;
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return null;
 	}
 }

@@ -5,6 +5,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-volumen template.
@@ -16,8 +17,8 @@ import com.vaadin.flow.component.template.Id;
 @JsModule("./src/vistas/vista-volumen.ts")
 public class VistaVolumen extends LitTemplate {
 
-    @Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
+    @Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
 
 	/**
      * Creates a new VistaVolumen.
@@ -25,13 +26,5 @@ public class VistaVolumen extends LitTemplate {
     public VistaVolumen() {
         // You can initialise any data required for the connected UI components here.
     }
-
-	public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
-	}
-
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
-	}
 
 }

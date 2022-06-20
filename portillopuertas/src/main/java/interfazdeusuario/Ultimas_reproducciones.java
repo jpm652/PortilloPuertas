@@ -8,8 +8,13 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.orderedlayout.Scroller.ScrollDirection;
 
+import basededatos.BDPrincipal;
+import basededatos.Cancion;
 import basededatos.UsuarioComun;
+import basededatos.iUsuario_no_registrado;
+import basededatos.iUsuario_registrado;
 import interfazdeusuario.Cancion__Registrado_;
 import vistas.VistaCancion_anterior;
 import vistas.VistaUltimas_reproducciones;
@@ -17,7 +22,7 @@ import vistas.VistaUltimas_reproducciones;
 public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 	public Pagina_principal _pagina_principal;
 	public Vector<Cancion_anterior> _list_cancion__registrado_ = new Vector<Cancion_anterior>();
-	
+	iUsuario_registrado iUser = new BDPrincipal();
 	
 	public Ultimas_reproducciones(VerticalLayout vlpadre, UsuarioComun usuario) {
 		
@@ -26,13 +31,15 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 	
 	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 
-		//CargarCanciones(vlpadre, usuario);
+//		CargarCanciones(vlpadre, usuario);
 
 		Scroller scroller = this.getScroll();
+		scroller.setScrollDirection(ScrollDirection.HORIZONTAL);
+		scroller.getStyle().set("height", "100%");
+		scroller.getStyle().set("width", "100%");
+
 		HorizontalLayout tempHl = new HorizontalLayout();
 		tempHl.getStyle().set("width", "100%");
-		tempHl.getStyle().set("height", "100%");
-		tempHl.getStyle().set("padding-left", "5%");
 		
 		for (int i = 0; i < _list_cancion__registrado_.size(); i++) {
 			
@@ -41,21 +48,19 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 		}
 
 		scroller.setContent(tempHl);
-
 	}
 
 //	public void CargarCanciones(VerticalLayout vl, UsuarioComun usuario) {
+//		Cancion[] ultimas_reproducciones = 	
 //		Cancion_anterior cancion;
-//
-//		for (int i = 0; i < 8; i++) {
-//		//	cancion = new Cancion_anterior(vl, "Si", usuario);
-//			
-//			if(i==2) {
-//				cancion.setNombreCancion("Cancion Pepe");	
-//				cancion.getImgCancion().getStyle().set("src","https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-lista.png?raw=true");
-//				}
+//		
+//		for (int i = 0; i < ultimas_reproducciones.length; i++) {
+//			cancion = new Cancion_anterior(vl, "Si", usuario, ultimas_reproducciones[i]);
+//			cancion.getStyle().set("padding-left", "5%");
+//			cancion.setNombreCancion(ultimas_reproducciones[i].getTitulo());
+//			cancion.getImgCancion().setSrc(ultimas_reproducciones[i].getImagen_cancion());
 //			_list_cancion__registrado_.add(cancion);
 //		}
-
+//	}
 	
 }

@@ -8,8 +8,10 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
 import basededatos.Cancion;
 import basededatos.UsuarioComun;
+import basededatos.iUsuario_registrado;
 import vistas.VistaCancion_registrado;
 
 
@@ -33,7 +35,7 @@ public class Cancion__Registrado_ extends VistaCancion_registrado {
 	public Favoritos _favoritos;
 	public Busqueda_cancion _busqueda_cancion;
 	public Minimizar _minimizar;
-
+	iUsuario_registrado user = new BDPrincipal();
 
 	
 	public Cancion__Registrado_() {
@@ -47,6 +49,8 @@ public class Cancion__Registrado_ extends VistaCancion_registrado {
 		this.setNom2__canc_Reg(cancion.getTitulo());
 		this.getImg_canc_Reg().setSrc(cancion.getImagen_cancion());
 		this.setArtista_canc_Reg(cancion.getArtista());		
+		
+		user.aumentarReproduccion(cancion.getId());
 		
 		this.getMin_cancion_registrado().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 

@@ -45,12 +45,14 @@ public class Registrarse extends VistaRegistrarse {
 	String rutaFoto = "";
 
 	public Registrarse() {
-		// inicializar(new VerticalLayout());
 
 	}
 
 	public void inicializar(VerticalLayout vlpadre) {
 
+		webs();
+		exitoRegistro(vlpadre);
+		
 		this.getImg_cabecera_registro().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
@@ -81,66 +83,6 @@ public class Registrarse extends VistaRegistrarse {
 			}
 		});
 
-		this.getIconTwitter().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-
-			    UI.getCurrent().getPage().open("https://twitter.com/", "Twitter");
-
-			}
-		});
-		
-		this.getIconFacebook().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-
-			    UI.getCurrent().getPage().open("https://es-es.facebook.com/", "Facebook");
-
-			}
-		});
-		
-		this.getIconGoogle().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-
-			    UI.getCurrent().getPage().open("https://www.google.com/intl/es/gmail/about/", "Google");
-
-			}
-		});
-		
-		this.getIconTwitter2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-
-			    UI.getCurrent().getPage().open("https://twitter.com/", "Twitter");
-
-			}
-		});
-		
-		this.getIconFacebook2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-
-			    UI.getCurrent().getPage().open("https://es-es.facebook.com/", "Facebook");
-
-			}
-		});
-		
-		this.getIconGoogle2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-
-			    UI.getCurrent().getPage().open("https://www.google.com/intl/es/gmail/about/", "Google");
-
-			}
-		});
-
 		this.getFotoFC().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
@@ -164,13 +106,7 @@ public class Registrarse extends VistaRegistrarse {
 				modal.open();
 			}
 		});
-
-		comprobarRegistro(vlpadre);
-	}
-
-	public void comprobarRegistro(VerticalLayout vlpadre) {
 		
-		exitoRegistro(vlpadre);
 	}
 
 	public void exitoRegistro(VerticalLayout vlpadre) {
@@ -236,6 +172,12 @@ public class Registrarse extends VistaRegistrarse {
 					vlpadre.add(dialog);
 					dialog.open();
 					
+					getCorreo_registro().clear();
+					getNombre_registro().clear();
+					getClave_registro().clear();
+					getConfirma_clave_registro().clear();
+					getFotoImg().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
+					
 				}else if(_iUser.Registrarse(correo, nombre, contrasena_confirm, imagenPerfil) == true) {
 					
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Registro con éxito",
@@ -243,9 +185,80 @@ public class Registrarse extends VistaRegistrarse {
 					dialog.add(dialogLayout);
 					vlpadre.add(dialog);
 					dialog.open();
+					
+					getCorreo_registro().clear();
+					getNombre_registro().clear();
+					getClave_registro().clear();
+					getConfirma_clave_registro().clear();
+					getFotoImg().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
+					
 				}
 			}
 		});
+	}
+	
+	public void webs() {
+		
+		this.getIconTwitter().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://twitter.com/", "Twitter");
+
+			}
+		});
+		
+		this.getIconFacebook().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://es-es.facebook.com/", "Facebook");
+
+			}
+		});
+		
+		this.getIconGoogle().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://www.google.com/intl/es/gmail/about/", "Google");
+
+			}
+		});
+		
+		this.getIconTwitter2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://twitter.com/", "Twitter");
+
+			}
+		});
+		
+		this.getIconFacebook2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://es-es.facebook.com/", "Facebook");
+
+			}
+		});
+		
+		this.getIconGoogle2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://www.google.com/intl/es/gmail/about/", "Google");
+
+			}
+		});
+		
 	}
 
 	private static VerticalLayout createDialogLayout(Dialog dialog, String titulo, String mensaje) {

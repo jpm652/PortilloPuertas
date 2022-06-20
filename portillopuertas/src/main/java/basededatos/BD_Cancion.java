@@ -71,16 +71,30 @@ public class BD_Cancion {
 		}
 	}
 
-	public List busqueda_cancion(String aNombre) throws PersistentException {
+	public Cancion[] busqueda_cancion(String aNombre) throws PersistentException {
 		
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
 
-			List cancion = CancionDAO.queryCancion("Nombre = '" + aNombre + "'", null);
+			Cancion[] cancion = CancionDAO.listCancionByQuery("Titulo LIKE '%" + aNombre + "%'", null);
 			return cancion;
 		} catch (Exception e) {
 			t.rollback();
 		}
 		return null;
+	}
+	
+	public void aumentarReproduccion(int cancion) throws PersistentException{
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Cancion c = CancionDAO.getCancionByORMID(cancion);
+			c.setNumReproducciones(c.getNumReproducciones()+1);
+			CancionDAO.save(c);
+			t.commit();
+		}catch (Exception e) {
+			t.rollback();
+		}
+		
 	}
 }

@@ -197,6 +197,7 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
+					
 				} else {
 
 					_iAdmin.darAltaEstilo(estilo);
@@ -211,6 +212,7 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
+					getText_altaestilo().clear();
 				}
 			}
 		});
@@ -253,6 +255,12 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
+					
+					getText_nombre_anadirartista().clear();
+					getText_login_anadirartista().clear();
+					getClave_artista().clear();
+					getFotoartista().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
+					
 				}
 			}
 
@@ -295,6 +303,9 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
+					getText_nombreartistaanadiralbum().clear();
+					getNombrealbunanadiralbum().clear();
+					getFotoAlbum().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
 				}
 			}
 
@@ -343,6 +354,15 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
+					
+					getNombrecancionanadircancion().clear();
+					getNombreartistaanadircancion().clear();
+					getNombreestiloanadircancion().clear();
+					getNombreproductoranadircancion().clear();
+					getNombrecompositoranadircancion().clear();
+					getDuracionCancion().clear();
+					getNovedades().clear();
+					getFotoCancion().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
 				}
 				else {
 
@@ -358,6 +378,15 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
+					
+					getNombrecancionanadircancion().clear();
+					getNombreartistaanadircancion().clear();
+					getNombreestiloanadircancion().clear();
+					getNombreproductoranadircancion().clear();
+					getNombrecompositoranadircancion().clear();
+					getDuracionCancion().clear();
+					getNovedades().clear();
+					getFotoCancion().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
 				}
 
 			}
@@ -383,7 +412,7 @@ public class Administracion extends VistaAdministracion {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				String cancion =getNombreCancion_anadir_album().getValue();
+				String cancion = getNombreCancion_anadir_album().getValue();
 				String album = getNombrealbum_anadirCancion_album().getValue();
 				
 				if (cancion.isEmpty() | album.isEmpty()) {
@@ -434,6 +463,9 @@ public class Administracion extends VistaAdministracion {
 						dialog.add(dialogLayout);
 						dialog.add(closeButton);
 						dialog.open();
+						
+						getNombreCancion_anadir_album().clear();
+						getNombrealbum_anadirCancion_album().clear();
 					}
 
 				}

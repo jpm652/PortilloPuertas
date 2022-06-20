@@ -69,7 +69,16 @@ public class BD_Album {
 
 	}
 
-	public List busqueda_album(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Album[] busqueda_album(String aNombre) throws PersistentException {
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+
+			Album[] album = AlbumDAO.listAlbumByQuery("Nombre LIKE '%" + aNombre + "%'", null);
+			return album;
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return null;
 	}
 }

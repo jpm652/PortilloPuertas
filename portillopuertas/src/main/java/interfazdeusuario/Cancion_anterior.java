@@ -19,13 +19,6 @@ public class Cancion_anterior extends VistaCancion_anterior {
 
 	public void inicializar(VerticalLayout vlpadre, String registrado, UsuarioComun usuario, Cancion cancion) {
 
-		// this.getImgCancion().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true");
-		// this.getImgCancion().getStyle().set("height", "100%");
-		// this.getImgCancion().setVisible(true);
-		// this.getNombreCancion().setVisible(false);
-		this.getImgCancion().getStyle().set("width", "100px");
-		this.getImgCancion().getStyle().set("height", "300px");
-
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.addClickListener(new ComponentEventListener<ClickEvent<VerticalLayout>>() {
 

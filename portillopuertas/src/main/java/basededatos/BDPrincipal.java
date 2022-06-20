@@ -27,18 +27,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			e.printStackTrace();
 		}
 		return null;
-	}	
-
-//	public UsuarioComun verificarUsuario(String aCorreo, String aNombreUsuario, String aContrasena, String rutaFoto) {
-//		
-//		try {
-//			return _bd_usuario_registrado.verificarUsuario(aCorreo, aNombreUsuario, aContrasena, rutaFoto);
-//		} catch (PersistentException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
+	}
 
 	public UsuarioComun iniciarSesionUsuario(String aNombreUsuario, String aContrasena) {
 		try {
@@ -75,7 +64,8 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;	}
+		return null;
+	}
 
 	public void Registrarse(String aCorreo, String aNombreUsuario, String aContrasena) {
 		throw new UnsupportedOperationException();
@@ -96,9 +86,11 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			e.printStackTrace();
 		}
 	}
-	public void editarFoto(int aId_usuario, String aFoto)  {
+
+	public void editarFoto(int aId_usuario, String aFoto) {
 		try {
-			_bd_usuario_registrado.editarFoto(aId_usuario, aFoto);;
+			_bd_usuario_registrado.editarFoto(aId_usuario, aFoto);
+			;
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
@@ -112,9 +104,9 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
-		
+
 		return canciones;
-		}
+	}
 
 	public Album[] cargar_album_artista(int aId) {
 		try {
@@ -123,8 +115,8 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;	
-		
+		return null;
+
 	}
 
 	public List cargar_artistasSimilares(Estilo aEstilo) {
@@ -141,8 +133,40 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		return null;
 	}
 
-	public void busqueda(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Cancion[] busquedaCanciones(String aNombre) {
+
+		try {
+			return _bd_cancion.busqueda_cancion(aNombre);
+
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public Artista[] busquedaArtistas(String aNombre) {
+
+		try {
+			return _bd_artista.busqueda_artista(aNombre);
+
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public Album[] busquedaAlbum(String aNombre) {
+
+		try {
+			_bd_album.busqueda_album(aNombre);
+
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public Cancion__Registrado_ cargarCancion(int aId) {
@@ -161,7 +185,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			e.printStackTrace();
 		}
 		return null;
-		}	
+	}
 
 	public Cancion[] cargar_mas_escuchadas(Artista aArtista) {
 		try {
@@ -171,7 +195,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			e.printStackTrace();
 		}
 		return null;
-		}
+	}
 
 	public Playlist cargar_Playlist() {
 		throw new UnsupportedOperationException();
@@ -244,10 +268,11 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 
 	@Override
 	public void darAltaCancion(String aNombre, String aArtista, String aEstilo, String aProductor, String acompositor,
-			int aDuracion, String aImagen,String aArchivoCancion, boolean novedades) {
+			int aDuracion, String aImagen, String aArchivoCancion, boolean novedades) {
 
 		try {
-			_bd_cancion.darAltaCancion(aNombre, aArtista, aEstilo, aProductor, acompositor, aDuracion, aImagen,aArchivoCancion, novedades);
+			_bd_cancion.darAltaCancion(aNombre, aArtista, aEstilo, aProductor, acompositor, aDuracion, aImagen,
+					aArchivoCancion, novedades);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -271,7 +296,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	@Override
 	public int anadirCancionAlbum(String aCancion, String aAlbum) {
 		try {
-			 return _bd_administrador.anadirCancionAlbum(aCancion, aAlbum);
+			return _bd_administrador.anadirCancionAlbum(aCancion, aAlbum);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
@@ -281,10 +306,20 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	@Override
 	public void anadirCancionFavoritos(int idUsuario, int idCancion) {
 		try {
-			  _bd_usuario_registrado.anadirCancionFavoritos(idUsuario, idCancion);
+			_bd_usuario_registrado.anadirCancionFavoritos(idUsuario, idCancion);
 		} catch (PersistentException e) {
 			e.printStackTrace();
-		}		
+		}
 	}
-	
+
+	@Override
+	public void aumentarReproduccion(int cancion) {
+		try {
+			_bd_cancion.aumentarReproduccion(cancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 }

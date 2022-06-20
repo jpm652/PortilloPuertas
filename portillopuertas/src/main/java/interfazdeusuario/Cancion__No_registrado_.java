@@ -30,8 +30,6 @@ public class Cancion__No_registrado_ extends VistaCancion_no_registrado {
 
 	public Cancion__No_registrado_() {
 
-//		this.getVaadinVerticalLayout().getStyle().set("width", "100%").set("height", "100%");
-//		inicializar(new VerticalLayout());
 	}
 
 	public void inicializar(VerticalLayout vlpadre, Cancion cancion) {
@@ -74,7 +72,9 @@ public class Cancion__No_registrado_ extends VistaCancion_no_registrado {
 		barra_reproduccion.setAutor_barra(cancion.getArtista());
 		barra_reproduccion.setCancion_barra(cancion.getTitulo());
 		barra_reproduccion.getImg_barra().setSrc(cancion.getImagen_cancion());
-//		barra_reproduccion
+		barra_reproduccion.getBt_barra_fav().setVisible(false);
+		barra_reproduccion.getBt_barra_add().setVisible(false);
+		barra_reproduccion.getBt_barra_max().setVisible(false);
 		vlpadre.add(barra_reproduccion);
 
 	}

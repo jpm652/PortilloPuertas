@@ -21,7 +21,11 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 
 	public Artista[] cargar_artistasSeguidos(int aId_usuario);
 
-	public void busqueda(String aNombre);
+	public Cancion[] busquedaCanciones(String aNombre);
+	
+	public Artista[] busquedaArtistas(String aNombre);
+	
+	public Album[] busquedaAlbum(String aNombre);
 
 	public Cancion__Registrado_ cargarCancion(int aId);
 
@@ -40,4 +44,6 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 	public void darBaja(int aId_usuario);
 	
 	public void anadirCancionFavoritos(int idUsuario, int idCancion);
+	
+	public void aumentarReproduccion(int cancion);
 }
