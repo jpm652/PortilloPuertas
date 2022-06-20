@@ -27,7 +27,7 @@ public class BD_UsuarioRegistrado {
 		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 	}
 
-	public void editarCorreo(String aCorreo, int aId_usuario)throws PersistentException {
+	public void editarCorreo(String aCorreo, int aId_usuario) throws PersistentException {
 		UsuarioComunCriteria user = new UsuarioComunCriteria();
 		user.id.eq(aId_usuario);
 
@@ -60,20 +60,20 @@ public class BD_UsuarioRegistrado {
 
 		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 	}
-	
-	public void darBaja(int aId_usuario) throws PersistentException{
+
+	public void darBaja(int aId_usuario) throws PersistentException {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
 			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(aId_usuario);
-			
+
 			UsuarioComunDAO.delete(user);
 			t.commit();
-			
+
 		} catch (Exception e) {
 			t.rollback();
 		}
 		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
-		}
+	}
 
 	public void darBajaUsuario(String aNombre) {
 		throw new UnsupportedOperationException();
@@ -95,13 +95,13 @@ public class BD_UsuarioRegistrado {
 
 		c2.correo.like(aNombreUsuario.trim());
 		c2.contrasena.like(aContrasena);
-		
+
 		UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
 		UsuarioComun user2 = UsuarioComunDAO.loadUsuarioComunByCriteria(c2);
-		
-		if(user == null) {
+
+		if (user == null) {
 			return user2;
-		}else if(user2 == null) {
+		} else if (user2 == null) {
 			return user;
 		}
 
@@ -109,21 +109,21 @@ public class BD_UsuarioRegistrado {
 	}
 
 	public boolean verificarUsuario(String aCorreo) throws PersistentException {
-		
+
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
-		
+
 		UsuarioComunCriteria c = new UsuarioComunCriteria();
 		UsuarioComunCriteria c2 = new UsuarioComunCriteria();
 
 		c.correo.like(aCorreo.trim());
 		c2.nombreUsuario.like(aCorreo);
-		
-			UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
-			UsuarioComun user2 = UsuarioComunDAO.loadUsuarioComunByCriteria(c2);
 
-            if (user == null & user2 == null) {
-                return true;
-            }
+		UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
+		UsuarioComun user2 = UsuarioComunDAO.loadUsuarioComunByCriteria(c2);
+
+		if (user == null & user2 == null) {
+			return true;
+		}
 		return false;
 	}
 
@@ -132,9 +132,9 @@ public class BD_UsuarioRegistrado {
 		UsuarioComunCriteria c = new UsuarioComunCriteria();
 
 		c.correo.like(correo);
-		
-			UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
-			return user;
+
+		UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
+		return user;
 	}
 
 	public boolean Registrarse(String aCorreo, String aNombreUsuario, String aContrasena, String rutaFoto)
@@ -157,4 +157,27 @@ public class BD_UsuarioRegistrado {
 		}
 		return false;
 	}
+
+	public void anadirCancionFavoritos(int idUsuario, int idCancion) throws PersistentException {
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByORMID(idUsuario);
+			Cancion cancion = CancionDAO.loadCancionByORMID(idCancion);
+
+			Playlist favoritos = user.getFavoritos();
+			favoritos.contiene_canciones.add(cancion);
+			user.setFavoritos(favoritos);
+
+			PlaylistDAO.save(favoritos);
+			UsuarioComunDAO.save(user);
+
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+
+	}
+
 }

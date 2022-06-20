@@ -14,9 +14,20 @@ public class BD_Album {
 	public BDPrincipal _bd_principal_album;
 	public Vector<basededatos.Album> _contiene_albumes = new Vector<Album>();
 
-	public Album cargar_album() {
-		throw new UnsupportedOperationException();
-	}
+	public Cancion[] cargar_album(int idAlbum) throws PersistentException {
+		Cancion[] canciones = new Cancion[0];
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Album album = AlbumDAO.getAlbumByORMID(idAlbum);
+			canciones = album.contiene_canciones.toArray();
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return canciones;
+		}
 
 	public Album[] carga_album_artista(int aId) throws PersistentException {
 		

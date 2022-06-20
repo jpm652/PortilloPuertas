@@ -7,7 +7,10 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Artista;
+import basededatos.BDPrincipal;
+import basededatos.Cancion;
 import basededatos.UsuarioComun;
+import basededatos.iUsuario_registrado;
 import vistas.VistaAlbum;
 
 public class Album extends VistaAlbum{
@@ -24,7 +27,8 @@ public class Album extends VistaAlbum{
 	public Reproducir_album _reproducir_album;
 	public Datos_album _datos_album;
 	public Vector<CancionAlbum> list_canciones= new Vector<CancionAlbum>();
-
+	iUsuario_registrado user = new BDPrincipal();
+	
 	public Album(Artista aArtista, UsuarioComun usuario, basededatos.Album album) {
 		inicializar(aArtista,usuario,album);
 	}
@@ -36,6 +40,8 @@ public class Album extends VistaAlbum{
 		this.getImgAlbum().setSrc(album.getImagen_album());
 		
 		CargarCanciones(vl,aArtista,usuario,album);
+		this.setNumeroCan_fecha("Numero de Canciones: " + Integer.toString(list_canciones.size()));
+		
 		for (int i = 0; i < list_canciones.size(); i++) {			
 			getListaCanciones().add(list_canciones.get(i));
 		}
@@ -49,13 +55,15 @@ public class Album extends VistaAlbum{
 		throw new UnsupportedOperationException();
 	}
 	public void CargarCanciones(VerticalLayout vl,Artista aArtista, UsuarioComun usuario, basededatos.Album album) {
-		//Cancion[] canciones = 
+		Cancion[] cancionesAlbum = user.cargar_album(album.getId());
+		
 		CancionAlbum cancion;
 		
-		for (int i = 0; i < 5; i++) {
-			cancion = new CancionAlbum(vl);
-			cancion.getStyle().set("width","100%");		
-
+		for (int i = 0; i < cancionesAlbum.length; i++) {
+			cancion = new CancionAlbum(vl,usuario,cancionesAlbum[i]);
+			cancion.getStyle().set("width","100%");
+			cancion.setTitulolabel(cancionesAlbum[i].getTitulo());
+			cancion.setDuracionlabel(Integer.toString(cancionesAlbum[i].getDuracion()) + "mins");
 			list_canciones.add(cancion);
 		}
 	}

@@ -78,8 +78,8 @@ public class VistaAlbum extends LitTemplate {
 		return numeroCan_fecha;
 	}
 
-	public void setNumeroCan_fecha(Label numeroCan_fecha) {
-		this.numeroCan_fecha = numeroCan_fecha;
+	public void setNumeroCan_fecha(String numeroCan_fecha) {
+		this.numeroCan_fecha.setText(numeroCan_fecha);
 	}
 
 	public Button getReproducir() {

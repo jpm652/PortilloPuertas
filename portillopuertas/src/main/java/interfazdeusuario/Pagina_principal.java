@@ -38,7 +38,7 @@ public class Pagina_principal extends VistaPagina_principal {
 
 	Cabecera__registrado_ cr = new Cabecera__registrado_();
 	
-	public static Barra_reproduccion barra_reproduccion = new Barra_reproduccion(new Cancion());
+	public static Barra_reproduccion barra_reproduccion = new Barra_reproduccion(new Cancion(), new UsuarioComun());
 
 	public Pagina_principal() {
 
@@ -64,7 +64,7 @@ public class Pagina_principal extends VistaPagina_principal {
 
 		cabecera(vl_centro, usuario, tipo);
 		centro(vl_centro, usuario);
-		barra();
+		barra(usuario);
 
 	}
 
@@ -97,7 +97,7 @@ public class Pagina_principal extends VistaPagina_principal {
 
 		Ultimas_reproducciones ultimas = new Ultimas_reproducciones(vl_centro, usuario);
 		Artistas_seguidos artistasS = new Artistas_seguidos(vl_centro,usuario);
-		Albumes albumes = new Albumes(vl_centro);
+		Albumes albumes = new Albumes(vl_centro,usuario);
 
 		vl_centro.add(ultimas);
 		vl_centro.add(artistasS);
@@ -112,9 +112,10 @@ public class Pagina_principal extends VistaPagina_principal {
 		scroller.setContent(vl_centro);
 	}
 
-	public void barra() {
+	public void barra(UsuarioComun usuario) {
 
 		// Se introduce la barra de reproduccion en pagina principal
+		
 		VerticalLayout vl_reproductor = this.getVl_reproductor().as(VerticalLayout.class);
 		vl_reproductor.getStyle().set("width", "100%");
 		vl_reproductor.getStyle().set("height", "100%");

@@ -31,6 +31,8 @@ public class VistaCancionAlbum extends LitTemplate {
 	private HorizontalLayout horizontalCancion;
 	@Id("varticalCancion")
 	private Element varticalCancion;
+	@Id("hlcancion")
+	private HorizontalLayout hlcancion;
 
 	/**
      * Creates a new VistaCancionAlbum.
@@ -43,16 +45,16 @@ public class VistaCancionAlbum extends LitTemplate {
 		return titulolabel;
 	}
 
-	public void setTitulolabel(Label titulolabel) {
-		this.titulolabel = titulolabel;
+	public void setTitulolabel(String titulolabel) {
+		this.titulolabel.setText(titulolabel);
 	}
 
 	public Label getDuracionlabel() {
 		return duracionlabel;
 	}
 
-	public void setDuracionlabel(Label duracionlabel) {
-		this.duracionlabel = duracionlabel;
+	public void setDuracionlabel(String duracionlabel) {
+		this.duracionlabel.setText(duracionlabel);
 	}
 
 	public Button getBt_fav() {
@@ -86,5 +88,15 @@ public class VistaCancionAlbum extends LitTemplate {
 	public void setVarticalCancion(Element varticalCancion) {
 		this.varticalCancion = varticalCancion;
 	}
+
+	public HorizontalLayout getHlcancion() {
+		return hlcancion;
+	}
+
+	public void setHlcancion(HorizontalLayout hlcancion) {
+		this.hlcancion = hlcancion;
+	}
+
+
 
 }

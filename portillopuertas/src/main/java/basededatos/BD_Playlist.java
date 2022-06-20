@@ -12,8 +12,21 @@ public class BD_Playlist {
 	public BDPrincipal _bd_principal_playlist;
 	public Vector<basededatos.Playlist> _contiene_playlists = new Vector<Playlist>();
 
-	public Playlist cargar_favoritos() {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_favoritos(int idUsuario) throws PersistentException {
+		Cancion[] canciones = new Cancion[0];
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(idUsuario);
+			Playlist fav = user.getFavoritos();
+			canciones = fav.contiene_canciones.toArray();
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return canciones;
+		
 	}
 
 	public Cancion[] cargar_lista_novedades() throws PersistentException {

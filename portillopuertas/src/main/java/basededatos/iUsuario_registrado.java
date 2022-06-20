@@ -13,7 +13,7 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 	
 	public void editarFoto(int aId_usuario, String aFoto);
 
-	public Album cargar_album();
+	public Cancion[] cargar_album(int idAlbum);
 
 	public Album[] cargar_album_artista(int aId);
 
@@ -27,7 +27,7 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 
 	public Eventos cargarEvento();
 
-	public Playlist cargar_favoritos();
+	public Cancion[] cargar_favoritos(int idUsuario);
 
 	public Cancion[] cargar_mas_escuchadas(Artista aArtista);
 
@@ -38,4 +38,6 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 	public Playlist cargarUltimasReproducciones();
 
 	public void darBaja(int aId_usuario);
+	
+	public void anadirCancionFavoritos(int idUsuario, int idCancion);
 }

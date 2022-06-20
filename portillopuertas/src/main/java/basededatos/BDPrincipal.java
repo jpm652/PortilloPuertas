@@ -104,9 +104,17 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		}
 	}
 
-	public Album cargar_album() {
-		throw new UnsupportedOperationException();
-	}
+	public Cancion[] cargar_album(int idAlbum) {
+		Cancion[] canciones = null;
+
+		try {
+			canciones = _bd_album.cargar_album(idAlbum);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return canciones;
+		}
 
 	public Album[] cargar_album_artista(int aId) {
 		try {
@@ -145,9 +153,15 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public Playlist cargar_favoritos() {
-		throw new UnsupportedOperationException();
-	}
+	public Cancion[] cargar_favoritos(int idUsuario) {
+		try {
+			return _bd_playlist.cargar_favoritos(idUsuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		}	
 
 	public Cancion[] cargar_mas_escuchadas(Artista aArtista) {
 		try {
@@ -156,7 +170,8 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;	}
+		return null;
+		}
 
 	public Playlist cargar_Playlist() {
 		throw new UnsupportedOperationException();
@@ -254,14 +269,22 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	}
 
 	@Override
-	public void anadirCancionAlbum(int aCancion, int aAlbum) {
+	public int anadirCancionAlbum(String aCancion, String aAlbum) {
 		try {
-			 _bd_administrador.anadirCancionAlbum(aCancion, aAlbum);
+			 return _bd_administrador.anadirCancionAlbum(aCancion, aAlbum);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return 0;
+	}
 
+	@Override
+	public void anadirCancionFavoritos(int idUsuario, int idCancion) {
+		try {
+			  _bd_usuario_registrado.anadirCancionFavoritos(idUsuario, idCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}		
 	}
 	
 }

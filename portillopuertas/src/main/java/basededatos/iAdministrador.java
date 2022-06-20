@@ -2,7 +2,7 @@ package basededatos;
 
 public interface iAdministrador extends iUsuario_registrado {
 
-	public Playlist cargar_favoritos();
+	public Cancion[] cargar_favoritos(int idUsuario);
 
 	public Playlist cargarUltimasReproducciones();
 
@@ -14,7 +14,7 @@ public interface iAdministrador extends iUsuario_registrado {
 
 	public void darAltaEstilo(String aNombre);
 	
-	public void anadirCancionAlbum(int aCancion, int aAlbum);
+	public int anadirCancionAlbum(String aCancion, String aAlbum);
 
 	public void darBajaArtista(String aArtista);
 

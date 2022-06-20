@@ -78,7 +78,7 @@ public class Cancion__Registrado_ extends VistaCancion_registrado {
 			}
 		});
 	
-		Pagina_principal.barra_reproduccion.inicializar(cancion);
+		Pagina_principal.barra_reproduccion.inicializar(cancion,usuario);
 		Pagina_principal.barra_reproduccion.getImg_barra().setSrc(cancion.getImagen_cancion());
 
 	}

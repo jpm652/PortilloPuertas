@@ -18,14 +18,14 @@ public class Albumes extends VistaAlbumes {
 	public Vector<Cancion_anterior> _list_album = new Vector<Cancion_anterior>();
 	iUsuario_no_registrado iUser = new BDPrincipal();
 	
-	public Albumes(VerticalLayout vlpadre) {
+	public Albumes(VerticalLayout vlpadre, UsuarioComun usuario) {
 
-		 inicializar(vlpadre);
+		 inicializar(vlpadre,usuario);
 	}
 
-	public void inicializar(VerticalLayout vlpadre) {
+	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 
-		CargarAlbumes(vlpadre);
+		CargarAlbumes(vlpadre,usuario);
 
 		Scroller scroller = this.getScroll();
 		HorizontalLayout tempHl = new HorizontalLayout();
@@ -40,12 +40,12 @@ public class Albumes extends VistaAlbumes {
 		scroller.setContent(tempHl);
 	}
 
-	public void CargarAlbumes(VerticalLayout vl) {
+	public void CargarAlbumes(VerticalLayout vl, UsuarioComun usuario) {
 		Cancion[] recomendadas = iUser.cargar_lista_novedades();	
 		Cancion_anterior cancion;
 		
 		for (int i = 0; i < recomendadas.length; i++) {
-			cancion = new Cancion_anterior(vl, "Si", new UsuarioComun(), recomendadas[i]);
+			cancion = new Cancion_anterior(vl, "Si", usuario, recomendadas[i]);
 			cancion.getStyle().set("padding-left", "5%");
 			cancion.setNombreCancion(recomendadas[i].getTitulo());
 			cancion.getImgCancion().setSrc(recomendadas[i].getImagen_cancion());
