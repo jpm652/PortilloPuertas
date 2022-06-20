@@ -15,7 +15,7 @@ export class VistaPlayPause extends LitElement {
     return html`
 <vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" id="vlAlbum" style="align-items: center;">
-  <img id="imgAlbum" style="width: 100px; height: 100px; margin-top: 50px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+  <img id="imgAlbum" style="width: 100px; height: 100px; margin-top: 50px;">
   <label id="label1" class="nombrealbum" style="align-self: center;">Nombre Album</label>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>

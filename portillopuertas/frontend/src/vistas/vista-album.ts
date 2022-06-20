@@ -19,7 +19,7 @@ export class VistaAlbum extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;background: #F6F5F5;
 " id="vaadinVerticalLayout1">
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
-  <img id="imgAlbum" style="width: 150px; height: 150px; margin-top: 100px; margin-left: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+  <img id="imgAlbum" style="width: 150px; height: 150px; margin-top: 100px; margin-left: 100px;">
   <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout" style="justify-content: space-around;">
    <label id="nombreAlbum" style="margin-top: 100px;font-weight:bold">Nombre Album</label>
    <label style="font-weight:bold" id="nombreArtista">Nombre Artista</label>

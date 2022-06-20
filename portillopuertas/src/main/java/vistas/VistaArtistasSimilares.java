@@ -22,7 +22,8 @@ public class VistaArtistasSimilares extends LitTemplate {
 	private HorizontalLayout hlArtistasSimilares;
 	@Id("imgArtistasSimilares")
 	private Image imgArtistasSimilares;
-
+	@Id("nombreArtistaSimilares")
+	private Label nombreArtistaSimilares;
 	/**
      * Creates a new VistaArtistasSimilares.
      */
@@ -44,6 +45,14 @@ public class VistaArtistasSimilares extends LitTemplate {
 
 	public void setImgArtistasSimilares(Image imgArtistasSimilares) {
 		this.imgArtistasSimilares = imgArtistasSimilares;
+	}
+
+	public Label getNombreArtistaSimilares() {
+		return nombreArtistaSimilares;
+	}
+
+	public void setNombreArtistaSimilares(String nombreArtistaSimilares) {
+		this.nombreArtistaSimilares.setText(nombreArtistaSimilares);
 	}
 
 }

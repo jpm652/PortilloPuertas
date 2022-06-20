@@ -18,6 +18,7 @@ export class VistaBarra_reproduccion extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; background:#276678; height: 15%;" id="vaadinVerticalLayout">
+ <vaadin-vertical-layout theme="spacing" id="audioplayer" style="width: 75%; align-self: center;"></vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-grow: 0; height: 100%;" id="vaadinHorizontalLayout">
   <vaadin-vertical-layout theme="spacing" style="margin-top: var(--lumo-space-xs); margin-left: var(--lumo-space-l);" id="vaadinVerticalLayout1">
    <vaadin-button theme="icon" aria-label="Add new" id="bt_barra_max" style="width: 50px; height: 50px; background:transparent;">
@@ -25,10 +26,10 @@ export class VistaBarra_reproduccion extends LitElement {
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="flex-direction: row; width: 25%;">
-   <img style="width: 150px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true" id="img_barra">
-   <vaadin-horizontal-layout theme="spacing" style="flex-direction: column; width: 100%;">
-    <label style="color:white" id="cancion_barra">Nombre Canción</label>
-    <label style="color:white" id="autor_barra">Autor</label>
+   <img id="img_barra" style="width: 100px; height: 100px;">
+   <vaadin-horizontal-layout theme="spacing" style="flex-direction: column; width: 100%; align-self: center;">
+    <label style="color:white;font-size:20px" id="cancion_barra">Nombre Canción</label>
+    <label style="color:white;font-size:18px" id="autor_barra">Autor</label>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout style="flex-direction: row; width: 40%; justify-content: space-around; align-items: center; margin-right: 10%;">

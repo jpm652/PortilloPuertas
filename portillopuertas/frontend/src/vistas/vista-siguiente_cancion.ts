@@ -15,7 +15,7 @@ export class VistaSiguiente_cancion extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 20%; height: 50%; align-items: center; justify-content: center;" id="vaadinVerticalLayout">
- <img id="imgCancion" style="width: 90%; height: 50%;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+ <img id="imgCancion" style="width: 200px; height: 200px;">
  <label id="nombreCancion" style="margin: var(--lumo-space-s);">Nombre Artista</label>
 </vaadin-vertical-layout>
 `;

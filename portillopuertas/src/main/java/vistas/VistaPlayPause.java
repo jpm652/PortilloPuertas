@@ -21,10 +21,10 @@ public class VistaPlayPause extends LitTemplate {
 
     @Id("vlAlbum")
 	private VerticalLayout vlAlbum;
-	@Id("imgAlbum")
-	private Image imgAlbum;
 	@Id("label1")
 	private Label label1;
+	@Id("imgAlbum")
+	private Image imgAlbum;
 
 	/**
      * Creates a new VistaPlayPause.
@@ -53,8 +53,8 @@ public class VistaPlayPause extends LitTemplate {
 		return label1;
 	}
 
-	public void setLabel1(Label label1) {
-		this.label1 = label1;
+	public void setLabel1(String label1) {
+		this.label1.setText(label1);
 	}
 
 }

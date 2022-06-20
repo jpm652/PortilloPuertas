@@ -26,8 +26,6 @@ public class VistaBarra_reproduccion extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("bt_barra_max")
 	private Button bt_barra_max;
-	@Id("img_barra")
-	private Image img_barra;
 	@Id("cancion_barra")
 	private Label cancion_barra;
 	@Id("autor_barra")
@@ -50,6 +48,10 @@ public class VistaBarra_reproduccion extends LitTemplate {
 	private Button bt_barra_fav;
 	@Id("bt_barra_add")
 	private Button bt_barra_add;
+	@Id("img_barra")
+	private Image img_barra;
+	@Id("audioplayer")
+	private Element audioplayer;
 
 	/**
 	 * Creates a new VistaBarra_reproduccion.
@@ -176,6 +178,22 @@ public class VistaBarra_reproduccion extends LitTemplate {
 
 	public void setBt_barra_add(Button bt_barra_add) {
 		this.bt_barra_add = bt_barra_add;
+	}
+
+	public void setCancion_barra(Label cancion_barra) {
+		this.cancion_barra = cancion_barra;
+	}
+
+	public void setAutor_barra(Label autor_barra) {
+		this.autor_barra = autor_barra;
+	}
+
+	public Element getAudioplayer() {
+		return audioplayer;
+	}
+
+	public void setAudioplayer(Element audioplayer) {
+		this.audioplayer = audioplayer;
 	}
 
 }

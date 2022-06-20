@@ -18,8 +18,18 @@ public class BD_Album {
 		throw new UnsupportedOperationException();
 	}
 
-	public List carga_album_artista(int aId) {
-		throw new UnsupportedOperationException();
+	public Album[] carga_album_artista(int aId) throws PersistentException {
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Album[] albumes = AlbumDAO.listAlbumByQuery("ArtistaUsuarioComunId ="+aId,null);
+			t.commit();
+			return albumes;
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return null;
 	}
 
 	public void darAltaAlbum(String aNombre, String aArtista, String arutaFoto) throws PersistentException {

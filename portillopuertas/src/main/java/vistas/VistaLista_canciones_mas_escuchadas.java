@@ -24,14 +24,14 @@ public class VistaLista_canciones_mas_escuchadas extends LitTemplate {
 
 
 
-	@Id("imgCancionMasEscuchada")
-	private Image imgCancionMasEscuchada;
-	@Id("label1")
-	private Label label1;
 	@Id("numeroReproducciones")
 	private Label numeroReproducciones;
 	@Id("vlcancionmasescuchada")
 	private VerticalLayout vlcancionmasescuchada;
+	@Id("label1")
+	private Label label1;
+	@Id("imgCancionMasEscuchada")
+	private Image imgCancionMasEscuchada;
 	/**
      * Creates a new VistaLista_canciones_mas_escuchadas.
      */
@@ -51,16 +51,16 @@ public class VistaLista_canciones_mas_escuchadas extends LitTemplate {
 		return label1;
 	}
 
-	public void setLabel1(Label label1) {
-		this.label1 = label1;
+	public void setLabel1(String label1) {
+		this.label1.setText(label1);
 	}
 
 	public Label getNumeroReproducciones() {
 		return numeroReproducciones;
 	}
 
-	public void setNumeroReproducciones(Label numeroReproducciones) {
-		this.numeroReproducciones = numeroReproducciones;
+	public void setNumeroReproducciones(String numeroReproducciones) {
+		this.numeroReproducciones.setText(numeroReproducciones);
 	}
 
 	public VerticalLayout getVlcancionmasescuchada() {

@@ -16,9 +16,20 @@ public class BD_Cancion {
 		throw new UnsupportedOperationException();
 	}
 
-	public Playlist cargar_mas_escuchadas() {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_mas_escuchadas(Artista aArtista)throws PersistentException {
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Cancion[] canciones = CancionDAO.listCancionByQuery("ArtistaUsuarioComunId ="+aArtista.getId(),"NumReproducciones");
+			t.commit();
+			return canciones;
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return null;
 	}
+
 
 	public void darAltaCancion(String aNombre, String aArtista, String aEstilo, String aProductor, String acompositor,
 			int aDuracion, String aImagen, String archivoMultimedia, boolean novedades) throws PersistentException {

@@ -16,8 +16,8 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 
 	public Barra_reproduccion(Cancion cancion) {
 		inicializar(cancion);
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		audio.getElement().getStyle().set("width", "100%");
+		VerticalLayout vl = this.getAudioplayer().as(VerticalLayout.class);
+		audio.getElement().getStyle().set("width", "75%").set("align-self", "center");
 		vl.add(audio);
 	}
 	
@@ -25,7 +25,7 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 
 		audio.setSource(cancion.getFicheroMultimedia());
 		setCancion_barra(cancion.getTitulo());
-		setAutor_barra(cancion.getArtista());
+		setAutor_barra(cancion.getArtista());	
 	}
 	
 }

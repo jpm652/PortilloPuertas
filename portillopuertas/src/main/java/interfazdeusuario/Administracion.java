@@ -362,6 +362,7 @@ public class Administracion extends VistaAdministracion {
 			}
 		});
 	}
+	
 
 	public void baja_artista() {
 		this.getButton_bajaartista().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -374,7 +375,70 @@ public class Administracion extends VistaAdministracion {
 			}
 		});
 	}
+	
+	public void anadirCancionAlbum() {
 
+		this.getButton_anadircancionalbum().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				int cancion =Integer.parseInt(getNombreCancion_anadir_album().getValue());
+				int album = Integer.parseInt(getNombrealbum_anadirCancion_album().getValue());
+				
+//				if (cancion.isEmpty() | album.isEmpty()) {
+//					Dialog dialog = new Dialog();
+//					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error: Dar Añadir cancion a album",
+//							"Introduzca todos los parametros");
+//
+//					dialog.add(dialogLayout);
+//					Button closeButton = new Button("Aceptar");
+//					closeButton.addClickListener(e -> dialog.close());
+//					dialog.add(dialogLayout);
+//					dialog.add(closeButton);
+//					dialog.open();
+//				} else {
+
+					_iAdmin.anadirCancionAlbum(cancion, album);
+//					if(casos ==0) {
+//						Dialog dialog = new Dialog();
+//						VerticalLayout dialogLayout = createDialogLayout(dialog, "Error añadir cancion a album",
+//								"No existe la cancion");
+//
+//						dialog.add(dialogLayout);
+//						Button closeButton = new Button("Aceptar");
+//						closeButton.addClickListener(e -> dialog.close());
+//						dialog.add(dialogLayout);
+//						dialog.add(closeButton);
+//						dialog.open();
+//					}
+//					if(casos ==1) {
+//						Dialog dialog = new Dialog();
+//						VerticalLayout dialogLayout = createDialogLayout(dialog, "Error añadir cancion a album",
+//								"No existe el album");
+//
+//						dialog.add(dialogLayout);
+//						Button closeButton = new Button("Aceptar");
+//						closeButton.addClickListener(e -> dialog.close());
+//						dialog.add(dialogLayout);
+//						dialog.add(closeButton);
+//						dialog.open();
+//					}else {
+//						Dialog dialog = new Dialog();
+//						VerticalLayout dialogLayout = createDialogLayout(dialog, "Cancion añadida",
+//								"Cancion añadida corrctamente al album");
+//
+//						dialog.add(dialogLayout);
+//						Button closeButton = new Button("Aceptar");
+//						closeButton.addClickListener(e -> dialog.close());
+//						dialog.add(dialogLayout);
+//						dialog.add(closeButton);
+//						dialog.open();
+//					}
+
+//				}
+			}
+		});
+	}
 	public void baja_usuario() {
 
 		this.getButton_bajausuario().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

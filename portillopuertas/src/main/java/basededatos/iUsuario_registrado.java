@@ -15,11 +15,11 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 
 	public Album cargar_album();
 
-	public List cargar_album_artista(int aId);
+	public Album[] cargar_album_artista(int aId);
 
 	public List cargar_artistasSimilares(Estilo aEstilo);
 
-	public List cargar_artistasSeguidos(int aId_usuario);
+	public Artista[] cargar_artistasSeguidos(int aId_usuario);
 
 	public void busqueda(String aNombre);
 
@@ -29,7 +29,7 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 
 	public Playlist cargar_favoritos();
 
-	public Playlist cargar_mas_escuchadas();
+	public Cancion[] cargar_mas_escuchadas(Artista aArtista);
 
 	public Playlist cargar_Playlist();
 

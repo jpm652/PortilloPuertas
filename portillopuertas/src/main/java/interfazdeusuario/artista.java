@@ -4,6 +4,12 @@ import java.util.Vector;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Artista;
+import basededatos.BDPrincipal;
+import basededatos.Cancion;
+import basededatos.Album;
+import basededatos.UsuarioComun;
+import basededatos.iUsuario_registrado;
 import vistas.VistaArtista;
 
 public class artista extends VistaArtista{
@@ -23,18 +29,24 @@ public class artista extends VistaArtista{
 	public Vector<Playlist_donde_aparece> list_playlist_donde_aparece= new Vector<Playlist_donde_aparece>();
 	public Vector<ArtistasSimilares> list_artistas_similares= new Vector<ArtistasSimilares>();
 	public Datos_evento evento = new Datos_evento();
-	
-	public artista() {
-		inicializar(new VerticalLayout());
+	iUsuario_registrado user = new BDPrincipal();
+
+	public artista(Artista aArtista, UsuarioComun usuario) {
+		inicializar(new VerticalLayout(),aArtista,usuario);
+		this.getImgPerfilArtista().setSrc(aArtista.getFoto());
+		this.setNombrePerfilArtista(aArtista.getNombreArtista());
+		this.setGeneroMusical("Artista");
+		this.setSeguidores("Seguidores: " +Integer.toString(aArtista.getSeguidores()));
+
 	}
 	
-	public void inicializar(VerticalLayout vlpadre) {
+	public void inicializar(VerticalLayout vlpadre,Artista aArtista, UsuarioComun usuario) {
 		VerticalLayout vl = this.getVlvistaartista().as(VerticalLayout.class);
 
-		CargarCancionesMasEscuchadas(vl);
-		CargarAlbumes(vl);
+		CargarCancionesMasEscuchadas(vl,aArtista,usuario);
+		CargarAlbumes(vl,aArtista,usuario);
 		CargarPlaylist(vl);
-		CargarArtistasSimilares(vl);
+		CargarArtistasSimilares(vl,usuario);
 		
 		for (int i = 0; i < list_cancionesMasEscuchadas.size(); i++) {			
 			gethLCancionesMasEscuchadas().add(list_cancionesMasEscuchadas.get(i));
@@ -59,25 +71,31 @@ public class artista extends VistaArtista{
 	}
 	
 	
-	public void CargarCancionesMasEscuchadas(VerticalLayout vl) {
+	public void CargarCancionesMasEscuchadas(VerticalLayout vl,Artista aArtista, UsuarioComun usuario) {
 		
-		Lista_canciones_mas_escuchadas cancionMasEscuchada;
+		Cancion[] cancionesMasEscuchadas = user.cargar_mas_escuchadas(aArtista);
+		Lista_canciones_mas_escuchadas cancion;
 		
-		for (int i = 0; i < 5; i++) {
-			cancionMasEscuchada = new Lista_canciones_mas_escuchadas(vl);
-			cancionMasEscuchada.getStyle().set("padding-left", "5%");
-			list_cancionesMasEscuchadas.add(cancionMasEscuchada);
+		for (int i = 0; i < cancionesMasEscuchadas.length; i++) {
+			cancion = new Lista_canciones_mas_escuchadas(vl,usuario,cancionesMasEscuchadas[i]);
+			cancion.getStyle().set("padding-left", "5%");
+			cancion.setLabel1(cancionesMasEscuchadas[i].getTitulo());
+			cancion.setNumeroReproducciones("Reproducciones:"+ cancionesMasEscuchadas[i].getNumReproducciones());
+			cancion.getImgCancionMasEscuchada().setSrc(cancionesMasEscuchadas[i].getImagen_cancion());
+			list_cancionesMasEscuchadas.add(cancion);
 		}
 	}
 	
 	
-	public void CargarAlbumes(VerticalLayout vl) {
-		
+	public void CargarAlbumes(VerticalLayout vl,Artista aArtista,UsuarioComun usuario) {
+		basededatos.Album[] albumes = user.cargar_album_artista(aArtista.getId());
 		Play_pause album;
 		
-		for (int i = 0; i < 5; i++) {
-			album = new Play_pause(vl);
+		for (int i = 0; i < albumes.length; i++) {
+			album = new Play_pause(vl,aArtista,usuario, albumes[i]);
 			album.getStyle().set("padding-left", "5%");
+			album.setLabel1(albumes[i].getNombre());
+			album.getImgAlbum().setSrc(albumes[i].getImagen_album());
 			list_albumes_artista.add(album);
 		}
 	}
@@ -93,13 +111,16 @@ public class artista extends VistaArtista{
 		}
 	}
 	
-	public void CargarArtistasSimilares(VerticalLayout vl) {
-
+	public void CargarArtistasSimilares(VerticalLayout vl,UsuarioComun usuario) {
+		Artista[] artistasSim = user.cargar_artistasSeguidos(0);
 		ArtistasSimilares artistasSimilares;
 		
-		for (int i = 0; i < 5; i++) {
-			artistasSimilares = new ArtistasSimilares(vl);
+		for (int i = 0; i < artistasSim.length; i++) {
+			artistasSimilares = new ArtistasSimilares(vl,artistasSim[i],usuario);
 			list_artistas_similares.add(artistasSimilares);
+			artistasSimilares.getImgArtistasSimilares().setSrc(artistasSim[i].getFoto());
+			artistasSimilares.setNombreArtistaSimilares(artistasSim[i].getNombreArtista());
+
 		}
 	}
 	

@@ -47,14 +47,6 @@ public class VistaAdministracion extends LitTemplate {
 	private Button button_anadiralbum;
 	@Id("anadircancion")
 	private Button anadircancion;
-	@Id("nombreartistadarbaja")
-	private TextField nombreartistadarbaja;
-	@Id("button_bajaartista")
-	private Button button_bajaartista;
-	@Id("nombreusuariodarbaja")
-	private TextField nombreusuariodarbaja;
-	@Id("button_bajausuario")
-	private Button button_bajausuario;
 	@Id("fotoartista")
 	private Image fotoartista;
 	@Id("bt_FotoArtista")
@@ -85,6 +77,26 @@ public class VistaAdministracion extends LitTemplate {
 	private Button bt_anadirficheromultimedia;
 	@Id("novedades")
 	private Checkbox novedades;
+	@Id("nombreartistadarbaja")
+	private TextField nombreartistadarbaja;
+	@Id("NombreCancionNovedades")
+	private TextField nombreCancionNovedades;
+	@Id("button_anadircancionalbum")
+	private Button button_anadircancionalbum;
+	@Id("nombrealbum_anadirCancion_album")
+	private TextField nombrealbum_anadirCancion_album;
+	@Id("nombreCancion_anadir_album")
+	private TextField nombreCancion_anadir_album;
+	@Id("checkbox_anadir_novedades")
+	private Checkbox checkbox_anadir_novedades;
+	@Id("bt_anadir_novedades")
+	private Button bt_anadir_novedades;
+	@Id("button_bajaartista")
+	private Button button_bajaartista;
+	@Id("nombreusuariodarbaja")
+	private TextField nombreusuariodarbaja;
+	@Id("button_bajausuario")
+	private Button button_bajausuario;
 	/**
      * Creates a new VistaAdministracion.
      */
@@ -332,6 +344,54 @@ public class VistaAdministracion extends LitTemplate {
 
 	public void setNovedades(Checkbox novedades) {
 		this.novedades = novedades;
+	}
+
+	public TextField getNombreCancionNovedades() {
+		return nombreCancionNovedades;
+	}
+
+	public void setNombreCancionNovedades(TextField nombreCancionNovedades) {
+		this.nombreCancionNovedades = nombreCancionNovedades;
+	}
+
+	public Button getButton_anadircancionalbum() {
+		return button_anadircancionalbum;
+	}
+
+	public void setButton_anadircancionalbum(Button button_anadircancionalbum) {
+		this.button_anadircancionalbum = button_anadircancionalbum;
+	}
+
+	public TextField getNombrealbum_anadirCancion_album() {
+		return nombrealbum_anadirCancion_album;
+	}
+
+	public void setNombrealbum_anadirCancion_album(TextField nombrealbum_anadirCancion_album) {
+		this.nombrealbum_anadirCancion_album = nombrealbum_anadirCancion_album;
+	}
+
+	public TextField getNombreCancion_anadir_album() {
+		return nombreCancion_anadir_album;
+	}
+
+	public void setNombreCancion_anadir_album(TextField nombreCancion_anadir_album) {
+		this.nombreCancion_anadir_album = nombreCancion_anadir_album;
+	}
+
+	public Checkbox getCheckbox_anadir_novedades() {
+		return checkbox_anadir_novedades;
+	}
+
+	public void setCheckbox_anadir_novedades(Checkbox checkbox_anadir_novedades) {
+		this.checkbox_anadir_novedades = checkbox_anadir_novedades;
+	}
+
+	public Button getBt_anadir_novedades() {
+		return bt_anadir_novedades;
+	}
+
+	public void setBt_anadir_novedades(Button bt_anadir_novedades) {
+		this.bt_anadir_novedades = bt_anadir_novedades;
 	}
     
 }

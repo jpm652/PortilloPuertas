@@ -14,6 +14,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.spring.annotation.UIScope;
 
 import basededatos.UsuarioComun;
 import vistas.VistaCabecera_registrado;
@@ -94,6 +95,7 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 
 		this.getBt_cerrarSesion().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
+			@UIScope
 			public void onComponentEvent(ClickEvent<Button> event) {
 			    UI.getCurrent().getPage().reload();
 			}

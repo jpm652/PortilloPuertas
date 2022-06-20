@@ -27,7 +27,18 @@ public class VistaCreditos extends LitTemplate {
 	private Button min_creditos_no_registrado;
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-
+	@Id("imgcancion")
+	private Image imgcancion;
+	@Id("nombreCancion")
+	private Label nombreCancion;
+	@Id("albumcancion")
+	private Label albumcancion;
+	@Id("compositor")
+	private Label compositor;
+	@Id("productor")
+	private Label productor;
+	@Id("artista")
+	private Label artista;
 	/**
      * Creates a new VistaCreditos.
      */
@@ -49,6 +60,54 @@ public class VistaCreditos extends LitTemplate {
 
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public Image getImgcancion() {
+		return imgcancion;
+	}
+
+	public void setImgcancion(Image imgcancion) {
+		this.imgcancion = imgcancion;
+	}
+
+	public Label getNombreCancion() {
+		return nombreCancion;
+	}
+
+	public void setNombreCancion(String nombreCancion) {
+		this.nombreCancion.setText(nombreCancion);
+				}
+
+	public Label getAlbumcancion() {
+		return albumcancion;
+	}
+
+	public void setAlbumcancion(String albumcancion) {
+		this.albumcancion.setText(albumcancion);
+	}
+
+	public Label getCompositor() {
+		return compositor;
+	}
+
+	public void setCompositor(String compositor) {
+		this.compositor.setText(compositor);
+	}
+
+	public Label getProductor() {
+		return productor;
+	}
+
+	public void setProductor(String productor) {
+		this.productor.setText(productor);
+	}
+
+	public Label getArtista() {
+		return artista;
+	}
+
+	public void setArtista(String artista) {
+		this.artista.setText(artista);
 	}
 
     

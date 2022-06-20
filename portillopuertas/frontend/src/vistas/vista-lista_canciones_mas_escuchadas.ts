@@ -16,7 +16,7 @@ export class VistaLista_canciones_mas_escuchadas extends LitElement {
     return html`
 <vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" id="vlcancionmasescuchada" style="align-items: center;">
-  <img id="imgCancionMasEscuchada" style="width: 100px; height: 100px; margin-top: 50px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+  <img id="imgCancionMasEscuchada" style="width: 100px; height: 100px; margin-top: 50px;">
   <label id="label1" class="nombreCancionMasEscuchada" style="align-self: center;">Nombre Cancion</label>
   <label id="numeroReproducciones" style="align-self: center;">Reproducciones</label>
  </vaadin-vertical-layout>

@@ -44,8 +44,6 @@ public class VistaArtista extends LitTemplate {
 	private VerticalLayout vlArtistasSimilares;
 	@Id("vlEvento")
 	private VerticalLayout vlEvento;
-	@Id("imgPerfilArtista")
-	private Image imgPerfilArtista;
 	@Id("generoMusical")
 	private Label generoMusical;
 	@Id("Seguidores")
@@ -54,6 +52,8 @@ public class VistaArtista extends LitTemplate {
 	private Label nombrePerfilArtista;
 	@Id("vlvistaartista")
 	private Element vlvistaartista;
+	@Id("imgPerfilArtista")
+	private Image imgPerfilArtista;
 	/**
      * Creates a new VistaArtista.
      */
@@ -113,24 +113,24 @@ public class VistaArtista extends LitTemplate {
 		return generoMusical;
 	}
 
-	public void setGeneroMusical(Label generoMusical) {
-		this.generoMusical = generoMusical;
+	public void setGeneroMusical(String generoMusical) {
+		this.generoMusical.setText(generoMusical);
 	}
 
 	public Label getSeguidores() {
 		return seguidores;
 	}
 
-	public void setSeguidores(Label seguidores) {
-		this.seguidores = seguidores;
+	public void setSeguidores(String seguidores) {
+		this.seguidores.setText(seguidores);
 	}
 
 	public Label getNombrePerfilArtista() {
 		return nombrePerfilArtista;
 	}
 
-	public void setNombrePerfilArtista(Label nombrePerfilArtista) {
-		this.nombrePerfilArtista = nombrePerfilArtista;
+	public void setNombrePerfilArtista(String nombrePerfilArtista) {
+		this.nombrePerfilArtista.setText(nombrePerfilArtista);
 	}
 
 	public Element getVlvistaartista() {

@@ -25,6 +25,13 @@ public class Creditos extends VistaCreditos {
 
 	public void inicializar(VerticalLayout vlpadre, Cancion cancion) {
 
+		this.setNombreCancion(cancion.getTitulo());
+		this.setAlbumcancion(cancion.getAlbum());
+		this.getImgcancion().setSrc(cancion.getImagen_cancion());
+		this.setCompositor(cancion.getCompositor());
+		this.setProductor(cancion.getProductor());
+		this.setArtista(cancion.getArtista());
+		
 		this.getMin_creditos_no_registrado().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override

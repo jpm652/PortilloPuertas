@@ -37,6 +37,7 @@ public class Pagina_principal extends VistaPagina_principal {
 	// VerticalLayout vl_centro = new VerticalLayout();
 
 	Cabecera__registrado_ cr = new Cabecera__registrado_();
+	
 	public static Barra_reproduccion barra_reproduccion = new Barra_reproduccion(new Cancion());
 
 	public Pagina_principal() {
@@ -95,7 +96,7 @@ public class Pagina_principal extends VistaPagina_principal {
 		Scroller scroller = this.getScroller();
 
 		Ultimas_reproducciones ultimas = new Ultimas_reproducciones(vl_centro, usuario);
-		Artistas_seguidos artistasS = new Artistas_seguidos(vl_centro);
+		Artistas_seguidos artistasS = new Artistas_seguidos(vl_centro,usuario);
 		Albumes albumes = new Albumes(vl_centro);
 
 		vl_centro.add(ultimas);

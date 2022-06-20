@@ -72,6 +72,7 @@ public class Cancion__No_registrado_ extends VistaCancion_no_registrado {
 		barra_reproduccion.getStyle().set("width", "100%").set("height", "100%");
 		barra_reproduccion.setAutor_barra(cancion.getArtista());
 		barra_reproduccion.setCancion_barra(cancion.getTitulo());
+		barra_reproduccion.getImg_barra().setSrc(cancion.getImagen_cancion());
 //		barra_reproduccion
 		vlpadre.add(barra_reproduccion);
 

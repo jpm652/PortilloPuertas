@@ -81,7 +81,7 @@ export class VistaAdministracion extends LitElement {
    <vaadin-text-field placeholder="Nombre Compositor" style="width: 50%;" id="nombrecompositoranadircancion"></vaadin-text-field>
    <vaadin-text-field placeholder="Duracion" style="width: 50%;" id="duracionCancion"></vaadin-text-field>
    <vaadin-checkbox id="novedades" style="align-self: center; width: 50%;">
-    Añadir a Novedades
+     Añadir a Novedades 
    </vaadin-checkbox>
    <vaadin-horizontal-layout theme="spacing" style="align-self: center; justify-content: center; margin: var(--lumo-space-s); align-items: center;" id="vaadinHorizontalLayout1">
     <img id="fotoCancion" style="max-width: 100px; max-height: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true">
@@ -95,6 +95,30 @@ export class VistaAdministracion extends LitElement {
     </vaadin-button>
    </vaadin-horizontal-layout>
    <vaadin-button id="anadircancion">
+     Aceptar 
+   </vaadin-button>
+  </vaadin-vertical-layout>
+ </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; margin-top: var(--lumo-space-l);">
+  <vaadin-vertical-layout theme="spacing" style="width: 50%; align-items: center;">
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background-color: #1687A7; ">
+    <label style="color:white">Añadir cancion a lista de novedades</label>
+   </vaadin-horizontal-layout>
+   <vaadin-text-field placeholder="Nombre de la cancion" style="width: 50%;" id="NombreCancionNovedades"></vaadin-text-field>
+   <vaadin-checkbox id="checkbox_anadir_novedades" style="align-self: center; width: 50%;">
+    Añadir a Novedades
+   </vaadin-checkbox>
+   <vaadin-button id="bt_anadir_novedades">
+     Aceptar 
+   </vaadin-button>
+  </vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing" style="width: 50%; align-items: center;">
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: center; background-color: #1687A7; " id="vaadinHorizontalLayout">
+    <label style="color:white">Añadir Cancion a un album</label>
+   </vaadin-horizontal-layout>
+   <vaadin-text-field placeholder="Nombre de la cancion" style="width: 50%;" id="nombreCancion_anadir_album"></vaadin-text-field>
+   <vaadin-text-field placeholder="Nombre del album" style="width: 50%;" id="nombrealbum_anadirCancion_album"></vaadin-text-field>
+   <vaadin-button id="button_anadircancionalbum">
      Aceptar 
    </vaadin-button>
   </vaadin-vertical-layout>

@@ -7,6 +7,7 @@ import java.io.OutputStream;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.H2;
@@ -80,16 +81,65 @@ public class Registrarse extends VistaRegistrarse {
 			}
 		});
 
-//		this.getIconTwitter().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//
-//		        String route = RouteConfiguration.forSessionScope().getUrl(PathComponent.class);
-//		        Anchor link = new Anchor(route, "Path");
-//		        add(link);
-//			}
-//		});
+		this.getIconTwitter().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://twitter.com/", "Twitter");
+
+			}
+		});
+		
+		this.getIconFacebook().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://es-es.facebook.com/", "Facebook");
+
+			}
+		});
+		
+		this.getIconGoogle().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://www.google.com/intl/es/gmail/about/", "Google");
+
+			}
+		});
+		
+		this.getIconTwitter2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://twitter.com/", "Twitter");
+
+			}
+		});
+		
+		this.getIconFacebook2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://es-es.facebook.com/", "Facebook");
+
+			}
+		});
+		
+		this.getIconGoogle2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://www.google.com/intl/es/gmail/about/", "Google");
+
+			}
+		});
 
 		this.getFotoFC().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 

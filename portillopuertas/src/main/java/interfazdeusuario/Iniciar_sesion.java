@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.H2;
@@ -220,6 +221,36 @@ public class Iniciar_sesion extends VistaIniciar_sesion {
 				dialog.add(closeButton);
 				vlpadre.add(dialog);
 				dialog.open();
+
+			}
+		});
+		
+		this.getIconTwitter().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://twitter.com/", "Twitter");
+
+			}
+		});
+		
+		this.getIconFacebook().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://es-es.facebook.com/", "Facebook");
+
+			}
+		});
+		
+		this.getIconGoogle().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+			    UI.getCurrent().getPage().open("https://www.google.com/intl/es/gmail/about/", "Google");
 
 			}
 		});

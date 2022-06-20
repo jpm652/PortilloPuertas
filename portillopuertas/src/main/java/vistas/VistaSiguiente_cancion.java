@@ -20,10 +20,10 @@ public class VistaSiguiente_cancion extends LitTemplate {
 
     @Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("imgCancion")
-	private Image imgCancion;
 	@Id("nombreCancion")
 	private Label nombreCancion;
+	@Id("imgCancion")
+	private Image imgCancion;
 
 	/**
      * Creates a new VistaSiguiente_cancion.
@@ -52,8 +52,8 @@ public class VistaSiguiente_cancion extends LitTemplate {
 		return nombreCancion;
 	}
 
-	public void setNombreCancion(Label nombreCancion) {
-		this.nombreCancion = nombreCancion;
+	public void setNombreCancion(String nombreCancion) {
+		this.nombreCancion.setText(nombreCancion);
 	}
 
 }

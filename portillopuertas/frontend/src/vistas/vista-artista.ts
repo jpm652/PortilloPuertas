@@ -18,15 +18,15 @@ export class VistaArtista extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%; background:#F6F5F5;" id="vlvistaartista">
  <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="align-self: center; align-items: center; width: 33%;">
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="margin-left: 100px;">
-   <img id="imgPerfilArtista" style="width: 100px; height: 100px; margin-top: 100px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+   <img id="imgPerfilArtista" style="width: 100px; height: 100px; margin-top: 100px;">
    <vaadin-button id="vaadinButton" style="align-self: center; margin-top: 100px;">
      Seguir 
    </vaadin-button>
   </vaadin-horizontal-layout>
-  <label id="nombrePerfilArtista">Nombre del artista</label>
+  <label id="nombrePerfilArtista" style="font-size:30px">Nombre del artista</label>
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 80%; justify-content: flex-start;">
-   <label id="generoMusical">Genero Musical</label>
-   <label id="Seguidores" style="margin-left: 350px;">Seguidores</label>
+   <label id="generoMusical" style="font-size:30px">Genero Musical</label>
+   <label id="Seguidores" style="margin-left: 350px;font-size:30px">Seguidores</label>
   </vaadin-horizontal-layout>
   <hr id="hr" style="width: 100%;">
  </vaadin-vertical-layout>

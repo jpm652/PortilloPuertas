@@ -108,16 +108,29 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public List cargar_album_artista(int aId) {
-		throw new UnsupportedOperationException();
+	public Album[] cargar_album_artista(int aId) {
+		try {
+			return _bd_album.carga_album_artista(aId);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;	
+		
 	}
 
 	public List cargar_artistasSimilares(Estilo aEstilo) {
 		throw new UnsupportedOperationException();
 	}
 
-	public List cargar_artistasSeguidos(int aId_usuario) {
-		throw new UnsupportedOperationException();
+	public Artista[] cargar_artistasSeguidos(int aId_usuario) {
+		try {
+			return _bd_artista.cargar_artistasSeguidos(aId_usuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void busqueda(String aNombre) {
@@ -136,9 +149,14 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public Playlist cargar_mas_escuchadas() {
-		throw new UnsupportedOperationException();
-	}
+	public Cancion[] cargar_mas_escuchadas(Artista aArtista) {
+		try {
+			return _bd_cancion.cargar_mas_escuchadas(aArtista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;	}
 
 	public Playlist cargar_Playlist() {
 		throw new UnsupportedOperationException();
@@ -234,4 +252,16 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		return false;
 
 	}
+
+	@Override
+	public void anadirCancionAlbum(int aCancion, int aAlbum) {
+		try {
+			 _bd_administrador.anadirCancionAlbum(aCancion, aAlbum);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
 }

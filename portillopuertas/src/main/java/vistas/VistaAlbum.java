@@ -24,8 +24,6 @@ import vistas.VistaBarra_reproduccion;
 @JsModule("./src/vistas/vista-album.ts")
 public class VistaAlbum extends LitTemplate {
 
-	@Id("imgAlbum")
-	private Image imgAlbum;
 	@Id("nombreAlbum")
 	private Label nombreAlbum;
 	@Id("nombreArtista")
@@ -42,6 +40,8 @@ public class VistaAlbum extends LitTemplate {
 	private VerticalLayout listaCanciones;
 	@Id("vaadinVerticalLayout1")
 	private Element vaadinVerticalLayout1;
+	@Id("imgAlbum")
+	private Image imgAlbum;
 
 	/**
      * Creates a new VistaAlbum.
@@ -62,16 +62,16 @@ public class VistaAlbum extends LitTemplate {
 		return nombreAlbum;
 	}
 
-	public void setNombreAlbum(Label nombreAlbum) {
-		this.nombreAlbum = nombreAlbum;
+	public void setNombreAlbum(String nombreAlbum) {
+		this.nombreAlbum.setText(nombreAlbum);
 	}
 
 	public Label getNombreArtista() {
 		return nombreArtista;
 	}
 
-	public void setNombreArtista(Label nombreArtista) {
-		this.nombreArtista = nombreArtista;
+	public void setNombreArtista(String nombreArtista) {
+		this.nombreArtista.setText(nombreArtista);
 	}
 
 	public Label getNumeroCan_fecha() {

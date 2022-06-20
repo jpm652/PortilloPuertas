@@ -13,6 +13,8 @@ public interface iAdministrador extends iUsuario_registrado {
 	public void darAltaCancion(String aNombre, String aArtista, String aEstilo, String aProductor, String acompositor, int aDuracion, String aImagen, String aArchivoCancion, boolean novedades);
 
 	public void darAltaEstilo(String aNombre);
+	
+	public void anadirCancionAlbum(int aCancion, int aAlbum);
 
 	public void darBajaArtista(String aArtista);
 

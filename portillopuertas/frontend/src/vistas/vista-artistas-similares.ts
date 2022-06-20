@@ -17,7 +17,7 @@ export class VistaArtistasSimilares extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; align-items: flex-start; justify-content: flex-start;">
  <vaadin-horizontal-layout theme="spacing" id="hlArtistasSimilares" style="align-items: center; margin-left: 200px;">
-  <img id="imgArtistasSimilares" style="width: 60px; height: 60px;" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/hola.png?raw=true">
+  <img id="imgArtistasSimilares" style="width: 60px; height: 60px;">
   <label id="nombreArtistaSimilares">Nombre Artista</label>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

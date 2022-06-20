@@ -12,7 +12,9 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
+import basededatos.Cancion;
 import interfazdeusuario.Administracion;
+import interfazdeusuario.Barra_reproduccion;
 import interfazdeusuario.Cabecera__No_registrado_;
 import interfazdeusuario.Pagina_Principal__No_registrado_;
 import interfazdeusuario.Pagina_principal;
@@ -48,6 +50,7 @@ public class MainView extends VerticalLayout {
      *
      * @param service The message service. Automatically injected Spring managed bean.
      */
+
     public MainView(@Autowired GreetService service) {
 		 
     	// Se inicia la aplicacion en la pagina princial
@@ -56,7 +59,7 @@ public class MainView extends VerticalLayout {
     	pagina_noregistrado.getStyle().set("width", "100%");   
     	pagina_noregistrado.getStyle().set("height", "100%");
     	add(pagina_noregistrado);
-   	
+
     	
     }
 

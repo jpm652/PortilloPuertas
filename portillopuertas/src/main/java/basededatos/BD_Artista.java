@@ -16,8 +16,17 @@ public class BD_Artista {
 		throw new UnsupportedOperationException();
 	}
 
-	public List cargar_artistasSeguidos(int aId_usuario) {
-		throw new UnsupportedOperationException();
+	public Artista[] cargar_artistasSeguidos(int aId_usuario) throws PersistentException {
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista[] artistasSeguidos = ArtistaDAO.listArtistaByQuery("AdministradorUsuarioComunId =1", null);
+			t.commit();
+			return artistasSeguidos;
+		} catch (Exception e) {
+			t.rollback();
+		}	
+		return null;
+	
 	}
 
 	public void darAltaArtista(String aNombre, String aLogin, String aContrasena, String arutaFoto) throws PersistentException{
