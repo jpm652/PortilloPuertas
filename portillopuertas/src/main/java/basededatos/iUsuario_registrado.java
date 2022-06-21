@@ -35,9 +35,9 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 
 	public Cancion[] cargar_mas_escuchadas(Artista aArtista);
 
-	public Playlist cargar_Playlist();
+	public Cancion[] cargar_Playlist(int idPlaylist);
 
-	public void cargar_tusPlaylist();
+	public Playlist[] cargar_tusPlaylist(int idUsuario);
 
 	public Playlist cargarUltimasReproducciones();
 
@@ -46,4 +46,6 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 	public void anadirCancionFavoritos(int idUsuario, int idCancion);
 	
 	public void aumentarReproduccion(int cancion);
+	
+	public void crearPlaylist(String aNombre, int idUsuarioCreador);
 }

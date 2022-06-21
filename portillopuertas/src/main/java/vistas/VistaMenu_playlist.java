@@ -12,6 +12,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import vistas.VistaCabecera_registrado;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-menu_playlist template.
@@ -25,15 +26,14 @@ public class VistaMenu_playlist extends LitTemplate {
 
 	@Id("hr")
 	private Hr hr;
-	@Id("vistaCrear_playlist")
-	private VistaCrear_playlist vistaCrear_playlist;
 	@Id("label")
 	private Label label;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-
+	@Id("bt_crearplsylidt")
+	private Button bt_crearplsylidt;
 	/**
 	 * Creates a new VistaMenu_playlist.
 	 */
@@ -47,14 +47,6 @@ public class VistaMenu_playlist extends LitTemplate {
 
 	public void setHr(Hr hr) {
 		this.hr = hr;
-	}
-
-	public VistaCrear_playlist getVistaCrear_playlist() {
-		return vistaCrear_playlist;
-	}
-
-	public void setVistaCrear_playlist(VistaCrear_playlist vistaCrear_playlist) {
-		this.vistaCrear_playlist = vistaCrear_playlist;
 	}
 
 	public Label getLabel() {
@@ -79,6 +71,14 @@ public class VistaMenu_playlist extends LitTemplate {
 
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public Button getBt_crearplsylidt() {
+		return bt_crearplsylidt;
+	}
+
+	public void setBt_crearplsylidt(Button bt_crearplsylidt) {
+		this.bt_crearplsylidt = bt_crearplsylidt;
 	}
 
 }

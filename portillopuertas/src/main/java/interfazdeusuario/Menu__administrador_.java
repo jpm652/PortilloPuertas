@@ -24,13 +24,12 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 		this.setSeguidores("Seguidores: " + usuario.getSeguidores() + " / Seguidos: " + usuario.getSeguidos());
 		this.getImg().setSrc(usuario.getFoto());
 		
-		System.out.println(usuario.getFoto());
 		this.getListas().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				Menu_playlist menu_playlist = new Menu_playlist();
+				Menu_playlist menu_playlist = new Menu_playlist(usuario);
 				menu_playlist.getStyle().set("width", "100%");
 				vlpadre.removeAll();
 				vlpadre.add(menu_playlist);

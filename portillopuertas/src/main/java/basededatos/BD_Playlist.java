@@ -43,12 +43,35 @@ public class BD_Playlist {
 		return null;
 	}
 
-	public Playlist cargar_Playlist() {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Playlist(int idPlaylist) throws PersistentException {
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Playlist playlist = PlaylistDAO.loadPlaylistByORMID(idPlaylist);
+			Cancion[] canciones = playlist.contiene_canciones.toArray();
+			t.commit();
+			
+			return canciones;
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return null;
 	}
 
-	public List cargar_tusPlaylist() {
-		throw new UnsupportedOperationException();
+	public Playlist[] cargar_tusPlaylist(int idUsuario) throws PersistentException {
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Playlist[] listadeplaylist = PlaylistDAO.listPlaylistByQuery("UsuarioComunId = "+ idUsuario, null);
+			
+			t.commit();
+			return listadeplaylist;
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return null;
 	}
 
 	public Playlist cargar_ultimasReproducciones() {
@@ -61,5 +84,24 @@ public class BD_Playlist {
 
 	public List busqueda_playlist(String aNombre) {
 		throw new UnsupportedOperationException();
+	}
+	public void crearPlaylist(String aNombre, int idUsuarioCreador) throws PersistentException {
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByORMID(idUsuarioCreador);
+			
+			Playlist playlist = PlaylistDAO.createPlaylist();
+			playlist.setNombre(aNombre);
+			playlist.setCreada_por_usuario(user);
+			playlist.setUsuarioCreador(user.getNombreUsuario());
+			
+			PlaylistDAO.save(playlist);
+			t.commit();
+			
+		} catch (Exception e) {
+			t.rollback();
+		}
 	}
 }

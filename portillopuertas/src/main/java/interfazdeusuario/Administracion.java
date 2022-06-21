@@ -174,6 +174,7 @@ public class Administracion extends VistaAdministracion {
 		anadir_album();
 		anadir_cancion();
 		anadirCancionAlbum();
+		anadircancionnovedades();
 		baja_artista();
 		baja_usuario();
 	}
@@ -472,7 +473,45 @@ public class Administracion extends VistaAdministracion {
 			}
 		});
 	}
-	
+	public void anadircancionnovedades() {
+
+		this.getBt_anadir_novedades().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+
+				String nombreCancion = getNombreCancionNovedades().getValue();
+				boolean esNovedad= getCheckbox_anadir_novedades().getValue();
+				
+				int casos = _iAdmin.anadircancionanovedades(nombreCancion, esNovedad);
+				if(casos==0) {
+					Dialog dialog = new Dialog();
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error añadir cancion a album",
+							"No existe la cancion");
+
+					dialog.add(dialogLayout);
+					Button closeButton = new Button("Aceptar");
+					closeButton.addClickListener(e -> dialog.close());
+					dialog.add(dialogLayout);
+					dialog.add(closeButton);
+					dialog.open();
+				}else {
+					Dialog dialog = new Dialog();
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Cancion añadida",
+							"Cancion añadida corrctamente a la lista de novedades");
+
+					dialog.add(dialogLayout);
+					Button closeButton = new Button("Aceptar");
+					closeButton.addClickListener(e -> dialog.close());
+					dialog.add(dialogLayout);
+					dialog.add(closeButton);
+					dialog.open();
+					
+					getNombreCancionNovedades().clear();
+					getCheckbox_anadir_novedades().clear();
+				}
+			}
+		});
+	}
 
 	public void baja_usuario() {
 

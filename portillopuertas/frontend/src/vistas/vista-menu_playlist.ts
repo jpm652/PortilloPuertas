@@ -1,7 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import './vista-crear_playlist';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@polymer/iron-icon/iron-icon.js';
 
 @customElement('vista-menu_playlist')
 export class VistaMenu_playlist extends LitElement {
@@ -19,7 +20,9 @@ export class VistaMenu_playlist extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%;">
   <label id="label" style="margin-top: 50px; margin-left: 100px; font-size:40px;">Tus PlayList</label>
-  <vista-crear_playlist id="vistaCrear_playlist" style="height: 40px; margin-top: 65px; margin-left: 50px;"></vista-crear_playlist>
+  <vaadin-button id="bt_crearplsylidt" style="align-self: center; margin-top: 60px; margin-left: 50px;">
+   <iron-icon icon="lumo:plus" slot="prefix"></iron-icon>Crear Playlist Nueva
+  </vaadin-button>
  </vaadin-horizontal-layout>
  <hr id="hr" style="width: 90%;">
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="margin-top: 25px; width: 100%; justify-content: flex-end; padding-right: var(--lumo-space-xl);">

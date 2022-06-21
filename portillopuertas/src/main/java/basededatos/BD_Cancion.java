@@ -97,4 +97,28 @@ public class BD_Cancion {
 		}
 		
 	}
+	
+	public int anadircancionanovedades(String cancion, boolean esNovedad) throws PersistentException{
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			CancionCriteria c = new CancionCriteria();
+			c.titulo.like(cancion);
+			
+			Cancion cancionNov = CancionDAO.loadCancionByCriteria(c);
+			
+			if(cancionNov == null) {
+				return 0;
+			}
+			cancionNov.setNovedades(esNovedad);
+			CancionDAO.save(cancionNov);
+			t.commit();
+			return 1;
+
+		}catch (Exception e) {
+			t.rollback();
+		}
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+		return 0;
+	}
 }

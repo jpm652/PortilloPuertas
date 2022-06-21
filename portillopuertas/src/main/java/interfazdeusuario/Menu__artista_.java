@@ -29,7 +29,7 @@ public class Menu__artista_ extends VistaMenu_artista {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				Menu_playlist menu_playlist = new Menu_playlist();
+				Menu_playlist menu_playlist = new Menu_playlist(usuario);
 				menu_playlist.getStyle().set("width", "100%");
 				vlpadre.removeAll();
 				vlpadre.add(menu_playlist);

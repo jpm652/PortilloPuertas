@@ -57,8 +57,8 @@ public class VistaLista_de_playlist extends LitTemplate {
 		return nom_playlist;
 	}
 
-	public void setNom_playlist(Label nom_playlist) {
-		this.nom_playlist = nom_playlist;
+	public void setNom_playlist(String nom_playlist) {
+		this.nom_playlist.setText(nom_playlist);
 	}
 
 	public Image getImg_playlist() {
