@@ -30,8 +30,8 @@ export class VistaPlaylist extends LitElement {
   <vaadin-button id="bt_reproducir" style="margin-left: 170px; width: 120px;">
     Reproducir 
   </vaadin-button>
-  <vaadin-button id="btSeguir" style="margin-left: 50px; width: 120px;">
-    Seguir 
+  <vaadin-button id="btAnadircancion" style="margin-left: 50px; width: 150px;">
+   Añadir cancion
   </vaadin-button>
   <vaadin-button id="bt_compartir" style="margin-left: 50px; width: 120px;">
     Compartir 

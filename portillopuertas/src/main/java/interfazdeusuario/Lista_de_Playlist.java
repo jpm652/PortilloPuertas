@@ -9,6 +9,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Playlist;
+import basededatos.UsuarioComun;
 import interfazdeusuario.playlist__1;
 import vistas.VistaLista_de_playlist;
 import vistas.VistaPlaylist;
@@ -21,12 +22,12 @@ public class Lista_de_Playlist extends VistaLista_de_playlist {
 	public Vector<Datos_playlist> _list_datos_playlist = new Vector<Datos_playlist>();
 	public Vector<Playlist_usuario> _list_playlist_usuario = new Vector<Playlist_usuario>();
 
-	public Lista_de_Playlist(VerticalLayout vlpadre, Playlist playlist) {
-		inicializar(vlpadre, playlist);
+	public Lista_de_Playlist(VerticalLayout vlpadre, Playlist playlist, UsuarioComun usuario) {
+		inicializar(vlpadre, playlist,usuario);
 
 	}
 
-	public void inicializar(VerticalLayout vlpadre, Playlist aPlaylist) {
+	public void inicializar(VerticalLayout vlpadre, Playlist aPlaylist, UsuarioComun usuario) {
 
 		this.getTusplaylist_playlist().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 
@@ -34,7 +35,7 @@ public class Lista_de_Playlist extends VistaLista_de_playlist {
 			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
 				vlpadre.removeAll();
 
-				Playlist_usuario playlist = new Playlist_usuario(aPlaylist);
+				Playlist_usuario playlist = new Playlist_usuario(aPlaylist,usuario);
 				playlist.getStyle().set("width", "100%").set("height", "100%");
 				vlpadre.add(playlist);
 			}

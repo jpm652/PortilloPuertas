@@ -100,7 +100,7 @@ public class Menu_playlist extends VistaMenu_playlist {
 		Lista_de_Playlist lista;
 
 		for (int i = 0; i < listadeplaylist.length; i++) {
-			lista = new Lista_de_Playlist(vl, listadeplaylist[i]);
+			lista = new Lista_de_Playlist(vl, listadeplaylist[i],usuario);
 			lista.getStyle().set("width", "100%");
 			lista.setNom_playlist(listadeplaylist[i].getNombre());
 

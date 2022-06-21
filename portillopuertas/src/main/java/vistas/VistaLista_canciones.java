@@ -23,8 +23,6 @@ public class VistaLista_canciones extends LitTemplate {
 	private Label artistacancion;
 	@Id("albumCancion")
 	private Label albumCancion;
-	@Id("tituloCancion")
-	private Label tituloCancion;
 	@Id("duracioncancion")
 	private Label duracioncancion;
 	@Id("bt_compartir")
@@ -33,6 +31,10 @@ public class VistaLista_canciones extends LitTemplate {
 	private Button bt_fav;
 	@Id("bt_eliminar")
 	private Button bt_eliminar;
+	@Id("cancionNombre")
+	private Label cancionNombre;
+	@Id("hl_nombre")
+	private HorizontalLayout hl_nombre;
 
 	/**
      * Creates a new VistaLista_canciones.
@@ -45,32 +47,26 @@ public class VistaLista_canciones extends LitTemplate {
 		return artistacancion;
 	}
 
-	public void setArtistacancion(Label artistacancion) {
-		this.artistacancion = artistacancion;
+	public void setArtistacancion(String artistacancion) {
+		this.artistacancion.setText(artistacancion);
 	}
 
 	public Label getAlbumCancion() {
 		return albumCancion;
 	}
 
-	public void setAlbumCancion(Label albumCancion) {
-		this.albumCancion = albumCancion;
+	public void setAlbumCancion(String albumCancion) {
+		this.albumCancion.setText(albumCancion);
 	}
 
-	public Label getTituloCancion() {
-		return tituloCancion;
-	}
 
-	public void setTituloCancion(Label tituloCancion) {
-		this.tituloCancion = tituloCancion;
-	}
 
 	public Label getDuracioncancion() {
 		return duracioncancion;
 	}
 
-	public void setDuracioncancion(Label duracioncancion) {
-		this.duracioncancion = duracioncancion;
+	public void setDuracioncancion(String duracioncancion) {
+		this.duracioncancion.setText(duracioncancion);
 	}
 
 	public Button getBt_compartir() {
@@ -96,5 +92,23 @@ public class VistaLista_canciones extends LitTemplate {
 	public void setBt_eliminar(Button bt_eliminar) {
 		this.bt_eliminar = bt_eliminar;
 	}
+
+	public Label getCancionNombre() {
+		return cancionNombre;
+	}
+
+	public void setCancionNombre(String cancionNombre) {
+		this.cancionNombre.setText(cancionNombre);
+	}
+
+	public HorizontalLayout getHl_nombre() {
+		return hl_nombre;
+	}
+
+	public void setHl_nombre(HorizontalLayout hl_nombre) {
+		this.hl_nombre = hl_nombre;
+	}
+
+
 
 }

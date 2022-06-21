@@ -16,8 +16,8 @@ export class VistaLista_canciones extends LitElement {
     return html`
 <vaadin-vertical-layout id="vaadinVerticalLayout">
  <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="width: 80%; justify-content: flex-start; align-self: center; margin-top: 25px; background:#F0F0F0; height: 50px;">
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
-   <label style="align-self: center; margin-left: 30px;" id="tituloCancion">Titulo cancion</label>
+  <vaadin-horizontal-layout theme="spacing" id="hl_nombre" style="width: 20%;">
+   <label id="cancionNombre" style="align-self: center; margin-left: 40px;">Label</label>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 20%;">
    <label style="align-self: center; margin-left: 40px;" id="artistacancion">Artista cancion</label>
