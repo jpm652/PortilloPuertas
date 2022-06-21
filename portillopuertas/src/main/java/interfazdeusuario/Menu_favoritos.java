@@ -6,6 +6,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.BDPrincipal;
 import basededatos.Cancion;
+import basededatos.Playlist;
 import basededatos.UsuarioComun;
 import basededatos.iUsuario_registrado;
 import vistas.VistaMenu_favoritos;
@@ -23,23 +24,33 @@ public class Menu_favoritos extends VistaMenu_favoritos {
 		vl.getStyle().set("width", "100%");
 		vl.getStyle().set("height", "100%");
 		vl.getStyle().set("padding", "0");
-		CargarFavoritos(this.getListafav(),usuario.getId());
+		CargarFavoritos(vl,usuario.getORMID());
 	}
 	
 	
 	public void CargarFavoritos(VerticalLayout vl, int usuario) {
 		
-		Cancion[] canciones = user.cargar_favoritos(usuario);
+		Playlist listaFav = user.cargar_favoritos(usuario);
 		
+		
+		if(listaFav == null) {
+			return;
+		}
+		
+		if(listaFav.contiene_canciones == null) {
+			return;
+		}
+	
+		Cancion[] listaCanciones = listaFav.contiene_canciones.toArray();
 		Favoritos fav;
 
-		for (int i = 0; i <canciones.length; i++) {
+		for (int i = 0; i <listaCanciones.length; i++) {
 			fav = new Favoritos(vl);
 			fav.getStyle().set("width","100%");		
-			fav.setTitulolabel(canciones[i].getTitulo());
-			fav.setArtistalabel(canciones[i].getArtista());
-			fav.setAlbumlabel(canciones[i].getAlbum());
-			fav.setDuracionlabel(Integer.toString(canciones[i].getDuracion()));
+			fav.setTitulolabel(listaCanciones[i].getTitulo());
+			fav.setArtistalabel(listaCanciones[i].getArtista());
+			fav.setAlbumlabel(listaCanciones[i].getAlbum());
+			fav.setDuracionlabel(Integer.toString(listaCanciones[i].getDuracion()));
 
 			vl.add(fav);
 		}

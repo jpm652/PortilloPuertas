@@ -31,7 +31,7 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 
 	public Eventos cargarEvento();
 
-	public Cancion[] cargar_favoritos(int idUsuario);
+	public Playlist cargar_favoritos(int idUsuario);
 
 	public Cancion[] cargar_mas_escuchadas(Artista aArtista);
 

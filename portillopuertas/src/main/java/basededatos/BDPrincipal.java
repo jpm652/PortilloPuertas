@@ -177,7 +177,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public Cancion[] cargar_favoritos(int idUsuario) {
+	public Playlist cargar_favoritos(int idUsuario) {
 		try {
 			return _bd_playlist.cargar_favoritos(idUsuario);
 		} catch (PersistentException e) {

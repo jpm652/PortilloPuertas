@@ -26,15 +26,15 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 	AudioPlayer audio = new AudioPlayer();
 	iUsuario_registrado user = new BDPrincipal();
 
-	public Barra_reproduccion(Cancion cancion, int idUsuario) {
-		inicializar(cancion, idUsuario);
+	public Barra_reproduccion(Cancion cancion, UsuarioComun idUsuario) {
+		//inicializar(cancion, idUsuario);
 		VerticalLayout vl = this.getAudioplayer().as(VerticalLayout.class);
 		audio.getElement().getStyle().set("width", "75%").set("align-self", "center");
 		vl.add(audio);
 
 	}
 
-	public void inicializar(Cancion cancion, int idUsuario) {
+	public void inicializar(Cancion cancion, UsuarioComun idUsuario) {
 
 		audio.setSource(cancion.getFicheroMultimedia());
 		setCancion_barra(cancion.getTitulo());
@@ -47,7 +47,7 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 
 				System.out.println("Cancion: "+ cancion.getId());
 				System.out.println("Usuario: "+ idUsuario);
-				user.anadirCancionFavoritos(idUsuario, 3);
+				user.anadirCancionFavoritos(idUsuario.getId(), cancion.getId());
 				
 				Dialog dialog = new Dialog();
 

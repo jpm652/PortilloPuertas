@@ -163,13 +163,13 @@ public class BD_UsuarioRegistrado {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 
 		try {
-			UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByORMID(idUsuario);
-			Cancion cancion = CancionDAO.loadCancionByORMID(idCancion);
+			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(idUsuario);
+			Cancion cancion = CancionDAO.getCancionByORMID(idCancion);
 
 			Playlist favoritos = user.getFavoritos();
 			favoritos.contiene_canciones.add(cancion);
+			
 			user.setFavoritos(favoritos);
-
 			PlaylistDAO.save(favoritos);
 			UsuarioComunDAO.save(user);
 
@@ -177,7 +177,7 @@ public class BD_UsuarioRegistrado {
 		} catch (Exception e) {
 			t.rollback();
 		}
-//		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 
 	}
 

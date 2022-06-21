@@ -67,7 +67,7 @@ public class Cancion__No_registrado_ extends VistaCancion_no_registrado {
 			}
 		});
 		
-		Barra_reproduccion barra_reproduccion = new Barra_reproduccion(cancion, -1);
+		Barra_reproduccion barra_reproduccion = new Barra_reproduccion(cancion, new UsuarioComun());
 		barra_reproduccion.getStyle().set("width", "100%").set("height", "100%");
 		barra_reproduccion.setAutor_barra(cancion.getArtista());
 		barra_reproduccion.setCancion_barra(cancion.getTitulo());

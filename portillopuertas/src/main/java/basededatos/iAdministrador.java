@@ -2,7 +2,7 @@ package basededatos;
 
 public interface iAdministrador extends iUsuario_registrado {
 
-	public Cancion[] cargar_favoritos(int idUsuario);
+	public Playlist cargar_favoritos(int idUsuario);
 
 	public Playlist cargarUltimasReproducciones();
 

@@ -52,7 +52,7 @@ public class Pagina_principal extends VistaPagina_principal {
 
 	iUsuario_registrado user = new BDPrincipal();
 	Cabecera__registrado_ cr = new Cabecera__registrado_();
-	public static Barra_reproduccion barra_reproduccion = new Barra_reproduccion(new Cancion(), 1);
+	public static Barra_reproduccion barra_reproduccion = new Barra_reproduccion(new Cancion(), new UsuarioComun());
 
 	public Vector<Cancion_anterior> _list_canciones = new Vector<Cancion_anterior>();
 	public Vector<Siguiente_cancion> _list_artista = new Vector<Siguiente_cancion>();
@@ -314,6 +314,7 @@ public class Pagina_principal extends VistaPagina_principal {
 		barra_reproduccion.getStyle().set("height", "100%");
 		barra_reproduccion.getStyle().set("padding", "0");
 		vl_reproductor.add(barra_reproduccion);
+		
 	}
 
 	private static VerticalLayout createDialogLayout(Dialog dialog, String titulo, String mensaje) {
