@@ -34,6 +34,7 @@ public class BD_Administrador {
 				return 1;
 			}else {
 				cancion.pertenece_a_album.add(album);
+				cancion.setAlbum(aAlbum);
 				CancionDAO.save(cancion);
 				
 				t.commit();

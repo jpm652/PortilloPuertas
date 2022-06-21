@@ -48,4 +48,6 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 	public void aumentarReproduccion(int cancion);
 	
 	public void crearPlaylist(String aNombre, int idUsuarioCreador);
+	
+	public int anadirCancionaPlaylist(String aCancion, int idPlaylist);
 }

@@ -353,5 +353,15 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			e.printStackTrace();
 		}
 	}
+	
+	@Override
+	public int anadirCancionaPlaylist(String aCancion, int idPlaylist){
+		try {
+			return _bd_cancion.anadirCancionaPlaylist(aCancion, idPlaylist);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 }

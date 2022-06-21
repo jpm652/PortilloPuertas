@@ -121,4 +121,33 @@ public class BD_Cancion {
 		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 		return 0;
 	}
+	
+	public int anadirCancionaPlaylist(String aCancion, int idPlaylist) throws PersistentException {
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+
+		CancionCriteria cCancion= new CancionCriteria();
+		cCancion.titulo.like(aCancion);
+		
+		try {
+			Cancion cancion = CancionDAO.loadCancionByCriteria(cCancion);
+			Playlist playlist = PlaylistDAO.loadPlaylistByORMID(idPlaylist);
+			
+			if(cancion==null) {
+				return 0;
+
+			}else {
+				playlist.contiene_canciones.add(cancion);
+				PlaylistDAO.save(playlist);
+				
+				t.commit();
+				return 1;
+		
+			}
+
+		}catch (Exception e) {
+			t.rollback();
+		}
+		return 0;
+
+	}
 }

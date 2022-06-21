@@ -34,6 +34,8 @@ public class VistaPlaylist extends LitTemplate {
 	private Button bt_compartir;
 	@Id("vaadinVerticalLayout1")
 	private VerticalLayout vaadinVerticalLayout1;
+	@Id("btAnadircancion")
+	private Button btAnadircancion;
 
 	/**
      * Creates a new VistaPlaylist.
@@ -46,16 +48,16 @@ public class VistaPlaylist extends LitTemplate {
 		return nombreplaylist;
 	}
 
-	public void setNombreplaylist(Label nombreplaylist) {
-		this.nombreplaylist = nombreplaylist;
+	public void setNombreplaylist(String nombreplaylist) {
+		this.nombreplaylist.setText(nombreplaylist);
 	}
 
 	public Label getNombreautor() {
 		return nombreautor;
 	}
 
-	public void setNombreautor(Label nombreautor) {
-		this.nombreautor = nombreautor;
+	public void setNombreautor(String nombreautor) {
+		this.nombreautor.setText(nombreautor);
 	}
 
 	public Button getBt_reproducir() {
@@ -80,6 +82,14 @@ public class VistaPlaylist extends LitTemplate {
 
 	public void setVaadinVerticalLayout1(VerticalLayout vaadinVerticalLayout1) {
 		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
+	}
+
+	public Button getBtAnadircancion() {
+		return btAnadircancion;
+	}
+
+	public void setBtAnadircancion(Button btAnadircancion) {
+		this.btAnadircancion = btAnadircancion;
 	}
 
 }
