@@ -29,7 +29,7 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 
 	public Cancion__Registrado_ cargarCancion(int aId);
 
-	public Eventos cargarEvento();
+	public Evento[] cargarEvento(int idArtista);
 
 	public Playlist cargar_favoritos(int idUsuario);
 
@@ -56,5 +56,7 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 	public void eliminarCancionPlaylist(int idPlaylist, int idCancion);
 	
 	public void cambiarNombrePlaylist(int idPlaylist, String nombre);
+	
+	public Evento cargarInformacionEvento(String aEvento);
 	
 }

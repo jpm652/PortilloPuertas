@@ -1,6 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-artista')
 export class VistaArtista extends LitElement {
@@ -41,11 +41,6 @@ export class VistaArtista extends LitElement {
     <label style="margin-top: 50px; font-size:30px; margin-left: 100px;" id="label">Albumes</label>
     <hr style="width: 80%; align-self: center;" id="hr">
     <vaadin-horizontal-layout theme="spacing-s" id="hlAlbumesArtista" style="margin-left: 100px;"></vaadin-horizontal-layout>
-   </vaadin-vertical-layout>
-   <vaadin-vertical-layout style="width: 100%;" id="vaadinVerticalLayout">
-    <label style="margin-top: 50px; font-size:30px; margin-left: 100px;" id="label">Listas de reproduccion donde aparece</label>
-    <hr style="width: 80%; align-self: center;" id="hr">
-    <vaadin-horizontal-layout theme="spacing" id="hlListasdondeaparece" style="margin-left: 100px;"></vaadin-horizontal-layout>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 40%; align-items: center;">

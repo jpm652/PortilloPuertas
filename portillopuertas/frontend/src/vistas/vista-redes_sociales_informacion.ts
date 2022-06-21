@@ -28,7 +28,7 @@ export class VistaRedes_sociales_informacion extends LitElement {
     <b style="padding-left: var(--lumo-space-l);">Contacto</b>
     <hr id="hr">
     <vaadin-item id="vaadinItem1">
-     SoundCityContacto@gmail.com
+      SoundCityContacto@gmail.com 
     </vaadin-item>
     <vaadin-item id="vaadinItem">
       950 56 59 98 
@@ -40,10 +40,10 @@ export class VistaRedes_sociales_informacion extends LitElement {
     <b style="padding-left: var(--lumo-space-l);">Redes Sociales</b>
     <hr id="hr1">
     <vaadin-item id="vaadinItem2">
-     Facebook : SoundCity
+      Facebook : SoundCity 
     </vaadin-item>
     <vaadin-item id="vaadinItem3">
-     Twitter: SoundCity
+      Twitter: SoundCity 
     </vaadin-item>
    </vaadin-list-box>
   </vaadin-vertical-layout>

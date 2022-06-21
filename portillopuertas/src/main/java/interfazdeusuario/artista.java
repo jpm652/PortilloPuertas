@@ -10,6 +10,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import basededatos.Artista;
 import basededatos.BDPrincipal;
 import basededatos.Cancion;
+import basededatos.Playlist;
 import basededatos.Album;
 import basededatos.UsuarioComun;
 import basededatos.iUsuario_registrado;
@@ -29,9 +30,7 @@ public class artista extends VistaArtista{
 	public Playlist_donde_aparece _playlist_donde_aparece;
 	public Vector<Lista_canciones_mas_escuchadas> list_cancionesMasEscuchadas = new Vector<Lista_canciones_mas_escuchadas>();
 	public Vector<Play_pause> list_albumes_artista= new Vector<Play_pause>();
-	public Vector<Playlist_donde_aparece> list_playlist_donde_aparece= new Vector<Playlist_donde_aparece>();
 	public Vector<ArtistasSimilares> list_artistas_similares= new Vector<ArtistasSimilares>();
-	public Datos_evento evento = new Datos_evento();
 	iUsuario_registrado user = new BDPrincipal();
 
 	public artista(Artista aArtista, UsuarioComun usuario) {
@@ -48,9 +47,8 @@ public class artista extends VistaArtista{
 
 		CargarCancionesMasEscuchadas(vl,aArtista,usuario);
 		CargarAlbumes(vl,aArtista,usuario);
-		CargarPlaylist(vl);
 		CargarArtistasSimilares(vl,usuario);
-		CargarEventos(vl,usuario);
+		CargarEventos(vl,aArtista);
 		
 		for (int i = 0; i < list_cancionesMasEscuchadas.size(); i++) {			
 			gethLCancionesMasEscuchadas().add(list_cancionesMasEscuchadas.get(i));
@@ -59,10 +57,7 @@ public class artista extends VistaArtista{
 		for (int i = 0; i < list_albumes_artista.size(); i++) {			
 			getHlAlbumesArtista().add(list_albumes_artista.get(i));
 		}
-		
-		for (int i = 0; i < list_playlist_donde_aparece.size(); i++) {			
-			getHlListasdondeaparece().add(list_playlist_donde_aparece.get(i));
-		}
+
 		
 		for (int i = 0; i < list_artistas_similares.size(); i++) {			
 			getVlArtistasSimilares().add(list_artistas_similares.get(i));
@@ -104,16 +99,6 @@ public class artista extends VistaArtista{
 		}
 	}
 	
-	public void CargarPlaylist(VerticalLayout vl) {
-		
-		Playlist_donde_aparece playlist;
-		
-		for (int i = 0; i < 5; i++) {
-			playlist = new Playlist_donde_aparece(vl);
-			playlist.getStyle().set("padding-left", "5%");
-			list_playlist_donde_aparece.add(playlist);
-		}
-	}
 	
 	public void CargarArtistasSimilares(VerticalLayout vl,UsuarioComun usuario) {
 		Artista[] artistasSim = user.cargar_artistasSeguidos(0);
@@ -128,9 +113,10 @@ public class artista extends VistaArtista{
 		}
 	}
 	
-	public void CargarEventos(VerticalLayout vl, UsuarioComun usuario) {
+	public void CargarEventos(VerticalLayout vl, Artista aArtista) {
 		
-		Datos_evento datos = new Datos_evento();
+		
+		Datos_evento datos = new Datos_evento(aArtista);
 		datos.getStyle().set("width", "100%").set("height","100%");
 		
 		getHleventos().getStyle().set("width", "100%").set("height","100%");		

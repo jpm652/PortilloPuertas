@@ -11,8 +11,16 @@ public class BD_Evento {
 	public BDPrincipal _bd_principal_evento;
 	public Vector<Evento> _contiene_eventos = new Vector<Evento>();
 
-	public Eventos cargarEvento() {
-		throw new UnsupportedOperationException();
+	public Evento[] cargarEvento(int idartista) throws PersistentException {
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+
+			Evento[] evento = EventoDAO.listEventoByQuery("ArtistaUsuarioComunId =" + idartista, null);
+			return evento;
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return null;
 	}
 
 	public void anadirEvento(String aTitulo, String aTipo, String aUbicacion, String aFecha, String aInfoAdicional,
@@ -37,4 +45,20 @@ public class BD_Evento {
 			t.rollback();
 		}
 	}
+
+	public Evento cargarInformacionEvento(String aEvento) throws PersistentException {
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			EventoCriteria c = new EventoCriteria();
+			c.titulo.like(aEvento);
+
+			Evento evento = EventoDAO.loadEventoByCriteria(c);
+
+			return evento;
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return null;
+	}
+
 }

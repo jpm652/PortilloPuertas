@@ -59,8 +59,8 @@ public class VistaPlaylist_donde_aparece extends LitTemplate {
 		return nombreplaylist;
 	}
 
-	public void setNombreplaylist(Label nombreplaylist) {
-		this.nombreplaylist = nombreplaylist;
+	public void setNombreplaylist(String nombreplaylist) {
+		this.nombreplaylist.setText(nombreplaylist);
 	}
 
     

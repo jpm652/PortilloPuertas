@@ -173,8 +173,14 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public Eventos cargarEvento() {
-		throw new UnsupportedOperationException();
+	public Evento[] cargarEvento(int idArtista) {
+		try {
+			return _bd_evento.cargarEvento(idArtista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public Playlist cargar_favoritos(int idUsuario) {
@@ -393,5 +399,15 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			e.printStackTrace();
 		}	
 	}
+	
+	public Evento cargarInformacionEvento(String aEvento) {
+		try {
+			return _bd_evento.cargarInformacionEvento(aEvento);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 
 }

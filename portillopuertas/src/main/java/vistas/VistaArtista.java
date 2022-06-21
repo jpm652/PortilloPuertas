@@ -36,8 +36,6 @@ public class VistaArtista extends LitTemplate {
 
 	@Id("HLCancionesMasEscuchadas")
 	private HorizontalLayout hLCancionesMasEscuchadas;
-	@Id("hlListasdondeaparece")
-	private HorizontalLayout hlListasdondeaparece;
 	@Id("hlAlbumesArtista")
 	private HorizontalLayout hlAlbumesArtista;
 	@Id("vlArtistasSimilares")
@@ -77,13 +75,6 @@ public class VistaArtista extends LitTemplate {
 		this.hlAlbumesArtista = hlAlbumesArtista;
 	}
 
-	public HorizontalLayout getHlListasdondeaparece() {
-		return hlListasdondeaparece;
-	}
-
-	public void setHlListasdondeaparece(HorizontalLayout hlListasdondeaparece) {
-		this.hlListasdondeaparece = hlListasdondeaparece;
-	}
 
 	public VerticalLayout getVlArtistasSimilares() {
 		return vlArtistasSimilares;
