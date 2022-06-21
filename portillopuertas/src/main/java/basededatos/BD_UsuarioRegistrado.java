@@ -180,5 +180,27 @@ public class BD_UsuarioRegistrado {
 		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 
 	}
+	
+	public void eliminarCancionPlaylist(int idPlaylist, int idCancion) throws PersistentException{
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			Playlist playlist = PlaylistDAO.getPlaylistByORMID(idPlaylist);
+			Cancion cancion = CancionDAO.getCancionByORMID(idCancion);
+			playlist.contiene_canciones.contains(cancion);
+
+//			Playlist favoritos = user.getFavoritos();
+//			play.contiene_canciones.add(cancion);
+//			
+//			user.setFavoritos(favoritos);
+//			PlaylistDAO.save(favoritos);
+//			UsuarioComunDAO.save(user);
+
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+	}
 
 }

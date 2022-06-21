@@ -28,7 +28,7 @@ export class VistaLista_de_playlist extends LitElement {
    <vaadin-button theme="icon" aria-label="Add new" id="Button_eliminar_playlist" style="align-self: center;">
     <iron-icon id="ironIcon1" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-delete.png?raw=true"></iron-icon>
    </vaadin-button>
-   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton1" style="align-self: center;">
+   <vaadin-button theme="icon" aria-label="Add new" id="bt_compartir" style="align-self: center;">
     <iron-icon id="ironIcon" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-shareblack.png?raw=true"></iron-icon>
    </vaadin-button>
   </vaadin-horizontal-layout>

@@ -263,8 +263,13 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public void anadirEvento(String aTitulo, String aTipo, String aUbicacion, String aFecha, String aInfoAdicional) {
-		throw new UnsupportedOperationException();
+	public void anadirEvento(String aTitulo, String aTipo, String aUbicacion, String aFecha, String aInfoAdicional, int idUsuario) {
+		try {
+			_bd_evento.anadirEvento(aTitulo, aTipo, aUbicacion, aFecha, aInfoAdicional, idUsuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -362,6 +367,31 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			e.printStackTrace();
 		}
 		return 0;
+	}
+	
+	public void eliminarPlaylist(int idPlaylist) {
+		try {
+			_bd_playlist.eliminarPlaylist(idPlaylist);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void eliminarCancionPlaylist(int idPlaylist, int idCancion) {
+		
+		try {
+			_bd_playlist.eliminarCancionPlaylist(idPlaylist, idCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void cambiarNombrePlaylist(int idPlaylist, String nombre) {
+		try {
+			_bd_playlist.cambiarNombrePlaylist(idPlaylist, nombre);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}	
 	}
 
 }

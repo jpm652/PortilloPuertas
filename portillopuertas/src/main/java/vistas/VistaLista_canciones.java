@@ -59,8 +59,6 @@ public class VistaLista_canciones extends LitTemplate {
 		this.albumCancion.setText(albumCancion);
 	}
 
-
-
 	public Label getDuracioncancion() {
 		return duracioncancion;
 	}

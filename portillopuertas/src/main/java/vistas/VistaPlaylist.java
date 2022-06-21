@@ -36,6 +36,8 @@ public class VistaPlaylist extends LitTemplate {
 	private VerticalLayout vaadinVerticalLayout1;
 	@Id("btAnadircancion")
 	private Button btAnadircancion;
+	@Id("bt_cambiarnombre")
+	private Button bt_cambiarnombre;
 
 	/**
      * Creates a new VistaPlaylist.
@@ -92,4 +94,13 @@ public class VistaPlaylist extends LitTemplate {
 		this.btAnadircancion = btAnadircancion;
 	}
 
+	public Button getBt_cambiarnombre() {
+		return bt_cambiarnombre;
+	}
+
+	public void setBt_cambiarnombre(Button bt_cambiarnombre) {
+		this.bt_cambiarnombre = bt_cambiarnombre;
+	}
+
+	
 }

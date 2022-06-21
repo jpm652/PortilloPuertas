@@ -9,6 +9,7 @@ import org.orm.PersistentTransaction;
 // import Artista.Playlist;
 
 public class BD_Playlist {
+	
 	public BDPrincipal _bd_principal_playlist;
 	public Vector<basededatos.Playlist> _contiene_playlists = new Vector<Playlist>();
 
@@ -103,5 +104,66 @@ public class BD_Playlist {
 		} catch (Exception e) {
 			t.rollback();
 		}
+	}
+
+	public void eliminarPlaylist(int idPlaylist) throws PersistentException {
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Playlist lista = PlaylistDAO.getPlaylistByORMID(idPlaylist);
+			
+			Cancion[] canciones = lista.contiene_canciones.toArray();
+			
+			for (Cancion cancion : canciones) {
+				lista.contiene_canciones.remove(cancion);
+			}
+			
+			PlaylistDAO.delete(lista);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+		
+	}
+
+	public void eliminarCancionPlaylist(int idPlaylist, int idCancion) throws PersistentException {
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			Playlist lista = PlaylistDAO.getPlaylistByORMID(idPlaylist);
+			Cancion cancion = CancionDAO.getCancionByORMID(idCancion);
+			
+			if(lista.contiene_canciones.contains(cancion)) {
+				lista.contiene_canciones.remove(cancion);
+			}
+			
+			PlaylistDAO.save(lista);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+		
+	}
+	
+	public void cambiarNombrePlaylist(int idPlaylist, String nombre) throws PersistentException {
+		
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Playlist playlist = PlaylistDAO.getPlaylistByORMID(idPlaylist);
+			playlist.setNombre(nombre);
+			
+			PlaylistDAO.save(playlist);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+		
 	}
 }

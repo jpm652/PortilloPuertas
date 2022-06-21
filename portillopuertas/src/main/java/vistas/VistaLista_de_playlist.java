@@ -33,10 +33,10 @@ public class VistaLista_de_playlist extends LitTemplate {
 	private Label num_canciones_playlist;
 	@Id("Button_eliminar_playlist")
 	private Button button_eliminar_playlist;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
 	@Id("cuadro_playlist")
 	private HorizontalLayout cuadro_playlist;
+	@Id("bt_compartir")
+	private Button bt_compartir;
 
 	/**
 	 * Creates a new VistaLista_de_playlist.
@@ -73,8 +73,8 @@ public class VistaLista_de_playlist extends LitTemplate {
 		return num_canciones_playlist;
 	}
 
-	public void setNum_canciones_playlist(Label num_canciones_playlist) {
-		this.num_canciones_playlist = num_canciones_playlist;
+	public void setNum_canciones_playlist(String num_canciones_playlist) {
+		this.num_canciones_playlist.setText(num_canciones_playlist);
 	}
 
 	public Button getButton_eliminar_playlist() {
@@ -85,12 +85,12 @@ public class VistaLista_de_playlist extends LitTemplate {
 		this.button_eliminar_playlist = button_eliminar_playlist;
 	}
 
-	public Button getVaadinButton1() {
-		return vaadinButton1;
+	public Button getBt_compartir() {
+		return bt_compartir;
 	}
 
-	public void setVaadinButton1(Button vaadinButton1) {
-		this.vaadinButton1 = vaadinButton1;
+	public void setBt_compartir(Button bt_compartir) {
+		this.bt_compartir = bt_compartir;
 	}
 
 	public HorizontalLayout getCuadro_playlist() {

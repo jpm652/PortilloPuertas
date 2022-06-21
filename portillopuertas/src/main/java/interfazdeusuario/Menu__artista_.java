@@ -73,7 +73,7 @@ public class Menu__artista_ extends VistaMenu_artista {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				Eventos eventos = new Eventos(vlpadre);
+				Eventos eventos = new Eventos(vlpadre, usuario);
 				eventos.getStyle().set("width", "100%");
 				vlpadre.removeAll();
 				vlpadre.add(eventos);

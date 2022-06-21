@@ -26,7 +26,7 @@ public class Menu_playlist extends VistaMenu_playlist {
 	iUsuario_registrado user = new BDPrincipal();
 
 	public Menu_playlist(UsuarioComun usuario) {
-//		
+		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.getStyle().set("width", "100%");
 		vl.getStyle().set("height", "100%");
@@ -78,7 +78,12 @@ public class Menu_playlist extends VistaMenu_playlist {
 							closeButton2.addClickListener(e -> dialog.close());
 							dialog.add(closeButton2);
 							dialog.open();
-
+							
+							vl.removeAll();
+							
+							Menu_playlist play = new Menu_playlist(usuario);
+							play.getStyle().set("width", "100%").set("height", "100%");
+							vl.add(play);
 					
 						}
 						dialog.close();
@@ -103,6 +108,7 @@ public class Menu_playlist extends VistaMenu_playlist {
 			lista = new Lista_de_Playlist(vl, listadeplaylist[i],usuario);
 			lista.getStyle().set("width", "100%");
 			lista.setNom_playlist(listadeplaylist[i].getNombre());
+			lista.setNum_canciones_playlist(Integer.toString(listadeplaylist[i].contiene_canciones.size())+"/1000");
 
 			vl.add(lista);
 		}

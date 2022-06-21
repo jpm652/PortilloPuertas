@@ -2,6 +2,9 @@ package interfazdeusuario;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.html.Hr;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Artista;
@@ -47,6 +50,7 @@ public class artista extends VistaArtista{
 		CargarAlbumes(vl,aArtista,usuario);
 		CargarPlaylist(vl);
 		CargarArtistasSimilares(vl,usuario);
+		CargarEventos(vl,usuario);
 		
 		for (int i = 0; i < list_cancionesMasEscuchadas.size(); i++) {			
 			gethLCancionesMasEscuchadas().add(list_cancionesMasEscuchadas.get(i));
@@ -122,6 +126,16 @@ public class artista extends VistaArtista{
 			artistasSimilares.setNombreArtistaSimilares(artistasSim[i].getNombreArtista());
 
 		}
+	}
+	
+	public void CargarEventos(VerticalLayout vl, UsuarioComun usuario) {
+		
+		Datos_evento datos = new Datos_evento();
+		datos.getStyle().set("width", "100%").set("height","100%");
+		
+		getHleventos().getStyle().set("width", "100%").set("height","100%");		
+		getHleventos().add(datos);
+
 	}
 	
 }

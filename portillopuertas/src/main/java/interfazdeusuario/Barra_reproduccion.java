@@ -33,6 +33,18 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 		vl.add(audio);
 
 	}
+	
+	public Barra_reproduccion(Cancion cancion) {
+		
+		VerticalLayout vl = this.getAudioplayer().as(VerticalLayout.class);
+		
+		audio.getElement().getStyle().set("width", "75%").set("align-self", "center");
+		vl.add(audio);
+		
+		audio.setSource(cancion.getFicheroMultimedia());
+		setCancion_barra(cancion.getTitulo());
+		setAutor_barra(cancion.getArtista());
+	}
 
 	public void inicializar(Cancion cancion, UsuarioComun idUsuario) {
 
@@ -71,16 +83,12 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 
 		Paragraph paragraph = new Paragraph(mensaje);
 
-		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph); // menu.getVaadinVerticalLayout().as(VerticalLayout.class);
-																				// //new VerticalLayout(headline,
-																				// paragraph, closeButton);
+		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph); 
 
 		dialogLayout.setPadding(false);
 		dialogLayout.setAlignItems(Alignment.STRETCH);
 		dialogLayout.getStyle().set("width", "500px").set("max-width", "100%");
 		dialogLayout.getStyle().set("height", "400px%");
-
-//		dialogLayout.setAlignSelf(Alignment.END, closeButton);
 
 		return dialogLayout;
 	}

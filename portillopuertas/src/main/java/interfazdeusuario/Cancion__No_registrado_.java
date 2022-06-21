@@ -5,8 +5,11 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.BD_UsuarioRegistrado;
 import basededatos.Cancion;
 import basededatos.UsuarioComun;
+import basededatos.iUsuario_registrado;
 import vistas.VistaCancion_no_registrado;
 
 public class Cancion__No_registrado_ extends VistaCancion_no_registrado {
@@ -67,14 +70,16 @@ public class Cancion__No_registrado_ extends VistaCancion_no_registrado {
 			}
 		});
 		
-		Barra_reproduccion barra_reproduccion = new Barra_reproduccion(cancion, new UsuarioComun());
+		Barra_reproduccion barra_reproduccion = new Barra_reproduccion(cancion);
 		barra_reproduccion.getStyle().set("width", "100%").set("height", "100%");
 		barra_reproduccion.setAutor_barra(cancion.getArtista());
 		barra_reproduccion.setCancion_barra(cancion.getTitulo());
 		barra_reproduccion.getImg_barra().setSrc(cancion.getImagen_cancion());
+		
 		barra_reproduccion.getBt_barra_fav().setVisible(false);
 		barra_reproduccion.getBt_barra_add().setVisible(false);
 		barra_reproduccion.getBt_barra_max().setVisible(false);
+		
 		vlpadre.add(barra_reproduccion);
 
 	}

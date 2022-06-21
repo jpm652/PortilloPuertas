@@ -42,8 +42,6 @@ public class VistaArtista extends LitTemplate {
 	private HorizontalLayout hlAlbumesArtista;
 	@Id("vlArtistasSimilares")
 	private VerticalLayout vlArtistasSimilares;
-	@Id("vlEvento")
-	private VerticalLayout vlEvento;
 	@Id("generoMusical")
 	private Label generoMusical;
 	@Id("Seguidores")
@@ -54,6 +52,8 @@ public class VistaArtista extends LitTemplate {
 	private Element vlvistaartista;
 	@Id("imgPerfilArtista")
 	private Image imgPerfilArtista;
+	@Id("hleventos")
+	private HorizontalLayout hleventos;
 	/**
      * Creates a new VistaArtista.
      */
@@ -91,14 +91,6 @@ public class VistaArtista extends LitTemplate {
 
 	public void setVlArtistasSimilares(VerticalLayout vlArtistasSimilares) {
 		this.vlArtistasSimilares = vlArtistasSimilares;
-	}
-
-	public VerticalLayout getVlEvento() {
-		return vlEvento;
-	}
-
-	public void setVlEvento(VerticalLayout vlEvento) {
-		this.vlEvento = vlEvento;
 	}
 
 	public Image getImgPerfilArtista() {
@@ -141,4 +133,13 @@ public class VistaArtista extends LitTemplate {
 		this.vlvistaartista = vlvistaartista;
 	}
 
+	public HorizontalLayout getHleventos() {
+		return hleventos;
+	}
+
+	public void setHleventos(HorizontalLayout hleventos) {
+		this.hleventos = hleventos;
+	}
+
+	
 }
