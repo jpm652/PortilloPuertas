@@ -31,9 +31,6 @@ import com.vaadin.flow.component.html.Image;
 public class VistaArtista extends LitTemplate {
 
 
-
-
-
 	@Id("HLCancionesMasEscuchadas")
 	private HorizontalLayout hLCancionesMasEscuchadas;
 	@Id("hlAlbumesArtista")
@@ -52,6 +49,8 @@ public class VistaArtista extends LitTemplate {
 	private Image imgPerfilArtista;
 	@Id("hleventos")
 	private HorizontalLayout hleventos;
+	@Id("bt_seguir")
+	private Button bt_seguir;
 	/**
      * Creates a new VistaArtista.
      */
@@ -130,6 +129,14 @@ public class VistaArtista extends LitTemplate {
 
 	public void setHleventos(HorizontalLayout hleventos) {
 		this.hleventos = hleventos;
+	}
+
+	public Button getBt_seguir() {
+		return bt_seguir;
+	}
+
+	public void setBt_seguir(Button bt_seguir) {
+		this.bt_seguir = bt_seguir;
 	}
 
 	

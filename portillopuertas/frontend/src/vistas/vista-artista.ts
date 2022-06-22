@@ -19,7 +19,7 @@ export class VistaArtista extends LitElement {
  <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="align-self: center; align-items: center; width: 33%;">
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="margin-left: 100px;">
    <img id="imgPerfilArtista" style="width: 100px; height: 100px; margin-top: 100px;">
-   <vaadin-button id="vaadinButton" style="align-self: center; margin-top: 100px;">
+   <vaadin-button id="bt_seguir" style="align-self: center; margin-top: 100px;">
      Seguir 
    </vaadin-button>
   </vaadin-horizontal-layout>

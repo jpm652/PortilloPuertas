@@ -13,6 +13,7 @@ import com.vaadin.flow.component.textfield.TextField;
 
 import basededatos.BDPrincipal;
 import basededatos.Cancion;
+import basededatos.Playlist;
 import basededatos.UsuarioComun;
 import basededatos.iUsuario_registrado;
 import vistas.VistaBarra_reproduccion;
@@ -51,15 +52,28 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 		audio.setSource(cancion.getFicheroMultimedia());
 		setCancion_barra(cancion.getTitulo());
 		setAutor_barra(cancion.getArtista());
+		getImg_barra().setSrc(cancion.getImagen_cancion());
 
 		this.getBt_barra_fav().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				System.out.println("Cancion: "+ cancion.getId());
-				System.out.println("Usuario: "+ idUsuario);
 				user.anadirCancionFavoritos(idUsuario.getId(), cancion.getId());
+				
+				Playlist fav = user.cargar_favoritos(idUsuario.getId());
+				
+				
+				if(fav == null) {
+					System.out.println("FAV es nulo");
+				}else {
+					Cancion[] can = fav.contiene_canciones.toArray();
+					for(int i=0; i<can.length;i++) {
+						System.out.println(can[i].getTitulo());
+					}
+				}
+				
+				
 				
 				Dialog dialog = new Dialog();
 

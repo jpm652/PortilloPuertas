@@ -59,4 +59,8 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 	
 	public Evento cargarInformacionEvento(String aEvento);
 	
+	public void seguirArtista(int idUsuario, int idArtista);
+	
+	public void dejarSeguirArtista(int idUsuario, int idArtista);
+	
 }

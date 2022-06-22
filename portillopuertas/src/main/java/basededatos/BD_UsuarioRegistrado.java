@@ -158,30 +158,30 @@ public class BD_UsuarioRegistrado {
 		return false;
 	}
 
-	public void anadirCancionFavoritos(int idUsuario, int idCancion) throws PersistentException {
-		
-		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+//	public void anadirCancionFavoritos(int idUsuario, int idCancion) throws PersistentException {
+//		
+//		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+//
+//		try {
+//			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(idUsuario);
+//			Cancion cancion = CancionDAO.getCancionByORMID(idCancion);
+//
+//			basededatos.Playlist favoritos = user.getFavoritos();
+//			favoritos.contiene_canciones.add(cancion);
+//			
+//			user.setFavoritos(favoritos);
+//			PlaylistDAO.save(favoritos);
+//			UsuarioComunDAO.save(user);
+//
+//			t.commit();
+//		} catch (Exception e) {
+//			t.rollback();
+//		}
+//		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+//
+//	}
 
-		try {
-			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(idUsuario);
-			Cancion cancion = CancionDAO.getCancionByORMID(idCancion);
-
-			Playlist favoritos = user.getFavoritos();
-			favoritos.contiene_canciones.add(cancion);
-			
-			user.setFavoritos(favoritos);
-			PlaylistDAO.save(favoritos);
-			UsuarioComunDAO.save(user);
-
-			t.commit();
-		} catch (Exception e) {
-			t.rollback();
-		}
-		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
-
-	}
-	
-	public void eliminarCancionPlaylist(int idPlaylist, int idCancion) throws PersistentException{
+	public void eliminarCancionPlaylist(int idPlaylist, int idCancion) throws PersistentException {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 
 		try {
@@ -189,13 +189,46 @@ public class BD_UsuarioRegistrado {
 			Cancion cancion = CancionDAO.getCancionByORMID(idCancion);
 			playlist.contiene_canciones.contains(cancion);
 
-//			Playlist favoritos = user.getFavoritos();
-//			play.contiene_canciones.add(cancion);
-//			
-//			user.setFavoritos(favoritos);
-//			PlaylistDAO.save(favoritos);
-//			UsuarioComunDAO.save(user);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+	}
 
+	public void seguirArtista(int idUsuario, int idArtista) throws PersistentException {
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(idUsuario);
+			Artista artista = ArtistaDAO.getArtistaByORMID(idArtista);
+
+			user.sigue_a.add(artista);
+			artista.es_seguido.add(user);
+
+			user.setSeguidos(user.getSeguidos() + 1);
+			artista.setSeguidores(artista.getSeguidores() + 1);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+	}
+	
+	public void dejarSeguirArtista(int idUsuario, int idArtista) throws PersistentException {
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(idUsuario);
+			Artista artista = ArtistaDAO.getArtistaByORMID(idArtista);
+
+			user.sigue_a.remove(artista);
+			artista.es_seguido.remove(user);
+
+			user.setSeguidos(user.getSeguidos() - 1);
+			artista.setSeguidores(artista.getSeguidores() - 1);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

@@ -183,16 +183,6 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		return null;
 	}
 
-	public Playlist cargar_favoritos(int idUsuario) {
-		try {
-			return _bd_playlist.cargar_favoritos(idUsuario);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 	public Cancion[] cargar_mas_escuchadas(Artista aArtista) {
 		try {
 			return _bd_cancion.cargar_mas_escuchadas(aArtista);
@@ -329,10 +319,21 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	@Override
 	public void anadirCancionFavoritos(int idUsuario, int idCancion) {
 		try {
-			_bd_usuario_registrado.anadirCancionFavoritos(idUsuario, idCancion);
+			_bd_cancion.anadirCancionFavoritos(idUsuario, idCancion);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Playlist cargar_favoritos(int idUsuario) {
+		Playlist lista = null;
+		try {
+			lista =  _bd_playlist.cargar_favoritos(idUsuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 	@Override
@@ -407,6 +408,22 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public void seguirArtista(int idUsuario, int idArtista) {
+		try {
+			 _bd_usuario_registrado.seguirArtista(idUsuario, idArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void dejarSeguirArtista(int idUsuario, int idArtista) {
+		try {
+			 _bd_usuario_registrado.dejarSeguirArtista(idUsuario, idArtista);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 

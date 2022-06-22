@@ -31,7 +31,7 @@ public class ListaCanciones extends VistaLista_canciones {
 			@Override
 			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
 				// TODO Auto-generated method stub
-				vlpadre.removeAll();
+//				vlpadre.removeAll();
 
 				Pagina_principal.barra_reproduccion.inicializar(aCancion, usuario);
 //				Cancion__Registrado_ cancion = new Cancion__Registrado_();
