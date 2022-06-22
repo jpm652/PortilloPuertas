@@ -19,9 +19,19 @@ public class BD_Artista {
 	public Artista[] cargar_artistasSeguidos(int aId_usuario) throws PersistentException {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Artista[] artistasSeguidos = ArtistaDAO.listArtistaByQuery("AdministradorUsuarioComunId =1", null);
+			
+			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(aId_usuario);
+			Artista[] todosArtistas = ArtistaDAO.listArtistaByQuery("AdministradorUsuarioComunId =1", null);
+//			Artista[] artistasSeguidos = new Artista[0];
+//			
+//			for(int i=0; i<todosArtistas.length;i++) {
+//				if(user.sigue_a.contains(todosArtistas[i])) {
+//					
+//				}
+//			}
+			
 			t.commit();
-			return artistasSeguidos;
+			return todosArtistas;
 		} catch (Exception e) {
 			t.rollback();
 		}	

@@ -181,6 +181,7 @@ public class BD_UsuarioRegistrado {
 //
 //	}
 
+	// Este metodo no hace nada tampoco 
 	public void eliminarCancionPlaylist(int idPlaylist, int idCancion) throws PersistentException {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 
@@ -209,6 +210,10 @@ public class BD_UsuarioRegistrado {
 
 			user.setSeguidos(user.getSeguidos() + 1);
 			artista.setSeguidores(artista.getSeguidores() + 1);
+			
+			UsuarioComunDAO.save(user);
+			ArtistaDAO.save(artista);
+			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
@@ -229,6 +234,10 @@ public class BD_UsuarioRegistrado {
 
 			user.setSeguidos(user.getSeguidos() - 1);
 			artista.setSeguidores(artista.getSeguidores() - 1);
+			
+			UsuarioComunDAO.save(user);
+			ArtistaDAO.save(artista);
+			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

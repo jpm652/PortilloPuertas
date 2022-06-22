@@ -41,22 +41,24 @@ public class artista extends VistaArtista {
 	iUsuario_registrado user = new BDPrincipal();
 
 	public artista(Artista aArtista, UsuarioComun usuario) {
+
 		inicializar(new VerticalLayout(), aArtista, usuario);
+
 		this.getImgPerfilArtista().setSrc(aArtista.getFoto());
 		this.setNombrePerfilArtista(aArtista.getNombreArtista());
 		this.setGeneroMusical("Artista");
 		this.setSeguidores("Seguidores: " + Integer.toString(aArtista.getSeguidores()));
-
 	}
 
 	public void inicializar(VerticalLayout vlpadre, Artista aArtista, UsuarioComun usuario) {
+
 		VerticalLayout vl = this.getVlvistaartista().as(VerticalLayout.class);
 
 		CargarCancionesMasEscuchadas(vl, aArtista, usuario);
 		CargarAlbumes(vl, aArtista, usuario);
 		CargarArtistasSimilares(vl, usuario);
 		CargarEventos(vl, aArtista);
-		seguir_artista(usuario, aArtista);
+		seguir_artista(vl, usuario, aArtista);
 
 		for (int i = 0; i < list_cancionesMasEscuchadas.size(); i++) {
 			gethLCancionesMasEscuchadas().add(list_cancionesMasEscuchadas.get(i));
@@ -69,14 +71,14 @@ public class artista extends VistaArtista {
 		for (int i = 0; i < list_artistas_similares.size(); i++) {
 			getVlArtistasSimilares().add(list_artistas_similares.get(i));
 		}
-		
+
 		try {
 			UsuarioComun userComprobar = UsuarioComunDAO.getUsuarioComunByORMID(usuario.getId());
 			Artista artistaComprobar = ArtistaDAO.getArtistaByORMID(aArtista.getId());
-			
-			if(userComprobar.sigue_a.contains(artistaComprobar)) {
+
+			if (userComprobar.sigue_a.contains(artistaComprobar)) {
 				this.getBt_seguir().setText("Dejar de seguir");
-			}else {
+			} else {
 				this.getBt_seguir().setText("Seguir");
 			}
 		} catch (PersistentException e) {
@@ -86,7 +88,7 @@ public class artista extends VistaArtista {
 
 	}
 
-	public void seguir_artista(UsuarioComun usuario, Artista aArtista) {
+	public void seguir_artista(VerticalLayout vl, UsuarioComun usuario, Artista aArtista) {
 
 		String boton = this.getBt_seguir().getText();
 
@@ -97,15 +99,24 @@ public class artista extends VistaArtista {
 
 				if (boton.equals("Seguir")) {
 					user.seguirArtista(usuario.getId(), aArtista.getId());
-					
-					getBt_seguir().setText("Dejar de Seguir");
-					setSeguidores("Seguidores: " + Integer.toString(aArtista.getSeguidores()));
-					
-				} else if(boton.equals("Dejar de seguir")) {
-					
+
+					// Aqui intento recargar la pagina para que se actualice el numero de seguidores
+					// pero no funciona bien
+					artista nuevoArtista = new artista(aArtista, usuario);
+					nuevoArtista.getStyle().set("width", "100%").set("height", "100%");
+					vl.removeAll();
+					vl.add(nuevoArtista);
+
+				} else if (boton.equals("Dejar de seguir")) {
+
 					user.dejarSeguirArtista(usuario.getId(), aArtista.getId());
-					getBt_seguir().setText("Seguir");
-					setSeguidores("Seguidores: " + Integer.toString(aArtista.getSeguidores()));
+
+					// Aqui intento recargar la pagina para que se actualice el numero de seguidores
+					// pero no funciona bien
+					artista nuevoArtista = new artista(aArtista, usuario);
+					nuevoArtista.getStyle().set("width", "100%").set("height", "100%");
+					vl.removeAll();
+					vl.add(nuevoArtista);
 				}
 
 			}

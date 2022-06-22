@@ -45,7 +45,7 @@ public class Artistas_seguidos extends VistaArtistas_seguidos{
 	}
 
 	public void CargarArtistas(VerticalLayout vl,UsuarioComun usuario) {
-		Artista[] artistasSeguidos = user.cargar_artistasSeguidos(0);
+		Artista[] artistasSeguidos = user.cargar_artistasSeguidos(usuario.getId());
 		Siguiente_cancion artista;
 
 		for (int i = 0; i < artistasSeguidos.length; i++) {
