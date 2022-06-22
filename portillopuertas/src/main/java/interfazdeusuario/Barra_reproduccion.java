@@ -59,34 +59,38 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				user.anadirCancionFavoritos(idUsuario.getId(), cancion.getId());
+				int exito = user.anadirCancionFavoritos(idUsuario.getId(), cancion.getTitulo());
 				
-				Playlist fav = user.cargar_favoritos(idUsuario.getId());
-				
-				
-				if(fav == null) {
-					System.out.println("FAV es nulo");
-				}else {
-					Cancion[] can = fav.contiene_canciones.toArray();
-					for(int i=0; i<can.length;i++) {
-						System.out.println(can[i].getTitulo());
-					}
+				if(exito == 1) {
+					Dialog dialog = new Dialog();
+
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Informacion",
+							"Cancion añadida correctamente a la lista de favoritos");
+
+					Button closeButton = new Button("Aceptar");
+					closeButton.addClickListener(e -> dialog.close());
+
+					dialog.add(dialogLayout);
+					closeButton.getStyle().set("margin-left", "20px").set("width", "120px");
+					dialog.add(closeButton);
+					dialog.open();
+					
+				}else if(exito == 0) {
+					Dialog dialog = new Dialog();
+
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error",
+							"La cancion NO se añadio a la lista de favoritos");
+
+					Button closeButton = new Button("Aceptar");
+					closeButton.addClickListener(e -> dialog.close());
+
+					dialog.add(dialogLayout);
+					closeButton.getStyle().set("margin-left", "20px").set("width", "120px");
+					dialog.add(closeButton);
+					dialog.open();
 				}
 				
 				
-				
-				Dialog dialog = new Dialog();
-
-				VerticalLayout dialogLayout = createDialogLayout(dialog, "Informacion",
-						"Cancion añadida correctamente a la lista de favoritos");
-
-				Button closeButton = new Button("Aceptar");
-				closeButton.addClickListener(e -> dialog.close());
-
-				dialog.add(dialogLayout);
-				closeButton.getStyle().set("margin-left", "20px").set("width", "120px");
-				dialog.add(closeButton);
-				dialog.open();
 			}
 		});
 	}

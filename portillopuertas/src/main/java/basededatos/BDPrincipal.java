@@ -317,12 +317,13 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	}
 
 	@Override
-	public void anadirCancionFavoritos(int idUsuario, int idCancion) {
+	public int anadirCancionFavoritos(int idUsuario, String nomCancion) {
 		try {
-			_bd_cancion.anadirCancionFavoritos(idUsuario, idCancion);
+			return _bd_cancion.anadirCancionFavoritos(idUsuario, nomCancion);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
+		return 0;
 	}
 	
 	public Playlist cargar_favoritos(int idUsuario) {

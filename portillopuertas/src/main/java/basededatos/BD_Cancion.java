@@ -150,28 +150,32 @@ public class BD_Cancion {
 
 	}
 
-	public void anadirCancionFavoritos(int idUsuario, int idCancion) throws PersistentException {
+	public int anadirCancionFavoritos(int idUsuario, String nomCancion) throws PersistentException {
 
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 
+		CancionCriteria cCancion = new CancionCriteria();
+		cCancion.titulo.like(nomCancion);
+
 		try {
-			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(idUsuario);
-			Cancion cancion = CancionDAO.getCancionByORMID(idCancion);
+			Cancion cancion = CancionDAO.loadCancionByCriteria(cCancion);
+			Playlist playlist = PlaylistDAO
+					.loadPlaylistByQuery("Nombre = 'Lista Favoritos' AND UsuarioComunId = " + idUsuario, null);
 
-			System.out.println(user.getFavoritos().toString());
-			System.out.println("Llego aqui");
-			basededatos.Playlist favoritos = user.getFavoritos();
-			favoritos.contiene_canciones.add(cancion);
+			if (cancion == null) {
+				return 0;
+			} else {
+				playlist.contiene_canciones.add(cancion);
+				PlaylistDAO.save(playlist);
 
-			user.setFavoritos(favoritos);
-			PlaylistDAO.save(favoritos);
-			UsuarioComunDAO.save(user);
+				t.commit();
+				return 1;
+			}
 
-			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}
-		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+		return 0;
 
 	}
 }
