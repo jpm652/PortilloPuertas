@@ -26,12 +26,12 @@ public class Menu_playlist extends VistaMenu_playlist {
 	iUsuario_registrado user = new BDPrincipal();
 
 	public Menu_playlist(UsuarioComun usuario) {
-		
+
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.getStyle().set("width", "100%");
 		vl.getStyle().set("height", "100%");
 		vl.getStyle().set("padding", "0");
-		CargarPlaylist(vl,usuario);
+		CargarPlaylist(vl, usuario);
 
 		this.getBt_crearplsylidt().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
@@ -49,7 +49,7 @@ public class Menu_playlist extends VistaMenu_playlist {
 				dialog.add(nombrePlaylist);
 
 				Button closeButton = new Button("Aceptar");
-				
+
 				closeButton.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 					public void onComponentEvent(ClickEvent<Button> event) {
 						String campoNombre = nombrePlaylist.getValue();
@@ -66,7 +66,7 @@ public class Menu_playlist extends VistaMenu_playlist {
 							dialog.open();
 
 						} else {
-							
+
 							user.crearPlaylist(campoNombre, usuario.getId());
 
 							Dialog dialog = new Dialog();
@@ -78,17 +78,17 @@ public class Menu_playlist extends VistaMenu_playlist {
 							closeButton2.addClickListener(e -> dialog.close());
 							dialog.add(closeButton2);
 							dialog.open();
-							
+
 							vl.removeAll();
-							
+
 							Menu_playlist play = new Menu_playlist(usuario);
 							play.getStyle().set("width", "100%").set("height", "100%");
 							vl.add(play);
-					
+
 						}
 						dialog.close();
 					}
-					
+
 				});
 
 				closeButton.getStyle().set("margin-left", "20px").set("width", "120px");
@@ -100,17 +100,24 @@ public class Menu_playlist extends VistaMenu_playlist {
 	}
 
 	public void CargarPlaylist(VerticalLayout vl, UsuarioComun usuario) {
-		
+
 		Playlist[] listadeplaylist = user.cargar_tusPlaylist(usuario.getId());
 		Lista_de_Playlist lista;
+		Lista_de_Playlist nula;
 
 		for (int i = 0; i < listadeplaylist.length; i++) {
-			lista = new Lista_de_Playlist(vl, listadeplaylist[i],usuario);
-			lista.getStyle().set("width", "100%");
-			lista.setNom_playlist(listadeplaylist[i].getNombre());
-			lista.setNum_canciones_playlist(Integer.toString(listadeplaylist[i].contiene_canciones.size())+"/1000");
 
-			vl.add(lista);
+			if (listadeplaylist[i].getNombre().equals("Lista Favoritos")) {
+				nula = new Lista_de_Playlist(vl, listadeplaylist[i], usuario);
+			} else {
+				lista = new Lista_de_Playlist(vl, listadeplaylist[i], usuario);
+				lista.getStyle().set("width", "100%");
+				lista.setNom_playlist(listadeplaylist[i].getNombre());
+				lista.setNum_canciones_playlist(
+						Integer.toString(listadeplaylist[i].contiene_canciones.size()) + "/1000");
+
+				vl.add(lista);
+			}
 		}
 	}
 
@@ -120,16 +127,12 @@ public class Menu_playlist extends VistaMenu_playlist {
 
 		Paragraph paragraph = new Paragraph(mensaje);
 
-		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph); // menu.getVaadinVerticalLayout().as(VerticalLayout.class);
-																				// //new VerticalLayout(headline,
-																				// paragraph, closeButton);
+		VerticalLayout dialogLayout = new VerticalLayout(headline, paragraph);
 
 		dialogLayout.setPadding(false);
 		dialogLayout.setAlignItems(Alignment.STRETCH);
 		dialogLayout.getStyle().set("width", "500px").set("max-width", "100%");
 		dialogLayout.getStyle().set("height", "400px%");
-
-//		dialogLayout.setAlignSelf(Alignment.END, closeButton);
 
 		return dialogLayout;
 	}

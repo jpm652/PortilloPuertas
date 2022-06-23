@@ -326,6 +326,24 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		return 0;
 	}
 	
+	public int quitarCancionFavoritos(int idUsuario, String nomCancion) {
+		try {
+			return _bd_cancion.quitarCancionFavoritos(idUsuario, nomCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int comprobarCancionFavoritos(int idUsuario, String nomCancion) {
+		try {
+			return _bd_cancion.comprobarCancionFavoritos(idUsuario, nomCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
 	public Playlist cargar_favoritos(int idUsuario) {
 		Playlist lista = null;
 		try {

@@ -164,12 +164,75 @@ public class BD_Cancion {
 
 			if (cancion == null) {
 				return 0;
+
 			} else {
+
 				playlist.contiene_canciones.add(cancion);
 				PlaylistDAO.save(playlist);
 
 				t.commit();
 				return 1;
+			}
+
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return 0;
+
+	}
+
+	public int quitarCancionFavoritos(int idUsuario, String nomCancion) throws PersistentException {
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+
+		CancionCriteria cCancion = new CancionCriteria();
+		cCancion.titulo.like(nomCancion);
+
+		try {
+			Cancion cancion = CancionDAO.loadCancionByCriteria(cCancion);
+			Playlist playlist = PlaylistDAO
+					.loadPlaylistByQuery("Nombre = 'Lista Favoritos' AND UsuarioComunId = " + idUsuario, null);
+
+			if (cancion == null) {
+				return 0;
+
+			} else {
+
+				playlist.contiene_canciones.remove(cancion);
+				PlaylistDAO.save(playlist);
+
+				t.commit();
+				return 1;
+			}
+
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return 0;
+
+	}
+
+	public int comprobarCancionFavoritos(int idUsuario, String nomCancion) throws PersistentException {
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+
+		CancionCriteria cCancion = new CancionCriteria();
+		cCancion.titulo.like(nomCancion);
+
+		try {
+			Cancion cancion = CancionDAO.loadCancionByCriteria(cCancion);
+			Playlist playlist = PlaylistDAO
+					.loadPlaylistByQuery("Nombre = 'Lista Favoritos' AND UsuarioComunId = " + idUsuario, null);
+
+			if (cancion == null) {
+				return 0;
+
+			} else if (playlist.contiene_canciones.contains(cancion)) {
+
+				t.commit();
+				return 1;
+			} else {
+				return 2;
 			}
 
 		} catch (Exception e) {

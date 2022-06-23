@@ -45,6 +45,10 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 	
 	public int anadirCancionFavoritos(int idUsuario, String nomCancion);
 	
+	public int quitarCancionFavoritos(int idUsuario, String nomCancion);
+	
+	public int comprobarCancionFavoritos(int idUsuario, String nomCancion);
+	
 	public void aumentarReproduccion(int cancion);
 	
 	public void crearPlaylist(String aNombre, int idUsuarioCreador);

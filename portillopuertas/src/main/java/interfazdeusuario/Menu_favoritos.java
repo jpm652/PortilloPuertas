@@ -18,41 +18,32 @@ public class Menu_favoritos extends VistaMenu_favoritos {
 	public Favoritos _favoritos;
 	public Reproducir_favoritos _reproducir_favoritos;
 	iUsuario_registrado user = new BDPrincipal();
+
 	public Menu_favoritos(UsuarioComun usuario) {
-		
+
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.getStyle().set("width", "100%");
 		vl.getStyle().set("height", "100%");
 		vl.getStyle().set("padding", "0");
-		CargarFavoritos(vl,usuario.getORMID());
+		CargarFavoritos(vl, usuario);
 	}
-	
-	
-	public void CargarFavoritos(VerticalLayout vl, int usuario) {
-		
-		Playlist listaFav = user.cargar_favoritos(usuario);
-		
-		
-		if(listaFav == null) {
-			return;
-		}
-		
-		if(listaFav.contiene_canciones == null) {
-			return;
-		}
-	
-		Cancion[] listaCanciones = listaFav.contiene_canciones.toArray();
-		Favoritos fav;
 
-		for (int i = 0; i <listaCanciones.length; i++) {
-			fav = new Favoritos(vl);
-			fav.getStyle().set("width","100%");		
-			fav.setTitulolabel(listaCanciones[i].getTitulo());
-			fav.setArtistalabel(listaCanciones[i].getArtista());
-			fav.setAlbumlabel(listaCanciones[i].getAlbum());
-			fav.setDuracionlabel(Integer.toString(listaCanciones[i].getDuracion()));
+	public void CargarFavoritos(VerticalLayout vl, UsuarioComun usuario) {
 
-			vl.add(fav);
+		Playlist[] todasPlaylist = user.cargar_tusPlaylist(usuario.getId());
+
+		for (int i = 0; i < todasPlaylist.length; i++) {
+			if(todasPlaylist[i].getNombre().equals("Lista Favoritos")) {
+				
+				vl.removeAll();
+
+				Playlist_usuario playlist = new Playlist_usuario(vl, todasPlaylist[i], usuario);
+				playlist.getStyle().set("width", "100%").set("height", "100%");
+				playlist.getBt_cambiarnombre().setVisible(false);
+				
+				vl.add(playlist);
+			}
 		}
+		
 	}
 }
