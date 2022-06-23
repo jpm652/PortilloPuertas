@@ -5,6 +5,8 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import interfazdeusuario.artista;
+
 public class BD_UsuarioRegistrado {
 	public BDPrincipal _bd_principal_usuario_registrado;
 	public Vector<UsuarioRegistrado> _contiene_usuarios_registrados = new Vector<UsuarioRegistrado>();
@@ -185,7 +187,7 @@ public class BD_UsuarioRegistrado {
 		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 	}
 
-	public void seguirArtista(int idUsuario, int idArtista) throws PersistentException {
+	public void gestiornarSeguidores(int idUsuario, int idArtista) throws PersistentException {
 
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 
@@ -193,23 +195,40 @@ public class BD_UsuarioRegistrado {
 			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(idUsuario);
 			Artista artista = ArtistaDAO.getArtistaByORMID(idArtista);
 
-			user.sigue_a.add(artista);
-			artista.es_seguido.add(user);
+			if (user.sigue_a.contains(artista)) {
 
-			user.setSeguidos(user.getSeguidos() + 1);
-			artista.setSeguidores(artista.getSeguidores() + 1);
+				user.sigue_a.remove(artista);
+				artista.es_seguido.remove(user);
 
-			UsuarioComunDAO.save(user);
-			ArtistaDAO.save(artista);
+				user.setSeguidos(user.getSeguidos() - 1);
+				artista.setSeguidores(artista.getSeguidores() - 1);
 
-			t.commit();
+				UsuarioComunDAO.save(user);
+				ArtistaDAO.save(artista);
+
+				t.commit();
+			} else {
+
+				user.sigue_a.add(artista);
+				artista.es_seguido.add(user);
+
+				user.setSeguidos(user.getSeguidos() + 1);
+				artista.setSeguidores(artista.getSeguidores() + 1);
+
+				UsuarioComunDAO.save(user);
+				ArtistaDAO.save(artista);
+
+				t.commit();
+			}
+
 		} catch (Exception e) {
 			t.rollback();
 		}
+
 		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 	}
 
-	public void dejarSeguirArtista(int idUsuario, int idArtista) throws PersistentException {
+	public int comprobarSeguidos(int idUsuario, int idArtista) throws PersistentException {
 
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 
@@ -217,20 +236,19 @@ public class BD_UsuarioRegistrado {
 			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(idUsuario);
 			Artista artista = ArtistaDAO.getArtistaByORMID(idArtista);
 
-			user.sigue_a.remove(artista);
-			artista.es_seguido.remove(user);
+			if (user.sigue_a.contains(artista)) {
+				t.commit();
+				return 1;
+			} else {
+				t.commit();
+				return 0;
+			}
 
-			user.setSeguidos(user.getSeguidos() - 1);
-			artista.setSeguidores(artista.getSeguidores() - 1);
-
-			UsuarioComunDAO.save(user);
-			ArtistaDAO.save(artista);
-
-			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}
 		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+		return 0;
 	}
 
 }

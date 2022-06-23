@@ -19,44 +19,54 @@ public class BD_Artista {
 	public Artista[] cargar_artistasSeguidos(int aId_usuario) throws PersistentException {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
-			
+
 			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(aId_usuario);
-			Artista[] todosArtistas = ArtistaDAO.listArtistaByQuery("AdministradorUsuarioComunId =1", null);
-//			Artista[] artistasSeguidos = new Artista[0];
-//			
-//			for(int i=0; i<todosArtistas.length;i++) {
-//				if(user.sigue_a.contains(todosArtistas[i])) {
-//					
-//				}
-//			}
-			
+			Artista[] todosArtistas = ArtistaDAO.listArtistaByQuery(null, null);
+			Artista[] resultado = new Artista[todosArtistas.length];
+
+			for (int i = 0; i < todosArtistas.length; i++) {
+				if(user.sigue_a.contains(todosArtistas[i])) {
+					resultado[i] = todosArtistas[i];
+				}
+			}
+
 			t.commit();
-			return todosArtistas;
+			return resultado;
 		} catch (Exception e) {
 			t.rollback();
-		}	
+		}
 		return null;
-	
+
 	}
 
-	public void darAltaArtista(String aNombre, String aLogin, String aContrasena, String arutaFoto) throws PersistentException{
-		
-		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();	
-		
+	public void darAltaArtista(String aNombre, String aLogin, String aContrasena, String arutaFoto)
+			throws PersistentException {
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+
 		try {
-			
-			Administrador admin =AdministradorDAO.getAdministradorByORMID(1);
-			
+
+			Administrador admin = AdministradorDAO.getAdministradorByORMID(1);
+
 			Artista artista = ArtistaDAO.createArtista();
 			artista.setNombreArtista(aNombre);
 			artista.setNombreUsuario(aLogin);
-			artista.setCorreo(aLogin+"@gmail.com");
+			artista.setCorreo(aLogin + "@gmail.com");
 			artista.setContrasena(aContrasena);
 			artista.setTipo("Artista");
 			artista.setFoto(arutaFoto);
 			artista.setEs_dado_de_alta(admin);
-			
-			
+
+			// Crear playlist favoritos
+			Playlist playlist = PlaylistDAO.createPlaylist();
+
+			playlist.setNombre("Lista Favoritos");
+			playlist.setCreada_por_usuario(artista);
+			playlist.setUsuarioCreador(artista.getNombreUsuario());
+
+			UsuarioComunDAO.save(artista);
+			PlaylistDAO.save(playlist);
+
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
@@ -72,7 +82,7 @@ public class BD_Artista {
 	}
 
 	public Artista[] busqueda_artista(String aNombre) throws PersistentException {
-		
+
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
 

@@ -239,7 +239,7 @@ public class Pagina_principal extends VistaPagina_principal {
 					} else if (artistas.length > 0) {
 						for (int i = 0; i < artistas.length; i++) {
 
-							artist = new Siguiente_cancion(vl_centro, null, usuario);
+							artist = new Siguiente_cancion(vl_centro, artistas[i], usuario);
 							artist.getStyle().set("padding-left", "2%").set("padding-top", "3%").set("margin-top",
 									"2%");
 							artist.setNombreCancion(artistas[i].getNombreArtista());

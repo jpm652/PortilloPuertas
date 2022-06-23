@@ -5,6 +5,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Artista;
 import basededatos.Cancion;
 import basededatos.UsuarioComun;
 import vistas.VistaCancion_anterior;

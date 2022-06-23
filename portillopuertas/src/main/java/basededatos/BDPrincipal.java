@@ -429,20 +429,21 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		return null;
 	}
 	
-	public void seguirArtista(int idUsuario, int idArtista) {
+	public void gestiornarSeguidores(int idUsuario, int idArtista) {
 		try {
-			 _bd_usuario_registrado.seguirArtista(idUsuario, idArtista);
+			 _bd_usuario_registrado.gestiornarSeguidores(idUsuario, idArtista);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void dejarSeguirArtista(int idUsuario, int idArtista) {
+	public int comprobarSeguidos(int idUsuario, int idArtista) {
 		try {
-			 _bd_usuario_registrado.dejarSeguirArtista(idUsuario, idArtista);
+			return  _bd_usuario_registrado.comprobarSeguidos(idUsuario, idArtista);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
+		return 0;
 	}
 
 

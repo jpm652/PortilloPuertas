@@ -20,7 +20,7 @@ public class Siguiente_cancion extends VistaSiguiente_cancion {
 			public void onComponentEvent(ClickEvent<VerticalLayout> event) {
 				vlpadre.removeAll();
 				
-		    	artista artista = new artista(artistaSeguido, usuario);
+		    	artista artista = new artista(vlpadre, artistaSeguido, usuario);
 		    	artista.getStyle().set("width", "100%");   
 		    	artista.getStyle().set("height", "100%");
 		    	vlpadre.add(artista);

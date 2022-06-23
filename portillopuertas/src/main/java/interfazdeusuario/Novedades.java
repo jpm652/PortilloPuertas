@@ -11,6 +11,7 @@ import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.Scroller.ScrollDirection;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Artista;
 import basededatos.BDPrincipal;
 import basededatos.Cancion;
 import basededatos.UsuarioComun;

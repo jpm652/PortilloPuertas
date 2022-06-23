@@ -24,7 +24,7 @@ public class ArtistasSimilares extends VistaArtistasSimilares {
 				// TODO Auto-generated method stub
 				vlpadre.removeAll();
 
-				artista artista = new artista(Aartista, usuario);
+				artista artista = new artista(vlpadre, Aartista, usuario);
 				artista.getStyle().set("width", "100%").set("height", "100%");
 				vlpadre.add(artista);
 			}

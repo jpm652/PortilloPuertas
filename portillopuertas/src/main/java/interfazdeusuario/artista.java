@@ -40,9 +40,9 @@ public class artista extends VistaArtista {
 	public Vector<ArtistasSimilares> list_artistas_similares = new Vector<ArtistasSimilares>();
 	iUsuario_registrado user = new BDPrincipal();
 
-	public artista(Artista aArtista, UsuarioComun usuario) {
+	public artista(VerticalLayout vlpadre, Artista aArtista, UsuarioComun usuario) {
 
-		inicializar(new VerticalLayout(), aArtista, usuario);
+		inicializar(vlpadre, aArtista, usuario);
 
 		this.getImgPerfilArtista().setSrc(aArtista.getFoto());
 		this.setNombrePerfilArtista(aArtista.getNombreArtista());
@@ -72,52 +72,31 @@ public class artista extends VistaArtista {
 			getVlArtistasSimilares().add(list_artistas_similares.get(i));
 		}
 
-		try {
-			UsuarioComun userComprobar = UsuarioComunDAO.getUsuarioComunByORMID(usuario.getId());
-			Artista artistaComprobar = ArtistaDAO.getArtistaByORMID(aArtista.getId());
+		int comprobar = user.comprobarSeguidos(usuario.getId(), aArtista.getId());
 
-			if (userComprobar.sigue_a.contains(artistaComprobar)) {
-				this.getBt_seguir().setText("Dejar de seguir");
-			} else {
-				this.getBt_seguir().setText("Seguir");
-			}
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (comprobar == 1) {
+			this.getBt_seguir().setText("Dejar de seguir");
+		} else {
+			this.getBt_seguir().setText("Seguir");
 		}
 
 	}
 
 	public void seguir_artista(VerticalLayout vl, UsuarioComun usuario, Artista aArtista) {
 
-		String boton = this.getBt_seguir().getText();
-
 		this.getBt_seguir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 
-				if (boton.equals("Seguir")) {
-					user.seguirArtista(usuario.getId(), aArtista.getId());
+				user.gestiornarSeguidores(usuario.getId(), aArtista.getId());
 
-					// Aqui intento recargar la pagina para que se actualice el numero de seguidores
-					// pero no funciona bien
-					artista nuevoArtista = new artista(aArtista, usuario);
-					nuevoArtista.getStyle().set("width", "100%").set("height", "100%");
-					vl.removeAll();
-					vl.add(nuevoArtista);
+				vl.removeAll();
 
-				} else if (boton.equals("Dejar de seguir")) {
-
-					user.dejarSeguirArtista(usuario.getId(), aArtista.getId());
-
-					// Aqui intento recargar la pagina para que se actualice el numero de seguidores
-					// pero no funciona bien
-					artista nuevoArtista = new artista(aArtista, usuario);
-					nuevoArtista.getStyle().set("width", "100%").set("height", "100%");
-					vl.removeAll();
-					vl.add(nuevoArtista);
-				}
+				artista art = new artista(vl, aArtista, usuario);
+				art.getStyle().set("width", "100%").set("height", "100%");
+				setSeguidores("Seguidores: " + Integer.toString(aArtista.getSeguidores()));
+				vl.add(art);
 
 			}
 		});
@@ -152,15 +131,20 @@ public class artista extends VistaArtista {
 	}
 
 	public void CargarArtistasSimilares(VerticalLayout vl, UsuarioComun usuario) {
-		Artista[] artistasSim = user.cargar_artistasSeguidos(0);
+		Artista[] artistasSim = user.cargar_artistasSeguidos(usuario.getId());
 		ArtistasSimilares artistasSimilares;
 
-		for (int i = 0; i < artistasSim.length; i++) {
-			artistasSimilares = new ArtistasSimilares(vl, artistasSim[i], usuario);
-			list_artistas_similares.add(artistasSimilares);
-			artistasSimilares.getImgArtistasSimilares().setSrc(artistasSim[i].getFoto());
-			artistasSimilares.setNombreArtistaSimilares(artistasSim[i].getNombreArtista());
+		if (artistasSim == null) {
+			return;
+		} else {
 
+			for (int i = 0; i < artistasSim.length; i++) {
+				artistasSimilares = new ArtistasSimilares(vl, artistasSim[i], usuario);
+				list_artistas_similares.add(artistasSimilares);
+				artistasSimilares.getImgArtistasSimilares().setSrc(artistasSim[i].getFoto());
+				artistasSimilares.setNombreArtistaSimilares(artistasSim[i].getNombreArtista());
+
+			}
 		}
 	}
 
