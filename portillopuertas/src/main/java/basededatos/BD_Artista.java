@@ -1,6 +1,8 @@
 package basededatos;
 
+import java.awt.image.RescaleOp;
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
 import org.orm.PersistentException;
@@ -18,24 +20,32 @@ public class BD_Artista {
 
 	public Artista[] cargar_artistasSeguidos(int aId_usuario) throws PersistentException {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+
+		Artista[] aleatorios = new Artista[5];
+
 		try {
-
-			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(aId_usuario);
 			Artista[] todosArtistas = ArtistaDAO.listArtistaByQuery(null, null);
-			Artista[] resultado = new Artista[todosArtistas.length];
 
-			for (int i = 0; i < todosArtistas.length; i++) {
-				if(user.sigue_a.contains(todosArtistas[i])) {
-					resultado[i] = todosArtistas[i];
-				}
+			Random generator = new Random();
+			int randomIndex;
+
+			for (int i = 0; i < 5; i++) {
+				randomIndex = generator.nextInt(todosArtistas.length);
+				aleatorios[i] = todosArtistas[randomIndex];
+//				for(int j=0; j< 5; j++) {
+//					if(!aleatorios[j].equals(todosArtistas[randomIndex]) || aleatorios == null) {
+//						aleatorios[i] = todosArtistas[randomIndex];
+//					}
+				//}
+				
 			}
 
 			t.commit();
-			return resultado;
+
 		} catch (Exception e) {
 			t.rollback();
 		}
-		return null;
+		return aleatorios;
 
 	}
 

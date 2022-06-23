@@ -42,7 +42,7 @@ public class artista extends VistaArtista {
 
 	public artista(VerticalLayout vlpadre, Artista aArtista, UsuarioComun usuario) {
 
-		inicializar(vlpadre, aArtista, usuario);
+		inicializar(new VerticalLayout(), aArtista, usuario);
 
 		this.getImgPerfilArtista().setSrc(aArtista.getFoto());
 		this.setNombrePerfilArtista(aArtista.getNombreArtista());
