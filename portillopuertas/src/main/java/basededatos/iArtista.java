@@ -6,5 +6,5 @@ public interface iArtista extends iUsuario_registrado {
 
 	public Playlist cargar_favoritos(int idUsuario);
 
-	public Playlist cargarUltimasReproducciones();
+	public Playlist cargarUltimasReproducciones(int idUsuario);
 }

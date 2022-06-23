@@ -12,6 +12,7 @@ import com.vaadin.flow.component.orderedlayout.Scroller.ScrollDirection;
 
 import basededatos.BDPrincipal;
 import basededatos.Cancion;
+import basededatos.Playlist;
 import basededatos.UsuarioComun;
 import basededatos.iUsuario_no_registrado;
 import basededatos.iUsuario_registrado;
@@ -31,7 +32,7 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 	
 	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 
-//		CargarCanciones(vlpadre, usuario);
+		CargarCanciones(vlpadre, usuario);
 
 		Scroller scroller = this.getScroll();
 		scroller.setScrollDirection(ScrollDirection.HORIZONTAL);
@@ -50,17 +51,31 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 		scroller.setContent(tempHl);
 	}
 
-//	public void CargarCanciones(VerticalLayout vl, UsuarioComun usuario) {
-//		Cancion[] ultimas_reproducciones = 	
-//		Cancion_anterior cancion;
-//		
-//		for (int i = 0; i < ultimas_reproducciones.length; i++) {
-//			cancion = new Cancion_anterior(vl, "Si", usuario, ultimas_reproducciones[i]);
-//			cancion.getStyle().set("padding-left", "5%");
-//			cancion.setNombreCancion(ultimas_reproducciones[i].getTitulo());
-//			cancion.getImgCancion().setSrc(ultimas_reproducciones[i].getImagen_cancion());
-//			_list_cancion__registrado_.add(cancion);
-//		}
-//	}
+	public void CargarCanciones(VerticalLayout vl, UsuarioComun usuario) {
+		Playlist[] todasPlaylist = iUser.cargar_tusPlaylist(usuario.getId());
+		Cancion_anterior cancion;
+
+		
+		for (int i = 0; i < todasPlaylist.length; i++) {
+			if(todasPlaylist[i].getNombre().equals("Ultimas Reproducciones") & todasPlaylist[i] != null) {
+				
+				Cancion[] canciones = todasPlaylist[i].contiene_canciones.toArray();
+				System.out.println(canciones.length);
+
+				for(int j = 0; j<canciones.length;j++) {
+
+				cancion = new Cancion_anterior(vl, "Si", usuario, canciones[j]);
+				cancion.getStyle().set("padding-left", "2%");
+				cancion.getStyle().set("padding-top", "3%");
+				cancion.getStyle().set("margin-top", "2%");
+				cancion.setNombreCancion(canciones[j].getTitulo());
+				cancion.getImgCancion().setSrc(canciones[j].getImagen_cancion());
+				_list_cancion__registrado_.add(cancion);
+				}
+
+				
+			}
+		}
+	}
 	
 }

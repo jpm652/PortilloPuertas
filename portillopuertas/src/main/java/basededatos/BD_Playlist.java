@@ -75,9 +75,21 @@ public class BD_Playlist {
 		return null;
 	}
 
-	public Playlist cargar_ultimasReproducciones() {
-		throw new UnsupportedOperationException();
-	}
+	public Playlist cargar_ultimasReproducciones(int idUsuario) throws PersistentException {
+		Playlist lista = null;
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(idUsuario);
+			lista = user.getUltimas_reproducciones();
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return lista;
+		}
 
 	public Playlist cargarUltimasReproducciones() {
 		throw new UnsupportedOperationException();

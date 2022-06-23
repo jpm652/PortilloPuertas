@@ -32,7 +32,7 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 		VerticalLayout vl = this.getAudioplayer().as(VerticalLayout.class);
 		audio.getElement().getStyle().set("width", "75%").set("align-self", "center");
 		vl.add(audio);
-
+		
 	}
 
 	public Barra_reproduccion(Cancion cancion) {
@@ -53,7 +53,8 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 		setCancion_barra(cancion.getTitulo());
 		setAutor_barra(cancion.getArtista());
 		getImg_barra().setSrc(cancion.getImagen_cancion());
-
+		
+		user.anadirCancionUltimasReproducciones(idUsuario.getId(), cancion.getId());
 		this.getBt_barra_fav().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override

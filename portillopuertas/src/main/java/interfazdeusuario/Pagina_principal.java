@@ -65,7 +65,7 @@ public class Pagina_principal extends VistaPagina_principal {
 		this.getVaadinVerticalLayout().getStyle().set("height", "100%");
 		this.getVaadinVerticalLayout().getStyle().set("padding", "0");
 
-		inicializar(new VerticalLayout(), new UsuarioComun(), new String());
+		//inicializar(new VerticalLayout(), new UsuarioComun(), new String());
 	}
 
 	// Constructor 2
@@ -75,7 +75,7 @@ public class Pagina_principal extends VistaPagina_principal {
 		this.getVaadinVerticalLayout().getStyle().set("height", "100%");
 		this.getVaadinVerticalLayout().getStyle().set("padding", "0");
 
-		inicializar2(new VerticalLayout(), new UsuarioComun());
+		//inicializar2(new VerticalLayout(), new UsuarioComun());
 	}
 
 	// Inicicializar toda la pagina
@@ -184,7 +184,8 @@ public class Pagina_principal extends VistaPagina_principal {
 				ultimas.setVisible(false);
 				artistasS.setVisible(false);
 				albumes.setVisible(false);
-
+				
+				hlcanciones.removeAll();
 				// Se recoge el valor de la busqueda y se eliminan los resultados anteriores
 				String parametroBusqueda = busqueda.getValue();
 
@@ -285,18 +286,20 @@ public class Pagina_principal extends VistaPagina_principal {
 			}
 		});
 
+		
 		vlBusqueda.add(horizontalBusqueda);
 		vl_centro.add(vlBusqueda);
 		vl_centro.add(vlResultados);
 		vl_centro.add(ultimas);
 		vl_centro.add(artistasS);
 		vl_centro.add(albumes);
-
+		
 		vl_centro.getStyle().set("width", "100%");
 		vl_centro.getStyle().set("height", "100%");
 		ultimas.getStyle().set("width", "100%");
 		artistasS.getStyle().set("width", "100%");
 		albumes.getStyle().set("width", "100%");
+
 
 		scroller.setContent(vl_centro);
 	}

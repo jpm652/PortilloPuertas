@@ -1,5 +1,6 @@
 package basededatos;
 
+import java.util.Iterator;
 import java.util.Vector;
 
 import org.orm.PersistentException;
@@ -67,7 +68,11 @@ public class BD_UsuarioRegistrado {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
 			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(aId_usuario);
-
+			
+			Playlist[] playlist = PlaylistDAO.listPlaylistByQuery("UsuarioComunId = "+ aId_usuario, null);
+			for(int i = 0; i< playlist.length; i++) {
+				PlaylistDAO.delete(playlist[i]);
+			}
 			UsuarioComunDAO.delete(user);
 			t.commit();
 
@@ -155,13 +160,20 @@ public class BD_UsuarioRegistrado {
 
 			// Crear playlist favoritos
 			Playlist playlist = PlaylistDAO.createPlaylist();
-
 			playlist.setNombre("Lista Favoritos");
 			playlist.setCreada_por_usuario(user);
 			playlist.setUsuarioCreador(user.getNombreUsuario());
+			
+			// Crear playlist ultimas Reproducciones
+			Playlist ultimasReproducciones = PlaylistDAO.createPlaylist();
+			ultimasReproducciones.setNombre("Ultimas Reproducciones");
+			ultimasReproducciones.setCreada_por_usuario(user);
+			ultimasReproducciones.setUsuarioCreador(user.getNombreUsuario());
+
 
 			UsuarioComunDAO.save(user);
 			PlaylistDAO.save(playlist);
+			PlaylistDAO.save(ultimasReproducciones);
 
 			t.commit();
 			return true;

@@ -241,4 +241,32 @@ public class BD_Cancion {
 		return 0;
 
 	}
+	public int anadirCancionUltimasReproducciones(int idUsuario, int idCancion) throws PersistentException {
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+
+
+		try {
+			Cancion cancion = CancionDAO.loadCancionByORMID(idCancion);
+			Playlist playlist = PlaylistDAO
+					.loadPlaylistByQuery("Nombre = 'Ultimas Reproducciones' AND UsuarioComunId = " + idUsuario, null);
+
+			if (cancion == null) {
+				return 0;
+
+			} else {
+
+				playlist.contiene_canciones.add(cancion);
+				PlaylistDAO.save(playlist);
+
+				t.commit();
+				return 1;
+			}
+
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return 0;
+
+	}
 }

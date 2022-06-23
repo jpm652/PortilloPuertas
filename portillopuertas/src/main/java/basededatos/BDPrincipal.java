@@ -201,7 +201,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 			e.printStackTrace();
 		}
 		return null;
-	}	
+	}
 
 	public Playlist[] cargar_tusPlaylist(int idUsuario) {
 		try {
@@ -213,8 +213,13 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		return null;
 	}
 
-	public Playlist cargarUltimasReproducciones() {
-		throw new UnsupportedOperationException();
+	public Playlist cargarUltimasReproducciones(int idUsuario) {
+		try {
+			return _bd_playlist.cargar_ultimasReproducciones(idUsuario);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void darBaja(int aId_usuario) {
@@ -259,7 +264,8 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		throw new UnsupportedOperationException();
 	}
 
-	public void anadirEvento(String aTitulo, String aTipo, String aUbicacion, String aFecha, String aInfoAdicional, int idUsuario) {
+	public void anadirEvento(String aTitulo, String aTipo, String aUbicacion, String aFecha, String aInfoAdicional,
+			int idUsuario) {
 		try {
 			_bd_evento.anadirEvento(aTitulo, aTipo, aUbicacion, aFecha, aInfoAdicional, idUsuario);
 		} catch (PersistentException e) {
@@ -325,7 +331,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		}
 		return 0;
 	}
-	
+
 	public int quitarCancionFavoritos(int idUsuario, String nomCancion) {
 		try {
 			return _bd_cancion.quitarCancionFavoritos(idUsuario, nomCancion);
@@ -334,7 +340,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		}
 		return 0;
 	}
-	
+
 	public int comprobarCancionFavoritos(int idUsuario, String nomCancion) {
 		try {
 			return _bd_cancion.comprobarCancionFavoritos(idUsuario, nomCancion);
@@ -343,16 +349,15 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		}
 		return 0;
 	}
-	
+
 	public Playlist cargar_favoritos(int idUsuario) {
-		Playlist lista = null;
 		try {
-			lista =  _bd_playlist.cargar_favoritos(idUsuario);
+			return _bd_playlist.cargar_favoritos(idUsuario);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return lista;
+		return null;
 	}
 
 	@Override
@@ -366,7 +371,7 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 	}
 
 	@Override
-	public int anadircancionanovedades(String cancion, boolean esNovedad){
+	public int anadircancionanovedades(String cancion, boolean esNovedad) {
 		try {
 			return _bd_cancion.anadircancionanovedades(cancion, esNovedad);
 		} catch (PersistentException e) {
@@ -375,18 +380,18 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		return 0;
 
 	}
-	
+
 	@Override
-	public void crearPlaylist(String aNombre, int idUsuarioCreador){
+	public void crearPlaylist(String aNombre, int idUsuarioCreador) {
 		try {
-			 _bd_playlist.crearPlaylist(aNombre, idUsuarioCreador);
+			_bd_playlist.crearPlaylist(aNombre, idUsuarioCreador);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
-	public int anadirCancionaPlaylist(String aCancion, int idPlaylist){
+	public int anadirCancionaPlaylist(String aCancion, int idPlaylist) {
 		try {
 			return _bd_cancion.anadirCancionaPlaylist(aCancion, idPlaylist);
 		} catch (PersistentException e) {
@@ -394,32 +399,32 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		}
 		return 0;
 	}
-	
+
 	public void eliminarPlaylist(int idPlaylist) {
 		try {
 			_bd_playlist.eliminarPlaylist(idPlaylist);
 		} catch (PersistentException e) {
 			e.printStackTrace();
-		}	
+		}
 	}
-	
+
 	public void eliminarCancionPlaylist(int idPlaylist, int idCancion) {
-		
+
 		try {
 			_bd_playlist.eliminarCancionPlaylist(idPlaylist, idCancion);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void cambiarNombrePlaylist(int idPlaylist, String nombre) {
 		try {
 			_bd_playlist.cambiarNombrePlaylist(idPlaylist, nombre);
 		} catch (PersistentException e) {
 			e.printStackTrace();
-		}	
+		}
 	}
-	
+
 	public Evento cargarInformacionEvento(String aEvento) {
 		try {
 			return _bd_evento.cargarInformacionEvento(aEvento);
@@ -428,23 +433,31 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		}
 		return null;
 	}
-	
+
 	public void gestiornarSeguidores(int idUsuario, int idArtista) {
 		try {
-			 _bd_usuario_registrado.gestiornarSeguidores(idUsuario, idArtista);
+			_bd_usuario_registrado.gestiornarSeguidores(idUsuario, idArtista);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public int comprobarSeguidos(int idUsuario, int idArtista) {
 		try {
-			return  _bd_usuario_registrado.comprobarSeguidos(idUsuario, idArtista);
+			return _bd_usuario_registrado.comprobarSeguidos(idUsuario, idArtista);
 		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
 		return 0;
 	}
 
+	public int anadirCancionUltimasReproducciones(int idUsuario, int idCancion) {
+		try {
+			return _bd_cancion.anadirCancionUltimasReproducciones(idUsuario, idCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 }

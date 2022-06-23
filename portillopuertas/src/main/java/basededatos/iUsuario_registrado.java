@@ -39,7 +39,7 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 
 	public Playlist[] cargar_tusPlaylist(int idUsuario);
 
-	public Playlist cargarUltimasReproducciones();
+	public Playlist cargarUltimasReproducciones(int idUsuario);
 
 	public void darBaja(int aId_usuario);
 	
@@ -66,5 +66,7 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 	public void gestiornarSeguidores(int idUsuario, int idArtista);
 	
 	public int comprobarSeguidos(int idUsuario, int idArtista);
+	
+	public int anadirCancionUltimasReproducciones(int idUsuario, int idCancion);
 	
 }

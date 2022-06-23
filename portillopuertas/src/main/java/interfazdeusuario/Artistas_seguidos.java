@@ -47,21 +47,17 @@ public class Artistas_seguidos extends VistaArtistas_seguidos {
 		Artista[] artistasSeguidos = user.cargar_artistasSeguidos(usuario.getId());
 		Siguiente_cancion artista;
 
-		if (artistasSeguidos == null) {
-			return;
-		} else {
-
 			for (int i = 0; i < artistasSeguidos.length; i++) {
 
 				artista = new Siguiente_cancion(vl, artistasSeguidos[i], usuario);
+				artistasSeguidos[i].getNombreArtista();
 				artista.setNombreCancion(artistasSeguidos[i].getNombreArtista());
 				artista.getImgCancion().setSrc(artistasSeguidos[i].getFoto());
 				artista.getStyle().set("padding-left", "2%");
 				artista.getStyle().set("padding-top", "3%");
 				artista.getStyle().set("margin-top", "2%");
-
 				_list_artista.add(artista);
-			}
+			
 		}
 
 	}

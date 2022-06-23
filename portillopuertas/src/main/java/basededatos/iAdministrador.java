@@ -4,7 +4,7 @@ public interface iAdministrador extends iUsuario_registrado {
 
 	public Playlist cargar_favoritos(int idUsuario);
 
-	public Playlist cargarUltimasReproducciones();
+	public Playlist cargarUltimasReproducciones(int idUsuario);
 
 	public void darAltaAlbum(String aNombre, String aArtista, String arutaFoto);
 

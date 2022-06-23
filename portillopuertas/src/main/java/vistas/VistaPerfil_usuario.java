@@ -8,6 +8,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-perfil_usuario template.
@@ -19,24 +20,16 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./src/vistas/vista-perfil_usuario.ts")
 public class VistaPerfil_usuario extends LitTemplate {
 
-    @Id("img")
-	private Image img;
-	@Id("label")
-	private Label label;
-	@Id("label1")
-	private Label label1;
-	@Id("vaadinButton")
+    @Id("vaadinButton")
 	private Button vaadinButton;
-	@Id("ironIcon")
-	private Element ironIcon;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
-	@Id("ironIcon1")
-	private Element ironIcon1;
-	@Id("vaadinButton2")
-	private Button vaadinButton2;
-	@Id("ironIcon2")
-	private Element ironIcon2;
+	@Id("img")
+	private Image img;
+	@Id("nombrePerfil")
+	private Label nombrePerfil;
+	@Id("Seguidores")
+	private Label seguidores;
+	@Id("HLPlaylistDelUsuario")
+	private HorizontalLayout hLPlaylistDelUsuario;
 
 	/**
      * Creates a new VistaPerfil_usuario.
@@ -44,5 +37,45 @@ public class VistaPerfil_usuario extends LitTemplate {
     public VistaPerfil_usuario() {
         // You can initialise any data required for the connected UI components here.
     }
+
+	public Button getVaadinButton() {
+		return vaadinButton;
+	}
+
+	public void setVaadinButton(Button vaadinButton) {
+		this.vaadinButton = vaadinButton;
+	}
+
+	public Image getImg() {
+		return img;
+	}
+
+	public void setImg(Image img) {
+		this.img = img;
+	}
+
+	public Label getNombrePerfil() {
+		return nombrePerfil;
+	}
+
+	public void setNombrePerfil(Label nombrePerfil) {
+		this.nombrePerfil = nombrePerfil;
+	}
+
+	public Label getSeguidores() {
+		return seguidores;
+	}
+
+	public void setSeguidores(Label seguidores) {
+		this.seguidores = seguidores;
+	}
+
+	public HorizontalLayout gethLPlaylistDelUsuario() {
+		return hLPlaylistDelUsuario;
+	}
+
+	public void sethLPlaylistDelUsuario(HorizontalLayout hLPlaylistDelUsuario) {
+		this.hLPlaylistDelUsuario = hLPlaylistDelUsuario;
+	}
 
 }

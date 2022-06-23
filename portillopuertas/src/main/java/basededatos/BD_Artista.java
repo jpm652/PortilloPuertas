@@ -1,6 +1,7 @@
 package basededatos;
 
 import java.awt.image.RescaleOp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Vector;
@@ -21,24 +22,23 @@ public class BD_Artista {
 	public Artista[] cargar_artistasSeguidos(int aId_usuario) throws PersistentException {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 
-		Artista[] aleatorios = new Artista[5];
+		Artista[] aleatorios = new Artista[3];
 
 		try {
 			Artista[] todosArtistas = ArtistaDAO.listArtistaByQuery(null, null);
 
 			Random generator = new Random();
 			int randomIndex;
-
-			for (int i = 0; i < 5; i++) {
+			ArrayList<Integer> yaElegido = new ArrayList<Integer>();
+			int i = 0;
+			do {
 				randomIndex = generator.nextInt(todosArtistas.length);
-				aleatorios[i] = todosArtistas[randomIndex];
-//				for(int j=0; j< 5; j++) {
-//					if(!aleatorios[j].equals(todosArtistas[randomIndex]) || aleatorios == null) {
-//						aleatorios[i] = todosArtistas[randomIndex];
-//					}
-				//}
-				
-			}
+				if (!yaElegido.contains(randomIndex)) {
+					aleatorios[i] = todosArtistas[randomIndex];
+					yaElegido.add(randomIndex);
+					i++;
+				}
+			} while (yaElegido.contains(randomIndex)&&yaElegido.size()!=3);
 
 			t.commit();
 
@@ -74,8 +74,15 @@ public class BD_Artista {
 			playlist.setCreada_por_usuario(artista);
 			playlist.setUsuarioCreador(artista.getNombreUsuario());
 
+			// Crear playlist ultimas Reproducciones
+			Playlist ultimasReproducciones = PlaylistDAO.createPlaylist();
+			ultimasReproducciones.setNombre("Ultimas Reproducciones");
+			ultimasReproducciones.setCreada_por_usuario(artista);
+			ultimasReproducciones.setUsuarioCreador(artista.getNombreUsuario());
+			
 			UsuarioComunDAO.save(artista);
 			PlaylistDAO.save(playlist);
+			PlaylistDAO.save(ultimasReproducciones);
 
 			t.commit();
 		} catch (Exception e) {
