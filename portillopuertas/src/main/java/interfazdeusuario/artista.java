@@ -118,6 +118,8 @@ public class artista extends VistaArtista {
 			cancion.setNumeroReproducciones("Reproducciones:" + cancionesMasEscuchadas[i].getNumReproducciones());
 			cancion.getImgCancionMasEscuchada().setSrc(cancionesMasEscuchadas[i].getImagen_cancion());
 			list_cancionesMasEscuchadas.add(cancion);
+			
+			if(i == 4) break;
 		}
 	}
 

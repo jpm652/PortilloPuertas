@@ -60,7 +60,7 @@ public class Novedades extends VistaNovedades {
 			cancion.getStyle().set("padding-top", "3%");
 			cancion.getStyle().set("margin-top", "2%");
 			
-			cancion.setNombreCancion(novedades[i].getTitulo());
+			cancion.setNombreCancion(novedades[i].getTitulo() + " - "+ novedades[i].getArtista());
 			cancion.getImgCancion().setSrc(novedades[i].getImagen_cancion());
 
 			_list_cancion__no_registrado_.add(cancion);

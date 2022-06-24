@@ -52,7 +52,7 @@ public class Albumes extends VistaAlbumes {
 			cancion.getStyle().set("padding-left", "2%");
 			cancion.getStyle().set("padding-top", "3%");
 			cancion.getStyle().set("margin-top", "2%");
-			cancion.setNombreCancion(recomendadas[i].getTitulo());
+			cancion.setNombreCancion(recomendadas[i].getTitulo()+" - "+ recomendadas[i].getArtista());
 			cancion.getImgCancion().setSrc(recomendadas[i].getImagen_cancion());
 			_list_album.add(cancion);
 		}

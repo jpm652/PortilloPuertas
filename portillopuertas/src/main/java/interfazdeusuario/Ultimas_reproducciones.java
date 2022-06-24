@@ -68,7 +68,7 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 				cancion.getStyle().set("padding-left", "2%");
 				cancion.getStyle().set("padding-top", "3%");
 				cancion.getStyle().set("margin-top", "2%");
-				cancion.setNombreCancion(canciones[j].getTitulo());
+				cancion.setNombreCancion(canciones[j].getTitulo()+" - "+ canciones[j].getArtista());
 				cancion.getImgCancion().setSrc(canciones[j].getImagen_cancion());
 				_list_cancion__registrado_.add(cancion);
 				}
