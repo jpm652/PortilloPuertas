@@ -6,6 +6,7 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import interfazdeusuario.Eventos;
 import interfazdeusuario.artista;
 
 public class BD_UsuarioRegistrado {
@@ -68,9 +69,9 @@ public class BD_UsuarioRegistrado {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 		try {
 			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(aId_usuario);
-			
-			Playlist[] playlist = PlaylistDAO.listPlaylistByQuery("UsuarioComunId = "+ aId_usuario, null);
-			for(int i = 0; i< playlist.length; i++) {
+
+			Playlist[] playlist = PlaylistDAO.listPlaylistByQuery("UsuarioComunId = " + aId_usuario, null);
+			for (int i = 0; i < playlist.length; i++) {
 				PlaylistDAO.delete(playlist[i]);
 			}
 			UsuarioComunDAO.delete(user);
@@ -82,8 +83,82 @@ public class BD_UsuarioRegistrado {
 		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
 	}
 
-	public void darBajaUsuario(String aNombre) {
-		throw new UnsupportedOperationException();
+	public int darBajaUsuario(String aNombre) throws PersistentException {
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			UsuarioComunCriteria c = new UsuarioComunCriteria();
+			c.nombreUsuario.like(aNombre);
+
+			UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
+
+			if (user == null) {
+				return 0;
+			} else {
+				Playlist[] playlist = PlaylistDAO.listPlaylistByQuery("UsuarioComunId = " + user.getId(), null);
+				for (int i = 0; i < playlist.length; i++) {
+					PlaylistDAO.delete(playlist[i]);
+				}
+				UsuarioComunDAO.delete(user);
+
+				t.commit();
+				return 1;
+
+			}
+
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+		return 0;
+	}
+
+	public int darBajaArtista(String aArtista) throws PersistentException {
+
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			UsuarioComunCriteria c = new UsuarioComunCriteria();
+			c.nombreUsuario.like(aArtista);
+
+			UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByCriteria(c);
+
+			if (user == null) {
+				return 0;
+			} else {
+
+				Playlist[] playlist = PlaylistDAO.listPlaylistByQuery("UsuarioComunId = " + user.getId(), null);
+				for (int i = 0; i < playlist.length; i++) {
+					PlaylistDAO.delete(playlist[i]);
+				}
+
+				Album[] albumes = AlbumDAO.listAlbumByQuery("ArtistaUsuarioComunId = " + user.getId(), null);
+				for (int i = 0; i < albumes.length; i++) {
+					AlbumDAO.delete(albumes[i]);
+				}
+
+				Evento[] eventos = EventoDAO.listEventoByQuery("ArtistaUsuarioComunId = " + user.getId(), null);
+				for (int i = 0; i < eventos.length; i++) {
+					EventoDAO.delete(eventos[i]);
+				}
+
+				Cancion[] canciones = CancionDAO.listCancionByQuery("ArtistaUsuarioComunId = " + user.getId(), null);
+				for (int i = 0; i < canciones.length; i++) {
+					CancionDAO.delete(canciones[i]);
+				}
+
+				UsuarioComunDAO.delete(user);
+				
+				t.commit();
+				return 1;
+			}
+
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		MDS12022PFPortilloPuertasPersistentManager.instance().disposePersistentManager();
+		return 0;
 	}
 
 	public UsuarioComun verificarUsuario(String aCorreo, String aNombreUsuario, String aContrasena, String rutaFoto) {
@@ -163,13 +238,12 @@ public class BD_UsuarioRegistrado {
 			playlist.setNombre("Lista Favoritos");
 			playlist.setCreada_por_usuario(user);
 			playlist.setUsuarioCreador(user.getNombreUsuario());
-			
+
 			// Crear playlist ultimas Reproducciones
 			Playlist ultimasReproducciones = PlaylistDAO.createPlaylist();
 			ultimasReproducciones.setNombre("Ultimas Reproducciones");
 			ultimasReproducciones.setCreada_por_usuario(user);
 			ultimasReproducciones.setUsuarioCreador(user.getNombreUsuario());
-
 
 			UsuarioComunDAO.save(user);
 			PlaylistDAO.save(playlist);

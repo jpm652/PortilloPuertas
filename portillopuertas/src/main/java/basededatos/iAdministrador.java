@@ -16,9 +16,9 @@ public interface iAdministrador extends iUsuario_registrado {
 	
 	public int anadirCancionAlbum(String aCancion, String aAlbum);
 
-	public void darBajaArtista(String aArtista);
+	public int darBajaArtista(String aArtista);
 
-	public void darBajaUsuario(String aNombre);
+	public int darBajaUsuario(String aNombre);
 	
 	public int anadircancionanovedades(String cancion, boolean esNovedad);
 }

@@ -107,7 +107,7 @@ public class Menu_playlist extends VistaMenu_playlist {
 
 		for (int i = 0; i < listadeplaylist.length; i++) {
 
-			if (listadeplaylist[i].getNombre().equals("Lista Favoritos")) {
+			if (listadeplaylist[i].getNombre().equals("Lista Favoritos") || listadeplaylist[i].getNombre().equals("Ultimas Reproducciones")) {
 				nula = new Lista_de_Playlist(vl, listadeplaylist[i], usuario);
 			} else {
 				lista = new Lista_de_Playlist(vl, listadeplaylist[i], usuario);

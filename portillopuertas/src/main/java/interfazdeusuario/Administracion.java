@@ -198,11 +198,11 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
-					
+
 				} else {
 
 					_iAdmin.darAltaEstilo(estilo);
-					
+
 					Dialog dialog = new Dialog();
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Dar alta estilo",
 							"Estilo dado de alta correctamente");
@@ -256,12 +256,13 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
-					
+
 					getText_nombre_anadirartista().clear();
 					getText_login_anadirartista().clear();
 					getClave_artista().clear();
-					getFotoartista().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
-					
+					getFotoartista().setSrc(
+							"https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
+
 				}
 			}
 
@@ -306,7 +307,8 @@ public class Administracion extends VistaAdministracion {
 					dialog.open();
 					getText_nombreartistaanadiralbum().clear();
 					getNombrealbunanadiralbum().clear();
-					getFotoAlbum().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
+					getFotoAlbum().setSrc(
+							"https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
 				}
 			}
 
@@ -328,8 +330,9 @@ public class Administracion extends VistaAdministracion {
 				boolean novedades = getNovedades().getValue();
 				String imagen = rutaFotoCancion;
 				String cancion = rutaCancion;
-				
-				if (nombrecancion.isEmpty() | artista.isEmpty() | estilo.isEmpty() | productor.isEmpty() | compositor.isEmpty() | duracion==0 | cancion.isEmpty()) {
+
+				if (nombrecancion.isEmpty() | artista.isEmpty() | estilo.isEmpty() | productor.isEmpty()
+						| compositor.isEmpty() | duracion == 0 | cancion.isEmpty()) {
 					Dialog dialog = new Dialog();
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error: Dar alta Cancion",
 							"Introduzca todos los parametros");
@@ -342,9 +345,9 @@ public class Administracion extends VistaAdministracion {
 					dialog.open();
 				} else if (imagen.isEmpty()) {
 					imagen = "https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/canciondefault.png?raw=true";
-					
+
 					_iAdmin.darAltaCancion(nombrecancion, artista, estilo, productor, compositor, duracion, imagen,
-							cancion,novedades);
+							cancion, novedades);
 					Dialog dialog = new Dialog();
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Dar alta Cancion",
 							"Cancion dada de alta correctamente");
@@ -355,7 +358,7 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
-					
+
 					getNombrecancionanadircancion().clear();
 					getNombreartistaanadircancion().clear();
 					getNombreestiloanadircancion().clear();
@@ -363,12 +366,12 @@ public class Administracion extends VistaAdministracion {
 					getNombrecompositoranadircancion().clear();
 					getDuracionCancion().clear();
 					getNovedades().clear();
-					getFotoCancion().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
-				}
-				else {
+					getFotoCancion().setSrc(
+							"https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
+				} else {
 
 					_iAdmin.darAltaCancion(nombrecancion, artista, estilo, productor, compositor, duracion, imagen,
-							cancion,novedades);
+							cancion, novedades);
 					Dialog dialog = new Dialog();
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Dar alta Cancion",
 							"Cancion dada de alta correctamente");
@@ -379,7 +382,7 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
-					
+
 					getNombrecancionanadircancion().clear();
 					getNombreartistaanadircancion().clear();
 					getNombreestiloanadircancion().clear();
@@ -387,13 +390,13 @@ public class Administracion extends VistaAdministracion {
 					getNombrecompositoranadircancion().clear();
 					getDuracionCancion().clear();
 					getNovedades().clear();
-					getFotoCancion().setSrc("https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
+					getFotoCancion().setSrc(
+							"https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/anadirfoto.png?raw=true");
 				}
 
 			}
 		});
 	}
-	
 
 	public void baja_artista() {
 		this.getButton_bajaartista().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -401,12 +404,39 @@ public class Administracion extends VistaAdministracion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				String nomBajaArtista = getNombreartistadarbaja().getValue();
+				int comprobar = _iAdmin.darBajaArtista(nomBajaArtista);
 
-				_iAdmin.darBajaArtista(nomBajaArtista);
+				if (nomBajaArtista.isEmpty() || comprobar == 0) {
+
+					Dialog dialog = new Dialog();
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Dar de baja",
+							"Ingrese un artista valido. ");
+
+					dialog.add(dialogLayout);
+					Button closeButton = new Button("Aceptar");
+					closeButton.addClickListener(e -> dialog.close());
+					dialog.add(dialogLayout);
+					dialog.add(closeButton);
+					dialog.open();
+
+				} else if (comprobar == 1) {
+					Dialog dialog = new Dialog();
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Dar de baja",
+							"Se dio de baja el artista correctamente. ");
+
+					dialog.add(dialogLayout);
+					Button closeButton = new Button("Aceptar");
+					closeButton.addClickListener(e -> dialog.close());
+					dialog.add(dialogLayout);
+					dialog.add(closeButton);
+					dialog.open();
+					
+					getNombreartistadarbaja().clear();
+				}
 			}
 		});
 	}
-	
+
 	public void anadirCancionAlbum() {
 
 		this.getButton_anadircancionalbum().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -415,7 +445,7 @@ public class Administracion extends VistaAdministracion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				String cancion = getNombreCancion_anadir_album().getValue();
 				String album = getNombrealbum_anadirCancion_album().getValue();
-				
+
 				if (cancion.isEmpty() | album.isEmpty()) {
 					Dialog dialog = new Dialog();
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error: Dar Añadir cancion a album",
@@ -429,9 +459,9 @@ public class Administracion extends VistaAdministracion {
 					dialog.open();
 				} else {
 
-					int casos=_iAdmin.anadirCancionAlbum(cancion, album);
-					
-					if(casos ==0) {
+					int casos = _iAdmin.anadirCancionAlbum(cancion, album);
+
+					if (casos == 0) {
 						Dialog dialog = new Dialog();
 						VerticalLayout dialogLayout = createDialogLayout(dialog, "Error añadir cancion a album",
 								"No existe la cancion");
@@ -442,7 +472,7 @@ public class Administracion extends VistaAdministracion {
 						dialog.add(dialogLayout);
 						dialog.add(closeButton);
 						dialog.open();
-					}else if(casos ==1) {
+					} else if (casos == 1) {
 						Dialog dialog = new Dialog();
 						VerticalLayout dialogLayout = createDialogLayout(dialog, "Error añadir cancion a album",
 								"No existe el album");
@@ -453,7 +483,7 @@ public class Administracion extends VistaAdministracion {
 						dialog.add(dialogLayout);
 						dialog.add(closeButton);
 						dialog.open();
-					}else if (casos ==2) {
+					} else if (casos == 2) {
 						Dialog dialog = new Dialog();
 						VerticalLayout dialogLayout = createDialogLayout(dialog, "Cancion añadida",
 								"Cancion añadida corrctamente al album");
@@ -464,7 +494,7 @@ public class Administracion extends VistaAdministracion {
 						dialog.add(dialogLayout);
 						dialog.add(closeButton);
 						dialog.open();
-						
+
 						getNombreCancion_anadir_album().clear();
 						getNombrealbum_anadirCancion_album().clear();
 					}
@@ -473,6 +503,7 @@ public class Administracion extends VistaAdministracion {
 			}
 		});
 	}
+
 	public void anadircancionnovedades() {
 
 		this.getBt_anadir_novedades().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -480,10 +511,10 @@ public class Administracion extends VistaAdministracion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				String nombreCancion = getNombreCancionNovedades().getValue();
-				boolean esNovedad= getCheckbox_anadir_novedades().getValue();
-				
+				boolean esNovedad = getCheckbox_anadir_novedades().getValue();
+
 				int casos = _iAdmin.anadircancionanovedades(nombreCancion, esNovedad);
-				if(casos==0) {
+				if (casos == 0) {
 					Dialog dialog = new Dialog();
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Error añadir cancion a album",
 							"No existe la cancion");
@@ -494,7 +525,7 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
-				}else {
+				} else {
 					Dialog dialog = new Dialog();
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Cancion añadida",
 							"Cancion añadida corrctamente a la lista de novedades");
@@ -505,7 +536,7 @@ public class Administracion extends VistaAdministracion {
 					dialog.add(dialogLayout);
 					dialog.add(closeButton);
 					dialog.open();
-					
+
 					getNombreCancionNovedades().clear();
 					getCheckbox_anadir_novedades().clear();
 				}
@@ -520,13 +551,41 @@ public class Administracion extends VistaAdministracion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				String nomBajaUsuario = getNombreusuariodarbaja().getValue();
+				int comprobar = _iAdmin.darBajaUsuario(nomBajaUsuario);
 
-				_iAdmin.darBajaUsuario(nomBajaUsuario);
+				if (nomBajaUsuario.isEmpty() || comprobar == 0) {
+
+					Dialog dialog = new Dialog();
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Dar de baja",
+							"Ingrese un usuario valido. ");
+
+					dialog.add(dialogLayout);
+					Button closeButton = new Button("Aceptar");
+					closeButton.addClickListener(e -> dialog.close());
+					dialog.add(dialogLayout);
+					dialog.add(closeButton);
+					dialog.open();
+
+				} else if (comprobar == 1) {
+					Dialog dialog = new Dialog();
+					VerticalLayout dialogLayout = createDialogLayout(dialog, "Dar de baja",
+							"Se dio de baja el usuario correctamente. ");
+
+					dialog.add(dialogLayout);
+					Button closeButton = new Button("Aceptar");
+					closeButton.addClickListener(e -> dialog.close());
+					dialog.add(dialogLayout);
+					dialog.add(closeButton);
+					dialog.open();
+					
+					getNombreusuariodarbaja().clear();
+				}
+
 			}
 		});
 	}
 
-	public static String SubirCancion(MemoryBuffer memBuffer)  {
+	public static String SubirCancion(MemoryBuffer memBuffer) {
 
 		String ruta = "sound/" + memBuffer.getFileName();
 		String _path = "src/main/webapp/";

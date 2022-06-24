@@ -256,12 +256,24 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		}
 	}
 
-	public void darBajaArtista(String aArtista) {
-		throw new UnsupportedOperationException();
+	public int darBajaArtista(String aArtista) {
+		try {
+			return _bd_usuario_registrado.darBajaArtista(aArtista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
-	public void darBajaUsuario(String aNombre) {
-		throw new UnsupportedOperationException();
+	public int darBajaUsuario(String aNombre) {
+		try {
+			return _bd_usuario_registrado.darBajaUsuario(aNombre);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 	public void anadirEvento(String aTitulo, String aTipo, String aUbicacion, String aFecha, String aInfoAdicional,
