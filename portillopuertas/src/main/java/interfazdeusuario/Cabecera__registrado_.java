@@ -1,5 +1,7 @@
 package interfazdeusuario;
 
+import java.util.Vector;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.UI;
@@ -16,7 +18,11 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.spring.annotation.UIScope;
 
+import basededatos.BDPrincipal;
+import basededatos.Cancion;
+import basededatos.Evento;
 import basededatos.UsuarioComun;
+import basededatos.iUsuario_registrado;
 import vistas.VistaCabecera_registrado;
 
 // import basededatos.iUsuario_registrado;
@@ -30,16 +36,21 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 	public Pagina_principal _pagPagina_principal;
 	public Notificaciones _notificaciones;
 	public Perfil_usuario _perfil_usuario;
+	public Vector<Notificaciones> _list_eventos = new Vector<Notificaciones>();
+
+	
+	iUsuario_registrado user = new BDPrincipal();
 
 	public Cabecera__registrado_() {
 
-		inicializar(new VerticalLayout(), new UsuarioComun(), new String());
+		//inicializar(new VerticalLayout(), new UsuarioComun(), new String());
 	}
 
 	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario, String tipo) {
 
 		this.setNomb_user_cabecera(usuario.getNombreUsuario());
-
+		CargarNotificaciones(usuario);
+		
 		this.getMenu_user().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -97,8 +108,67 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 			@Override
 			@UIScope
 			public void onComponentEvent(ClickEvent<Button> event) {
-			    UI.getCurrent().getPage().reload();
+				UI.getCurrent().getPage().reload();
 			}
 		});
+
+		this.getNotificacion_Pp().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				if(_list_eventos.isEmpty()) {
+					Dialog dialog = new Dialog();
+					H2 headline = new H2("Notificaciones");
+					VerticalLayout vl = new VerticalLayout(headline);
+					
+					
+					Button closeButton = new Button("Cerrar");
+					closeButton.addClickListener(e-> dialog.close());
+					closeButton.getStyle().set("margin-left","20px").set("width","120px");
+					
+					dialog.add(vl);
+					dialog.add(closeButton);
+					dialog.open();
+				}else {
+					Dialog dialog = new Dialog();
+					
+					H2 headline = new H2("Notificaciones");
+					VerticalLayout vl = new VerticalLayout(headline);
+					
+					for (int i = 0; i < _list_eventos.size(); i++) {
+
+						vl.add(_list_eventos.get(i));
+					}
+					
+					Button closeButton = new Button("Cerrar");
+					closeButton.addClickListener(e-> dialog.close());
+					
+					vl.setAlignSelf(Alignment.END, closeButton);
+					dialog.add(vl);
+					dialog.add(closeButton);
+					dialog.open();
+				}
+		
+			}
+
+		});
 	}
+	public void CargarNotificaciones(UsuarioComun usuario) {
+		Evento[] eventos = user.cargarNotificaciones(usuario.getId());
+		Notificaciones notificacion;
+
+		if(eventos == null) {
+			return;
+		}
+		for (int i = 0; i < eventos.length; i++) {
+			notificacion = new Notificaciones();
+			notificacion.getStyle().set("padding-top", "3%");
+			notificacion.getStyle().set("margin-top", "2%");
+			notificacion.getImgNotificacion().setSrc(eventos[i].getEs_publicado().getFoto());
+			notificacion.setLabelNotificacion(eventos[i].getEs_publicado().getNombreArtista()+" - "+ eventos[i].getTitulo());
+			_list_eventos.add(notificacion);
+		}
+
+	}
+	
 }

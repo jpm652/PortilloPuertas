@@ -471,5 +471,12 @@ public class BDPrincipal implements iUsuario_no_registrado, iUsuario_registrado,
 		}
 		return 0;
 	}
-
+	public Evento[] cargarNotificaciones(int idUsuario) {
+		try {
+			return _bd_evento.cargarNotificaciones(idUsuario);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

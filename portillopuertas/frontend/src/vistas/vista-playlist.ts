@@ -31,17 +31,17 @@ export class VistaPlaylist extends LitElement {
     Reproducir 
   </vaadin-button>
   <vaadin-button id="btAnadircancion" style="margin-left: 50px; width: 150px;">
-   Añadir cancion
+    Añadir cancion 
   </vaadin-button>
   <vaadin-button id="bt_compartir" style="margin-left: 50px; width: 120px;">
     Compartir 
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="margin-top: 25px; width: 100%; justify-content: flex-start; padding-left: 50px;">
-  <label id="label" style="font-weight:bold; margin-left: 220px;">Titulo</label>
-  <label id="label1" style="font-weight:bold; margin-left: 270px;">Artista</label>
-  <label id="label1" style="font-weight:bold; margin-left: 275px;">Album</label>
-  <label id="label1" style="font-weight:bold; margin-left: 275px;">Duracion</label>
+  <label id="label" style="font-weight:bold; margin-left: 190px;">Titulo</label>
+  <label id="label1" style="font-weight:bold; margin-left: 250px;">Artista</label>
+  <label id="label1" style="font-weight:bold; margin-left: 240px;">Album</label>
+  <label id="label1" style="font-weight:bold; margin-left: 225px;">Duracion</label>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" style="width: 100%;" id="vaadinVerticalLayout1"></vaadin-vertical-layout>
 </vaadin-vertical-layout>

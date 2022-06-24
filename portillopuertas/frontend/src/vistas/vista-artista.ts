@@ -17,12 +17,10 @@ export class VistaArtista extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; background:#F6F5F5;" id="vlvistaartista">
  <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="align-self: center; align-items: center; width: 33%;">
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="margin-left: 100px;">
-   <img id="imgPerfilArtista" style="width: 100px; height: 100px; margin-top: 100px;">
-   <vaadin-button id="bt_seguir" style="align-self: center; margin-top: 100px;">
-     Seguir 
-   </vaadin-button>
-  </vaadin-horizontal-layout>
+  <img id="imgPerfilArtista" style="width: 100px; height: 100px; margin-top: 100px;">
+  <vaadin-button id="bt_seguir" style="align-self: center; margin-top: 10px;">
+    Seguir 
+  </vaadin-button>
   <label id="nombrePerfilArtista" style="font-size:30px">Nombre del artista</label>
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 80%; justify-content: flex-start;">
    <label id="generoMusical" style="font-size:30px">Genero Musical</label>

@@ -61,4 +61,20 @@ public class BD_Evento {
 		return null;
 	}
 
+	public Evento[] cargarNotificaciones(int idUsuario) throws PersistentException {
+		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+			
+//			UsuarioComun user = UsuarioComunDAO.loadUsuarioComunByORMID(idUsuario);
+//			Artista[] listaseguidos = (Artista[]) user.sigue_a.toArray();
+//			Evento[] eventos = new Evento[0];
+			
+			Evento[] eventos = EventoDAO.listEventoByQuery(null, null);
+			return eventos;
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return null;
+	}
 }

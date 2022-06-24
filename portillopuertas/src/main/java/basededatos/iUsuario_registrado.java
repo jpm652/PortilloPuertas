@@ -69,4 +69,5 @@ public interface iUsuario_registrado extends iUsuario_no_registrado {
 	
 	public int anadirCancionUltimasReproducciones(int idUsuario, int idCancion);
 	
+	public Evento[] cargarNotificaciones(int idUsuario);
 }

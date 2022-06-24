@@ -77,7 +77,7 @@ public class Correo extends VistaCorreo {
 		dialogLayout.getStyle().set("width", "500px").set("max-width", "100%");
 		dialogLayout.getStyle().set("height", "400px%");
 		
-//		dialogLayout.setAlignSelf(Alignment.END, closeButton);
+	//	dialogLayout.setAlignSelf(Alignment.END, closeButton);
 
 		return dialogLayout;
 	}

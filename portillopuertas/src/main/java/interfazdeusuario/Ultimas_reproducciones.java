@@ -60,7 +60,6 @@ public class Ultimas_reproducciones extends VistaUltimas_reproducciones{
 			if(todasPlaylist[i].getNombre().equals("Ultimas Reproducciones") & todasPlaylist[i] != null) {
 				
 				Cancion[] canciones = todasPlaylist[i].contiene_canciones.toArray();
-				System.out.println(canciones.length);
 
 				for(int j = 0; j<canciones.length;j++) {
 
