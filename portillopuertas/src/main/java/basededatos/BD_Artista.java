@@ -22,7 +22,7 @@ public class BD_Artista {
 	public Artista[] cargar_artistasSeguidos(int aId_usuario) throws PersistentException {
 		PersistentTransaction t = MDS12022PFPortilloPuertasPersistentManager.instance().getSession().beginTransaction();
 
-		Artista[] aleatorios = new Artista[3];
+		Artista[] aleatorios = new Artista[5];
 
 		try {
 			Artista[] todosArtistas = ArtistaDAO.listArtistaByQuery(null, null);
@@ -38,7 +38,7 @@ public class BD_Artista {
 					yaElegido.add(randomIndex);
 					i++;
 				}
-			} while (yaElegido.contains(randomIndex)&&yaElegido.size()!=3);
+			} while (yaElegido.contains(randomIndex)&&yaElegido.size()!=5);
 
 			t.commit();
 

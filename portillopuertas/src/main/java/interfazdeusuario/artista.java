@@ -72,6 +72,10 @@ public class artista extends VistaArtista {
 			getVlArtistasSimilares().add(list_artistas_similares.get(i));
 		}
 
+		if(aArtista.getId() == usuario.getId()) {
+			this.getBt_seguir().setVisible(false);
+		}
+		
 		int comprobar = user.comprobarSeguidos(usuario.getId(), aArtista.getId());
 
 		if (comprobar == 1) {
