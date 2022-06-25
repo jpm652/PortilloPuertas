@@ -21,7 +21,7 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
 
 		this.setNombre(usuario.getNombreUsuario());
-		this.setSeguidores("Seguidores: " + usuario.getSeguidores() + " / Seguidos: " + usuario.getSeguidos());
+		this.getSeguidores().setVisible(false);
 		this.getImg().setSrc(usuario.getFoto());
 		
 		this.getListas().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

@@ -39,6 +39,7 @@ public class Configuracion extends VistaConfiguracion {
 		this.setNombreUser(usuario.getNombreUsuario());
 		this.getNombreUser().getStyle().set("font-size", "30px");
 		this.getImagenPerfil().setSrc(usuario.getFoto());
+		this.setSeguidores("Seguidores: "+ usuario.getSeguidores()+ "\nSeguidos: "+ usuario.getSeguidos());
 	}
 
 	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {

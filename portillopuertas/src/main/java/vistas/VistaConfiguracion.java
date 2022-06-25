@@ -51,6 +51,8 @@ public class VistaConfiguracion extends LitTemplate {
 	private Image imagenPerfil;
 	@Id("bt_foto")
 	private Button bt_foto;
+	@Id("seguidores")
+	private Label seguidores;
 
 	/**
      * Creates a new VistaConfiguracion.
@@ -159,8 +161,12 @@ public class VistaConfiguracion extends LitTemplate {
 		this.bt_foto = bt_foto;
 	}
 
+	public Label getSeguidores() {
+		return seguidores;
+	}
 
-    
-    
+	public void setSeguidores(String seguidores) {
+		this.seguidores.setText(seguidores);
+	}
 
 }

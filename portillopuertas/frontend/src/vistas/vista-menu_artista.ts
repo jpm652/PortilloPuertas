@@ -28,7 +28,7 @@ export class VistaMenu_artista extends LitElement {
    <iron-icon slot="prefix" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-fav.png?raw=true"></iron-icon>Favoritos 
   </vaadin-button>
   <vaadin-button style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 75px; color:white;" id="button_home_menu_artista">
-   <iron-icon slot="prefix" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-home.png?raw=true"></iron-icon>Pagina Princiapal 
+   <iron-icon slot="prefix" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-home.png?raw=true"></iron-icon>Pagina Principal
   </vaadin-button>
   <vaadin-button style="align-self: flex-start; width: 100%; padding-right: 200px; padding-left: 15px; color:white;" id="button_event_menu_artista">
    <iron-icon slot="prefix" src="https://github.com/JLPortillo-UAL/PPMusic/blob/main/assets/images/icon-event.png?raw=true"></iron-icon>Eventos 

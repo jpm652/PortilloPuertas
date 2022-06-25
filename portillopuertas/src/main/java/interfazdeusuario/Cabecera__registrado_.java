@@ -46,7 +46,7 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 		//inicializar(new VerticalLayout(), new UsuarioComun(), new String());
 	}
 
-	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario, String tipo) {
+	public void inicializar(VerticalLayout vltotal,VerticalLayout vlpadre, UsuarioComun usuario, String tipo) {
 
 		this.setNomb_user_cabecera(usuario.getNombreUsuario());
 		CargarNotificaciones(usuario);
@@ -108,7 +108,13 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 			@Override
 			@UIScope
 			public void onComponentEvent(ClickEvent<Button> event) {
-				UI.getCurrent().getPage().reload();
+				
+				//UI.getCurrent().getPage().reload();
+				vltotal.removeAll();
+		    	Pagina_Principal__No_registrado_ pagina_noregistrado = new Pagina_Principal__No_registrado_();
+		    	pagina_noregistrado.getStyle().set("width", "100%");   
+		    	pagina_noregistrado.getStyle().set("height", "100%");
+		    	vltotal.add(pagina_noregistrado);
 			}
 		});
 

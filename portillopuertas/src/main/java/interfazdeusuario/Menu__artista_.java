@@ -22,7 +22,7 @@ public class Menu__artista_ extends VistaMenu_artista {
 		
 		this.setNomb_artista_menu(usuario.getNombreUsuario());
 		this.getImgMenu().setSrc(usuario.getFoto());
-		this.setSeg_artista_menu("Seguidores: " + usuario.getSeguidores() + " / Seguidos: " + usuario.getSeguidos());
+		this.getSeg_artista_menu().setVisible(false);
 		
 		this.getButton_lista_menu_artista().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 

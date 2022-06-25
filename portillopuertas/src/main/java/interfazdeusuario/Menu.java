@@ -27,8 +27,8 @@ public class Menu extends VistaMenu {
 
 		this.setNombre_menu(usuario.getNombreUsuario());
 		this.getImgMenu().setSrc(usuario.getFoto());	
-		this.setSeguidores_menu("Seguidores: " + usuario.getSeguidores() + " / Seguidos: " + usuario.getSeguidos());
-
+		this.getSeguidores_menu().setVisible(false);
+		
 		this.getLista_reproduccion_menu().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override

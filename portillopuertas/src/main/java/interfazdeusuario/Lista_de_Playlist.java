@@ -5,9 +5,12 @@ import java.util.Vector;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 
 import basededatos.BDPrincipal;
 import basededatos.Playlist;
@@ -66,8 +69,26 @@ public class Lista_de_Playlist extends VistaLista_de_playlist {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
-				Notification.show("Compartiendo");
-			}
+				Dialog dialog = new Dialog();
+				
+				H2 headline = new H2("Compartir");
+				VerticalLayout vl = new VerticalLayout();
+				
+				Volumen vol = new Volumen();
+				vol.getStyle().set("width", "100%");
+				vol.getStyle().set("height", "90%");
+
+				
+				
+				Button closeButton = new Button("Cerrar");
+				closeButton.addClickListener(e-> dialog.close());
+				dialog.setWidth("50%");
+
+				//dialog.add(vl);
+				dialog.add(vol);
+				
+				//dialog.add(closeButton);
+				dialog.open();			}
 		});
 		
 		
