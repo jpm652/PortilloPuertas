@@ -70,13 +70,41 @@ public class BD_UsuarioRegistrado {
 		try {
 			UsuarioComun user = UsuarioComunDAO.getUsuarioComunByORMID(aId_usuario);
 
-			Playlist[] playlist = PlaylistDAO.listPlaylistByQuery("UsuarioComunId = " + aId_usuario, null);
-			for (int i = 0; i < playlist.length; i++) {
-				PlaylistDAO.delete(playlist[i]);
-			}
-			UsuarioComunDAO.delete(user);
-			t.commit();
+			if (user.getTipo().equals("Registrado")) {
+				Playlist[] playlist = PlaylistDAO.listPlaylistByQuery("UsuarioComunId = " + aId_usuario, null);
+				for (int i = 0; i < playlist.length; i++) {
+					PlaylistDAO.delete(playlist[i]);
+				}
+				UsuarioComunDAO.delete(user);
+				t.commit();
 
+			} else if (user.getTipo().equals("Artista")) {
+
+				Playlist[] playlist = PlaylistDAO.listPlaylistByQuery("UsuarioComunId = " + user.getId(), null);
+				for (int i = 0; i < playlist.length; i++) {
+					PlaylistDAO.delete(playlist[i]);
+				}
+
+				Album[] albumes = AlbumDAO.listAlbumByQuery("ArtistaUsuarioComunId = " + user.getId(), null);
+				for (int i = 0; i < albumes.length; i++) {
+					AlbumDAO.delete(albumes[i]);
+				}
+
+				Evento[] eventos = EventoDAO.listEventoByQuery("ArtistaUsuarioComunId = " + user.getId(), null);
+				for (int i = 0; i < eventos.length; i++) {
+					EventoDAO.delete(eventos[i]);
+				}
+
+				Cancion[] canciones = CancionDAO.listCancionByQuery("ArtistaUsuarioComunId = " + user.getId(), null);
+				for (int i = 0; i < canciones.length; i++) {
+					CancionDAO.delete(canciones[i]);
+				}
+
+				UsuarioComunDAO.delete(user);
+				t.commit();
+			}
+
+			
 		} catch (Exception e) {
 			t.rollback();
 		}
@@ -148,7 +176,7 @@ public class BD_UsuarioRegistrado {
 				}
 
 				UsuarioComunDAO.delete(user);
-				
+
 				t.commit();
 				return 1;
 			}

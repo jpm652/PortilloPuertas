@@ -42,6 +42,8 @@ public class Menu_favoritos extends VistaMenu_favoritos {
 				playlist.getBt_cambiarnombre().setVisible(false);
 				
 				vl.add(playlist);
+				
+				
 			}
 		}
 		

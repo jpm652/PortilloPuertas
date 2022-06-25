@@ -404,6 +404,7 @@ public class Administracion extends VistaAdministracion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 
 				String nomBajaArtista = getNombreartistadarbaja().getValue();
+				
 				int comprobar = _iAdmin.darBajaArtista(nomBajaArtista);
 
 				if (nomBajaArtista.isEmpty() || comprobar == 0) {

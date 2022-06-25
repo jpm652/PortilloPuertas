@@ -23,7 +23,7 @@ public class Menu extends VistaMenu {
 		//inicializar(new VerticalLayout(), new UsuarioComun());
 	}
 
-	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
+	public void inicializar(VerticalLayout vltotal, VerticalLayout vlpadre, UsuarioComun usuario) {
 
 		this.setNombre_menu(usuario.getNombreUsuario());
 		this.getImgMenu().setSrc(usuario.getFoto());	
@@ -66,8 +66,7 @@ public class Menu extends VistaMenu {
 				pagina_p.getStyle().set("width", "100%");
 				pagina_p.getStyle().set("height", "100%");
 				vlpadre.add(pagina_p);
-				pagina_p.inicializar2(vlpadre, usuario);
-
+				pagina_p.inicializar2(vltotal, usuario);
 			}
 
 		});
@@ -81,7 +80,7 @@ public class Menu extends VistaMenu {
 				config.getStyle().set("width", "100%");
 				vlpadre.removeAll();
 				vlpadre.add(config);
-				config.inicializar(vlpadre,usuario);
+				config.inicializar(vltotal, vlpadre,usuario);
 
 			}
 

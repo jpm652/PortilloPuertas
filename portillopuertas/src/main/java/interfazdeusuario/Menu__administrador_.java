@@ -18,7 +18,7 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 		
 	}
 	
-	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
+	public void inicializar(VerticalLayout vltotal, VerticalLayout vlpadre, UsuarioComun usuario) {
 
 		this.setNombre(usuario.getNombreUsuario());
 		this.getSeguidores().setVisible(false);
@@ -61,7 +61,7 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 				pagina_p.getStyle().set("width", "100%");
 				pagina_p.getStyle().set("height", "100%");
 				vlpadre.add(pagina_p);
-				pagina_p.inicializar2(vlpadre, usuario);
+				pagina_p.inicializar2(vltotal, usuario);
 
 			}
 
@@ -77,7 +77,7 @@ public class Menu__administrador_ extends VistaMenu_administrador {
 				
 				vlpadre.removeAll();
 				vlpadre.add(config);
-				config.inicializar(vlpadre,usuario);
+				config.inicializar(vltotal, vlpadre,usuario);
 
 			}
 

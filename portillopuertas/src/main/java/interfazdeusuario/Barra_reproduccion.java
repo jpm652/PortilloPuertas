@@ -55,6 +55,7 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 		getImg_barra().setSrc(cancion.getImagen_cancion());
 		
 		user.anadirCancionUltimasReproducciones(idUsuario.getId(), cancion.getId());
+		
 		this.getBt_barra_fav().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
@@ -86,7 +87,7 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 					Dialog dialog = new Dialog();
 
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Informacion",
-							"La cancion ya esta en la lista de favoritos. ¿Desea eliminarla de la lista?");
+							"La cancion "+cancion.getTitulo()+" ya esta en la lista de favoritos. ¿Desea eliminarla de la lista?");
 
 					Button botonSi = new Button("Si");
 					botonSi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -115,7 +116,7 @@ public class Barra_reproduccion extends VistaBarra_reproduccion {
 					Dialog dialog = new Dialog();
 
 					VerticalLayout dialogLayout = createDialogLayout(dialog, "Informacion",
-							"Cancion añadida correctamente a la lista de favoritos");
+							"Cancion "+cancion.getTitulo()+" añadida correctamente a la lista de favoritos");
 
 					Button closeButton = new Button("Aceptar");
 					closeButton.addClickListener(e -> dialog.close());

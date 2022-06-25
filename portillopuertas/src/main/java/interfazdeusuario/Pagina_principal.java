@@ -92,8 +92,19 @@ public class Pagina_principal extends VistaPagina_principal {
 	// Inicializar solo el contenido central
 	public void inicializar2(VerticalLayout vlpadre, UsuarioComun usuario) {
 
-		VerticalLayout vl_centro = new VerticalLayout();
-		centro(vl_centro, usuario);
+		vlpadre.removeAll();
+		
+		UsuarioComun credenciales = user.iniciarSesionUsuario(usuario.getCorreo(), usuario.getContrasena());
+		
+		Pagina_principal pagina_registrado = new Pagina_principal();
+		pagina_registrado.getStyle().set("width", "100%");   
+		pagina_registrado.getStyle().set("height", "100%");
+    	vlpadre.add(pagina_registrado);
+		pagina_registrado.inicializar(vlpadre, credenciales, credenciales.getTipo());
+		
+//		VerticalLayout vl_centro = new VerticalLayout();
+//		cabecera(vlpadre, vl_centro, usuario, usuario.getTipo());
+//		centro(vl_centro, usuario);
 
 	}
 

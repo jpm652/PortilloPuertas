@@ -60,7 +60,7 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 					Menu menu = new Menu();
 					menu.getStyle().set("width", "100%");
 					menu.getStyle().set("height", "90%");
-					menu.inicializar(vlpadre, usuario);
+					menu.inicializar(vltotal, vlpadre, usuario);
 
 					dialog.setWidth("25%");
 					dialog.addThemeVariants(DialogVariant.LUMO_NO_PADDING);
@@ -76,7 +76,7 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 					Menu__artista_ menu = new Menu__artista_();
 					menu.getStyle().set("width", "100%");
 					menu.getStyle().set("height", "100%");
-					menu.inicializar(vlpadre, usuario);
+					menu.inicializar(vltotal, vlpadre, usuario);
 
 					dialog.setWidth("25%");
 					dialog.addThemeVariants(DialogVariant.LUMO_NO_PADDING);
@@ -91,7 +91,7 @@ public class Cabecera__registrado_ extends VistaCabecera_registrado {
 					Menu__administrador_ menu = new Menu__administrador_();
 					menu.getStyle().set("width", "100%");
 					menu.getStyle().set("height", "100%");
-					menu.inicializar(vlpadre, usuario);
+					menu.inicializar(vltotal, vlpadre, usuario);
 
 					dialog.setWidth("25%");
 					dialog.addThemeVariants(DialogVariant.LUMO_NO_PADDING);

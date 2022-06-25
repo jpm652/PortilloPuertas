@@ -40,9 +40,13 @@ public class Configuracion extends VistaConfiguracion {
 		this.getNombreUser().getStyle().set("font-size", "30px");
 		this.getImagenPerfil().setSrc(usuario.getFoto());
 		this.setSeguidores("Seguidores: "+ usuario.getSeguidores()+ "\nSeguidos: "+ usuario.getSeguidos());
+		
+		if(usuario.getTipo().equals("Administrador")) {
+			this.getDarBaja().setVisible(false);
+		}
 	}
 
-	public void inicializar(VerticalLayout vlpadre, UsuarioComun usuario) {
+	public void inicializar(VerticalLayout vltotal, VerticalLayout vlpadre, UsuarioComun usuario) {
 
 		Clave _clave = new Clave(usuario);
 		Correo _correo = new Correo(usuario);
@@ -112,7 +116,12 @@ public class Configuracion extends VistaConfiguracion {
 							closeButton2.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 								@Override
 								public void onComponentEvent(ClickEvent<Button> event) {
-								    UI.getCurrent().getPage().reload();
+									
+									vltotal.removeAll();
+							    	Pagina_Principal__No_registrado_ pagina_noregistrado = new Pagina_Principal__No_registrado_();
+							    	pagina_noregistrado.getStyle().set("width", "100%");   
+							    	pagina_noregistrado.getStyle().set("height", "100%");
+							    	vltotal.add(pagina_noregistrado);
 							    	
 								}
 							});
